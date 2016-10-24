@@ -1,6 +1,9 @@
 # OCI Certification Program (DRAFT)
 
-This is a draft process for the OCI Certification Program.
+This is a draft process for the OCI Certification Program. There are two official certified trademarks:
+
+1. **OCI Certified Runtime**
+2. **OCI Certified Image**
 
 ## Process
 
@@ -15,6 +18,10 @@ The second step is to test your OCI Certified solution, whether it's an OCI Cert
 ### (3) Certify
 
 If your solution passes testing, you need to publish your test process/results on GitHub and the OCI Certification Program will issue an official certificate of approval.
+
+### (4) Promote
+
+Promote your OCI Certified solution using official OCI marks on your marketing material.
 
 ## OCI Certified Runtime (Runtime Specification)
 
