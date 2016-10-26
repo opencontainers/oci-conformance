@@ -35,13 +35,23 @@ Information expected in an application will include:
 
 The second step is to test your OCI Certified solution, whether it's an OCI Certified Runtime or OCI Certified Image.
 
-### (3) Certify
+### (3) Publish Results
 
-If your solution passes testing, you need to publish your test process/results on GitHub and the OCI Certification Program will issue an official certificate of approval.
+The next step is to publish your step-by-step test process and results.  
+The current location for publishing test process and results is GitHub.
 
-### (4) Promote
+### (4) Peer Verification
+
+One or more members of the OCI Certification Program Working Group (Cert WG) may 
+
+### (5) Certify
+
+If your solution passes testing and peer review, the OCI Certification Program will issue an official certificate of approval.
+
+### (6) Promote
 
 Promote your OCI Certified solution using official OCI marks on your marketing material.
+
 
 ## OCI Certified Runtime (Runtime Specification)
 
