@@ -14,6 +14,8 @@ Organizations, products, and individuals wishing to use any of the below registe
 
 ## Process
 
+An organization or individual may apply for OCI Certification for their product regardless of their membership in the Open Container Initiative organization.  
+
 ### (1) Apply
 
 The first step is to apply and contact the OCI Certification Program.
