@@ -1,6 +1,7 @@
 # OCI Certification Program (DRAFT)
 
-This is a draft process for the OCI Certification Program. There are two official certified trademarks:
+This is a draft process for the OCI Certification Program. 
+There are two official certified trademarks:
 
 1. **OCI Certified Runtime**
 2. **OCI Certified Image**
