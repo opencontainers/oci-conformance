@@ -21,6 +21,15 @@ An organization or individual may apply for OCI Certification for their product 
 
 The first step is to apply and contact the OCI Certification Program.
 
+Information expected in an application will include:
+* Organization name
+* Organization website (if public)
+* Intended certification program
+* Product name
+* Product website (if public)
+* Primary contact name, email, and phone
+* Secondary contact name, email, and phone
+* Approximate intended date to publish test results and steps for peer review
 
 ### (2) Test
 
