@@ -6,6 +6,12 @@ There are two official certified trademarks:
 1. **OCI Certified Runtime**
 2. **OCI Certified Image**
 
+Organizations, products, and individuals wishing to use any of the below registered trademarks, trademarks pending registration, or trademarks in use must complete the appropriate certification program.
+* OCI
+* OCI Certified
+* Open Container Initiative
+* Open Container Format
+
 ## Process
 
 ### (1) Apply
