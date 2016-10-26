@@ -12,6 +12,7 @@ Organizations, products, and individuals wishing to use any of the below registe
 * Open Container Initiative
 * Open Container Format
 
+
 ## Process
 
 An organization or individual may apply for OCI Certification for their product regardless of their membership in the Open Container Initiative organization.  
@@ -19,6 +20,7 @@ An organization or individual may apply for OCI Certification for their product 
 ### (1) Apply
 
 The first step is to apply and contact the OCI Certification Program.
+
 
 ### (2) Test
 
@@ -72,6 +74,19 @@ $ oci-image-validate --type imageLayout --ref latest <IMAGE-X>
 ```
 
 Thus we confirm that IMAGE-X is an OCI Certified Image.
+
+
+## Versions
+
+Each certification program will have versioning aligned with the major (and possibly minor) versions of the appropriate specification.
+For example, 
+* There may be an OCI Certified Runtime **v1.0** program associated with the OCI Runtime specification v1.0.x
+* There may be an OCI Certified Runtime **v2.0** program associated with the OCI Runtime specification v2.0.x
+* There may be an OCI Certified Image **v1.1** program associated with the OCI Runtime specification v1.1.x
+
+To maintain real interoperability, at the discretion of the OCI Trademark Board, older certification program verions may be discontinued.
+Products that were certified under older versions may be asked to certifiy on a supported version or discontinue using OCI marks.
+
 
 ## Contact
 
