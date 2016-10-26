@@ -7,6 +7,8 @@ This is a draft process for the OCI Certification Program. There are two officia
 
 ## Process
 
+An organization or individual may apply for OCI Certification for their product regardless of their membership in the Open Container Initiative organization.  
+
 ### (1) Apply
 
 The first step is to apply and contact the OCI Certification Program.
