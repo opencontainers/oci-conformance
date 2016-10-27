@@ -97,7 +97,7 @@ Thus we confirm that IMAGE-X is an OCI Certified Image.
 
 ## Versions
 
-Each certification program will have versioning aligned with the major (and possibly minor) versions of the appropriate specification.
+Each certification program will have versioning aligned with the major (and possibly minor) versions of the **appropriate specification**.
 For example, 
 * There may be an OCI Certified Runtime **v1.0** program associated with the OCI Runtime specification v1.0.x
 * There may be an OCI Certified Runtime **v2.0** program associated with the OCI Runtime specification v2.0.x
