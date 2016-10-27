@@ -1,7 +1,7 @@
 # OCI Certification Program (DRAFT)
 
 This is a draft process for the OCI Certification Program. 
-There are types of products that can be certified:
+There are currently two types of products that can be certified:
 
 1. **OCI Certified Runtime**
 2. **OCI Certified Image**
@@ -42,7 +42,7 @@ The current location for publishing test process and results is GitHub.
 
 ### (4) Peer Verification
 
-One or more members of the OCI Certification Program Working Group (Cert WG) may attempt to reproduce your test results and contact you with questions.
+One or more members of the OCI Certification Program Working Group (Cert WG) may attempt to reproduce the test results for your product and may contact you with questions.
 
 ### (5) Certify
 
