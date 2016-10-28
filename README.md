@@ -101,7 +101,7 @@ Each certification program will have versioning aligned with the major (and poss
 For example, 
 * There may be an OCI Certified Runtime **v1.0** program associated with the OCI Runtime specification v1.0.x
 * There may be an OCI Certified Runtime **v2.0** program associated with the OCI Runtime specification v2.0.x
-* There may be an OCI Certified Image **v1.1** program associated with the OCI Runtime specification v1.1.x
+* There may be an OCI Certified Image **v1.1** program associated with the OCI Image Format specification v1.1.x
 
 To maintain real interoperability, at the discretion of the OCI Trademark Board, older certification program verions may be discontinued.
 Products that were certified under older versions may be asked to certifiy on a supported version or discontinue using OCI marks.
