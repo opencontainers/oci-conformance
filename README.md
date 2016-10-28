@@ -1,12 +1,12 @@
 # OCI Certification Program (DRAFT)
 
 This is a draft process for the OCI Certification Program. 
-There are two official certified trademarks:
+There are currently two types of products that can be certified:
 
 1. **OCI Certified Runtime**
 2. **OCI Certified Image**
 
-Organizations, products, and individuals wishing to use any of the below registered trademarks, trademarks pending registration, or trademarks in use must complete the appropriate certification program.
+Organizations or individuals wishing to use any of the below registered trademarks, trademarks pending registration, or trademarks in use must complete the appropriate certification program.
 * OCI
 * OCI Certified
 * Open Container Initiative
@@ -33,7 +33,7 @@ Information expected in an application will include:
 
 ### (2) Test
 
-The second step is to test your OCI Certified solution, whether it's an OCI Certified Runtime or OCI Certified Image.
+The second step is to test your product, whether it is intended to be an OCI Certified Runtime or an OCI Certified Image.
 
 ### (3) Publish Results
 
@@ -42,15 +42,15 @@ The current location for publishing test process and results is GitHub.
 
 ### (4) Peer Verification
 
-One or more members of the OCI Certification Program Working Group (Cert WG) may 
+One or more members of the OCI Certification Program Working Group (Cert WG) may attempt to reproduce the test results for your product and may contact you with questions.
 
 ### (5) Certify
 
-If your solution passes testing and peer review, the OCI Certification Program will issue an official certificate of approval.
+If your product passes testing and peer review, the OCI Certification Program will issue an official certificate of approval.
 
 ### (6) Promote
 
-Promote your OCI Certified solution using official OCI marks on your marketing material.
+Promote your OCI Certified product using official OCI marks on your marketing material.
 
 
 ## OCI Certified Runtime (Runtime Specification)
