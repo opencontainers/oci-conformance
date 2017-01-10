@@ -42,7 +42,7 @@ The current location for publishing test process and results is GitHub.
 
 ### (4) Peer Verification
 
-One or more members of the OCI Certification Program Working Group (Cert WG) may attempt to reproduce the test results for your product and may contact you with questions.
+One or more members of the OCI Certification Program Working Group (Cert WG) may attempt to reproduce the test results for your product and may contact you with questions. No company can review its own results.
 
 ### (5) Certify
 
