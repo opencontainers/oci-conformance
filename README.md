@@ -1,6 +1,26 @@
 # OCI Certification Program (DRAFT)
 
-This is a draft process for the OCI Certification Program. 
+This is a *draft process* for the OCI Certification Program. The OCI Certifcation Working Group (CertWG) is responsible for drafting the process around OCI Certification. 
+
+## Membership
+
+The CertWG membership is currently comprised of:
+
+* Amazon: Alex Talsma
+* CoreOS: Alex Polvi
+* Docker: Brian Goff, Stephen Walli
+* Google: Sarah Novotny
+* Fujitsu: Kamezawa Hiroyuki
+* Huawei: Liang Chenye, Nan Zhou
+* IBM: **Jeff Borek (Cert WG Co-Chair)**, Phil Estes
+* Intel: Anush Krishnamurthy
+* Microsoft: **Rob Dolin (Cert WG Co-Chair)**
+* Oracle: Jesse Butler
+* Red Hat: Mrunal Patel
+* Replicated: Mark Campbell
+
+## Certification
+
 There are currently two types of products that can be certified:
 
 1. **OCI Certified Runtime**
@@ -11,7 +31,6 @@ Organizations or individuals wishing to use any of the below registered trademar
 * OCI Certified
 * Open Container Initiative
 * Open Container Format
-
 
 ## Process
 
@@ -52,12 +71,13 @@ If your product passes testing and peer review, the OCI Certification Program wi
 
 Promote your OCI Certified product using official OCI marks on your marketing material.
 
-
 ## OCI Certified Runtime (Runtime Specification)
 
+https://github.com/opencontainers/runtime-tools
 
 ## OCI Certified Image (Image Specification)
 
+https://github.com/opencontainers/image-tools
 
 ## Versions
 
@@ -69,7 +89,6 @@ For example,
 
 To maintain real interoperability, at the discretion of the OCI Trademark Board, older certification program verions may be discontinued.
 Products that were certified under older versions may be asked to certifiy on a supported version or discontinue using OCI marks.
-
 
 ## Contact
 
