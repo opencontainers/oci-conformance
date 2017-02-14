@@ -43,7 +43,7 @@ The first step is to apply and contact the OCI Certification Program.
 Information expected in an application will include:
 * Organization name
 * Organization website (if public)
-* Intended certification program
+* Intended certification program (ex: OCI Certified Image v1.0)
 * Product name
 * Product website (if public)
 * Primary contact name, email, and phone
