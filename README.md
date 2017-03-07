@@ -15,7 +15,6 @@ The CertWG membership is currently comprised of:
 * IBM: **Jeff Borek (Cert WG Co-Chair)**, Phil Estes
 * Intel: Anush Krishnamurthy
 * Microsoft: **Rob Dolin (Cert WG Co-Chair)**
-* Oracle: Jesse Butler
 * Red Hat: Mrunal Patel
 * Replicated: Mark Campbell
 
