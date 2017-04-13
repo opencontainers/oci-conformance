@@ -8,6 +8,8 @@ Goals:
 Inputs:
 * (REQUIRED): Path or reference to a container image
 * (OPTIONAL): If the user would like verbose output
+* (OPTIONAL): Which version of the OCI Image Spec to validate against 
+(IF the OCI Image Tool supports multiple OCI Image Spec versions; Default to highest supported)
 
 Outputs:
 * Number of cases run
@@ -15,6 +17,7 @@ Outputs:
 * Number of cases failed
 * List of cases failed
 * Version of OCI Image Tools
+* Version of OCI Image Spec
 * (IF VERBOSE) List of cases passed
 
 ## Possible Example
@@ -24,7 +27,7 @@ INPUT:
 
 OUTPUT (default): 
 ```
-OCI Image Tools vX.Y.Z validating <image>:
+OCI Image Tools vX.Y.Z validating <image> with OCI Image Spec vA.B.C:
 Case 12: FAILED: Image using reserved field key: https://github.com/opencontainers/image-spec/blob/master/descriptor.md#reserved 
 Results: 
 * Ran: 24 / 24 (100%) validation cases
@@ -34,7 +37,7 @@ Results:
 
 OUTPUT (verbose):
 ```
-OCI Image Tools vX.Y.Z validating <image>:
+OCI Image Tools vX.Y.Z validating <image> with OCI Image Spec vA.B.C:
 Case 1: PASSED: …
 Case 2: PASSED: …
 …
