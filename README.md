@@ -13,7 +13,7 @@ The CertWG membership is currently comprised of:
 * Fujitsu: Kamezawa Hiroyuki
 * Huawei: Liang Chenye, Nan Zhou
 * IBM: **Jeff Borek (Cert WG Co-Chair)**, Phil Estes
-* Intel: Anush Krishnamurthy
+* Intel: David Lyle
 * Microsoft: **Rob Dolin (Cert WG Co-Chair)**
 * Red Hat: Mrunal Patel
 * Replicated: Mark Campbell
