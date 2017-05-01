@@ -30,6 +30,7 @@ Organizations or individuals wishing to use any of the below registered trademar
 * OCI Certified
 * Open Container Initiative
 * Open Container Format
+* runc
 
 ## Process
 
