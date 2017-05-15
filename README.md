@@ -88,8 +88,19 @@ For example,
 * There may be an OCI Certified Runtime **v2.0** program associated with the OCI Runtime specification v2.0.x
 * There may be an OCI Certified Image **v1.1** program associated with the OCI Image Format specification v1.1.x
 
-To maintain real interoperability, at the discretion of the OCI Trademark Board, older certification program verions may be discontinued.
-Products that were certified under older versions may be asked to certifiy on a supported version or discontinue using OCI marks.
+## Deprecation
+To maintain real interoperability, at the discretion of the OCI Trademark Board, older certification program verions MAY be discontinued.
+If a certification program version is discontinued, products that were certified under older versions MAY be asked to either:
+* Certifiy on a supported version
+* Discontinue using OCI marks
+
+Before a certification program version is discontinued, the below criteria SHOULD be met:
+* A replacement certification program is in-place (i.e. OCI Certified Image v1.1 replaced with OCI Certified Image v2.0)
+* An emailed notice is provided to contacts for all known certified products
+* A minimum of six months has transpired since the replacement certification program became available
+
+At the discretion of the OCI Trademark Board, multiple versions of certification programs MAY operate simultaneously for extended periods of time.  
+For example, OCI Certified Runtime v1.1 and OCI Certified Runtime v2.0 could both be deemed valuable.
 
 ## Contact
 
