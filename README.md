@@ -65,7 +65,8 @@ One or more members of the OCI Certification Program Working Group (Cert WG) may
 
 ### (5) Certify
 
-If your product passes testing and peer review, the OCI Certification Program will issue an official certificate of approval.
+If your product passes testing and peer review, the OCI Certification Program will issue an official certificate of approval. 
+This certificate may be published on the [OCI website](https://www.opencontainers.org/) and/or on an [OCI GitHub repository](https://github.com/opencontainers/).
 
 ### (6) Promote
 
