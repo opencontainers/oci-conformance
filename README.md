@@ -25,7 +25,10 @@ There are currently two types of products that can be certified:
 1. **OCI Certified Runtime**
 2. **OCI Certified Image**
 
+An **OCI Certified Runtime** must accept and correctly run (create/start/terminate/delete) a conforming OCI image. An **OCI Certified Image** contains metadata about the contents and dependencies of the image including the content-addressable identity of one or more filesystem layer changeset archives that will be unpacked to make up the final runnable filesystem.
+
 Organizations or individuals wishing to use any of the below registered trademarks, trademarks pending registration, or trademarks in use must complete the appropriate certification program.
+
 * OCI
 * OCI Certified
 * Open Container Initiative
