@@ -1,7 +1,33 @@
-# OCI Conformance Program (DRAFT)
+# Certified OCI
 
-This is a *draft process* for the OCI Conformance Program.
+This repo contains everything related to certifying that your product or service
+is fully compliant with the specs defined by the [Open Container Initiative](https://www.opencontainers.org/) (OCI).
 
-## Contact
+The following specifications are currently tested for compliance:
 
-To reach out to the OCI Conformance team, email [certification@opencontainers.org](mailto:certification@opencontainers.org)
+- [OCI Distribution Specification](https://github.com/bloodorangeio/distribution-spec)
+
+## Certified OCI Conformance Program
+
+* [Instructions](instructions.md)
+
+* [Terms and Conditions](./terms-conditions/Certified_OCI_Terms.md)
+
+* [Participation Form](./participation-form/Certified_OCI_Form.md)
+
+* Brand Guidlines - TODO
+
+* Marks (i.e., the logos) - TODO
+
+* [Frequently Asked Questions](faq.md)
+
+## Working Group Information
+
+To participate and contribute to the program itself (including discussion of
+issues affecting conformance and certification), join the mailing list and
+slack channel. Details: [Conformance WG](README-WG.md).
+
+## Credits
+
+This repo and certification program is based entirely
+upon [cncf/k8s-conformance](https://github.com/cncf/k8s-conformance).
