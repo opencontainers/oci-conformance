@@ -1,0 +1,9 @@
+vendor: Cisco Systems, Inc
+name: zot
+version: v1.0.1
+website_url: https://github.com/anuvu/zot
+repo_url: https://github.com/anuvu/zot
+documentation_url: https://github.com/anuvu/zot
+product_logo_url: https://github.com/anuvu/zot
+type: distribution
+description: 'zot: A vendor-neutral OCI image repository server purely based on OCI Distribution Specification.'
