@@ -36,9 +36,7 @@ the vendor is in good standing in the program.
 "Qualifying Offerings" section of the vendor's Participation Form, i.e. that
 the `name` and `website_url` are listed.
 
-4. Review the `name`. If it contains the term "OCI" in a non-descriptive
-fashion, verify that the `name` is listed in "Participant OCI
-Combinations" section of the vendor's Participation Form.
+4. Review the `name`. The name should not contain the term "OCI".
 
 If the submission doesn't meet all policy requirements, reply with a message indicating "Signed participation form needed", "Files missing from PR", "Membership in OCI or confirmation of non-profit status needed", etc.
 
