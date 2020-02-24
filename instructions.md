@@ -68,8 +68,8 @@ description: 'The Yoyodyne Turbo Encabulator is a superb OCI distribution for al
 ## Amendment for Private Review
 
 If you need a private review for an unreleased product, please email a zip file containing what you would otherwise submit
-as a pull request to certification@opencontainers.org. We'll review and confirm that you are ready to be Certified OCI
-as soon as you open the pull request. We can then often arrange to accept your pull request soon after you make it, at which point you become Certified OCI.
+as a pull request to certification@opencontainers.org. We'll review and confirm that you are ready to be OCI Certified
+as soon as you open the pull request. We can then often arrange to accept your pull request soon after you make it, at which point you become OCI Certified.
 
 ## Review
 

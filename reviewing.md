@@ -48,4 +48,4 @@ If the submission doesn't meet all policy requirements, reply with a message ind
 
 2. Add the vendor's information to the OCI landscape (TODO: link), which also causes them to appear on (TODO: link) and (TODO: link).
 
-3. Add a comment saying "You are now Certified OCI" and merge the PR.
+3. Add a comment saying "You are now OCI Certified" and merge the PR.
