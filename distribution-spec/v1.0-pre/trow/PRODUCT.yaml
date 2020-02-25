@@ -1,0 +1,9 @@
+vendor: Container Solutions Labs Ltd
+name: trow
+version: v0.2.0
+website_url: https://trow.io
+repo_url: https://github.com/ContainerSolutions/trow
+documentation_url: https://github.com/ContainerSolutions/trow
+product_logo_url: https://trow.io
+type: distribution
+description: 'Trow: Container Registry and Image Management for Kubernetes Clusters'

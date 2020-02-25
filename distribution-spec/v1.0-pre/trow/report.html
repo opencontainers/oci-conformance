@@ -1,0 +1,1489 @@
+<html>
+  <head>
+    <title>OCI Distribution Conformance Tests</title>
+    <style>
+	  body {
+	    padding: 30px;
+	  }
+      .result {
+        padding: 1.25em 0 .25em 2em;
+        border: 2px solid #e2e2e2;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+      .red {
+        background: #ffc8c8;
+      }
+      pre.fail-message {
+        background: #f9a5a5;
+        padding: 20px;
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 1.25em;
+      }
+      .green {
+        background: #c8ffc8;
+        padding: 1.25em 0 1.25em 2em;
+      }
+      .toggle {
+        border: 2px solid #3e3e3e;
+        cursor: pointer;
+        width: 1em;
+        text-align: center;
+        font-weight: bold;
+        display: inline;
+        font-family: monospace;
+        padding: 0 .25em 0 .25em;
+        margin: 1em 1em 1em 0;
+        font-size: 12pt;
+        color: #3e3e3e;
+        border-radius: 3px;
+      }
+      pre.pre-box {
+        background: white;
+        padding: 10px;
+        border: 1px solid gray;
+        display: inline-block;
+        border-radius: 4px;
+        width: 97%;
+        font-size: 1.25em;
+        overflow-x: auto;
+        max-height: 60em;
+        overflow-y: auto;
+      }
+	  .summary {
+		width: 75%;
+		height: auto;
+		padding: 0 0 .5em 0;
+		border: 1px solid grey;
+	  }
+	  .summary-bullet {
+		width: 100%;
+		height: auto;
+		display: flex;
+		padding: .5em .1em .1em .5em;
+	  }
+	  .bullet-left {
+		width: 20%;
+		font-weight: bold;
+		font-size: 1.1em;
+	  }
+	  .bullet-right {
+		width: auto;
+	  }
+	  .quick-summary {
+		width: 70%;
+		display: flex;
+		margin: 0 auto 0 0;
+		font-weight: bold;
+		font-size: 1.2em;
+	  }
+	  .darkgreen {
+		color: green;
+		padding: 0 2em 0 0;
+	  }
+	  .darkred {
+		color: red;
+	  }
+	  .meter {
+		border: 1px solid black;
+		margin: 0 .5em 0 auto;
+		display: flex;
+		height: 25px;
+		width: 50%;
+	  }
+	  .meter-green {
+		height: 100%;
+		background: green;
+		width: 100%;
+	  }
+	  .meter-red {
+		height: 100%;
+		background: red;
+		width: 0%;
+	  }
+    </style>
+    <script>
+      function toggleOutput(id) {
+		var elem = document.getElementById(id);
+		var button = document.getElementById(id + "-button");
+		if (elem.style['display'] === 'block') {
+			button.innerHTML = "+";
+			elem.style['display'] = 'none';
+		} else {
+			button.innerHTML = "-";
+			elem.style['display'] = 'block';
+		}
+	}
+    </script>
+  </head>
+  <body>
+    <h1>OCI Distribution Conformance Tests</h1>
+<div class="summary">
+	<div class="summary-bullet">
+		<div class="bullet-left">Summary:</div>
+		<div class="quick-summary"><span class="darkgreen">All 28 passed</span><div class="meter">
+			<div class="meter-green"></div><div class="meter-red"></div>
+		  </div>
+		</div>
+	</div>
+	<div class="summary-bullet">
+		<div class="bullet-left">Start time:</div>
+		<div class="bullet-right">Feb 25 12:22:09.199 &#43;0000 UTC</div>
+	</div>
+	<div class="summary-bullet">
+		<div class="bullet-left">End time:</div>
+		<div class="bullet-right">Feb 25 12:22:09.489 &#43;0000 UTC</div>
+	</div>
+	<div class="summary-bullet">
+		<div class="bullet-left">Elapsed time:</div>
+		<div class="bullet-right">289.216801ms</div>
+	</div>
+	<div class="summary-bullet">
+		<div class="bullet-left">Test version:</div>
+		<div class="bullet-right">2ce66de1cd5234a4b5e6721c8439c5fc435d977f</div>
+	</div>
+	<div class="summary-bullet">
+		<div class="bullet-left">Configuration:</div>
+		<div class="bullet-right">
+			
+				OCI_ROOT_URL=http://trow:8000<br />
+			
+				OCI_NAMESPACE=myorg/myrepo<br />
+			
+				OCI_DEBUG=true<br />
+			
+		</div>
+	</div>
+</div>
+    <div>
+      
+        
+        
+          <h2>Base API Route</h2>
+          
+          
+            
+              <div class="result green">
+                <div id="output-box-0-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-0')">+</div>
+                <h3 style="display: inline;">GET request to base API route must return 200 response</h3>
+                <br>
+                <div id="output-box-0" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.202544 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.202223976Z
+TIME DURATION: 2.078798ms
+HEADERS      :
+	Content-Length: 2
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+        
+          <h2>Blob Upload Streamed</h2>
+          
+          
+            
+              <div class="result green">
+                <div id="output-box-1-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-1')">+</div>
+                <h3 style="display: inline;">PATCH request with blob in body should yield 202 response</h3>
+                <br>
+                <div id="output-box-1" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.208619 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/myorg/myrepo/blobs/uploads/  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2020-02-25T12:22:09.208303882Z
+TIME DURATION: 5.666634ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: 9e104de7-0401-47e2-aa69-68e9355c0615
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/uploads/9e104de7-0401-47e2-aa69-68e9355c0615
+	Range: 0-0
+	Server: Rocket
+	X-Content-Length: 0
+BODY         :
+
+==============================================================================
+
+2020/02/25 12:22:09.215009 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PATCH  /v2/myorg/myrepo/blobs/uploads/9e104de7-0401-47e2-aa69-68e9355c0615  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+TkJBIEphbSBvbiBteSBOQkEgdG9hc3Q=
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2020-02-25T12:22:09.214628585Z
+TIME DURATION: 5.916034ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: 9e104de7-0401-47e2-aa69-68e9355c0615
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/uploads/9e104de7-0401-47e2-aa69-68e9355c0615
+	Range: 0-23
+	Server: Rocket
+	X-Content-Length: 23
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-2-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-2')">+</div>
+                <h3 style="display: inline;">PUT request to session URL with digest should yield 201 response</h3>
+                <br>
+                <div id="output-box-2" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.226418 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/myorg/myrepo/blobs/uploads/9e104de7-0401-47e2-aa69-68e9355c0615?digest=sha256%3A852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Content-Length: 23
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2020-02-25T12:22:09.226054472Z
+TIME DURATION: 10.904072ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Content-Digest: sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75
+	Range: 0-0
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+        
+          <h2>Blob Upload Monolithic</h2>
+          
+          
+            
+              <div class="result green">
+                <div id="output-box-3-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-3')">+</div>
+                <h3 style="display: inline;">GET nonexistent blob should result in 404 response</h3>
+                <br>
+                <div id="output-box-3" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.233630 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2020-02-25T12:22:09.233267538Z
+TIME DURATION: 6.752035ms
+HEADERS      :
+	Content-Length: 20
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+&#34;404 page not found&#34;
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-4-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-4')">+</div>
+                <h3 style="display: inline;">POST request with digest and blob should yield a 201</h3>
+                <br>
+                <div id="output-box-4" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.250579 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/myorg/myrepo/blobs/uploads/?digest=sha256%3Aca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Content-Length: 3
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+e30K
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2020-02-25T12:22:09.2502067Z
+TIME DURATION: 16.466105ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Content-Digest: sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+	Range: 0-3
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-5-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-5')">+</div>
+                <h3 style="display: inline;">GET request to blob URL from prior request should yield 200</h3>
+                <br>
+                <div id="output-box-5" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.256835 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/blobs/sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.256513814Z
+TIME DURATION: 5.835265ms
+HEADERS      :
+	Content-Type: application/octet-stream
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-6-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-6')">+</div>
+                <h3 style="display: inline;">POST request should yield a session ID</h3>
+                <br>
+                <div id="output-box-6" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.263969 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/myorg/myrepo/blobs/uploads/  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2020-02-25T12:22:09.263637272Z
+TIME DURATION: 6.695339ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: f6fa0f8d-bb59-4ed3-be9d-e0e1927c94e1
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/uploads/f6fa0f8d-bb59-4ed3-be9d-e0e1927c94e1
+	Range: 0-0
+	Server: Rocket
+	X-Content-Length: 0
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-7-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-7')">+</div>
+                <h3 style="display: inline;">PUT upload of a blob should yield a 201 Response</h3>
+                <br>
+                <div id="output-box-7" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.276048 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/myorg/myrepo/blobs/uploads/f6fa0f8d-bb59-4ed3-be9d-e0e1927c94e1?digest=sha256%3Aca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Content-Length: 3
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+e30K
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2020-02-25T12:22:09.275663691Z
+TIME DURATION: 11.553212ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Content-Digest: sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356
+	Range: 0-3
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-8-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-8')">+</div>
+                <h3 style="display: inline;">GET request to existing blob should yield 200 response</h3>
+                <br>
+                <div id="output-box-8" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.282018 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/blobs/sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.281680889Z
+TIME DURATION: 5.529856ms
+HEADERS      :
+	Content-Type: application/octet-stream
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+        
+          <h2>Blob Upload Chunked</h2>
+          
+          
+            
+              <div class="result green">
+                <div id="output-box-9-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-9')">+</div>
+                <h3 style="display: inline;">Out-of-order blob upload should return 416</h3>
+                <br>
+                <div id="output-box-9" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.288157 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/myorg/myrepo/blobs/uploads/  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Content-Length: 0
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2020-02-25T12:22:09.287824099Z
+TIME DURATION: 5.69616ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: e605eaec-bdc8-4beb-9f18-23893a85324e
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/uploads/e605eaec-bdc8-4beb-9f18-23893a85324e
+	Range: 0-0
+	Server: Rocket
+	X-Content-Length: 0
+BODY         :
+
+==============================================================================
+
+2020/02/25 12:22:09.295213 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PATCH  /v2/myorg/myrepo/blobs/uploads/e605eaec-bdc8-4beb-9f18-23893a85324e  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Content-Length: 22
+	Content-Range: 3-24
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+bG8sIGhvdyBhcmUgeW91IHRvZGF5Pw==
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 416 Range Not Satisfiable
+RECEIVED AT  : 2020-02-25T12:22:09.294812784Z
+TIME DURATION: 6.517418ms
+HEADERS      :
+	Content-Length: 100
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;BLOB_UPLOAD_INVALID&#34;,
+         &#34;message&#34;: &#34;Invalid request to blob upload&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-10-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-10')">+</div>
+                <h3 style="display: inline;">PATCH request with first chunk should return 202</h3>
+                <br>
+                <div id="output-box-10" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.302456 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/myorg/myrepo/blobs/uploads/  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Content-Length: 0
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2020-02-25T12:22:09.302096047Z
+TIME DURATION: 6.746917ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: 7e4049e9-f897-47c5-89a2-1d59e081e93e
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/uploads/7e4049e9-f897-47c5-89a2-1d59e081e93e
+	Range: 0-0
+	Server: Rocket
+	X-Content-Length: 0
+BODY         :
+
+==============================================================================
+
+2020/02/25 12:22:09.309001 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PATCH  /v2/myorg/myrepo/blobs/uploads/7e4049e9-f897-47c5-89a2-1d59e081e93e  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Content-Length: 3
+	Content-Range: 0-2
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+SGVs
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2020-02-25T12:22:09.308633375Z
+TIME DURATION: 6.086184ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: 7e4049e9-f897-47c5-89a2-1d59e081e93e
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/uploads/7e4049e9-f897-47c5-89a2-1d59e081e93e
+	Range: 0-3
+	Server: Rocket
+	X-Content-Length: 3
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-11-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-11')">+</div>
+                <h3 style="display: inline;">PUT request with final chunk should return 201</h3>
+                <br>
+                <div id="output-box-11" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.321533 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/myorg/myrepo/blobs/uploads/7e4049e9-f897-47c5-89a2-1d59e081e93e?digest=sha256%3A6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Content-Length: 22
+	Content-Range: 3-24
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+bG8sIGhvdyBhcmUgeW91IHRvZGF5Pw==
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2020-02-25T12:22:09.32085765Z
+TIME DURATION: 11.71346ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Content-Digest: sha256:6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://trow:8000/v2/myorg/myrepo/blobs/sha256:6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48
+	Range: 0-22
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+        
+          <h2>Manifest Upload</h2>
+          
+          
+            
+              <div class="result green">
+                <div id="output-box-12-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-12')">+</div>
+                <h3 style="display: inline;">GET nonexistent manifest should return 404</h3>
+                <br>
+                <div id="output-box-12" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.328998 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2020-02-25T12:22:09.328603024Z
+TIME DURATION: 6.918488ms
+HEADERS      :
+	Content-Length: 20
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+&#34;404 page not found&#34;
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-13-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-13')">+</div>
+                <h3 style="display: inline;">PUT should accept a manifest upload</h3>
+                <br>
+                <div id="output-box-13" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.342389 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/myorg/myrepo/manifests/test0  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;eyAibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UubWFuaWZlc3QudjEranNvbiIsICJjb25maWciOiAgeyAiZGlnZXN0IjogInNoYTI1NjpjYTNkMTYzYmFiMDU1MzgxODI3MjI2MTQwNTY4ZjNiZWY3ZWFhYzE4N2NlYmQ3Njg3OGUwYjYzZTllNDQyMzU2IiwgIm1lZGlhVHlwZSI6ICJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLmNvbmZpZy52MStqc29uIiwgInNpemUiOiAzIH0sICJsYXllcnMiOiBbXSwgInNjaGVtYVZlcnNpb24iOiAyIH0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2020-02-25T12:22:09.341935855Z
+TIME DURATION: 12.337577ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Content-Digest: sha256:c587b678cb253a746ae98c80371288772b7f5bf796fe6f42c2548207578cb05c
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://trow:8000/v2/myorg/myrepo/manifests/test0
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+2020/02/25 12:22:09.354877 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/myorg/myrepo/manifests/test1  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;eyAibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UubWFuaWZlc3QudjEranNvbiIsICJjb25maWciOiAgeyAiZGlnZXN0IjogInNoYTI1NjpjYTNkMTYzYmFiMDU1MzgxODI3MjI2MTQwNTY4ZjNiZWY3ZWFhYzE4N2NlYmQ3Njg3OGUwYjYzZTllNDQyMzU2IiwgIm1lZGlhVHlwZSI6ICJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLmNvbmZpZy52MStqc29uIiwgInNpemUiOiAzIH0sICJsYXllcnMiOiBbXSwgInNjaGVtYVZlcnNpb24iOiAyIH0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2020-02-25T12:22:09.354417809Z
+TIME DURATION: 11.932919ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Content-Digest: sha256:c587b678cb253a746ae98c80371288772b7f5bf796fe6f42c2548207578cb05c
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://trow:8000/v2/myorg/myrepo/manifests/test1
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+2020/02/25 12:22:09.367804 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/myorg/myrepo/manifests/test2  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;eyAibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UubWFuaWZlc3QudjEranNvbiIsICJjb25maWciOiAgeyAiZGlnZXN0IjogInNoYTI1NjpjYTNkMTYzYmFiMDU1MzgxODI3MjI2MTQwNTY4ZjNiZWY3ZWFhYzE4N2NlYmQ3Njg3OGUwYjYzZTllNDQyMzU2IiwgIm1lZGlhVHlwZSI6ICJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLmNvbmZpZy52MStqc29uIiwgInNpemUiOiAzIH0sICJsYXllcnMiOiBbXSwgInNjaGVtYVZlcnNpb24iOiAyIH0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2020-02-25T12:22:09.367304509Z
+TIME DURATION: 12.329471ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Content-Digest: sha256:c587b678cb253a746ae98c80371288772b7f5bf796fe6f42c2548207578cb05c
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://trow:8000/v2/myorg/myrepo/manifests/test2
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+2020/02/25 12:22:09.380842 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/myorg/myrepo/manifests/test3  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;eyAibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UubWFuaWZlc3QudjEranNvbiIsICJjb25maWciOiAgeyAiZGlnZXN0IjogInNoYTI1NjpjYTNkMTYzYmFiMDU1MzgxODI3MjI2MTQwNTY4ZjNiZWY3ZWFhYzE4N2NlYmQ3Njg3OGUwYjYzZTllNDQyMzU2IiwgIm1lZGlhVHlwZSI6ICJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLmNvbmZpZy52MStqc29uIiwgInNpemUiOiAzIH0sICJsYXllcnMiOiBbXSwgInNjaGVtYVZlcnNpb24iOiAyIH0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2020-02-25T12:22:09.380370924Z
+TIME DURATION: 12.456309ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Content-Digest: sha256:c587b678cb253a746ae98c80371288772b7f5bf796fe6f42c2548207578cb05c
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://trow:8000/v2/myorg/myrepo/manifests/test3
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-14-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-14')">+</div>
+                <h3 style="display: inline;">GET request to manifest URL (digest) should yield 200 response</h3>
+                <br>
+                <div id="output-box-14" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.389280 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/manifests/sha256:c587b678cb253a746ae98c80371288772b7f5bf796fe6f42c2548207578cb05c  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.388749271Z
+TIME DURATION: 7.797596ms
+HEADERS      :
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;mediaType&#34;: &#34;application/vnd.oci.image.manifest.v1&#43;json&#34;,
+   &#34;config&#34;: {
+      &#34;digest&#34;: &#34;sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356&#34;,
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;size&#34;: 3
+   },
+   &#34;layers&#34;: [],
+   &#34;schemaVersion&#34;: 2
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+        
+          <h2>Tags List</h2>
+          
+          
+            
+              <div class="result green">
+                <div id="output-box-15-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-15')">+</div>
+                <h3 style="display: inline;">GET request to list tags should yield 200 response</h3>
+                <br>
+                <div id="output-box-15" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.396130 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/tags/list  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.395685809Z
+TIME DURATION: 6.309271ms
+HEADERS      :
+	Content-Length: 64
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;name&#34;: &#34;myorg/myrepo&#34;,
+   &#34;tags&#34;: [
+      &#34;test0&#34;,
+      &#34;test1&#34;,
+      &#34;test2&#34;,
+      &#34;test3&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-16-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-16')">+</div>
+                <h3 style="display: inline;">GET request to manifest URL (tag) should yield 200 response</h3>
+                <br>
+                <div id="output-box-16" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.403674 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/manifests/test0  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.403199718Z
+TIME DURATION: 6.885654ms
+HEADERS      :
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;mediaType&#34;: &#34;application/vnd.oci.image.manifest.v1&#43;json&#34;,
+   &#34;config&#34;: {
+      &#34;digest&#34;: &#34;sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356&#34;,
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;size&#34;: 3
+   },
+   &#34;layers&#34;: [],
+   &#34;schemaVersion&#34;: 2
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-17-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-17')">+</div>
+                <h3 style="display: inline;">GET number of tags should be limitable by `n` query parameter</h3>
+                <br>
+                <div id="output-box-17" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.410807 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/tags/list?n=2  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.410430582Z
+TIME DURATION: 6.656887ms
+HEADERS      :
+	Content-Length: 48
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;name&#34;: &#34;myorg/myrepo&#34;,
+   &#34;tags&#34;: [
+      &#34;test0&#34;,
+      &#34;test1&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-18-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-18')">+</div>
+                <h3 style="display: inline;">GET start of tag is set by `last` query parameter</h3>
+                <br>
+                <div id="output-box-18" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.417423 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/tags/list?last=test1&amp;n=2  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.417032496Z
+TIME DURATION: 6.114998ms
+HEADERS      :
+	Content-Length: 48
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;name&#34;: &#34;myorg/myrepo&#34;,
+   &#34;tags&#34;: [
+      &#34;test2&#34;,
+      &#34;test3&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+        
+          <h2>Error codes</h2>
+          
+          
+            
+              <div class="result green">
+                <div id="output-box-19-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-19')">+</div>
+                <h3 style="display: inline;">400 response body should contain OCI-conforming JSON message</h3>
+                <br>
+                <div id="output-box-19" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.431031 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/myorg/myrepo/manifests/sha256:totallywrong  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;YmxhYmxhYmxh&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 400 Bad Request
+RECEIVED AT  : 2020-02-25T12:22:09.430587081Z
+TIME DURATION: 13.015302ms
+HEADERS      :
+	Content-Length: 83
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;MANIFEST_INVALID&#34;,
+         &#34;message&#34;: &#34;manifest invalid&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-20-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-20')">+</div>
+                <h3 style="display: inline;">Response from DELETE request to manifest URL (tag) should have OCI-conforming code</h3>
+                <br>
+                <div id="output-box-20" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.438590 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/myorg/myrepo/manifests/test0  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 400 Bad Request
+RECEIVED AT  : 2020-02-25T12:22:09.438150392Z
+TIME DURATION: 6.950937ms
+HEADERS      :
+	Content-Length: 75
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;BLOB_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;Blob Unknown&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+        
+          <h2>Manifest Delete</h2>
+          
+          
+            
+              <div class="result green">
+                <div id="output-box-21-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-21')">+</div>
+                <h3 style="display: inline;">DELETE request to manifest URL (tag) MUST fail</h3>
+                <br>
+                <div id="output-box-21" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.445452 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/myorg/myrepo/manifests/test0  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 400 Bad Request
+RECEIVED AT  : 2020-02-25T12:22:09.445052094Z
+TIME DURATION: 6.320908ms
+HEADERS      :
+	Content-Length: 75
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;BLOB_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;Blob Unknown&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-22-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-22')">+</div>
+                <h3 style="display: inline;">GET request to manifest URL should reveal that delete failed</h3>
+                <br>
+                <div id="output-box-22" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.453736 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/manifests/sha256:c587b678cb253a746ae98c80371288772b7f5bf796fe6f42c2548207578cb05c  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.453205128Z
+TIME DURATION: 7.644301ms
+HEADERS      :
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;mediaType&#34;: &#34;application/vnd.oci.image.manifest.v1&#43;json&#34;,
+   &#34;config&#34;: {
+      &#34;digest&#34;: &#34;sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356&#34;,
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;size&#34;: 3
+   },
+   &#34;layers&#34;: [],
+   &#34;schemaVersion&#34;: 2
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-23-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-23')">+</div>
+                <h3 style="display: inline;">DELETE request to manifest URL (digest) should yield 202 response</h3>
+                <br>
+                <div id="output-box-23" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.460515 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/myorg/myrepo/manifests/sha256:c587b678cb253a746ae98c80371288772b7f5bf796fe6f42c2548207578cb05c  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2020-02-25T12:22:09.460172262Z
+TIME DURATION: 6.326833ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-24-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-24')">+</div>
+                <h3 style="display: inline;">GET request to deleted manifest URL should yield 404 response</h3>
+                <br>
+                <div id="output-box-24" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.467817 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/manifests/sha256:c587b678cb253a746ae98c80371288772b7f5bf796fe6f42c2548207578cb05c  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2020-02-25T12:22:09.467329828Z
+TIME DURATION: 6.689387ms
+HEADERS      :
+	Content-Length: 20
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+&#34;404 page not found&#34;
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-25-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-25')">+</div>
+                <h3 style="display: inline;">GET request to tags list should reflect manifest deletion</h3>
+                <br>
+                <div id="output-box-25" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.474344 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/tags/list  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2020-02-25T12:22:09.473978927Z
+TIME DURATION: 6.071286ms
+HEADERS      :
+	Content-Length: 33
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+{
+   &#34;name&#34;: &#34;myorg/myrepo&#34;,
+   &#34;tags&#34;: []
+}
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+        
+          <h2>Blob Delete</h2>
+          
+          
+            
+              <div class="result green">
+                <div id="output-box-26-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-26')">+</div>
+                <h3 style="display: inline;">DELETE request to blob URL should yield 202 response</h3>
+                <br>
+                <div id="output-box-26" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.481206 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/myorg/myrepo/blobs/sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2020-02-25T12:22:09.480848491Z
+TIME DURATION: 6.385086ms
+HEADERS      :
+	Content-Length: 0
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+            
+              <div class="result green">
+                <div id="output-box-27-button" class="toggle"
+                  onclick="javascript:toggleOutput('output-box-27')">+</div>
+                <h3 style="display: inline;">GET request to deleted blob URL should yield 404 response</h3>
+                <br>
+                <div id="output-box-27" style="display: none;">
+                  <pre class="pre-box">2020/02/25 12:22:09.489133 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/myorg/myrepo/blobs/sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356  HTTP/1.1
+HOST   : trow:8000
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2020-02-25T12:22:09.488759754Z
+TIME DURATION: 7.393241ms
+HEADERS      :
+	Content-Length: 20
+	Content-Type: application/json
+	Date: Tue, 25 Feb 2020 12:22:09 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Server: Rocket
+BODY         :
+&#34;404 page not found&#34;
+==============================================================================
+
+</pre>
+                </div>
+			  </div>
+            
+          
+        
+      
+  </body>
+</html>

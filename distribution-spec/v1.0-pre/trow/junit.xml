@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <testsuite name="OCI Distribution Conformance Tests" tests="28" failures="0" errors="0" time="0.289">
+      <testcase name="OCI Distribution Conformance Tests Base API Route GET request to base API route must return 200 response" classname="OCI Distribution Conformance Tests" time="0.002464915"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Streamed PATCH request with blob in body should yield 202 response" classname="OCI Distribution Conformance Tests" time="0.012437917"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Streamed PUT request to session URL with digest should yield 201 response" classname="OCI Distribution Conformance Tests" time="0.011377789"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Monolithic GET nonexistent blob should result in 404 response" classname="OCI Distribution Conformance Tests" time="0.007193668"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Monolithic POST request with digest and blob should yield a 201" classname="OCI Distribution Conformance Tests" time="0.01693581"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Monolithic GET request to blob URL from prior request should yield 200" classname="OCI Distribution Conformance Tests" time="0.00624102"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Monolithic POST request should yield a session ID" classname="OCI Distribution Conformance Tests" time="0.007112309"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Monolithic PUT upload of a blob should yield a 201 Response" classname="OCI Distribution Conformance Tests" time="0.012060663"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Monolithic GET request to existing blob should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.00595244"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Chunked Out-of-order blob upload should return 416" classname="OCI Distribution Conformance Tests" time="0.013175178"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Chunked PATCH request with first chunk should return 202" classname="OCI Distribution Conformance Tests" time="0.013741235"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Upload Chunked PUT request with final chunk should return 201" classname="OCI Distribution Conformance Tests" time="0.012517344"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Manifest Upload GET nonexistent manifest should return 404" classname="OCI Distribution Conformance Tests" time="0.007422389"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Manifest Upload PUT should accept a manifest upload" classname="OCI Distribution Conformance Tests" time="0.051825075"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Manifest Upload GET request to manifest URL (digest) should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.008418954"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Tags List GET request to list tags should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.006881062"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Tags List GET request to manifest URL (tag) should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.007465737"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Tags List GET number of tags should be limitable by `n` query parameter" classname="OCI Distribution Conformance Tests" time="0.007121436"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Tags List GET start of tag is set by `last` query parameter" classname="OCI Distribution Conformance Tests" time="0.006603687"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Error codes 400 response body should contain OCI-conforming JSON message" classname="OCI Distribution Conformance Tests" time="0.013628477"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Error codes Response from DELETE request to manifest URL (tag) should have OCI-conforming code" classname="OCI Distribution Conformance Tests" time="0.007501798"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Manifest Delete DELETE request to manifest URL (tag) MUST fail" classname="OCI Distribution Conformance Tests" time="0.006819773"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Manifest Delete GET request to manifest URL should reveal that delete failed" classname="OCI Distribution Conformance Tests" time="0.00827356"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Manifest Delete DELETE request to manifest URL (digest) should yield 202 response" classname="OCI Distribution Conformance Tests" time="0.006751972"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Manifest Delete GET request to deleted manifest URL should yield 404 response" classname="OCI Distribution Conformance Tests" time="0.007282645"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Manifest Delete GET request to tags list should reflect manifest deletion" classname="OCI Distribution Conformance Tests" time="0.006527636"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Delete DELETE request to blob URL should yield 202 response" classname="OCI Distribution Conformance Tests" time="0.006847872"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Blob Delete GET request to deleted blob URL should yield 404 response" classname="OCI Distribution Conformance Tests" time="0.00786711"></testcase>
+  </testsuite>
