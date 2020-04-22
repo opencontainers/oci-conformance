@@ -1,0 +1,29 @@
+name: zot-2
+on:
+  repository_dispatch:
+    types:
+      - manual-trigger
+      - manual-trigger-zot
+      - manual-trigger-zot-2
+  schedule:
+    - cron: '0 7 * * *'
+jobs:
+  run:
+    services:
+      zot:
+        image: quay.io/bloodorange/zot:b2338b4-no-gc # TODO: use anuvu-provided image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run OCI Distribution Spec conformance tests
+        uses: bloodorangeio/distribution-spec@master
+        env:
+          OCI_ROOT_URL: http://zot:5000
+          OCI_NAMESPACE: oci-conformance/distribution-test
+          OCI_TEST_PUSH: 1
+          OCI_HIDE_SKIPPED_WORKFLOWS: 1
+      - name: Upload test report to S3
+        run: aws s3 cp --acl public-read report.html s3://oci-conformance/distribution-spec/zot/push/report.html
+        if: always()
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_ACCESS_AWS_SECRET_ACCESS_KEY }}

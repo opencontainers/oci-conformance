@@ -1,0 +1,28 @@
+name: alibaba-2
+on:
+  repository_dispatch:
+    types:
+      - manual-trigger
+      - manual-trigger-alibaba
+      - manual-trigger-alibaba-2
+  schedule:
+    - cron: '5 6 * * *'
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run OCI Distribution Spec conformance tests
+        uses: bloodorangeio/distribution-spec@master
+        env:
+          OCI_ROOT_URL: https://registry-intl.REPLACEME.aliyuncs.com
+          OCI_USERNAME: ${{ secrets.ALIBABA_USERNAME }}
+          OCI_PASSWORD: ${{ secrets.ALIBABA_PASSWORD }}
+          OCI_NAMESPACE: REPLACEME/REPLACEME
+          OCI_TEST_PULL: 1
+          OCI_HIDE_SKIPPED_WORKFLOWS: 1
+      - name: Upload test report to S3
+        run: aws s3 cp --acl public-read report.html s3://oci-conformance/distribution-spec/alibaba/push/report.html
+        if: always()
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_ACCESS_AWS_SECRET_ACCESS_KEY }}
