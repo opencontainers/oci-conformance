@@ -1,11 +1,12 @@
-name: gcr
+name: gcr-3
 on:
   repository_dispatch:
     types:
       - manual-trigger
       - manual-trigger-gcr
+      - manual-trigger-gcr-3
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '25 6 * * *'
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -14,25 +15,24 @@ jobs:
         run: |
           echo ${GCLOUD_SERVICE_KEY} | base64 -d > ./credentials.json
           trap "rm -f ./credentials.json" EXIT
-          gcloud auth activate-service-account ociaccessb@helmsummit.iam.gserviceaccount.com --key-file="./credentials.json" --project=helmsummit
+          gcloud auth activate-service-account REPLACEME@REPLACEME.iam.gserviceaccount.com --key-file="./credentials.json" --project=REPLACEME
           export GCLOUD_ACCESS_TOKEN="$(gcloud auth print-access-token)"
           echo "::add-mask::${GCLOUD_ACCESS_TOKEN}"
           echo "::set-env name=GCLOUD_ACCESS_TOKEN::${GCLOUD_ACCESS_TOKEN}"
         env:
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
       - name: Run OCI Distribution Spec conformance tests
-        uses: opencontainers/distribution-spec@master
+        uses: bloodorangeio/distribution-spec@master
         env:
           OCI_ROOT_URL: https://gcr.io
           OCI_USERNAME: oauth2accesstoken
           OCI_PASSWORD: ${{ env.GCLOUD_ACCESS_TOKEN }}
-          OCI_NAMESPACE: helmsummit/myrepo
-          #OCI_TAG_NAME: 1.16.1-debian-10-r77
-          #OCI_MANIFEST_DIGEST: sha256:d6ac96bbd7878961c998162539fadb50ae830406300f6912e28d8b8bbc8778c3
-          #OCI_BLOB_DIGEST: sha256:310277bda89b09908114f4f227feada9d53760892069e87a4461ad8c84f2cfbf
+          OCI_NAMESPACE: REPLACEME/REPLACEME
+          OCI_TEST_CONTENT_DISCOVERY: 1
+          OCI_HIDE_SKIPPED_WORKFLOWS: 1
       - name: Upload test report to S3
-        run: aws s3 cp --acl public-read report.html s3://oci-distribution-conformance-results/gcr.html
+        run: aws s3 cp --acl public-read report.html s3://oci-conformance/distribution-spec/gcr/content-discovery/report.html
         if: always()
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_ACCESS_AWS_SECRET_ACCESS_KEY }}
