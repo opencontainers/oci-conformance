@@ -14,8 +14,8 @@ jobs:
       - name: Run OCI Distribution Spec conformance tests
         uses: opencontainers/distribution-spec@master
         env:
-          OCI_ROOT_URL: https://REPLACEME.azurecr.io
-          OCI_NAMESPACE: REPLACME/REPLACEME
+          OCI_ROOT_URL: https://ociconformance.azurecr.io
+          OCI_NAMESPACE: ocitest
           OCI_USERNAME: ${{ secrets.ACR_USERNAME }}
           OCI_PASSWORD: ${{ secrets.ACR_PASSWORD }}
           OCI_TEST_CONTENT_DISCOVERY: 1
