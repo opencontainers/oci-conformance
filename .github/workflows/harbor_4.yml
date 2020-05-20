@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run OCI Distribution Spec conformance tests
-        uses: bloodorangeio/distribution-spec@master
+        uses: opencontainers/distribution-spec@master
         env:
           OCI_ROOT_URL: https://demo.goharbor.io
           OCI_USERNAME: ${{ secrets.HARBOR_USERNAME }}

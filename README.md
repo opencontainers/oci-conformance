@@ -5,7 +5,7 @@ is fully compliant with the specs defined by the [Open Container Initiative](htt
 
 The following specifications are currently tested for compliance:
 
-- [OCI Distribution Specification](https://github.com/bloodorangeio/distribution-spec)
+- [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec)
 
 ## OCI Certified Conformance Program
 

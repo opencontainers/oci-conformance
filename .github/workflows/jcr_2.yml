@@ -23,7 +23,7 @@ jobs:
       - name: Apply conformance config to JCR
         run: curl -u admin:password -X POST -H "Content-type:application/xml" --data-binary "@$GITHUB_WORKSPACE/.github/config/jcr/artifactory.config.import.xml"  http://localhost:${{ job.services.jcr.ports['8081'] }}/artifactory/api/system/configuration
       - name: Run OCI Distribution Spec conformance tests
-        uses: bloodorangeio/distribution-spec@master
+        uses: opencontainers/distribution-spec@master
         env:
           OCI_ROOT_URL: http://jcr:8081
           OCI_USERNAME: admin
