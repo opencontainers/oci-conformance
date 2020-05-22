@@ -113,7 +113,7 @@ _TODO_
 
 ### ACR
 
-__Homepage:__ [https://azure.microsoft.com/en-us/services/container-registry/](https://azure.microsoft.com/en-us/services/container-registry/)
+__Homepage:__ [https://azure.microsoft.com/services/container-registry/](https://azure.microsoft.com/services/container-registry/)
 
 __Vendor:__ Microsoft
 
@@ -123,10 +123,10 @@ __Test Results:__
 
 | Workflow           | Status                                                                                                                                                               | Test Report                                                                                           | Job Definition                                                                                    |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| Pull               | [![](https://github.com/bloodorangeio/oci-conformance/workflows/acr-1/badge.svg)](https://github.com/bloodorangeio/oci-conformance/actions?query=workflow%3Aacr-1) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/acr/pull/report.html)               | [Link](https://github.com/bloodorangeio/oci-conformance/blob/master/.github/workflows/acr_1.yml) |
-| Push               | [![](https://github.com/bloodorangeio/oci-conformance/workflows/acr-2/badge.svg)](https://github.com/bloodorangeio/oci-conformance/actions?query=workflow%3Aacr-2) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/acr/push/report.html)               | [Link](https://github.com/bloodorangeio/oci-conformance/blob/master/.github/workflows/acr_2.yml) |
-| Content Discovery  | [![](https://github.com/bloodorangeio/oci-conformance/workflows/acr-3/badge.svg)](https://github.com/bloodorangeio/oci-conformance/actions?query=workflow%3Aacr-3) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/acr/content-discovery/report.html)  | [Link](https://github.com/bloodorangeio/oci-conformance/blob/master/.github/workflows/acr_3.yml) |
-| Content Management | [![](https://github.com/bloodorangeio/oci-conformance/workflows/acr-4/badge.svg)](https://github.com/bloodorangeio/oci-conformance/actions?query=workflow%3Aacr-4) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/acr/content-management/report.html) | [Link](https://github.com/bloodorangeio/oci-conformance/blob/master/.github/workflows/acr_4.yml) |
+| Pull               | [![](https://github.com/opencontainers/oci-conformance/workflows/acr-1/badge.svg)](https://github.com/opencontainers/oci-conformance/actions?query=workflow%3Aacr-1) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/acr/pull/report.html)               | [Link](https://github.com/opencontainers/oci-conformance/blob/master/.github/workflows/acr_1.yml) |
+| Push               | [![](https://github.com/opencontainers/oci-conformance/workflows/acr-2/badge.svg)](https://github.com/opencontainers/oci-conformance/actions?query=workflow%3Aacr-2) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/acr/push/report.html)               | [Link](https://github.com/opencontainers/oci-conformance/blob/master/.github/workflows/acr_2.yml) |
+| Content Discovery  | [![](https://github.com/opencontainers/oci-conformance/workflows/acr-3/badge.svg)](https://github.com/opencontainers/oci-conformance/actions?query=workflow%3Aacr-3) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/acr/content-discovery/report.html)  | [Link](https://github.com/opencontainers/oci-conformance/blob/master/.github/workflows/acr_3.yml) |
+| Content Management | [![](https://github.com/opencontainers/oci-conformance/workflows/acr-4/badge.svg)](https://github.com/opencontainers/oci-conformance/actions?query=workflow%3Aacr-4) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/acr/content-management/report.html) | [Link](https://github.com/opencontainers/oci-conformance/blob/master/.github/workflows/acr_4.yml) |
 
 ### Alibaba
 
