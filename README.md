@@ -26,14 +26,3 @@ The following specifications are currently tested for compliance:
 The following pages contain a live dashboard of test results for their respective specification:
 
 - [OCI Distribution Conformance Results](./distribution-spec/)
-
-## Working Group Information
-
-To participate and contribute to the program itself (including discussion of
-issues affecting conformance and certification), join the mailing list and
-slack channel. Details: [Conformance WG](README-WG.md).
-
-## Credits
-
-This repo and certification program is based entirely
-upon [cncf/k8s-conformance](https://github.com/cncf/k8s-conformance).
