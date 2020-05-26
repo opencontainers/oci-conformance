@@ -11,13 +11,30 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
+      - name: setup Docker
+        uses: docker-practice/actions-setup-docker@0.0.1
+        with:
+          docker_version: 18.09
+          docker_channel: stable
+      - name: checkout Harobr
+        uses: actions/checkout@master
+        with:
+          repository: goharbor/harbor
+      - name: install harbor
+        run: |
+          IP=`hostname -I | awk '{print $1}'`
+          echo "::set-env name=OCI_ROOT_URL::http://$IP"
+          sudo sed "s/reg.mydomain.com/$IP/" make/harbor.yml.tmpl |sudo tee make/harbor.yml
+          sudo sed "s|https:|#https:|g; s|port: 443|#port: 443|g; s|certificate: /your/certificate/path|#certificate: /your/certificate/path|g; s|private_key: /your/private/key/path|#private_key: /your/private/key/path|g" -i make/harbor.yml
+          sudo make install
+          timeout 200 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' 127.0.0.1/api/v2.0/systeminfo)" != "200" ]]; do sleep 5; done' || false
       - name: Run OCI Distribution Spec conformance tests
         uses: opencontainers/distribution-spec@master
         env:
-          OCI_ROOT_URL: https://demo.goharbor.io
+          OCI_ROOT_URL: ${{ env.OCI_ROOT_URL }}
           OCI_USERNAME: ${{ secrets.HARBOR_USERNAME }}
           OCI_PASSWORD: ${{ secrets.HARBOR_PASSWORD }}
-          OCI_NAMESPACE: oci-conformance/distribution-test
+          OCI_NAMESPACE: library/oci-conformance
           OCI_TEST_PULL: 1
           OCI_HIDE_SKIPPED_WORKFLOWS: 1
       - name: Upload test report to S3
