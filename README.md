@@ -15,9 +15,9 @@ The following specifications are currently tested for compliance:
 
 * [Participation Form](./participation-form/OCI_Certified_Form.md)
 
-* Brand Guidlines - TODO
+* [Brand Guidlines](OCI-certified-brand-guide-v1.pdf)
 
-* Marks (i.e., the logos) - TODO
+* [Marks](https://github.com/opencontainers/artwork/tree/master/certified)
 
 * [Frequently Asked Questions](faq.md)
 
