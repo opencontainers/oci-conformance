@@ -15,7 +15,7 @@ jobs:
         uses: opencontainers/distribution-spec@master
         env:
           OCI_ROOT_URL: https://ociconformance.azurecr.io
-          OCI_NAMESPACE: ocitest
+          OCI_NAMESPACE: ocitest/pull
           OCI_USERNAME: ${{ secrets.ACR_USERNAME }}
           OCI_PASSWORD: ${{ secrets.ACR_PASSWORD }}
           OCI_TEST_PULL: 1
