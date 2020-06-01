@@ -9,15 +9,35 @@ on:
     - cron: '0 7 * * *'
 jobs:
   run:
-    services:
-      zot:
-        image: quay.io/bloodorange/zot:b2338b4-no-gc # TODO: use anuvu-provided image
     runs-on: ubuntu-latest
     steps:
+      - name: setup docker
+        uses: docker-practice/actions-setup-docker@0.0.1
+        with:
+          docker_version: 18.09
+          docker_channel: stable
+      - name: checkout this repo
+        uses: actions/checkout@master
+        with:
+          path: main
+      - name: checkout zot
+        uses: actions/checkout@master
+        with:
+          path: zot
+          repository: anuvu/zot
+      - name: start zot server
+        run: |
+          mv main/.github/config/zot-config.yml ./zot
+          cd ./zot
+          IP=`hostname -I | awk '{print $1}'`
+          echo "::set-env name=OCI_ROOT_URL::http://${IP}:5000"
+          ZOT_REF="local-zot:v$(date +%Y%m%d%H%M%S)"
+          docker build -t "${ZOT_REF}" .
+          docker run --rm -p 5000:5000 -v "$(pwd)/zot-config.yml":/etc/zot/config.yml -idt "${ZOT_REF}"
       - name: Run OCI Distribution Spec conformance tests
         uses: opencontainers/distribution-spec@master
         env:
-          OCI_ROOT_URL: http://zot:5000
+          OCI_ROOT_URL: ${{ env.OCI_ROOT_URL }}
           OCI_NAMESPACE: oci-conformance/distribution-test
           OCI_TEST_CONTENT_DISCOVERY: 1
           OCI_HIDE_SKIPPED_WORKFLOWS: 1
