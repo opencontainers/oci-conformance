@@ -9,15 +9,30 @@ on:
     - cron: '50 6 * * *'
 jobs:
   run:
-    services:
-      trow:
-        image: quay.io/bloodorange/trow:b54f366-fork # TODO: use containersolutions-provided image
     runs-on: ubuntu-latest
     steps:
+      - name: Set up docker
+        uses: docker-practice/actions-setup-docker@0.0.1
+        with:
+          docker_version: 18.09
+          docker_channel: stable
+      - name: Check out trow
+        uses: actions/checkout@master
+        with:
+          path: trow
+          repository: ContainerSolutions/trow
+      - name: Start trow server
+        run: |
+          cd ./trow
+          IP="$(hostname -I | awk '{print $1}')"
+          echo "::set-env name=OCI_ROOT_URL::http://${IP}:8000"
+          TROW_REF="local-trow:v$(date +%Y%m%d%H%M%S)"
+          docker build -f docker/Dockerfile -t "${TROW_REF}" .
+          docker run --rm -itd -p 8000:8000 "${TROW_REF}" --no-tls
       - name: Run OCI Distribution Spec conformance tests
         uses: opencontainers/distribution-spec@master
         env:
-          OCI_ROOT_URL: http://trow:8000
+          OCI_ROOT_URL: ${{ env.OCI_ROOT_URL }}
           OCI_NAMESPACE: oci-conformance/distribution-test
           OCI_TEST_CONTENT_MANAGEMENT: 1
           OCI_HIDE_SKIPPED_WORKFLOWS: 1
