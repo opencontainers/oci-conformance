@@ -1,0 +1,40 @@
+name: quayio-2
+on:
+  repository_dispatch:
+    types:
+      - manual-trigger
+      - manual-trigger-quayio
+      - manual-trigger-quayio-2
+  schedule:
+    - cron: '10 7 * * *'
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out quay
+        uses: actions/checkout@master
+        with:
+          repository: quay/quay
+      - name: Start quay server
+        run: |
+          IP="$(hostname -I | awk '{print $1}')"
+          echo "::set-env name=OCI_ROOT_URL::http://${IP}:8080"
+          QUAY_REF="quay-local:v$(date +%Y%m%d%H%M%S)"
+          docker build -t "${QUAY_REF}" .
+          docker run --rm -itd -p 8080:8080 "${QUAY_REF}"
+          set -x
+          timeout 200 bash -xc 'while ! curl -so /dev/null localhost:8080/v2/; do sleep 5; done' || false
+          set +x
+      - name: Run OCI Distribution Spec conformance tests
+        uses: opencontainers/distribution-spec@master
+        env:
+          OCI_ROOT_URL: ${{ env.OCI_ROOT_URL }}
+          OCI_NAMESPACE: ocitest/foryou
+          OCI_TEST_PUSH: 1
+          OCI_HIDE_SKIPPED_WORKFLOWS: 1
+      - name: Upload test report to S3
+        run: aws s3 cp --acl public-read report.html s3://oci-conformance/distribution-spec/quayio/push/report.html
+        if: always()
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_ACCESS_AWS_SECRET_ACCESS_KEY }}
