@@ -14,7 +14,7 @@ jobs:
       - name: Run OCI Distribution Spec conformance tests
         uses: opencontainers/distribution-spec@master
         env:
-          OCI_ROOT_URL: https://ociconformance.azurecr.io
+          OCI_ROOT_URL: https://acroci.azurecr.io
           OCI_NAMESPACE: ocitest/content-management
           OCI_USERNAME: ${{ secrets.ACR_USERNAME }}
           OCI_PASSWORD: ${{ secrets.ACR_PASSWORD }}
