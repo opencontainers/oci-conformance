@@ -9,15 +9,35 @@ on:
     - cron: '10 6 * * *'
 jobs:
   run:
-    services:
-      distribution:
-        image: quay.io/bloodorange/distribution:242c306b # TODO: use docker-provided image
     runs-on: ubuntu-latest
     steps:
+      - name: set up docker
+        uses: docker-practice/actions-setup-docker@0.0.1
+        with:
+          docker_version: 18.09
+          docker_channel: stable
+      - name: checkout this repo
+        uses: actions/checkout@master
+        with:
+          path: main
+      - name: checkout distribution
+        uses: actions/checkout@master
+        with:
+          path: distribution
+          repository: docker/distribution
+      - name: start distribution server
+        run: |
+          cp main/.github/config/distribution.yml distribution/
+          cd ./distribution
+          IP=`hostname -I | awk '{print $1}'`
+          echo "::set-env name=OCI_ROOT_URL::http://${IP}:5000"
+          DISTRIBUTION_REF="local-distribution:v$(date +%Y%m%d%H%M%S)"
+          docker build -t "${DISTRIBUTION_REF}" .
+          docker run --rm -p 5000:5000 -v "$(pwd)/distribution.yml":/etc/docker/registry/config.yml -idt "${DISTRIBUTION_REF}"
       - name: Run OCI Distribution Spec conformance tests
         uses: opencontainers/distribution-spec@master
         env:
-          OCI_ROOT_URL: http://distribution:5000
+          OCI_ROOT_URL: ${{ env.OCI_ROOT_URL }}
           OCI_NAMESPACE: oci-conformance/distribution-test
           OCI_TEST_PUSH: 1
           OCI_HIDE_SKIPPED_WORKFLOWS: 1

@@ -11,7 +11,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: setup docker
+      - name: set up docker
         uses: docker-practice/actions-setup-docker@0.0.1
         with:
           docker_version: 18.09
