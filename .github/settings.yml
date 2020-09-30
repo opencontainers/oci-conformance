@@ -5,7 +5,7 @@ repository:
   name: oci-conformance
 
   # A short description of the repository that will show up on GitHub
-  description: OCI Conformance Working Group
+  description: OCI Conformance/Certification Working Group
 
   # A URL with more information about the repository
   homepage: https://opencontainers.org
