@@ -23,6 +23,7 @@ __Table of Contents:__
   - [goharbor/harbor](#goharborharbor)
   - [quay/quay](#quayquay)
   - [sonatype/nexus3](#sonatypenexus3)
+  - [vsoch/django-oci](#django-oci)
 - [Commercial](#commercial)
   - [ACR](#acr)
   - [Alibaba](#alibaba)
@@ -109,6 +110,23 @@ _TODO_
 __Homepage:__ [https://github.com/sonatype/docker-nexus3](https://github.com/sonatype/docker-nexus3)
 
 _TODO_
+
+
+### vsoch/django-oci
+
+__Homepage:__ [https://github.com/vsoch/django-oci](https://github.com/vsoch/django-oci)
+
+__Verified:__ no
+
+__Test Results:__
+
+| Workflow | Status | Test Report | Job Definition |
+| -------- | ------ | ----------- | ---------------|
+| Pull     | [![CI](https://github.com/vsoch/django-oci/workflows/CI/badge.svg)](https://github.com/vsoch/django-oci/actions?query=workflow%3ACI) | [Link](vsoch.github.io/django-oci/conformance/)      | [Link](https://github.com/vsoch/django-oci/blob/master/.github/workflows/main.yml#L78) |
+| Push     | [![CI](https://github.com/vsoch/django-oci/workflows/CI/badge.svg)](https://github.com/vsoch/django-oci/actions?query=workflow%3ACI) | [Link](vsoch.github.io/django-oci/conformance/)      | [Link](https://github.com/vsoch/django-oci/blob/master/.github/workflows/main.yml#L78) |
+| Content Discovery     | [![CI](https://github.com/vsoch/django-oci/workflows/CI/badge.svg)](https://github.com/vsoch/django-oci/actions?query=workflow%3ACI) | [Link](vsoch.github.io/django-oci/conformance/)      | [Link](https://github.com/vsoch/django-oci/blob/master/.github/workflows/main.yml#L78) |
+| Content Management     | [![CI](https://github.com/vsoch/django-oci/workflows/CI/badge.svg)](https://github.com/vsoch/django-oci/actions?query=workflow%3ACI) | [Link](vsoch.github.io/django-oci/conformance/)      | [Link](https://github.com/vsoch/django-oci/blob/master/.github/workflows/main.yml#L78) |
+
 
 ## Commercial
 
