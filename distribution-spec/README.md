@@ -17,7 +17,7 @@ Test results are considered "verified" if a registry provider has submitted resu
 __Table of Contents:__
 
 - [Open Source](#open-source)
-  - [anuvu/zot](#anuvu/zot)
+  - [anuvu/zot](#anuvuzot)
   - [containersolutions/trow](#containersolutionstrow)
   - [docker/distribution](#dockerdistribution)
   - [goharbor/harbor](#goharborharbor)
