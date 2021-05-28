@@ -3,7 +3,7 @@
 ## Technical Requirements
 
 1. Verify that the list of files matches the
-[expected list](https://github.com/opencontainers/oci-conformance/blob/master/instructions.md#contents-of-the-pr).
+[expected list](https://github.com/opencontainers/oci-conformance/blob/main/instructions.md#contents-of-the-pr).
 
 2. Note the `$spec/vX.Y` subdirectory that the PR is in, this is the spec and 
 version of OCI for which conformance is being claimed, referenced as the

@@ -15,10 +15,10 @@ In this document, these terms have the following meanings:
 #### Related Documents
 
 Together with these terms and conditions, the following documents are part of the Conformance Program, each as updated from time to time:
-*  "**Certification Guide**": the conformance testing instructions and requirements for the Conformance Program, available at <https://github.com/opencontainers/oci-conformance/blob/master/instructions.md>;
+*  "**Certification Guide**": the conformance testing instructions and requirements for the Conformance Program, available at <https://github.com/opencontainers/oci-conformance/blob/main/instructions.md>;
 *  "**Branding Guide**": the OCI Certified Brand Guidelines, available at (TODO: link);
 *  "**LF Trademark Usage Guidelines**": The Linux Foundation Trademark Usage Guidelines, available at <https://www.linuxfoundation.org/trademark-usage>; and
-*  "**Participation Form**": the OCI Certified Participation Form, available at <https://github.com/opencontainers/oci-conformance/tree/master/participation-form/OCI_Certified_Form.md>.
+*  "**Participation Form**": the OCI Certified Participation Form, available at <https://github.com/opencontainers/oci-conformance/tree/main/participation-form/OCI_Certified_Form.md>.
 
 #### Introduction
 
@@ -37,7 +37,7 @@ In order to be a Participant in the Conformance Program and to use the OCI Certi
 5. pay fees (if any) required for its participation in the Conformance Program; and
 6. abide by the terms and conditions of the Conformance Program, including subsequent re-testing as described herein, throughout the period of the Participant’s use of the OCI Certified Marks.
 
-Members of OCI, non-profit organizations, and individuals certifying open-source community distributions will not be charged fees to participate in the Conformance Program. Other potential Participants should [contact](https://github.com/opencontainers/oci-conformance/blob/master/faq.md) OCI for more information about participation fees.
+Members of OCI, non-profit organizations, and individuals certifying open-source community distributions will not be charged fees to participate in the Conformance Program. Other potential Participants should [contact](https://github.com/opencontainers/oci-conformance/blob/main/faq.md) OCI for more information about participation fees.
 
 #### Qualifying Offerings and Self-Testing
 

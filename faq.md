@@ -32,11 +32,11 @@ From the bottom of the OCI Distributions & Platforms spreadsheet (TODO: link):
 
 ## Do I need to re-submit results if we rebrand our product?
 
-No. If the software is the same, and just the name has changed, you just need to submit a revised Participation Form available at https://github.com/opencontainers/oci-conformance/blob/master/participation-form/OCI_Certified_Form.md that includes the new name. Please also open a pull request to update the name in your PRODUCT.yaml file. We do ask that you send us the new Participation Form **prior** to announcing the name change. You can submit the pull request after the announcement, if necessary.
+No. If the software is the same, and just the name has changed, you just need to submit a revised Participation Form available at https://github.com/opencontainers/oci-conformance/blob/main/participation-form/OCI_Certified_Form.md that includes the new name. Please also open a pull request to update the name in your PRODUCT.yaml file. We do ask that you send us the new Participation Form **prior** to announcing the name change. You can submit the pull request after the announcement, if necessary.
 
 ## Is a participation form required per company or per product?
 
-Per product. Each separate product (i.e., different product name) from your company requires a different [participation form](https://github.com/opencontainers/oci-conformance/blob/master/participation-form/OCI_Certified_Form.md). We don't need a new form for new versions of an existing product.
+Per product. Each separate product (i.e., different product name) from your company requires a different [participation form](https://github.com/opencontainers/oci-conformance/blob/main/participation-form/OCI_Certified_Form.md). We don't need a new form for new versions of an existing product.
 
 ## Are there any limitations regarding the logo?
 
