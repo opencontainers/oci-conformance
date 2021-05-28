@@ -20,7 +20,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.ECR_ACCESS_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.ECR_ACCESS_AWS_SECRET_ACCESS_KEY }}
       - name: Run OCI Distribution Spec conformance tests
-        uses: opencontainers/distribution-spec@master
+        uses: opencontainers/distribution-spec@main
         env:
           OCI_ROOT_URL: https://741920044080.dkr.ecr.us-east-1.amazonaws.com
           OCI_USERNAME: AWS

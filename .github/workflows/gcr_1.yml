@@ -22,7 +22,7 @@ jobs:
         env:
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
       - name: Run OCI Distribution Spec conformance tests
-        uses: opencontainers/distribution-spec@master
+        uses: opencontainers/distribution-spec@main
         env:
           OCI_ROOT_URL: https://gcr.io
           OCI_USERNAME: oauth2accesstoken

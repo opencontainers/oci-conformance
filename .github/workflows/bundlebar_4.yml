@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run OCI Distribution Spec conformance tests
-        uses: opencontainers/distribution-spec@master
+        uses: opencontainers/distribution-spec@main
         env:
           OCI_ROOT_URL: https://bundle.bar
           OCI_NAMESPACE: u/${{ secrets.BUNDLE_BAR_USERNAME }}/ocitest/content-management

@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out trow
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           path: trow
           repository: ContainerSolutions/trow
@@ -25,7 +25,7 @@ jobs:
           docker build -f docker/Dockerfile -t "${TROW_REF}" .
           docker run --rm -d -p 8000:8000 "${TROW_REF}" --no-tls
       - name: Run OCI Distribution Spec conformance tests
-        uses: opencontainers/distribution-spec@master
+        uses: opencontainers/distribution-spec@main
         env:
           OCI_ROOT_URL: ${{ env.OCI_ROOT_URL }}
           OCI_NAMESPACE: oci-conformance/distribution-test

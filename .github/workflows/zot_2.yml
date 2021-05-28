@@ -17,11 +17,11 @@ jobs:
           docker_version: 18.09
           docker_channel: stable
       - name: checkout this repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           path: main
       - name: checkout zot
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           path: zot
           repository: anuvu/zot
