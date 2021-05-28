@@ -9,7 +9,7 @@ the following files that contain the test results and output:
 
 ### OCI Distribution Specification
 
-Please see instructions [here](https://github.com/opencontainers/distribution-spec/blob/master/conformance/README.md).
+Please see instructions [here](https://github.com/opencontainers/distribution-spec/blob/main/conformance/README.md).
 
 ## Uploading
 
@@ -47,7 +47,7 @@ This file describes your product. It is YAML formatted with the following root-l
 | `repo_url`          | If your product is open source, this field is necessary to point to the primary GitHub repo containing the source. It's OK if this is a mirror. OPTIONAL  |
 | `documentation_url` | URL to the product documentation |
 | `product_logo_url`  | URL to the product's logo, (must be in SVG, AI or EPS format -- not a PNG -- and include the product name). OPTIONAL. If not supplied, we'll use your company logo. Please see logo guidelines (TODO: link) |
-| `type`              | Is your product a distribution, hosted platform, or installer (see [definitions](https://github.com/opencontainers/oci-conformance/blob/master/faq.md#what-is-a-distribution-and-what-is-a-platform)) |
+| `type`              | Is your product a distribution, hosted platform, or installer (see [definitions](https://github.com/opencontainers/oci-conformance/blob/main/faq.md#what-is-a-distribution-and-what-is-a-platform)) |
 | `description` | One sentence description of your offering |
 
 Examples below are for a fictional OCI implementation called _Turbo

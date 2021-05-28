@@ -5,7 +5,7 @@ Complete this form for each Participant (company or other entity) that desires t
 
 By signing below and submitting this form to The Linux Foundation (by DocuSign (TODO: link)) or by emailing the PDF (TODO: link) to [certification@opencontainers.org](mailto:certification@opencontainers.org)):
 
-1.  The Participant agrees to the Terms and Conditions of the OCI Certified Conformance Program (the "**Program Terms**"), available at <https://github.com/opencontainers/oci-conformance/tree/master/terms-conditions/OCI_Certified_Terms.md>.
+1.  The Participant agrees to the Terms and Conditions of the OCI Certified Conformance Program (the "**Program Terms**"), available at <https://github.com/opencontainers/oci-conformance/tree/main/terms-conditions/OCI_Certified_Terms.md>.
 2.  The Participant confirms that the products and services identified below as Qualifying Offerings have passed all of the self-tests described in the Certification Guide, and are Qualifying Offerings under the Program Terms.
 3.  The Participant confirms that it has submitted to the Open Containers Initiative ("**OCI**") the results of the self-tests prior to its first public use of the OCI Certified Marks associated with the corresponding version of OCI.
 4.  The Participant confirms that it will either (a) maintain conformance of the Qualifying Offerings with later versions of OCI, or (b) cease use of the OCI Certified Marks at the end of the applicable conformance time period described in the Program Terms.
