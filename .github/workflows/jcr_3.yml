@@ -23,7 +23,7 @@ jobs:
       - name: Apply conformance config to JCR
         run: curl -u admin:password -X POST -H "Content-type:application/xml" --data-binary "@$GITHUB_WORKSPACE/.github/config/jcr/artifactory.config.import.xml"  http://localhost:${{ job.services.jcr.ports['8081'] }}/artifactory/api/system/configuration
       - name: Run OCI Distribution Spec conformance tests
-        uses: opencontainers/distribution-spec@master
+        uses: opencontainers/distribution-spec@main
         env:
           OCI_ROOT_URL: http://jcr:8081
           OCI_USERNAME: admin
@@ -32,7 +32,7 @@ jobs:
           OCI_TEST_CONTENT_DISCOVERY: 1
           OCI_HIDE_SKIPPED_WORKFLOWS: 1
       - name: Upload test report to S3
-        run: aws s3 cp --acl public-read report.html s3://oci-conformance/distribution-spec/jcr/content-discovery/report.html
+        run: aws s3 cp --region=us-east-1 --acl public-read report.html s3://oci-conformance/distribution-spec/jcr/content-discovery/report.html
         if: always()
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_AWS_ACCESS_KEY_ID }}

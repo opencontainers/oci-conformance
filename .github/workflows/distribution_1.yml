@@ -17,11 +17,11 @@ jobs:
           docker_version: 18.09
           docker_channel: stable
       - name: checkout this repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           path: main
       - name: checkout distribution
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           path: distribution
           repository: docker/distribution
@@ -35,14 +35,14 @@ jobs:
           docker build -t "${DISTRIBUTION_REF}" .
           docker run --rm -p 5000:5000 -v "$(pwd)/distribution.yml":/etc/docker/registry/config.yml -idt "${DISTRIBUTION_REF}"
       - name: Run OCI Distribution Spec conformance tests
-        uses: opencontainers/distribution-spec@master
+        uses: opencontainers/distribution-spec@main
         env:
           OCI_ROOT_URL: ${{ env.OCI_ROOT_URL }}
           OCI_NAMESPACE: oci-conformance/distribution-test
           OCI_TEST_PULL: 1
           OCI_HIDE_SKIPPED_WORKFLOWS: 1
       - name: Upload test report to S3
-        run: aws s3 cp --acl public-read report.html s3://oci-conformance/distribution-spec/distribution/pull/report.html
+        run: aws s3 cp --region=us-east-1 --acl public-read report.html s3://oci-conformance/distribution-spec/distribution/pull/report.html
         if: always()
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_AWS_ACCESS_KEY_ID }}
