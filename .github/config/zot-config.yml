@@ -1,8 +1,0 @@
-# Default config file for zot server
-http:
-  address: 0.0.0.0
-  port: 5000
-storage:
-  gc: false
-  dedupe: false
-  rootDirectory: /var/lib/registry
