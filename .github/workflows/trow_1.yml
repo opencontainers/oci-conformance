@@ -20,7 +20,7 @@ jobs:
         run: |
           cd ./trow
           IP="$(hostname -I | awk '{print $1}')"
-          echo "::set-env name=OCI_ROOT_URL::http://${IP}:8000"
+          echo "OCI_ROOT_URL=http://${IP}:8000" >> $GITHUB_ENV
           TROW_REF="local-trow:v$(date +%Y%m%d%H%M%S)"
           docker build -f docker/Dockerfile -t "${TROW_REF}" .
           docker run --rm -d -p 8000:8000 "${TROW_REF}" --no-tls
