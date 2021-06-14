@@ -23,7 +23,7 @@ jobs:
       - name: install harbor
         run: |
           IP=`hostname -I | awk '{print $1}'`
-          echo "::set-env name=OCI_ROOT_URL::http://$IP"
+          echo "OCI_ROOT_URL=http://${IP}" >> $GITHUB_ENV
           sudo sed "s/reg.mydomain.com/$IP/" make/harbor.yml.tmpl |sudo tee make/harbor.yml
           sudo sed "s|https:|#https:|g; s|port: 443|#port: 443|g; s|certificate: /your/certificate/path|#certificate: /your/certificate/path|g; s|private_key: /your/private/key/path|#private_key: /your/private/key/path|g" -i make/harbor.yml
           sudo make install
