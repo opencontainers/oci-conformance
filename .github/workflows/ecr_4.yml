@@ -13,9 +13,9 @@ jobs:
     steps:
       - name: Generate Amazon access token
         run: |
-          export ECR_ACCESS_TOKEN="$(aws --region=us-east-1 ecr get-login --no-include-email | awk '{print $6}')"
+          export ECR_ACCESS_TOKEN="$(aws --region=us-east-1 ecr get-authorization-token | jq -r .authorizationData[0].authorizationToken)"
           echo "::add-mask::${ECR_ACCESS_TOKEN}"
-          echo "::set-env name=ECR_ACCESS_TOKEN::${ECR_ACCESS_TOKEN}"
+          echo "ECR_ACCESS_TOKEN=${ECR_ACCESS_TOKEN}" >> $GITHUB_ENV
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ECR_ACCESS_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.ECR_ACCESS_AWS_SECRET_ACCESS_KEY }}
