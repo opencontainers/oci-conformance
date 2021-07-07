@@ -19,7 +19,7 @@ __Table of Contents:__
 - [Open Source](#open-source)
   - [anuvu/zot](#anuvuzot)
   - [containersolutions/trow](#containersolutionstrow)
-  - [docker/distribution](#dockerdistribution)
+  - [distribution/distribution](#distributiondistribution)
   - [goharbor/harbor](#goharborharbor)
   - [quay/quay](#quayquay)
   - [sonatype/nexus3](#sonatypenexus3)
@@ -66,9 +66,9 @@ __Test Results:__
 | Content Discovery  | [![](https://github.com/opencontainers/oci-conformance/workflows/trow-3/badge.svg)](https://github.com/opencontainers/oci-conformance/actions?query=workflow%3Atrow-3) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/trow/content-discovery/report.html)  | [Link](https://github.com/opencontainers/oci-conformance/blob/main/.github/workflows/trow_3.yml) |
 | Content Management | [![](https://github.com/opencontainers/oci-conformance/workflows/trow-4/badge.svg)](https://github.com/opencontainers/oci-conformance/actions?query=workflow%3Atrow-4) | [Link](https://oci-conformance.s3.amazonaws.com/distribution-spec/trow/content-management/report.html) | [Link](https://github.com/opencontainers/oci-conformance/blob/main/.github/workflows/trow_4.yml) |
 
-### docker/distribution
+### distribution/distribution
 
-__Homepage:__ [https://github.com/docker/distribution](https://github.com/docker/distribution)
+__Homepage:__ [https://github.com/distribution/distribution](https://github.com/distribution/distribution)
 
 __Verified:__ no
 
