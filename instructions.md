@@ -34,6 +34,13 @@ $spec/vX.Y/$dir/junit.xml: Machine-readable JUnit test report.
 $spec/vX.Y/$dir/PRODUCT.yaml: See below.
 ```
 
+Entirely optional, but encouraged, you can also include the following files
+(if you have not already submitted them previously):
+
+```
+$spec/live/$dir/badges.md: See below.
+```
+
 #### PRODUCT.yaml
 
 This file describes your product. It is YAML formatted with the following root-level fields. Please fill in as appropriate.
@@ -63,6 +70,31 @@ documentation_url: https://yoyo.dyne/turbo-encabulator/docs
 product_logo_url: https://yoyo.dyne/assets/turbo-encabulator.svg
 type: distribution
 description: 'The Yoyodyne Turbo Encabulator is a superb OCI distribution for all of your Encabulating needs.'
+```
+
+#### badges.md (Optional)
+
+If you are running live tests (for example, in GitHub Actions), you are
+encouraged to include a `badges.md` files which contains Markdown badges pointing to your test results.
+
+These badges will be displayed on a web-based dashboard showing live
+conformance results for various products.
+
+Since you are likely testing conformance on the latest
+changeset to your product, this file should be submitted to the directory
+`$spec/live/$dir` (vs. `$spec/vX.Y/$dir`). *If you have previously submitted
+this file, you do not need to do so again to submit conformance for a new
+spec version.*
+
+This file should simply contain Markdown badges, each on a new line.
+
+Here is an example `badges.md` file showing 4 badges:
+
+```
+[![](https://github.com/myorg/myproduct/workflows/oci-pull/badge.svg)](https://github.com/myorg/myproduct/actions?query=workflow%3Aoci-pull)
+[![](https://github.com/myorg/myproduct/workflows/oci-push/badge.svg)](https://github.com/myorg/myproduct/actions?query=workflow%3Aoci-push)
+[![](https://github.com/myorg/myproduct/workflows/oci-content-discovery/badge.svg)](https://github.com/myorg/myproduct/actions?query=workflow%3Aoci-content-discovery)
+[![](https://github.com/myorg/myproduct/workflows/oci-content-management/badge.svg)](https://github.com/myorg/myproduct/actions?query=workflow%3Aoci-content-management)
 ```
 
 ## Amendment for Private Review

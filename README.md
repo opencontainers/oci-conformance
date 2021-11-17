@@ -20,9 +20,3 @@ The following specifications are currently tested for compliance:
 * [Marks](https://github.com/opencontainers/artwork/tree/master/certified)
 
 * [Frequently Asked Questions](faq.md)
-
-## Conformance Results
-
-The following pages contain a live dashboard of test results for their respective specification:
-
-- [OCI Distribution Conformance Results](./distribution-spec/)
