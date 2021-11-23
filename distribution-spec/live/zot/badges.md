@@ -1,0 +1,1 @@
+[![Conformance Results](https://github.com/anuvu/zot/workflows/conformance/badge.svg)](https://github.com/anuvu/zot/actions?query=workflow%3Aconformance)
