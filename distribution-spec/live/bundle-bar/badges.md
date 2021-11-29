@@ -1,0 +1,4 @@
+[![Bundle Bar OCI Conformance - Pull](https://github.com/bloodorangeio/bundle-bar-oci-conformance/workflows/pull/badge.svg)](https://github.com/bloodorangeio/bundle-bar-oci-conformance/actions?query=workflow%3Apull)
+[![Bundle Bar OCI Conformance - Push](https://github.com/bloodorangeio/bundle-bar-oci-conformance/workflows/push/badge.svg)](https://github.com/bloodorangeio/bundle-bar-oci-conformance/actions?query=workflow%3Apush)
+[![Bundle Bar OCI Conformance - Content Discovery](https://github.com/bloodorangeio/bundle-bar-oci-conformance/workflows/content-discovery/badge.svg)](https://github.com/bloodorangeio/bundle-bar-oci-conformance/actions?query=workflow%3Acontent-discovery)
+[![Bundle Bar OCI Conformance - Content Management](https://github.com/bloodorangeio/bundle-bar-oci-conformance/workflows/content-management/badge.svg)](https://github.com/bloodorangeio/bundle-bar-oci-conformance/actions?query=workflow%3Acontent-management)
