@@ -1,6 +1,0 @@
-| Type | Status |
-|------|--------|
-| OCI - Push | [![OCI Push](https://github.com/containerish/openregistry/actions/workflows/oci-dist-spec-push.yml/badge.svg)](https://github.com/containerish/openregistry/actions/workflows/oci-dist-spec-push.yml)|
-| OCI - Pull | [![OCI Pull](https://github.com/containerish/openregistry/actions/workflows/oci-dist-spec-pull.yml/badge.svg)](https://github.com/containerish/openregistry/actions/workflows/oci-dist-spec-pull.yml)|
-| OCI - Content Management | [![OCI Content Management](https://github.com/containerish/openregistry/actions/workflows/oci-dist-spec-content-management.yml/badge.svg)](https://github.com/containerish/openregistry/actions/workflows/oci-dist-spec-content-management.yml)|
-| OCI - Content Discovery | [![OCI Content Discovery](https://github.com/containerish/openregistry/actions/workflows/oci-dist-spec-content-discovery.yml/badge.svg)](https://github.com/containerish/openregistry/actions/workflows/oci-dist-spec-content-discovery.yml)|
