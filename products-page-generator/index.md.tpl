@@ -74,7 +74,7 @@ __Live results:__ {{ $value.BadgesMarkdown }}
 | {{ $v.Name }} {{ if $v.Required }}(required){{ end }} | {{ range $_, $version := $value.AllVersions }}{{ range $_, $workflow := (index $value.Workflows $version) }}{{ if eq $workflow.Name $v.Name }}{{ if $workflow.Supported }} ✅  {{ else }}  ✖️ {{ end }}   | {{ end }}{{ end }}{{ end }}
 {{- end }}
 
-{{- end }}
+{{ end }}
 {{- end }}
 {{ end }}
 
@@ -108,7 +108,7 @@ __Live results:__ {{ $value.BadgesMarkdown }}
 | {{ $v.Name }} {{ if $v.Required }}(required){{ end }} | {{ range $_, $version := $value.AllVersions }}{{ range $_, $workflow := (index $value.Workflows $version) }}{{ if eq $workflow.Name $v.Name }}{{ if $workflow.Supported }} ✅  {{ else }}  ✖️ {{ end }}   | {{ end }}{{ end }}{{ end }}
 {{- end }}
 
-{{- end }}
+{{ end }}
 {{- end }}
 {{ end }}
 
