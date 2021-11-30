@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <testsuite name="OCI Distribution Conformance Tests" tests="59" failures="0" errors="0" time="36.562">
+      <testcase name="OCI Distribution Conformance Tests Pull Setup Populate registry with test blob" classname="OCI Distribution Conformance Tests" time="1.5252863570000001"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Setup Populate registry with test layer" classname="OCI Distribution Conformance Tests" time="1.331338164"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Setup Populate registry with test manifest" classname="OCI Distribution Conformance Tests" time="0.819550255"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Setup Get the name of a tag" classname="OCI Distribution Conformance Tests" time="1.2285438069999999"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Setup Get tag name from environment" classname="OCI Distribution Conformance Tests" time="0.000343358">
+          <skipped>/Users/someuser/distribution-spec/conformance/01_pull_test.go:82&#xA;you have skipped this test.&#xA;/Users/someuser/distribution-spec/conformance/setup.go:344</skipped>
+      </testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull blobs HEAD request to nonexistent blob should result in 404 response" classname="OCI Distribution Conformance Tests" time="0.311409211"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull blobs HEAD request to existing blob should yield 200" classname="OCI Distribution Conformance Tests" time="0.372821433"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull blobs GET nonexistent blob should result in 404 response" classname="OCI Distribution Conformance Tests" time="0.277659727"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull blobs GET request to existing blob URL should yield 200" classname="OCI Distribution Conformance Tests" time="0.326958206"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull manifests HEAD request to nonexistent manifest should return 404" classname="OCI Distribution Conformance Tests" time="0.266618872"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull manifests HEAD request to manifest path (digest) should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.294686815"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull manifests HEAD request to manifest path (tag) should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.323587682"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull manifests GET nonexistent manifest should return 404" classname="OCI Distribution Conformance Tests" time="0.265473239"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull manifests GET request to manifest path (digest) should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.237299042"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Pull manifests GET request to manifest path (tag) should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.28282782"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Error codes 400 response body should contain OCI-conforming JSON message" classname="OCI Distribution Conformance Tests" time="0.254411042"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Teardown Delete config blob created in setup" classname="OCI Distribution Conformance Tests" time="0.27357444"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Teardown Delete layer blob created in setup" classname="OCI Distribution Conformance Tests" time="0.315856541"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Pull Teardown Delete manifest created in setup" classname="OCI Distribution Conformance Tests" time="0.478661096"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Streamed PATCH request with blob in body should yield 202 response" classname="OCI Distribution Conformance Tests" time="0.897855236"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Streamed PUT request to session URL with digest should yield 201 response" classname="OCI Distribution Conformance Tests" time="0.558544735"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Monolithic GET nonexistent blob should result in 404 response" classname="OCI Distribution Conformance Tests" time="0.277167321"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Monolithic POST request with digest and blob should yield a 201 or 202" classname="OCI Distribution Conformance Tests" time="1.048813761"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Monolithic GET request to blob URL from prior request should yield 200 or 404 based on response code" classname="OCI Distribution Conformance Tests" time="0.313602558"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Monolithic POST request should yield a session ID" classname="OCI Distribution Conformance Tests" time="0.357634122"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Monolithic PUT upload of a blob should yield a 201 Response" classname="OCI Distribution Conformance Tests" time="0.86405562"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Monolithic GET request to existing blob should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.251168247"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Monolithic PUT upload of a layer blob should yield a 201 Response" classname="OCI Distribution Conformance Tests" time="1.18279708"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Monolithic GET request to existing layer should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.334399033"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Chunked Out-of-order blob upload should return 416" classname="OCI Distribution Conformance Tests" time="0.792417461"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Chunked PATCH request with first chunk should return 202" classname="OCI Distribution Conformance Tests" time="0.92120407"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Blob Upload Chunked PUT request with final chunk should return 201" classname="OCI Distribution Conformance Tests" time="0.901626802"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Cross-Repository Blob Mount POST request to mount another repository&#39;s blob should return 201 or 202" classname="OCI Distribution Conformance Tests" time="0.286084981"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Cross-Repository Blob Mount GET request to test digest within cross-mount namespace should return 200" classname="OCI Distribution Conformance Tests" time="0.307313141"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Cross-Repository Blob Mount Cross-mounting of nonexistent blob should yield session id" classname="OCI Distribution Conformance Tests" time="0.000196111">
+          <skipped>/Users/someuser/distribution-spec/conformance/02_push_test.go:234&#xA;you have skipped this test.&#xA;/Users/someuser/distribution-spec/conformance/setup.go:338</skipped>
+      </testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Manifest Upload GET nonexistent manifest should return 404" classname="OCI Distribution Conformance Tests" time="0.240179145"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Manifest Upload PUT should accept a manifest upload" classname="OCI Distribution Conformance Tests" time="2.329332967"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Manifest Upload Registry should accept a manifest upload with no layers" classname="OCI Distribution Conformance Tests" time="0.644955527"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Manifest Upload GET request to manifest URL (digest) should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.259046918"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Teardown Delete config blob created in tests" classname="OCI Distribution Conformance Tests" time="0.437798894"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Teardown Delete layer blob created in setup" classname="OCI Distribution Conformance Tests" time="0.305440457"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Push Teardown Delete manifest created in tests" classname="OCI Distribution Conformance Tests" time="0.734719866"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Setup Populate registry with test blob" classname="OCI Distribution Conformance Tests" time="1.232829252"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Setup Populate registry with test layer" classname="OCI Distribution Conformance Tests" time="1.088539537"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Setup Populate registry with test tags" classname="OCI Distribution Conformance Tests" time="2.88069021"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Setup Populate registry with test tags (no push)" classname="OCI Distribution Conformance Tests" time="0.000251442">
+          <skipped>/Users/someuser/distribution-spec/conformance/03_discovery_test.go:80&#xA;you have skipped this test.&#xA;/Users/someuser/distribution-spec/conformance/setup.go:344</skipped>
+      </testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Test content discovery endpoints GET request to list tags should yield 200 response" classname="OCI Distribution Conformance Tests" time="0.291128581"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Test content discovery endpoints GET number of tags should be limitable by `n` query parameter" classname="OCI Distribution Conformance Tests" time="0.438941671"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Test content discovery endpoints GET start of tag is set by `last` query parameter" classname="OCI Distribution Conformance Tests" time="0.486627825"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Teardown Delete config blob created in tests" classname="OCI Distribution Conformance Tests" time="0.318365788"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Teardown Delete layer blob created in setup" classname="OCI Distribution Conformance Tests" time="0.338681504"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Discovery Teardown Delete created manifest &amp; associated tags" classname="OCI Distribution Conformance Tests" time="0.688565241"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Setup Populate registry with test config blob" classname="OCI Distribution Conformance Tests" time="1.249476627"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Setup Populate registry with test layer" classname="OCI Distribution Conformance Tests" time="1.1260486570000001"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Setup Populate registry with test tag" classname="OCI Distribution Conformance Tests" time="0.716897465"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Setup Check how many tags there are before anything gets deleted" classname="OCI Distribution Conformance Tests" time="0.244129036"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Manifest delete DELETE request to manifest tag should return 202, unless tag deletion is disallowed (400/405)" classname="OCI Distribution Conformance Tests" time="0.204727135"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Manifest delete DELETE request to manifest (digest) should yield 202 response unless already deleted" classname="OCI Distribution Conformance Tests" time="0.442465075"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Manifest delete GET request to deleted manifest URL should yield 404 response, unless delete is disallowed" classname="OCI Distribution Conformance Tests" time="0.273232644"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Manifest delete GET request to tags list should reflect manifest deletion" classname="OCI Distribution Conformance Tests" time="0.261860781"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Blob delete DELETE request to blob URL should yield 202 response" classname="OCI Distribution Conformance Tests" time="0.580228535"></testcase>
+      <testcase name="OCI Distribution Conformance Tests Content Management Blob delete GET request to deleted blob URL should yield 404 response" classname="OCI Distribution Conformance Tests" time="0.260798887"></testcase>
+  </testsuite>
