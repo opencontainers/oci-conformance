@@ -135,7 +135,7 @@
       .meter-green {
         height: 100%;
         background: green;
-        width: 96%;
+        width: 95%;
       }
       .meter-red {
         height: 100%;
@@ -145,7 +145,7 @@
       .meter-grey {
         height: 100%;
         background: grey;
-        width: 4%;
+        width: 5%;
       }
       .subcategory {
         background: white;
@@ -183,7 +183,7 @@
       <tr>
         <td class="bullet-left">Summary</td>
         <td>
-          <div class="quick-summary"><span class="darkgreen">52 passed</span><span class="darkgrey">2 skipped</span><div class="meter">
+          <div class="quick-summary"><span class="darkgreen">59 passed</span><span class="darkgrey">3 skipped</span><div class="meter">
               <div class="meter-green"></div>
               <div class="meter-red"></div>
               <div class="meter-grey"></div>
@@ -193,15 +193,15 @@
       </tr>
       <tr>
         <td class="bullet-left">Start Time</td>
-        <td>Oct 11 23:01:22.334 -0600 MDT</td>
+        <td>Dec 4 21:08:51.475 &#43;0000 UTC</td>
       </tr>
       <tr>
         <td class="bullet-left">End Time</td>
-        <td>Oct 11 23:01:24.209 -0600 MDT</td>
+        <td>Dec 4 21:08:53.602 &#43;0000 UTC</td>
       </tr>
       <tr>
         <td class="bullet-left">Time Elapsed</td>
-        <td>1.874631849s</td>
+        <td>2.127270159s</td>
       </tr>
       <tr>
         <td class="bullet-left">Test Version</td>
@@ -211,9 +211,11 @@
         <td class="bullet-left">Configuration</td>
         <td><div class="bullet-right">
           
-            OCI_ROOT_URL=http://127.0.0.1:9999/<br />
+            OCI_ROOT_URL=http://127.0.0.1:8096<br />
           
             OCI_NAMESPACE=vsoch/django-oci<br />
+          
+            OCI_DEBUG=true<br />
           
             OCI_TEST_PULL=1<br />
           
@@ -250,11 +252,11 @@
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-0')">Populate registry with test blob</h4>
                         <br>
                         <div id="output-box-0" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.353788 DEBUG 
+                          <pre class="pre-box">2021/12/04 21:08:51.508775 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -262,16 +264,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.353421571-06:00
-TIME DURATION: 18.572812ms
+RECEIVED AT  : 2021-12-04T21:08:51.508491923Z
+TIME DURATION: 32.831984ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: /v2/put/37/session-0e25449f-4eb6-4b26-92e9-629ab557fdc8/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Location: /v2/blobs/uploads/put/1/session-ad6f4a70-894b-4f84-aa39-da23a36c2997
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -279,30 +282,31 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:22.364461 DEBUG 
+2021/12/04 21:08:51.517646 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/put/37/session-0e25449f-4eb6-4b26-92e9-629ab557fdc8/blobs/upload/?digest=sha256%3A66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PUT  /v2/blobs/uploads/put/1/session-ad6f4a70-894b-4f84-aa39-da23a36c2997?digest=sha256%3A7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
-	Content-Length: 113
+	Content-Length: 144
 	Content-Type: application/octet-stream
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-ewoJImFyY2hpdGVjdHVyZSI6ICJhbWQ2NCIsCgkib3MiOiAibGludXgiLAoJImNvbmZpZyI6IHt9LAoJInJvb3RmcyI6IHsKCQkidHlwZSI6ICJsYXllcnMiLAoJCSJkaWZmX2lkcyI6IFtdCgl9Cn0=
+ewoJImF1dGhvciI6ICJUb2FxRVU1NkZ6V1IzZjVPIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:22.364021041-06:00
-TIME DURATION: 10.148482ms
+RECEIVED AT  : 2021-12-04T21:08:51.517186386Z
+TIME DURATION: 8.320423ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -322,11 +326,11 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-1')">Populate registry with test layer</h4>
                         <br>
                         <div id="output-box-1" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.372741 DEBUG 
+                          <pre class="pre-box">2021/12/04 21:08:51.526733 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -334,16 +338,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.372414422-06:00
-TIME DURATION: 7.866443ms
+RECEIVED AT  : 2021-12-04T21:08:51.526429055Z
+TIME DURATION: 8.64238ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: /v2/put/38/session-53a2c610-9bea-4424-8796-5f09ff7c45e1/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Location: /v2/blobs/uploads/put/2/session-0c46e016-6125-4ceb-a5ab-5d1d529738c0
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -351,11 +356,11 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:22.420710 DEBUG 
+2021/12/04 21:08:51.581374 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/put/38/session-53a2c610-9bea-4424-8796-5f09ff7c45e1/blobs/upload/?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PUT  /v2/blobs/uploads/put/2/session-0c46e016-6125-4ceb-a5ab-5d1d529738c0?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Length: 168
 	Content-Type: application/octet-stream
@@ -365,16 +370,17 @@ H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSj
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:22.420273039-06:00
-TIME DURATION: 47.438715ms
+RECEIVED AT  : 2021-12-04T21:08:51.581070238Z
+TIME DURATION: 54.187602ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -394,30 +400,31 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-2')">Populate registry with test manifest</h4>
                         <br>
                         <div id="output-box-2" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.443133 DEBUG 
+                          <pre class="pre-box">2021/12/04 21:08:51.607786 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/tagtest0  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjdlYjQ3ZjhlYTAxZjg4MmQxMjJmMzQzNWZkM2FlMmUxMjBjZWMzMzQxZTMyZjBlMGRlYjk3ODM4MDRhNmY0ZDEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:22.442688319-06:00
-TIME DURATION: 21.844ms
+RECEIVED AT  : 2021-12-04T21:08:51.607297876Z
+TIME DURATION: 25.679849ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:e0ddede73fb858577648bebf933a0f2c5d8a2dc0f92bece68a697c7735f9e4de
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -437,11 +444,11 @@ None
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-3')">Get the name of a tag</h4>
                         <br>
                         <div id="output-box-3" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.446634 DEBUG 
+                          <pre class="pre-box">2021/12/04 21:08:51.611618 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/tags/list  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -449,16 +456,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:22.44620955-06:00
-TIME DURATION: 3.002899ms
+RECEIVED AT  : 2021-12-04T21:08:51.611200609Z
+TIME DURATION: 3.249111ms
 HEADERS      :
 	Allow: GET
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
-	Content-Length: 60
+	Content-Length: 47
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -466,10 +474,41 @@ BODY         :
 {
    &#34;name&#34;: &#34;vsoch/django-oci&#34;,
    &#34;tags&#34;: [
-      &#34;emptylayer&#34;,
       &#34;tagtest0&#34;
    ]
 }
+==============================================================================
+
+2021/12/04 21:08:51.658961 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/vsoch/django-oci/manifests/tagtest0  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjdlYjQ3ZjhlYTAxZjg4MmQxMjJmMzQzNWZkM2FlMmUxMjBjZWMzMzQxZTMyZjBlMGRlYjk3ODM4MDRhNmY0ZDEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2021-12-04T21:08:51.656947539Z
+TIME DURATION: 45.138974ms
+HEADERS      :
+	Allow: GET, PUT, DELETE
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Length: 4
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:e0ddede73fb858577648bebf933a0f2c5d8a2dc0f92bece68a697c7735f9e4de
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+None
 ==============================================================================
 
 </pre>
@@ -500,14 +539,14 @@ BODY         :
                     
                       <div class="result green">
                         <div id="output-box-5-button" class="toggle" onclick="javascript:toggleOutput('output-box-5')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-5')">GET nonexistent blob should result in 404 response</h4>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-5')">HEAD request to nonexistent blob should result in 404 response</h4>
                         <br>
                         <div id="output-box-5" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.492651 DEBUG 
+                          <pre class="pre-box">2021/12/04 21:08:51.664137 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HEAD  /v2/vsoch/django-oci/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -515,14 +554,100 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2020-10-11T23:01:22.492363024-06:00
-TIME DURATION: 45.321362ms
+RECEIVED AT  : 2021-12-04T21:08:51.663807093Z
+TIME DURATION: 4.258565ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Content-Length: 23
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-6-button" class="toggle" onclick="javascript:toggleOutput('output-box-6')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-6')">HEAD request to existing blob should yield 200</h4>
+                        <br>
+                        <div id="output-box-6" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.669265 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/vsoch/django-oci/blobs/sha256:7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2021-12-04T21:08:51.668748696Z
+TIME DURATION: 4.481856ms
+HEADERS      :
+	Allow: GET, DELETE, HEAD
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Length: 0
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Docker-Content-Digest: sha256:7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-7-button" class="toggle" onclick="javascript:toggleOutput('output-box-7')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-7')">GET nonexistent blob should result in 404 response</h4>
+                        <br>
+                        <div id="output-box-7" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.674956 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/vsoch/django-oci/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2021-12-04T21:08:51.67456688Z
+TIME DURATION: 5.167103ms
+HEADERS      :
+	Allow: GET, DELETE, HEAD
+	Content-Length: 23
+	Content-Type: application/json
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -540,15 +665,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-6-button" class="toggle" onclick="javascript:toggleOutput('output-box-6')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-6')">GET request to existing blob URL should yield 200</h4>
+                        <div id="output-box-8-button" class="toggle" onclick="javascript:toggleOutput('output-box-8')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-8')">GET request to existing blob URL should yield 200</h4>
                         <br>
-                        <div id="output-box-6" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.496557 DEBUG 
+                        <div id="output-box-8" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.679451 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
+GET  /v2/vsoch/django-oci/blobs/sha256:7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -556,22 +681,24 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:22.49559591-06:00
-TIME DURATION: 2.868715ms
+RECEIVED AT  : 2021-12-04T21:08:51.678768737Z
+TIME DURATION: 3.634526ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
-	Content-Disposition: inline; filename=sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b
-	Content-Length: 113
+	Content-Disposition: inline; filename=sha256:7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1
+	Content-Length: 144
 	Content-Type: application/octet-stream
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
 BODY         :
 {
+	&#34;author&#34;: &#34;ToaqEU56FzWR3f5O&#34;,
 	&#34;architecture&#34;: &#34;amd64&#34;,
 	&#34;os&#34;: &#34;linux&#34;,
 	&#34;config&#34;: {},
@@ -597,15 +724,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-7-button" class="toggle" onclick="javascript:toggleOutput('output-box-7')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-7')">GET nonexistent manifest should return 404</h4>
+                        <div id="output-box-9-button" class="toggle" onclick="javascript:toggleOutput('output-box-9')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-9')">HEAD request to nonexistent manifest should return 404</h4>
                         <br>
-                        <div id="output-box-7" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.500766 DEBUG 
+                        <div id="output-box-9" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.729495 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HEAD  /v2/vsoch/django-oci/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -613,22 +740,23 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2020-10-11T23:01:22.500371784-06:00
-TIME DURATION: 3.734657ms
+RECEIVED AT  : 2021-12-04T21:08:51.728985064Z
+TIME DURATION: 49.304123ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Content-Length: 6
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
 BODY         :
-*** Error: Unable to format response body - &#34;invalid character &#39;d&#39; looking for beginning of value&#34; ***
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
 
 Log Body as-is:
-detail
+
 ==============================================================================
 
 </pre>
@@ -639,15 +767,15 @@ detail
                     
                     
                       <div class="result green">
-                        <div id="output-box-8-button" class="toggle" onclick="javascript:toggleOutput('output-box-8')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-8')">GET request to manifest path (digest) should yield 200 response</h4>
+                        <div id="output-box-10-button" class="toggle" onclick="javascript:toggleOutput('output-box-10')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-10')">HEAD request to manifest path (digest) should yield 200 response</h4>
                         <br>
-                        <div id="output-box-8" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.505055 DEBUG 
+                        <div id="output-box-10" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.737785 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HEAD  /v2/vsoch/django-oci/manifests/sha256:e0ddede73fb858577648bebf933a0f2c5d8a2dc0f92bece68a697c7735f9e4de  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
@@ -656,16 +784,59 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:22.504621529-06:00
-TIME DURATION: 3.754544ms
+RECEIVED AT  : 2021-12-04T21:08:51.737087904Z
+TIME DURATION: 7.420177ms
+HEADERS      :
+	Allow: GET, PUT, DELETE
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Length: 4
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-11-button" class="toggle" onclick="javascript:toggleOutput('output-box-11')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-11')">HEAD request to manifest path (tag) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-11" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.746311 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/vsoch/django-oci/manifests/tagtest0  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2021-12-04T21:08:51.745434119Z
+TIME DURATION: 7.476343ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 391
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -674,8 +845,8 @@ BODY         :
    &#34;schemaVersion&#34;: 2,
    &#34;config&#34;: {
       &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
-      &#34;digest&#34;: &#34;sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b&#34;,
-      &#34;size&#34;: 113
+      &#34;digest&#34;: &#34;sha256:7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1&#34;,
+      &#34;size&#34;: 144
    },
    &#34;layers&#34;: [
       {
@@ -695,15 +866,58 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-9-button" class="toggle" onclick="javascript:toggleOutput('output-box-9')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-9')">GET request to manifest path (tag) should yield 200 response</h4>
+                        <div id="output-box-12-button" class="toggle" onclick="javascript:toggleOutput('output-box-12')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-12')">GET nonexistent manifest should return 404</h4>
                         <br>
-                        <div id="output-box-9" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.557798 DEBUG 
+                        <div id="output-box-12" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.753276 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/manifests/emptylayer  HTTP/1.1
-HOST   : 127.0.0.1:9999
+GET  /v2/vsoch/django-oci/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2021-12-04T21:08:51.752729754Z
+TIME DURATION: 6.141391ms
+HEADERS      :
+	Allow: GET, PUT, DELETE
+	Content-Length: 6
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+*** Error: Unable to format response body - &#34;invalid character &#39;d&#39; looking for beginning of value&#34; ***
+
+Log Body as-is:
+detail
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-13-button" class="toggle" onclick="javascript:toggleOutput('output-box-13')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-13')">GET request to manifest path (digest) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-13" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.760028 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/vsoch/django-oci/manifests/sha256:e0ddede73fb858577648bebf933a0f2c5d8a2dc0f92bece68a697c7735f9e4de  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
@@ -712,16 +926,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:22.556464095-06:00
-TIME DURATION: 51.332067ms
+RECEIVED AT  : 2021-12-04T21:08:51.75919031Z
+TIME DURATION: 5.690226ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
-	Content-Length: 215
+	Content-Length: 391
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -730,10 +945,73 @@ BODY         :
    &#34;schemaVersion&#34;: 2,
    &#34;config&#34;: {
       &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
-      &#34;digest&#34;: &#34;sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b&#34;,
-      &#34;size&#34;: 113
+      &#34;digest&#34;: &#34;sha256:7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1&#34;,
+      &#34;size&#34;: 144
    },
-   &#34;layers&#34;: []
+   &#34;layers&#34;: [
+      {
+         &#34;mediaType&#34;: &#34;application/vnd.oci.image.layer.v1.tar&#43;gzip&#34;,
+         &#34;digest&#34;: &#34;sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183&#34;,
+         &#34;size&#34;: 168
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-14-button" class="toggle" onclick="javascript:toggleOutput('output-box-14')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-14')">GET request to manifest path (tag) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-14" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.809771 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/vsoch/django-oci/manifests/tagtest0  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2021-12-04T21:08:51.809054805Z
+TIME DURATION: 48.859333ms
+HEADERS      :
+	Allow: GET, PUT, DELETE
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+{
+   &#34;schemaVersion&#34;: 2,
+   &#34;config&#34;: {
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;digest&#34;: &#34;sha256:7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1&#34;,
+      &#34;size&#34;: 144
+   },
+   &#34;layers&#34;: [
+      {
+         &#34;mediaType&#34;: &#34;application/vnd.oci.image.layer.v1.tar&#43;gzip&#34;,
+         &#34;digest&#34;: &#34;sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183&#34;,
+         &#34;size&#34;: 168
+      }
+   ]
 }
 ==============================================================================
 
@@ -752,15 +1030,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-10-button" class="toggle" onclick="javascript:toggleOutput('output-box-10')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-10')">400 response body should contain OCI-conforming JSON message</h4>
+                        <div id="output-box-15-button" class="toggle" onclick="javascript:toggleOutput('output-box-15')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-15')">400 response body should contain OCI-conforming JSON message</h4>
                         <br>
-                        <div id="output-box-10" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.579492 DEBUG 
+                        <div id="output-box-15" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.819690 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/sha256:totallywrong  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
@@ -770,13 +1048,14 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2020-10-11T23:01:22.57417161-06:00
-TIME DURATION: 15.996829ms
+RECEIVED AT  : 2021-12-04T21:08:51.818238474Z
+TIME DURATION: 8.201006ms
 HEADERS      :
-	Content-Length: 3913
+	Content-Length: 4453
 	Content-Type: text/html
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
 BODY         :
@@ -802,11 +1081,13 @@ BODY         :
     #info ol li { font-family: monospace; }
     #summary { background: #ffc; }
     #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
   &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div id=&#34;summary&#34;&gt;
     &lt;h1&gt;Page not found &lt;span&gt;(404)&lt;/span&gt;&lt;/h1&gt;
+    
     &lt;table class=&#34;meta&#34;&gt;
       &lt;tr&gt;
         &lt;th&gt;Request Method:&lt;/th&gt;
@@ -814,7 +1095,7 @@ BODY         :
       &lt;/tr&gt;
       &lt;tr&gt;
         &lt;th&gt;Request URL:&lt;/th&gt;
-        &lt;td&gt;http://127.0.0.1:9999/v2/vsoch/django-oci/manifests/sha256:totallywrong&lt;/td&gt;
+        &lt;td&gt;http://127.0.0.1:8096/v2/vsoch/django-oci/manifests/sha256:totallywrong&lt;/td&gt;
       &lt;/tr&gt;
       
     &lt;/table&gt;
@@ -839,6 +1120,16 @@ BODY         :
                 ^
                 
             
+                ^auth/token/?$
+                [name=&#39;get_auth_token&#39;]
+            
+          &lt;/li&gt;
+        
+          &lt;li&gt;
+            
+                ^
+                
+            
                 ^v2/?$
                 [name=&#39;api_version_check&#39;]
             
@@ -849,7 +1140,7 @@ BODY         :
                 ^
                 
             
-                ^v2/(?P&amp;lt;name&amp;gt;[a-z0-9\/]&#43;(?:[._-][a-z0-9]&#43;)*)/tags/list/?$
+                ^v2/(?P&amp;lt;name&amp;gt;[a-z0-9\/-_]&#43;(?:[._-][a-z0-9]&#43;)*)/tags/list/?$
                 [name=&#39;image_tags&#39;]
             
           &lt;/li&gt;
@@ -859,7 +1150,7 @@ BODY         :
                 ^
                 
             
-                ^v2/(?P&amp;lt;name&amp;gt;[a-z0-9\/]&#43;(?:[._-][a-z0-9]&#43;)*)/manifests/(?P&amp;lt;reference&amp;gt;[A-Za-z0-9_&#43;.-]&#43;:[A-Fa-f0-9]&#43;)/?$
+                ^v2/(?P&amp;lt;name&amp;gt;[a-z0-9\/-_]&#43;(?:[._-][a-z0-9]&#43;)*)/manifests/(?P&amp;lt;reference&amp;gt;[A-Za-z0-9_&#43;.-]&#43;:[A-Fa-f0-9]&#43;)/?$
                 [name=&#39;image_manifest&#39;]
             
           &lt;/li&gt;
@@ -869,7 +1160,7 @@ BODY         :
                 ^
                 
             
-                ^v2/(?P&amp;lt;name&amp;gt;[a-z0-9\/]&#43;(?:[._-][a-z0-9]&#43;)*)/manifests/(?P&amp;lt;tag&amp;gt;[A-Za-z0-9_&#43;.-]&#43;)/?$
+                ^v2/(?P&amp;lt;name&amp;gt;[a-z0-9\/-_]&#43;(?:[._-][a-z0-9]&#43;)*)/manifests/(?P&amp;lt;tag&amp;gt;[A-Za-z0-9_&#43;.-]&#43;)/?$
                 [name=&#39;image_manifest&#39;]
             
           &lt;/li&gt;
@@ -879,7 +1170,7 @@ BODY         :
                 ^
                 
             
-                ^v2/(?P&amp;lt;name&amp;gt;[a-z0-9\/]&#43;(?:[._-][a-z0-9]&#43;)*)/blobs/uploads/?$
+                ^v2/(?P&amp;lt;name&amp;gt;[a-z0-9\/-_]&#43;(?:[._-][a-z0-9]&#43;)*)/blobs/uploads/?$
                 [name=&#39;blob_upload&#39;]
             
           &lt;/li&gt;
@@ -889,7 +1180,17 @@ BODY         :
                 ^
                 
             
-                v2/&amp;lt;path:session_id&amp;gt;/blobs/upload/
+                v2/blobs/uploads/&amp;lt;path:session_id&amp;gt;/
+                [name=&#39;blob_upload&#39;]
+            
+          &lt;/li&gt;
+        
+          &lt;li&gt;
+            
+                ^
+                
+            
+                v2/blobs/uploads/&amp;lt;path:session_id&amp;gt;
                 [name=&#39;blob_upload&#39;]
             
           &lt;/li&gt;
@@ -917,14 +1218,16 @@ BODY         :
       &lt;/ol&gt;
       &lt;p&gt;
         
-        The current path, &lt;code&gt;v2/vsoch/django-oci/manifests/sha256:totallywrong&lt;/code&gt;, didn&#39;t match any of these.
+          The current path, &lt;code&gt;v2/vsoch/django-oci/manifests/sha256:totallywrong&lt;/code&gt;,
+        
+        didn’t match any of these.
       &lt;/p&gt;
     
   &lt;/div&gt;
 
   &lt;div id=&#34;explanation&#34;&gt;
     &lt;p&gt;
-      You&#39;re seeing this error because you have &lt;code&gt;DEBUG = True&lt;/code&gt; in
+      You’re seeing this error because you have &lt;code&gt;DEBUG = True&lt;/code&gt; in
       your Django settings file. Change that to &lt;code&gt;False&lt;/code&gt;, and Django
       will display a standard 404 page.
     &lt;/p&gt;
@@ -948,15 +1251,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-11-button" class="toggle" onclick="javascript:toggleOutput('output-box-11')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-11')">Delete config blob created in setup</h4>
+                        <div id="output-box-16-button" class="toggle" onclick="javascript:toggleOutput('output-box-16')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-16')">Delete config blob created in setup</h4>
                         <br>
-                        <div id="output-box-11" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.599336 DEBUG 
+                        <div id="output-box-16" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.829005 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
+DELETE  /v2/vsoch/django-oci/blobs/sha256:7eb47f8ea01f882d122f3435fd3ae2e120cec3341e32f0e0deb9783804a6f4d1  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -964,15 +1267,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.598667313-06:00
-TIME DURATION: 18.895706ms
+RECEIVED AT  : 2021-12-04T21:08:51.828330306Z
+TIME DURATION: 8.353965ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -988,15 +1292,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-12-button" class="toggle" onclick="javascript:toggleOutput('output-box-12')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-12')">Delete layer blob created in setup</h4>
+                        <div id="output-box-17-button" class="toggle" onclick="javascript:toggleOutput('output-box-17')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-17')">Delete layer blob created in setup</h4>
                         <br>
-                        <div id="output-box-12" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.652766 DEBUG 
+                        <div id="output-box-17" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.877984 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 DELETE  /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -1004,15 +1308,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.652247962-06:00
-TIME DURATION: 52.737969ms
+RECEIVED AT  : 2021-12-04T21:08:51.877135931Z
+TIME DURATION: 47.980045ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1028,15 +1333,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-13-button" class="toggle" onclick="javascript:toggleOutput('output-box-13')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-13')">Delete manifest created in setup</h4>
+                        <div id="output-box-18-button" class="toggle" onclick="javascript:toggleOutput('output-box-18')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-18')">Delete manifest created in setup</h4>
                         <br>
-                        <div id="output-box-13" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.662710 DEBUG 
+                        <div id="output-box-18" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.904888 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556  HTTP/1.1
-HOST   : 127.0.0.1:9999
+DELETE  /v2/vsoch/django-oci/manifests/sha256:e0ddede73fb858577648bebf933a0f2c5d8a2dc0f92bece68a697c7735f9e4de  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -1044,15 +1349,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.662161254-06:00
-TIME DURATION: 9.29308ms
+RECEIVED AT  : 2021-12-04T21:08:51.904261565Z
+TIME DURATION: 25.985639ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1086,15 +1392,15 @@ None
                     
                     
                       <div class="result green">
-                        <div id="output-box-14-button" class="toggle" onclick="javascript:toggleOutput('output-box-14')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-14')">PATCH request with blob in body should yield 202 response</h4>
+                        <div id="output-box-19-button" class="toggle" onclick="javascript:toggleOutput('output-box-19')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-19')">PATCH request with blob in body should yield 202 response</h4>
                         <br>
-                        <div id="output-box-14" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.671069 DEBUG 
+                        <div id="output-box-19" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.917818 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -1102,16 +1408,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.670728571-06:00
-TIME DURATION: 7.928911ms
+RECEIVED AT  : 2021-12-04T21:08:51.917443217Z
+TIME DURATION: 12.34778ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: /v2/put/39/session-dbb2c29c-b79b-4040-bcc8-594b9a85632f/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Location: /v2/blobs/uploads/put/3/session-07b00788-4622-4f5a-896f-6adbd6f94260
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1119,11 +1426,11 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:22.720745 DEBUG 
+2021/12/04 21:08:51.969999 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PATCH  /v2/put/39/session-dbb2c29c-b79b-4040-bcc8-594b9a85632f/blobs/upload/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PATCH  /v2/blobs/uploads/put/3/session-07b00788-4622-4f5a-896f-6adbd6f94260  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Type: application/octet-stream
 	User-Agent: distribution-spec-conformance-tests
@@ -1132,16 +1439,17 @@ TkJBIEphbSBvbiBteSBOQkEgdG9hc3Q=
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.72029314-06:00
-TIME DURATION: 49.14109ms
+RECEIVED AT  : 2021-12-04T21:08:51.969133413Z
+TIME DURATION: 51.19624ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: /v2/put/39/session-dbb2c29c-b79b-4040-bcc8-594b9a85632f/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Location: /v2/blobs/uploads/put/3/session-07b00788-4622-4f5a-896f-6adbd6f94260
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1157,15 +1465,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-15-button" class="toggle" onclick="javascript:toggleOutput('output-box-15')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-15')">PUT request to session URL with digest should yield 201 response</h4>
+                        <div id="output-box-20-button" class="toggle" onclick="javascript:toggleOutput('output-box-20')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-20')">PUT request to session URL with digest should yield 201 response</h4>
                         <br>
-                        <div id="output-box-15" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.733176 DEBUG 
+                        <div id="output-box-20" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:51.993412 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/put/39/session-dbb2c29c-b79b-4040-bcc8-594b9a85632f/blobs/upload/?digest=sha256%3A852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PUT  /v2/blobs/uploads/put/3/session-07b00788-4622-4f5a-896f-6adbd6f94260?digest=sha256%3A852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Length: 23
 	Content-Type: application/octet-stream
@@ -1175,16 +1483,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:22.732494746-06:00
-TIME DURATION: 11.603819ms
+RECEIVED AT  : 2021-12-04T21:08:51.992737312Z
+TIME DURATION: 22.389696ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:51 GMT
+	Expires: Sat, 04 Dec 2021 21:08:51 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1207,15 +1516,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-16-button" class="toggle" onclick="javascript:toggleOutput('output-box-16')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-16')">GET nonexistent blob should result in 404 response</h4>
+                        <div id="output-box-21-button" class="toggle" onclick="javascript:toggleOutput('output-box-21')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-21')">GET nonexistent blob should result in 404 response</h4>
                         <br>
-                        <div id="output-box-16" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.737964 DEBUG 
+                        <div id="output-box-21" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.001035 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -1223,14 +1532,15 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2020-10-11T23:01:22.737522633-06:00
-TIME DURATION: 4.192681ms
+RECEIVED AT  : 2021-12-04T21:08:52.000555612Z
+TIME DURATION: 6.95997ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Content-Length: 23
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1248,290 +1558,35 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-17-button" class="toggle" onclick="javascript:toggleOutput('output-box-17')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-17')">POST request with digest and blob should yield a 201</h4>
-                        <br>
-                        <div id="output-box-17" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.804720 DEBUG 
-==============================================================================
-~~~ REQUEST ~~~
-POST  /v2/vsoch/django-oci/blobs/uploads/?digest=sha256%3A66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
-HEADERS:
-	Content-Length: 113
-	Content-Type: application/octet-stream
-	User-Agent: distribution-spec-conformance-tests
-BODY   :
-ewoJImFyY2hpdGVjdHVyZSI6ICJhbWQ2NCIsCgkib3MiOiAibGludXgiLAoJImNvbmZpZyI6IHt9LAoJInJvb3RmcyI6IHsKCQkidHlwZSI6ICJsYXllcnMiLAoJCSJkaWZmX2lkcyI6IFtdCgl9Cn0=
-------------------------------------------------------------------------------
-~~~ RESPONSE ~~~
-STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:22.804228951-06:00
-TIME DURATION: 66.124385ms
-HEADERS      :
-	Allow: POST, PUT, PATCH
-	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
-	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b/
-	Server: WSGIServer/0.2 CPython/3.8.3
-	Vary: Accept, Cookie
-	X-Content-Type-Options: nosniff
-	X-Frame-Options: DENY
-BODY         :
-
-==============================================================================
-
-</pre>
-                        </div>
-                      </div>
-                    
-                  
-                    
-                    
-                      <div class="result green">
-                        <div id="output-box-18-button" class="toggle" onclick="javascript:toggleOutput('output-box-18')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-18')">GET request to blob URL from prior request should yield 200</h4>
-                        <br>
-                        <div id="output-box-18" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.808338 DEBUG 
-==============================================================================
-~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
-HEADERS:
-	User-Agent: distribution-spec-conformance-tests
-BODY   :
-***** NO CONTENT *****
-------------------------------------------------------------------------------
-~~~ RESPONSE ~~~
-STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:22.808023955-06:00
-TIME DURATION: 3.216803ms
-HEADERS      :
-	Allow: GET, DELETE
-	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
-	Content-Disposition: inline; filename=sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b
-	Content-Length: 113
-	Content-Type: application/octet-stream
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
-	Vary: Accept, Cookie
-	X-Content-Type-Options: nosniff
-	X-Frame-Options: DENY
-BODY         :
-{
-	&#34;architecture&#34;: &#34;amd64&#34;,
-	&#34;os&#34;: &#34;linux&#34;,
-	&#34;config&#34;: {},
-	&#34;rootfs&#34;: {
-		&#34;type&#34;: &#34;layers&#34;,
-		&#34;diff_ids&#34;: []
-	}
-}
-==============================================================================
-
-</pre>
-                        </div>
-                      </div>
-                    
-                  
-                    
-                    
-                      <div class="result green">
-                        <div id="output-box-19-button" class="toggle" onclick="javascript:toggleOutput('output-box-19')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-19')">POST request should yield a session ID</h4>
-                        <br>
-                        <div id="output-box-19" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.815091 DEBUG 
-==============================================================================
-~~~ REQUEST ~~~
-POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
-HEADERS:
-	User-Agent: distribution-spec-conformance-tests
-BODY   :
-***** NO CONTENT *****
-------------------------------------------------------------------------------
-~~~ RESPONSE ~~~
-STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.814870711-06:00
-TIME DURATION: 6.452541ms
-HEADERS      :
-	Allow: POST, PUT, PATCH
-	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
-	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: /v2/put/41/session-8abb0057-113d-47ed-8924-4bb975168e15/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
-	Vary: Accept, Cookie
-	X-Content-Type-Options: nosniff
-	X-Frame-Options: DENY
-BODY         :
-
-==============================================================================
-
-</pre>
-                        </div>
-                      </div>
-                    
-                  
-                    
-                    
-                      <div class="result green">
-                        <div id="output-box-20-button" class="toggle" onclick="javascript:toggleOutput('output-box-20')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-20')">PUT upload of a blob should yield a 201 Response</h4>
-                        <br>
-                        <div id="output-box-20" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.825893 DEBUG 
-==============================================================================
-~~~ REQUEST ~~~
-PUT  /v2/put/41/session-8abb0057-113d-47ed-8924-4bb975168e15/blobs/upload/?digest=sha256%3A66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
-HEADERS:
-	Content-Length: 113
-	Content-Type: application/octet-stream
-	User-Agent: distribution-spec-conformance-tests
-BODY   :
-ewoJImFyY2hpdGVjdHVyZSI6ICJhbWQ2NCIsCgkib3MiOiAibGludXgiLAoJImNvbmZpZyI6IHt9LAoJInJvb3RmcyI6IHsKCQkidHlwZSI6ICJsYXllcnMiLAoJCSJkaWZmX2lkcyI6IFtdCgl9Cn0=
-------------------------------------------------------------------------------
-~~~ RESPONSE ~~~
-STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:22.825618655-06:00
-TIME DURATION: 10.449348ms
-HEADERS      :
-	Allow: POST, PUT, PATCH
-	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
-	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b/
-	Server: WSGIServer/0.2 CPython/3.8.3
-	Vary: Accept, Cookie
-	X-Content-Type-Options: nosniff
-	X-Frame-Options: DENY
-BODY         :
-
-==============================================================================
-
-</pre>
-                        </div>
-                      </div>
-                    
-                  
-                    
-                    
-                      <div class="result green">
-                        <div id="output-box-21-button" class="toggle" onclick="javascript:toggleOutput('output-box-21')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-21')">GET request to existing blob should yield 200 response</h4>
-                        <br>
-                        <div id="output-box-21" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.872748 DEBUG 
-==============================================================================
-~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
-HEADERS:
-	User-Agent: distribution-spec-conformance-tests
-BODY   :
-***** NO CONTENT *****
-------------------------------------------------------------------------------
-~~~ RESPONSE ~~~
-STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:22.872384797-06:00
-TIME DURATION: 46.432839ms
-HEADERS      :
-	Allow: GET, DELETE
-	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
-	Content-Disposition: inline; filename=sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b
-	Content-Length: 113
-	Content-Type: application/octet-stream
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
-	Vary: Accept, Cookie
-	X-Content-Type-Options: nosniff
-	X-Frame-Options: DENY
-BODY         :
-{
-	&#34;architecture&#34;: &#34;amd64&#34;,
-	&#34;os&#34;: &#34;linux&#34;,
-	&#34;config&#34;: {},
-	&#34;rootfs&#34;: {
-		&#34;type&#34;: &#34;layers&#34;,
-		&#34;diff_ids&#34;: []
-	}
-}
-==============================================================================
-
-</pre>
-                        </div>
-                      </div>
-                    
-                  
-                    
-                    
-                      <div class="result green">
                         <div id="output-box-22-button" class="toggle" onclick="javascript:toggleOutput('output-box-22')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-22')">PUT upload of a layer blob should yield a 201 Response</h4>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-22')">POST request with digest and blob should yield a 201 or 202</h4>
                         <br>
                         <div id="output-box-22" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.879334 DEBUG 
+                          <pre class="pre-box">2021/12/04 21:08:52.065264 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+POST  /v2/vsoch/django-oci/blobs/uploads/?digest=sha256%3Aa115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
-	User-Agent: distribution-spec-conformance-tests
-BODY   :
-***** NO CONTENT *****
-------------------------------------------------------------------------------
-~~~ RESPONSE ~~~
-STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.879055036-06:00
-TIME DURATION: 6.234621ms
-HEADERS      :
-	Allow: POST, PUT, PATCH
-	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
-	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: /v2/put/42/session-b5a02df3-212c-44bb-85d6-d68fd74aa71f/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
-	Vary: Accept, Cookie
-	X-Content-Type-Options: nosniff
-	X-Frame-Options: DENY
-BODY         :
-
-==============================================================================
-
-2020/10/11 23:01:22.886024 DEBUG 
-==============================================================================
-~~~ REQUEST ~~~
-PUT  /v2/put/42/session-b5a02df3-212c-44bb-85d6-d68fd74aa71f/blobs/upload/?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
-HOST   : 127.0.0.1:9999
-HEADERS:
-	Content-Length: 168
+	Content-Length: 144
 	Content-Type: application/octet-stream
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+ewoJImF1dGhvciI6ICI2dmdTZnhXLWp0RVllTlMwIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:22.885638557-06:00
-TIME DURATION: 6.233792ms
+RECEIVED AT  : 2021-12-04T21:08:52.064843087Z
+TIME DURATION: 63.634645ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:a115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1548,14 +1603,14 @@ BODY         :
                     
                       <div class="result green">
                         <div id="output-box-23-button" class="toggle" onclick="javascript:toggleOutput('output-box-23')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-23')">GET request to existing layer should yield 200 response</h4>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-23')">GET request to blob URL from prior request should yield 200 or 404 based on response code</h4>
                         <br>
                         <div id="output-box-23" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.937185 DEBUG 
+                          <pre class="pre-box">2021/12/04 21:08:52.072446 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
-HOST   : 127.0.0.1:9999
+GET  /v2/vsoch/django-oci/blobs/sha256:a115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -1563,17 +1618,282 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:22.936353462-06:00
-TIME DURATION: 50.231667ms
+RECEIVED AT  : 2021-12-04T21:08:52.07159685Z
+TIME DURATION: 6.15614ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Disposition: inline; filename=sha256:a115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+{
+	&#34;author&#34;: &#34;6vgSfxW-jtEYeNS0&#34;,
+	&#34;architecture&#34;: &#34;amd64&#34;,
+	&#34;os&#34;: &#34;linux&#34;,
+	&#34;config&#34;: {},
+	&#34;rootfs&#34;: {
+		&#34;type&#34;: &#34;layers&#34;,
+		&#34;diff_ids&#34;: []
+	}
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-24-button" class="toggle" onclick="javascript:toggleOutput('output-box-24')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-24')">POST request should yield a session ID</h4>
+                        <br>
+                        <div id="output-box-24" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.090057 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2021-12-04T21:08:52.089592398Z
+TIME DURATION: 16.951136ms
+HEADERS      :
+	Allow: POST, PUT, PATCH
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Length: 0
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/blobs/uploads/put/5/session-ec2486d0-2f9a-4c2a-98c4-f0818965b466
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-25-button" class="toggle" onclick="javascript:toggleOutput('output-box-25')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-25')">PUT upload of a blob should yield a 201 Response</h4>
+                        <br>
+                        <div id="output-box-25" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.157517 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/blobs/uploads/put/5/session-ec2486d0-2f9a-4c2a-98c4-f0818965b466?digest=sha256%3Aa115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICI2dmdTZnhXLWp0RVllTlMwIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2021-12-04T21:08:52.156910943Z
+TIME DURATION: 66.628091ms
+HEADERS      :
+	Allow: POST, PUT, PATCH
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Length: 0
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:a115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-26-button" class="toggle" onclick="javascript:toggleOutput('output-box-26')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-26')">GET request to existing blob should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-26" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.163915 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/vsoch/django-oci/blobs/sha256:a115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2021-12-04T21:08:52.163311374Z
+TIME DURATION: 5.601393ms
+HEADERS      :
+	Allow: GET, DELETE, HEAD
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Disposition: inline; filename=sha256:a115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+{
+	&#34;author&#34;: &#34;6vgSfxW-jtEYeNS0&#34;,
+	&#34;architecture&#34;: &#34;amd64&#34;,
+	&#34;os&#34;: &#34;linux&#34;,
+	&#34;config&#34;: {},
+	&#34;rootfs&#34;: {
+		&#34;type&#34;: &#34;layers&#34;,
+		&#34;diff_ids&#34;: []
+	}
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-27-button" class="toggle" onclick="javascript:toggleOutput('output-box-27')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-27')">PUT upload of a layer blob should yield a 201 Response</h4>
+                        <br>
+                        <div id="output-box-27" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.178206 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2021-12-04T21:08:52.17769123Z
+TIME DURATION: 13.6059ms
+HEADERS      :
+	Allow: POST, PUT, PATCH
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Length: 0
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/blobs/uploads/put/6/session-692d0c2c-7596-454f-80fb-b8f7be338b72
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+
+==============================================================================
+
+2021/12/04 21:08:52.233635 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/blobs/uploads/put/6/session-692d0c2c-7596-454f-80fb-b8f7be338b72?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2021-12-04T21:08:52.233024743Z
+TIME DURATION: 54.637016ms
+HEADERS      :
+	Allow: POST, PUT, PATCH
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Length: 0
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-28-button" class="toggle" onclick="javascript:toggleOutput('output-box-28')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-28')">GET request to existing layer should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-28" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.241956 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2021-12-04T21:08:52.241096125Z
+TIME DURATION: 7.257344ms
+HEADERS      :
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Disposition: inline; filename=sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
 	Content-Length: 168
 	Content-Type: application/octet-stream
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1597,15 +1917,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-24-button" class="toggle" onclick="javascript:toggleOutput('output-box-24')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-24')">Out-of-order blob upload should return 416</h4>
+                        <div id="output-box-29-button" class="toggle" onclick="javascript:toggleOutput('output-box-29')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-29')">Out-of-order blob upload should return 416</h4>
                         <br>
-                        <div id="output-box-24" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:22.951219 DEBUG 
+                        <div id="output-box-29" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.257653 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Length: 0
 	User-Agent: distribution-spec-conformance-tests
@@ -1614,16 +1934,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:22.950515218-06:00
-TIME DURATION: 13.059587ms
+RECEIVED AT  : 2021-12-04T21:08:52.257053932Z
+TIME DURATION: 14.859186ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: /v2/put/43/session-0ac2be05-a9b1-4655-9cdc-b930078aec91/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/blobs/uploads/put/7/session-5a64c3b3-9cee-4360-a60e-de520b790c06
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1631,11 +1952,11 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:22.958576 DEBUG 
+2021/12/04 21:08:52.314051 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PATCH  /v2/put/43/session-0ac2be05-a9b1-4655-9cdc-b930078aec91/blobs/upload/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PATCH  /v2/blobs/uploads/put/7/session-5a64c3b3-9cee-4360-a60e-de520b790c06  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Length: 22
 	Content-Range: 3-24
@@ -1646,15 +1967,16 @@ bG8sIGhvdyBhcmUgeW91IHRvZGF5Pw==
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 416 Requested Range Not Satisfiable
-RECEIVED AT  : 2020-10-11T23:01:22.957799063-06:00
-TIME DURATION: 6.391097ms
+RECEIVED AT  : 2021-12-04T21:08:52.313079693Z
+TIME DURATION: 55.176139ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1670,15 +1992,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-25-button" class="toggle" onclick="javascript:toggleOutput('output-box-25')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-25')">PATCH request with first chunk should return 202</h4>
+                        <div id="output-box-30-button" class="toggle" onclick="javascript:toggleOutput('output-box-30')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-30')">PATCH request with first chunk should return 202</h4>
                         <br>
-                        <div id="output-box-25" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.021036 DEBUG 
+                        <div id="output-box-30" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.337882 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Length: 0
 	User-Agent: distribution-spec-conformance-tests
@@ -1687,16 +2009,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.020353996-06:00
-TIME DURATION: 61.61364ms
+RECEIVED AT  : 2021-12-04T21:08:52.336747967Z
+TIME DURATION: 22.394863ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:22 GMT
-	Expires: Mon, 12 Oct 2020 05:01:22 GMT
-	Location: /v2/put/44/session-124087c8-bbf9-4a90-8fed-2e6bcaf784ed/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/blobs/uploads/put/8/session-b3cd04c6-e07a-4acc-9ab4-c227852b92db
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1704,11 +2027,11 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:23.032154 DEBUG 
+2021/12/04 21:08:52.359169 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PATCH  /v2/put/44/session-124087c8-bbf9-4a90-8fed-2e6bcaf784ed/blobs/upload/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PATCH  /v2/blobs/uploads/put/8/session-b3cd04c6-e07a-4acc-9ab4-c227852b92db  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Length: 3
 	Content-Range: 0-2
@@ -1719,16 +2042,17 @@ SGVs
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.031380927-06:00
-TIME DURATION: 10.183767ms
+RECEIVED AT  : 2021-12-04T21:08:52.35779871Z
+TIME DURATION: 19.545916ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/put/44/session-124087c8-bbf9-4a90-8fed-2e6bcaf784ed/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/blobs/uploads/put/8/session-b3cd04c6-e07a-4acc-9ab4-c227852b92db
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1744,15 +2068,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-26-button" class="toggle" onclick="javascript:toggleOutput('output-box-26')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-26')">PUT request with final chunk should return 201</h4>
+                        <div id="output-box-31-button" class="toggle" onclick="javascript:toggleOutput('output-box-31')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-31')">PUT request with final chunk should return 201</h4>
                         <br>
-                        <div id="output-box-26" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.056032 DEBUG 
+                        <div id="output-box-31" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.429591 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/put/44/session-124087c8-bbf9-4a90-8fed-2e6bcaf784ed/blobs/upload/?digest=sha256%3A6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PUT  /v2/blobs/uploads/put/8/session-b3cd04c6-e07a-4acc-9ab4-c227852b92db?digest=sha256%3A6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Length: 22
 	Content-Range: 3-24
@@ -1763,16 +2087,17 @@ bG8sIGhvdyBhcmUgeW91IHRvZGF5Pw==
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.05487191-06:00
-TIME DURATION: 22.48808ms
+RECEIVED AT  : 2021-12-04T21:08:52.429048655Z
+TIME DURATION: 69.442787ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1787,6 +2112,110 @@ BODY         :
                   <br>
                 
               
+                <h3>Cross-Repository Blob Mount</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-32-button" class="toggle" onclick="javascript:toggleOutput('output-box-32')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-32')">POST request to mount another repository&#39;s blob should return 201 or 202</h4>
+                        <br>
+                        <div id="output-box-32" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.451953 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-02d6f7c4-4f03-4b4c-8592-66db2977d513/blobs/uploads/?from=vsoch%2Fdjango-oci&amp;mount=sha256%3A852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2021-12-04T21:08:52.451517309Z
+TIME DURATION: 21.704157ms
+HEADERS      :
+	Allow: POST, PUT, PATCH
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Length: 0
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/conformance-02d6f7c4-4f03-4b4c-8592-66db2977d513/blobs/sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-33-button" class="toggle" onclick="javascript:toggleOutput('output-box-33')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-33')">GET request to test digest within cross-mount namespace should return 200</h4>
+                        <br>
+                        <div id="output-box-33" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.459218 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-02d6f7c4-4f03-4b4c-8592-66db2977d513/blobs/sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75/  HTTP/1.1
+HOST   : 127.0.0.1:8096
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2021-12-04T21:08:52.457536742Z
+TIME DURATION: 5.414518ms
+HEADERS      :
+	Allow: GET, DELETE, HEAD
+	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+	Content-Disposition: inline; filename=sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75
+	Content-Length: 23
+	Content-Type: application/octet-stream
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
+	Vary: Accept, Cookie
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+BODY         :
+NBA Jam on my NBA toast
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-34-button" class="toggle" onclick="javascript:toggleOutput('output-box-34')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-34')">Cross-mounting of nonexistent blob should yield session id</h4>
+                        <br>
+                        <div id="output-box-34" style="display: none;">
+                          <pre class="pre-box">you have skipped this test.</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
                 <h3>Manifest Upload</h3>
                 
                 
@@ -1795,15 +2224,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-27-button" class="toggle" onclick="javascript:toggleOutput('output-box-27')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-27')">GET nonexistent manifest should return 404</h4>
+                        <div id="output-box-35-button" class="toggle" onclick="javascript:toggleOutput('output-box-35')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-35')">GET nonexistent manifest should return 404</h4>
                         <br>
-                        <div id="output-box-27" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.104651 DEBUG 
+                        <div id="output-box-35" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.510258 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -1811,14 +2240,15 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2020-10-11T23:01:23.10427277-06:00
-TIME DURATION: 48.038161ms
+RECEIVED AT  : 2021-12-04T21:08:52.509170355Z
+TIME DURATION: 49.07354ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Content-Length: 6
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1837,34 +2267,35 @@ detail
                     
                     
                       <div class="result green">
-                        <div id="output-box-28-button" class="toggle" onclick="javascript:toggleOutput('output-box-28')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-28')">PUT should accept a manifest upload</h4>
+                        <div id="output-box-36-button" class="toggle" onclick="javascript:toggleOutput('output-box-36')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-36')">PUT should accept a manifest upload</h4>
                         <br>
-                        <div id="output-box-28" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.126400 DEBUG 
+                        <div id="output-box-36" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.556199 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/test0  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmExMTVhOTVhMjMwZTkyNDE4YzY0NTIxMWYyZDc2ZjllNDYzNjNjMTk1NGM4NTNmNTEyNTdlNzBkZGFjMzM5YTYiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.125850019-06:00
-TIME DURATION: 21.071238ms
+RECEIVED AT  : 2021-12-04T21:08:52.555735322Z
+TIME DURATION: 45.055183ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:17d5d44c8c3fc0e9b39b0c39d095f6fcecfe7f53df4cbf8b6c8f27c6a955c0f8
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1872,30 +2303,31 @@ BODY         :
 None
 ==============================================================================
 
-2020/10/11 23:01:23.147300 DEBUG 
+2021/12/04 21:08:52.578139 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/test1  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmExMTVhOTVhMjMwZTkyNDE4YzY0NTIxMWYyZDc2ZjllNDYzNjNjMTk1NGM4NTNmNTEyNTdlNzBkZGFjMzM5YTYiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.146687308-06:00
-TIME DURATION: 20.198254ms
+RECEIVED AT  : 2021-12-04T21:08:52.577763145Z
+TIME DURATION: 21.452033ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:17d5d44c8c3fc0e9b39b0c39d095f6fcecfe7f53df4cbf8b6c8f27c6a955c0f8
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1903,30 +2335,31 @@ BODY         :
 None
 ==============================================================================
 
-2020/10/11 23:01:23.209337 DEBUG 
+2021/12/04 21:08:52.641429 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/test2  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmExMTVhOTVhMjMwZTkyNDE4YzY0NTIxMWYyZDc2ZjllNDYzNjNjMTk1NGM4NTNmNTEyNTdlNzBkZGFjMzM5YTYiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.208361107-06:00
-TIME DURATION: 60.970288ms
+RECEIVED AT  : 2021-12-04T21:08:52.641052958Z
+TIME DURATION: 62.81044ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:17d5d44c8c3fc0e9b39b0c39d095f6fcecfe7f53df4cbf8b6c8f27c6a955c0f8
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1934,30 +2367,31 @@ BODY         :
 None
 ==============================================================================
 
-2020/10/11 23:01:23.250123 DEBUG 
+2021/12/04 21:08:52.662168 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/test3  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmExMTVhOTVhMjMwZTkyNDE4YzY0NTIxMWYyZDc2ZjllNDYzNjNjMTk1NGM4NTNmNTEyNTdlNzBkZGFjMzM5YTYiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.2491929-06:00
-TIME DURATION: 39.694014ms
+RECEIVED AT  : 2021-12-04T21:08:52.661826077Z
+TIME DURATION: 20.311789ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:17d5d44c8c3fc0e9b39b0c39d095f6fcecfe7f53df4cbf8b6c8f27c6a955c0f8
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -1973,34 +2407,35 @@ None
                     
                     
                       <div class="result green">
-                        <div id="output-box-29-button" class="toggle" onclick="javascript:toggleOutput('output-box-29')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-29')">Registry should accept a manifest upload with no layers</h4>
+                        <div id="output-box-37-button" class="toggle" onclick="javascript:toggleOutput('output-box-37')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-37')">Registry should accept a manifest upload with no layers</h4>
                         <br>
-                        <div id="output-box-29" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.256412 DEBUG 
+                        <div id="output-box-37" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.681535 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/emptylayer  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFtdCn0=&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmExMTVhOTVhMjMwZTkyNDE4YzY0NTIxMWYyZDc2ZjllNDYzNjNjMTk1NGM4NTNmNTEyNTdlNzBkZGFjMzM5YTYiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFtdCn0=&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.255704469-06:00
-TIME DURATION: 5.370245ms
+RECEIVED AT  : 2021-12-04T21:08:52.681218828Z
+TIME DURATION: 18.894128ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:f161636f6cd324a1ff25b4e96d48535d1b1b7a612a3d42aefd1c81190e8568c0
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:f3d279a25f7c1f9e7c1e185581bb013f2f5c22679fcc42ce43f3866e707c07bb
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2016,15 +2451,15 @@ None
                     
                     
                       <div class="result green">
-                        <div id="output-box-30-button" class="toggle" onclick="javascript:toggleOutput('output-box-30')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-30')">GET request to manifest URL (digest) should yield 200 response</h4>
+                        <div id="output-box-38-button" class="toggle" onclick="javascript:toggleOutput('output-box-38')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-38')">GET request to manifest URL (digest) should yield 200 response</h4>
                         <br>
-                        <div id="output-box-30" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.304887 DEBUG 
+                        <div id="output-box-38" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.729333 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556  HTTP/1.1
-HOST   : 127.0.0.1:9999
+GET  /v2/vsoch/django-oci/manifests/sha256:17d5d44c8c3fc0e9b39b0c39d095f6fcecfe7f53df4cbf8b6c8f27c6a955c0f8  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
@@ -2033,16 +2468,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:23.304296289-06:00
-TIME DURATION: 47.77134ms
+RECEIVED AT  : 2021-12-04T21:08:52.728850624Z
+TIME DURATION: 47.179091ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 391
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2051,8 +2487,8 @@ BODY         :
    &#34;schemaVersion&#34;: 2,
    &#34;config&#34;: {
       &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
-      &#34;digest&#34;: &#34;sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b&#34;,
-      &#34;size&#34;: 113
+      &#34;digest&#34;: &#34;sha256:a115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6&#34;,
+      &#34;size&#34;: 144
    },
    &#34;layers&#34;: [
       {
@@ -2079,15 +2515,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-31-button" class="toggle" onclick="javascript:toggleOutput('output-box-31')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-31')">Delete config blob created in tests</h4>
+                        <div id="output-box-39-button" class="toggle" onclick="javascript:toggleOutput('output-box-39')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-39')">Delete config blob created in tests</h4>
                         <br>
-                        <div id="output-box-31" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.313617 DEBUG 
+                        <div id="output-box-39" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.737989 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
+DELETE  /v2/vsoch/django-oci/blobs/sha256:a115a95a230e92418c645211f2d76f9e46363c1954c853f51257e70ddac339a6  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2095,15 +2531,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.313135842-06:00
-TIME DURATION: 8.138903ms
+RECEIVED AT  : 2021-12-04T21:08:52.73756767Z
+TIME DURATION: 8.083591ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2119,15 +2556,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-32-button" class="toggle" onclick="javascript:toggleOutput('output-box-32')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-32')">Delete layer blob created in setup</h4>
+                        <div id="output-box-40-button" class="toggle" onclick="javascript:toggleOutput('output-box-40')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-40')">Delete layer blob created in setup</h4>
                         <br>
-                        <div id="output-box-32" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.321980 DEBUG 
+                        <div id="output-box-40" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.747101 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 DELETE  /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2135,15 +2572,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.321259404-06:00
-TIME DURATION: 7.509465ms
+RECEIVED AT  : 2021-12-04T21:08:52.746716548Z
+TIME DURATION: 8.524963ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2159,15 +2597,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-33-button" class="toggle" onclick="javascript:toggleOutput('output-box-33')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-33')">Delete manifest created in tests</h4>
+                        <div id="output-box-41-button" class="toggle" onclick="javascript:toggleOutput('output-box-41')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-41')">Delete manifest created in tests</h4>
                         <br>
-                        <div id="output-box-33" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.377163 DEBUG 
+                        <div id="output-box-41" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.801613 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556  HTTP/1.1
-HOST   : 127.0.0.1:9999
+DELETE  /v2/vsoch/django-oci/manifests/sha256:17d5d44c8c3fc0e9b39b0c39d095f6fcecfe7f53df4cbf8b6c8f27c6a955c0f8  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2175,15 +2613,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.376420714-06:00
-TIME DURATION: 54.293712ms
+RECEIVED AT  : 2021-12-04T21:08:52.800945024Z
+TIME DURATION: 53.703187ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2217,15 +2656,15 @@ None
                     
                     
                       <div class="result green">
-                        <div id="output-box-34-button" class="toggle" onclick="javascript:toggleOutput('output-box-34')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-34')">Populate registry with test blob</h4>
+                        <div id="output-box-42-button" class="toggle" onclick="javascript:toggleOutput('output-box-42')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-42')">Populate registry with test blob</h4>
                         <br>
-                        <div id="output-box-34" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.394197 DEBUG 
+                        <div id="output-box-42" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.816312 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2233,16 +2672,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.39271973-06:00
-TIME DURATION: 15.354399ms
+RECEIVED AT  : 2021-12-04T21:08:52.815833419Z
+TIME DURATION: 13.97044ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/put/45/session-1a2ddede-ce86-473a-b248-bc5556b25950/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/blobs/uploads/put/10/session-fdce3197-6673-49fd-8f02-ea548e9328c0
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2250,30 +2690,31 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:23.412235 DEBUG 
+2021/12/04 21:08:52.831746 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/put/45/session-1a2ddede-ce86-473a-b248-bc5556b25950/blobs/upload/?digest=sha256%3A66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PUT  /v2/blobs/uploads/put/10/session-fdce3197-6673-49fd-8f02-ea548e9328c0?digest=sha256%3A766609db3596a76069bee230b7a2ff16494dc17933714bc4ec0b936e193125ee  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
-	Content-Length: 113
+	Content-Length: 144
 	Content-Type: application/octet-stream
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-ewoJImFyY2hpdGVjdHVyZSI6ICJhbWQ2NCIsCgkib3MiOiAibGludXgiLAoJImNvbmZpZyI6IHt9LAoJInJvb3RmcyI6IHsKCQkidHlwZSI6ICJsYXllcnMiLAoJCSJkaWZmX2lkcyI6IFtdCgl9Cn0=
+ewoJImF1dGhvciI6ICI2cTFmdUpoaWlnNTVURTJlIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.411544637-06:00
-TIME DURATION: 17.091539ms
+RECEIVED AT  : 2021-12-04T21:08:52.831017813Z
+TIME DURATION: 14.51448ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:766609db3596a76069bee230b7a2ff16494dc17933714bc4ec0b936e193125ee/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2289,15 +2730,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-35-button" class="toggle" onclick="javascript:toggleOutput('output-box-35')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-35')">Populate registry with test layer</h4>
+                        <div id="output-box-43-button" class="toggle" onclick="javascript:toggleOutput('output-box-43')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-43')">Populate registry with test layer</h4>
                         <br>
-                        <div id="output-box-35" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.464948 DEBUG 
+                        <div id="output-box-43" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.889162 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2305,16 +2746,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.464384295-06:00
-TIME DURATION: 51.992364ms
+RECEIVED AT  : 2021-12-04T21:08:52.888882649Z
+TIME DURATION: 56.894882ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/put/46/session-659440e2-a56a-4329-96be-ced4602ebfc8/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/blobs/uploads/put/11/session-39774e38-5b7c-4b78-9173-1c90afa68f51
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2322,11 +2764,11 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:23.481379 DEBUG 
+2021/12/04 21:08:52.898654 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/put/46/session-659440e2-a56a-4329-96be-ced4602ebfc8/blobs/upload/?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PUT  /v2/blobs/uploads/put/11/session-39774e38-5b7c-4b78-9173-1c90afa68f51?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Length: 168
 	Content-Type: application/octet-stream
@@ -2336,16 +2778,17 @@ H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSj
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.480456803-06:00
-TIME DURATION: 15.370119ms
+RECEIVED AT  : 2021-12-04T21:08:52.898313108Z
+TIME DURATION: 9.034336ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2361,34 +2804,35 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-36-button" class="toggle" onclick="javascript:toggleOutput('output-box-36')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-36')">Populate registry with test tags</h4>
+                        <div id="output-box-44-button" class="toggle" onclick="javascript:toggleOutput('output-box-44')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-44')">Populate registry with test tags</h4>
                         <br>
-                        <div id="output-box-36" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.512287 DEBUG 
+                        <div id="output-box-44" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:52.925464 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/test0  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc2NjYwOWRiMzU5NmE3NjA2OWJlZTIzMGI3YTJmZjE2NDk0ZGMxNzkzMzcxNGJjNGVjMGI5MzZlMTkzMTI1ZWUiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.511802815-06:00
-TIME DURATION: 30.166655ms
+RECEIVED AT  : 2021-12-04T21:08:52.924731287Z
+TIME DURATION: 25.920097ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:96de06fcdbbb15e488626780c67ac2acf435489cab0f78eeff047d957ed4f6ae
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2396,30 +2840,31 @@ BODY         :
 None
 ==============================================================================
 
-2020/10/11 23:01:23.572752 DEBUG 
+2021/12/04 21:08:52.998733 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/test1  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc2NjYwOWRiMzU5NmE3NjA2OWJlZTIzMGI3YTJmZjE2NDk0ZGMxNzkzMzcxNGJjNGVjMGI5MzZlMTkzMTI1ZWUiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.572200915-06:00
-TIME DURATION: 59.420337ms
+RECEIVED AT  : 2021-12-04T21:08:52.997241727Z
+TIME DURATION: 71.58807ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:52 GMT
+	Expires: Sat, 04 Dec 2021 21:08:52 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:96de06fcdbbb15e488626780c67ac2acf435489cab0f78eeff047d957ed4f6ae
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2427,30 +2872,31 @@ BODY         :
 None
 ==============================================================================
 
-2020/10/11 23:01:23.595619 DEBUG 
+2021/12/04 21:08:53.049346 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/test2  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc2NjYwOWRiMzU5NmE3NjA2OWJlZTIzMGI3YTJmZjE2NDk0ZGMxNzkzMzcxNGJjNGVjMGI5MzZlMTkzMTI1ZWUiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.595017915-06:00
-TIME DURATION: 22.183722ms
+RECEIVED AT  : 2021-12-04T21:08:53.04855705Z
+TIME DURATION: 49.470955ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:96de06fcdbbb15e488626780c67ac2acf435489cab0f78eeff047d957ed4f6ae
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2458,30 +2904,31 @@ BODY         :
 None
 ==============================================================================
 
-2020/10/11 23:01:23.619430 DEBUG 
+2021/12/04 21:08:53.073367 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/test3  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc2NjYwOWRiMzU5NmE3NjA2OWJlZTIzMGI3YTJmZjE2NDk0ZGMxNzkzMzcxNGJjNGVjMGI5MzZlMTkzMTI1ZWUiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.618634055-06:00
-TIME DURATION: 22.922457ms
+RECEIVED AT  : 2021-12-04T21:08:53.07300307Z
+TIME DURATION: 23.532025ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:96de06fcdbbb15e488626780c67ac2acf435489cab0f78eeff047d957ed4f6ae
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2489,11 +2936,11 @@ BODY         :
 None
 ==============================================================================
 
-2020/10/11 23:01:23.673738 DEBUG 
+2021/12/04 21:08:53.117172 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/tags/list  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2501,16 +2948,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:23.672536859-06:00
-TIME DURATION: 53.037149ms
+RECEIVED AT  : 2021-12-04T21:08:53.11684455Z
+TIME DURATION: 43.409148ms
 HEADERS      :
 	Allow: GET
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 81
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2535,10 +2983,10 @@ BODY         :
                     
                     
                       <div class="result grey">
-                        <div id="output-box-37-button" class="toggle" onclick="javascript:toggleOutput('output-box-37')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-37')">Populate registry with test tags (no push)</h4>
+                        <div id="output-box-45-button" class="toggle" onclick="javascript:toggleOutput('output-box-45')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-45')">Populate registry with test tags (no push)</h4>
                         <br>
-                        <div id="output-box-37" style="display: none;">
+                        <div id="output-box-45" style="display: none;">
                           <pre class="pre-box">you have skipped this test.</pre>
                         </div>
                       </div>
@@ -2554,15 +3002,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-38-button" class="toggle" onclick="javascript:toggleOutput('output-box-38')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-38')">GET request to list tags should yield 200 response</h4>
+                        <div id="output-box-46-button" class="toggle" onclick="javascript:toggleOutput('output-box-46')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-46')">GET request to list tags should yield 200 response</h4>
                         <br>
-                        <div id="output-box-38" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.688795 DEBUG 
+                        <div id="output-box-46" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.122099 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/tags/list  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2570,16 +3018,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:23.686981133-06:00
-TIME DURATION: 11.688702ms
+RECEIVED AT  : 2021-12-04T21:08:53.121771195Z
+TIME DURATION: 4.039399ms
 HEADERS      :
 	Allow: GET
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 81
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2604,15 +3053,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-39-button" class="toggle" onclick="javascript:toggleOutput('output-box-39')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-39')">GET number of tags should be limitable by `n` query parameter</h4>
+                        <div id="output-box-47-button" class="toggle" onclick="javascript:toggleOutput('output-box-47')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-47')">GET number of tags should be limitable by `n` query parameter</h4>
                         <br>
-                        <div id="output-box-39" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.701810 DEBUG 
+                        <div id="output-box-47" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.126289 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/tags/list?n=2  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2620,16 +3069,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:23.700687978-06:00
-TIME DURATION: 11.64378ms
+RECEIVED AT  : 2021-12-04T21:08:53.125964594Z
+TIME DURATION: 3.744317ms
 HEADERS      :
 	Allow: GET
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 57
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2651,15 +3101,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-40-button" class="toggle" onclick="javascript:toggleOutput('output-box-40')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-40')">GET start of tag is set by `last` query parameter</h4>
+                        <div id="output-box-48-button" class="toggle" onclick="javascript:toggleOutput('output-box-48')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-48')">GET start of tag is set by `last` query parameter</h4>
                         <br>
-                        <div id="output-box-40" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.753309 DEBUG 
+                        <div id="output-box-48" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.177680 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/tags/list?n=2  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2667,16 +3117,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:23.752425077-06:00
-TIME DURATION: 50.415501ms
+RECEIVED AT  : 2021-12-04T21:08:53.177237917Z
+TIME DURATION: 50.782283ms
 HEADERS      :
 	Allow: GET
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 57
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2690,11 +3141,11 @@ BODY         :
 }
 ==============================================================================
 
-2020/10/11 23:01:23.766016 DEBUG 
+2021/12/04 21:08:53.183720 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/tags/list?last=test0&amp;n=2  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2702,16 +3153,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:23.764434631-06:00
-TIME DURATION: 10.982942ms
+RECEIVED AT  : 2021-12-04T21:08:53.183195974Z
+TIME DURATION: 5.328352ms
 HEADERS      :
 	Allow: GET
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 44
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2739,15 +3191,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-41-button" class="toggle" onclick="javascript:toggleOutput('output-box-41')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-41')">Delete config blob created in tests</h4>
+                        <div id="output-box-49-button" class="toggle" onclick="javascript:toggleOutput('output-box-49')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-49')">Delete config blob created in tests</h4>
                         <br>
-                        <div id="output-box-41" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.783080 DEBUG 
+                        <div id="output-box-49" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.194040 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
+DELETE  /v2/vsoch/django-oci/blobs/sha256:766609db3596a76069bee230b7a2ff16494dc17933714bc4ec0b936e193125ee  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2755,15 +3207,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.782273355-06:00
-TIME DURATION: 15.962011ms
+RECEIVED AT  : 2021-12-04T21:08:53.193426097Z
+TIME DURATION: 9.513001ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2779,15 +3232,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-42-button" class="toggle" onclick="javascript:toggleOutput('output-box-42')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-42')">Delete layer blob created in setup</h4>
+                        <div id="output-box-50-button" class="toggle" onclick="javascript:toggleOutput('output-box-50')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-50')">Delete layer blob created in setup</h4>
                         <br>
-                        <div id="output-box-42" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.845491 DEBUG 
+                        <div id="output-box-50" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.250132 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 DELETE  /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2795,15 +3248,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.844493781-06:00
-TIME DURATION: 61.213779ms
+RECEIVED AT  : 2021-12-04T21:08:53.249170942Z
+TIME DURATION: 54.915807ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2819,15 +3273,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-43-button" class="toggle" onclick="javascript:toggleOutput('output-box-43')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-43')">Delete created manifest &amp; associated tags</h4>
+                        <div id="output-box-51-button" class="toggle" onclick="javascript:toggleOutput('output-box-51')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-51')">Delete created manifest &amp; associated tags</h4>
                         <br>
-                        <div id="output-box-43" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.879587 DEBUG 
+                        <div id="output-box-51" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.281045 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556  HTTP/1.1
-HOST   : 127.0.0.1:9999
+DELETE  /v2/vsoch/django-oci/manifests/sha256:96de06fcdbbb15e488626780c67ac2acf435489cab0f78eeff047d957ed4f6ae  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2835,15 +3289,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.877944036-06:00
-TIME DURATION: 32.192191ms
+RECEIVED AT  : 2021-12-04T21:08:53.280046602Z
+TIME DURATION: 29.559499ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2877,15 +3332,15 @@ None
                     
                     
                       <div class="result green">
-                        <div id="output-box-44-button" class="toggle" onclick="javascript:toggleOutput('output-box-44')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-44')">Populate registry with test config blob</h4>
+                        <div id="output-box-52-button" class="toggle" onclick="javascript:toggleOutput('output-box-52')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-52')">Populate registry with test config blob</h4>
                         <br>
-                        <div id="output-box-44" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.901346 DEBUG 
+                        <div id="output-box-52" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.296390 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2893,16 +3348,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.899625066-06:00
-TIME DURATION: 19.716841ms
+RECEIVED AT  : 2021-12-04T21:08:53.29581116Z
+TIME DURATION: 14.472854ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/put/47/session-d1452c74-49b5-406a-8200-d683afb325b7/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Location: /v2/blobs/uploads/put/12/session-37d3f152-2417-4943-9a20-6751b51a90f0
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2910,30 +3366,31 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:23.969072 DEBUG 
+2021/12/04 21:08:53.353397 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/put/47/session-d1452c74-49b5-406a-8200-d683afb325b7/blobs/upload/?digest=sha256%3A66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PUT  /v2/blobs/uploads/put/12/session-37d3f152-2417-4943-9a20-6751b51a90f0?digest=sha256%3Adad123c623faf63bc0b4a0bcfad6bb7cefec7434a5660fc761045344492ccd49  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
-	Content-Length: 113
+	Content-Length: 144
 	Content-Type: application/octet-stream
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-ewoJImFyY2hpdGVjdHVyZSI6ICJhbWQ2NCIsCgkib3MiOiAibGludXgiLAoJImNvbmZpZyI6IHt9LAoJInJvb3RmcyI6IHsKCQkidHlwZSI6ICJsYXllcnMiLAoJCSJkaWZmX2lkcyI6IFtdCgl9Cn0=
+ewoJImF1dGhvciI6ICJNQnA3Z0dZbGU2LWVkS25TIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.968554599-06:00
-TIME DURATION: 66.830415ms
+RECEIVED AT  : 2021-12-04T21:08:53.352930207Z
+TIME DURATION: 56.269301ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:dad123c623faf63bc0b4a0bcfad6bb7cefec7434a5660fc761045344492ccd49/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2949,15 +3406,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-45-button" class="toggle" onclick="javascript:toggleOutput('output-box-45')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-45')">Populate registry with test layer</h4>
+                        <div id="output-box-53-button" class="toggle" onclick="javascript:toggleOutput('output-box-53')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-53')">Populate registry with test layer</h4>
                         <br>
-                        <div id="output-box-45" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:23.975888 DEBUG 
+                        <div id="output-box-53" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.366741 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/vsoch/django-oci/blobs/uploads/  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -2965,16 +3422,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:23.975623641-06:00
-TIME DURATION: 6.457126ms
+RECEIVED AT  : 2021-12-04T21:08:53.366299317Z
+TIME DURATION: 12.707529ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/put/48/session-8f90c8d0-a90e-4965-b056-171b2693e374/blobs/upload/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Location: /v2/blobs/uploads/put/13/session-b97dab56-e799-4f2b-975e-8ea0793deec2
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -2982,11 +3440,11 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:23.982026 DEBUG 
+2021/12/04 21:08:53.380169 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/put/48/session-8f90c8d0-a90e-4965-b056-171b2693e374/blobs/upload/?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
-HOST   : 127.0.0.1:9999
+PUT  /v2/blobs/uploads/put/13/session-b97dab56-e799-4f2b-975e-8ea0793deec2?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Content-Length: 168
 	Content-Type: application/octet-stream
@@ -2996,16 +3454,17 @@ H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSj
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:23.981710616-06:00
-TIME DURATION: 5.752131ms
+RECEIVED AT  : 2021-12-04T21:08:53.379597594Z
+TIME DURATION: 12.703904ms
 HEADERS      :
 	Allow: POST, PUT, PATCH
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: http://127.0.0.1:8000/v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183/
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Location: /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183/
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -3021,34 +3480,35 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-46-button" class="toggle" onclick="javascript:toggleOutput('output-box-46')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-46')">Populate registry with test tag</h4>
+                        <div id="output-box-54-button" class="toggle" onclick="javascript:toggleOutput('output-box-54')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-54')">Populate registry with test tag</h4>
                         <br>
-                        <div id="output-box-46" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:24.040951 DEBUG 
+                        <div id="output-box-54" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.453417 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/vsoch/django-oci/manifests/tagtest0  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjY2YWQ5ODE2NWQzOGY1M2VlNzM4NjhmODJiZDRlZWQ2MDU1NmRkZmVlODI0ODEwYTQwNjJjNGY3NzdiMjBhNWIiLAoJCSJzaXplIjogMTEzCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmRhZDEyM2M2MjNmYWY2M2JjMGI0YTBiY2ZhZDZiYjdjZWZlYzc0MzRhNTY2MGZjNzYxMDQ1MzQ0NDkyY2NkNDkiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2020-10-11T23:01:24.040292903-06:00
-TIME DURATION: 58.17725ms
+RECEIVED AT  : 2021-12-04T21:08:53.453001613Z
+TIME DURATION: 72.561481ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:23 GMT
-	Expires: Mon, 12 Oct 2020 05:01:23 GMT
-	Location: /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Location: /v2/vsoch/django-oci/manifests/sha256:f0ac102ed5f2314f92f05e75038b472e3e9178bd5bc334ce39756add7ce684c6
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -3064,15 +3524,15 @@ None
                     
                     
                       <div class="result green">
-                        <div id="output-box-47-button" class="toggle" onclick="javascript:toggleOutput('output-box-47')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-47')">Check how many tags there are before anything gets deleted</h4>
+                        <div id="output-box-55-button" class="toggle" onclick="javascript:toggleOutput('output-box-55')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-55')">Check how many tags there are before anything gets deleted</h4>
                         <br>
-                        <div id="output-box-47" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:24.046891 DEBUG 
+                        <div id="output-box-55" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.458545 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/tags/list  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -3080,16 +3540,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:24.046221904-06:00
-TIME DURATION: 5.168975ms
+RECEIVED AT  : 2021-12-04T21:08:53.457670385Z
+TIME DURATION: 4.128274ms
 HEADERS      :
 	Allow: GET
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 60
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:24 GMT
-	Expires: Mon, 12 Oct 2020 05:01:24 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -3118,15 +3579,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-48-button" class="toggle" onclick="javascript:toggleOutput('output-box-48')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-48')">DELETE request to manifest tag should return 202, unless tag deletion is disallowed (400/405)</h4>
+                        <div id="output-box-56-button" class="toggle" onclick="javascript:toggleOutput('output-box-56')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-56')">DELETE request to manifest tag should return 202, unless tag deletion is disallowed (400/405)</h4>
                         <br>
-                        <div id="output-box-48" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:24.058285 DEBUG 
+                        <div id="output-box-56" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.467632 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 DELETE  /v2/vsoch/django-oci/manifests/tagtest0  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -3134,15 +3595,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:24.057485256-06:00
-TIME DURATION: 10.454119ms
+RECEIVED AT  : 2021-12-04T21:08:53.467232511Z
+TIME DURATION: 8.325673ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:24 GMT
-	Expires: Mon, 12 Oct 2020 05:01:24 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -3158,15 +3620,15 @@ None
                     
                     
                       <div class="result green">
-                        <div id="output-box-49-button" class="toggle" onclick="javascript:toggleOutput('output-box-49')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-49')">DELETE request to manifest (digest) should yield 202 response unless already deleted</h4>
+                        <div id="output-box-57-button" class="toggle" onclick="javascript:toggleOutput('output-box-57')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-57')">DELETE request to manifest (digest) should yield 202 response unless already deleted</h4>
                         <br>
-                        <div id="output-box-49" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:24.113678 DEBUG 
+                        <div id="output-box-57" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.521444 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556  HTTP/1.1
-HOST   : 127.0.0.1:9999
+DELETE  /v2/vsoch/django-oci/manifests/sha256:f0ac102ed5f2314f92f05e75038b472e3e9178bd5bc334ce39756add7ce684c6  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -3174,15 +3636,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:24.112481822-06:00
-TIME DURATION: 54.017838ms
+RECEIVED AT  : 2021-12-04T21:08:53.520982906Z
+TIME DURATION: 53.213606ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 4
-	Date: Mon, 12 Oct 2020 05:01:24 GMT
-	Expires: Mon, 12 Oct 2020 05:01:24 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -3198,15 +3661,15 @@ None
                     
                     
                       <div class="result green">
-                        <div id="output-box-50-button" class="toggle" onclick="javascript:toggleOutput('output-box-50')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-50')">GET request to deleted manifest URL should yield 404 response, unless delete is disallowed</h4>
+                        <div id="output-box-58-button" class="toggle" onclick="javascript:toggleOutput('output-box-58')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-58')">GET request to deleted manifest URL should yield 404 response, unless delete is disallowed</h4>
                         <br>
-                        <div id="output-box-50" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:24.128371 DEBUG 
+                        <div id="output-box-58" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.528032 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/manifests/sha256:72602cdfe6c886d367e513b2c48c93e83dfe3993f2b87f481056a5117e3f7556  HTTP/1.1
-HOST   : 127.0.0.1:9999
+GET  /v2/vsoch/django-oci/manifests/sha256:f0ac102ed5f2314f92f05e75038b472e3e9178bd5bc334ce39756add7ce684c6  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -3214,14 +3677,15 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2020-10-11T23:01:24.12666298-06:00
-TIME DURATION: 12.706479ms
+RECEIVED AT  : 2021-12-04T21:08:53.527522961Z
+TIME DURATION: 5.90635ms
 HEADERS      :
 	Allow: GET, PUT, DELETE
 	Content-Length: 6
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Mon, 12 Oct 2020 05:01:24 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -3240,15 +3704,15 @@ detail
                     
                     
                       <div class="result green">
-                        <div id="output-box-51-button" class="toggle" onclick="javascript:toggleOutput('output-box-51')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-51')">GET request to tags list should reflect manifest deletion</h4>
+                        <div id="output-box-59-button" class="toggle" onclick="javascript:toggleOutput('output-box-59')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-59')">GET request to tags list should reflect manifest deletion</h4>
                         <br>
-                        <div id="output-box-51" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:24.140239 DEBUG 
+                        <div id="output-box-59" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.534770 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/vsoch/django-oci/tags/list  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -3256,16 +3720,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2020-10-11T23:01:24.139143276-06:00
-TIME DURATION: 10.519ms
+RECEIVED AT  : 2021-12-04T21:08:53.534107558Z
+TIME DURATION: 5.895517ms
 HEADERS      :
 	Allow: GET
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 49
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:24 GMT
-	Expires: Mon, 12 Oct 2020 05:01:24 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -3293,15 +3758,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-52-button" class="toggle" onclick="javascript:toggleOutput('output-box-52')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-52')">DELETE request to blob URL should yield 202 response</h4>
+                        <div id="output-box-60-button" class="toggle" onclick="javascript:toggleOutput('output-box-60')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-60')">DELETE request to blob URL should yield 202 response</h4>
                         <br>
-                        <div id="output-box-52" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:24.192843 DEBUG 
+                        <div id="output-box-60" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.585267 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
+DELETE  /v2/vsoch/django-oci/blobs/sha256:dad123c623faf63bc0b4a0bcfad6bb7cefec7434a5660fc761045344492ccd49  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -3309,15 +3774,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:24.192374816-06:00
-TIME DURATION: 51.823078ms
+RECEIVED AT  : 2021-12-04T21:08:53.584880091Z
+TIME DURATION: 49.845287ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:24 GMT
-	Expires: Mon, 12 Oct 2020 05:01:24 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -3325,11 +3791,11 @@ BODY         :
 
 ==============================================================================
 
-2020/10/11 23:01:24.201990 DEBUG 
+2021/12/04 21:08:53.595138 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 DELETE  /v2/vsoch/django-oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
-HOST   : 127.0.0.1:9999
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -3337,15 +3803,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2020-10-11T23:01:24.201454774-06:00
-TIME DURATION: 8.509047ms
+RECEIVED AT  : 2021-12-04T21:08:53.594715924Z
+TIME DURATION: 9.332919ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
 	Content-Length: 0
-	Date: Mon, 12 Oct 2020 05:01:24 GMT
-	Expires: Mon, 12 Oct 2020 05:01:24 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Expires: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
@@ -3361,15 +3828,15 @@ BODY         :
                     
                     
                       <div class="result green">
-                        <div id="output-box-53-button" class="toggle" onclick="javascript:toggleOutput('output-box-53')">+</div>
-                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-53')">GET request to deleted blob URL should yield 404 response</h4>
+                        <div id="output-box-61-button" class="toggle" onclick="javascript:toggleOutput('output-box-61')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-61')">GET request to deleted blob URL should yield 404 response</h4>
                         <br>
-                        <div id="output-box-53" style="display: none;">
-                          <pre class="pre-box">2020/10/11 23:01:24.209014 DEBUG 
+                        <div id="output-box-61" style="display: none;">
+                          <pre class="pre-box">2021/12/04 21:08:53.602359 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/vsoch/django-oci/blobs/sha256:66ad98165d38f53ee73868f82bd4eed60556ddfee824810a4062c4f777b20a5b  HTTP/1.1
-HOST   : 127.0.0.1:9999
+GET  /v2/vsoch/django-oci/blobs/sha256:dad123c623faf63bc0b4a0bcfad6bb7cefec7434a5660fc761045344492ccd49  HTTP/1.1
+HOST   : 127.0.0.1:8096
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
@@ -3377,14 +3844,15 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2020-10-11T23:01:24.208462384-06:00
-TIME DURATION: 6.338019ms
+RECEIVED AT  : 2021-12-04T21:08:53.601864811Z
+TIME DURATION: 6.562056ms
 HEADERS      :
-	Allow: GET, DELETE
+	Allow: GET, DELETE, HEAD
 	Content-Length: 23
 	Content-Type: application/json
-	Date: Mon, 12 Oct 2020 05:01:24 GMT
-	Server: WSGIServer/0.2 CPython/3.8.3
+	Date: Sat, 04 Dec 2021 21:08:53 GMT
+	Referrer-Policy: same-origin
+	Server: WSGIServer/0.2 CPython/3.8.8
 	Vary: Accept, Cookie
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY

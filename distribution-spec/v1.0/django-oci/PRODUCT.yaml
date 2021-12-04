@@ -1,6 +1,6 @@
 vendor: vsoch
 name: Django-OCI
-version: v0.0.14
+version: v0.0.16
 website_url: https://vsoch.github.io/django-oci
 repo_url: https://github.com/vsoch/django-oci
 documentation_url: https://vsoch.github.io/django-oci/docs/getting-started/
