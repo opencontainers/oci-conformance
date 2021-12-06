@@ -27,7 +27,7 @@ At this point in the actions we would be downloading the opencontainers/distribu
 It's assumed you have installed Go.
 
 ```bash
-$ git clone https://github.com/opencontainers/distribution-spec dist-spec
+$ git clone -b v1.0.1 https://github.com/opencontainers/distribution-spec dist-spec
 $ cd dist-spec/conformance
 $ go mod vendor
 $ CGO_ENABLED=0 go test -c -o ../../conformance.test
@@ -55,19 +55,6 @@ python manage.py migrate
 python manage.py migrate django_oci
 DISABLE_AUTHENTICATION=yes python manage.py test tests.test_conformance
 ```
-Note that there is one failing test because a 404 is erroneously returned on an attempt to get mounted blob.
-This was some change in the conformance testing that I haven't been able to fix (right before the release it worked okay!)
 
-```bash
-
-Summarizing 1 Failure:
-
-[Fail] OCI Distribution Conformance Tests Push Cross-Repository Blob Mount [It] GET request to test digest within cross-mount namespace should return 200 
-/tmp/django-oci/dist-spec/conformance/02_push_test.go:242
-
-Ran 60 of 65 Specs in 2.332 seconds
-FAIL! -- 59 Passed | 1 Failed | 0 Pending | 5 Skipped
-```
-
-It shouldn't be an issue if you disable this functionality. This was a side project
-and I cannot work on it full time so [please open an issue if you can help](https://github.com/vsoch/django-oci/issues)!
+This will generate the report and junit.xml files in the present working directory.
+The files present in this repository were run with the distribution-spec, version 1.0.1.
