@@ -1,0 +1,8 @@
+vendor: SAP Converged Cloud
+name: Keppel
+version: 1.0.0
+website_url: https://github.com/sapcc/keppel
+documentation_url: https://github.com/sapcc/keppel/tree/master/docs
+product_logo_url: https://avatars.githubusercontent.com/u/4242847
+type: distribution
+description: Regionally federated multi-tenant container image registry
