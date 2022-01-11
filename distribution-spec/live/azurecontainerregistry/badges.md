@@ -1,0 +1,3 @@
+[![Azure Container Registry Pull](https://github.com/AzureCR/oci-conformance-workflows/actions/workflows/acr_1.yml/badge.svg)](https://github.com/AzureCR/oci-conformance-workflows/actions/workflows/acr_1.yml)
+[![Azure Container Registry Push](https://github.com/AzureCR/oci-conformance-workflows/actions/workflows/acr_2.yml/badge.svg)](https://github.com/AzureCR/oci-conformance-workflows/actions/workflows/acr_2.yml)
+[![Azure Container Registry All Tests](https://github.com/AzureCR/oci-conformance-workflows/actions/workflows/acr_all.yml/badge.svg)](https://github.com/AzureCR/oci-conformance-workflows/actions/workflows/acr_all.yml)
