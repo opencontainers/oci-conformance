@@ -17,7 +17,7 @@ The following specifications are currently tested for compliance:
 
 * [Participation Form](./participation-form/OCI_Certified_Form.md)
 
-* [Brand Guidlines](OCI-certified-brand-guide-v1.pdf)
+* [Brand Guidelines](OCI-certified-brand-guide-v1.pdf)
 
 * [Marks](https://github.com/opencontainers/artwork/tree/master/certified)
 
