@@ -1,7 +1,7 @@
-Download the Zot `v1.3.3` source:
+Download the Zot `v1.4.1` source:
 
 ```
-git clone https://github.com/anuvu/zot.git -b v1.3.3
+git clone https://github.com/project-zot/zot.git -b v1.4.1
 ```
 
 Build Zot binary (requires Go):
