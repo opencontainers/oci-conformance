@@ -1,0 +1,9 @@
+vendor: vsoch
+name: Django-OCI
+version: v0.0.16
+website_url: https://vsoch.github.io/django-oci
+repo_url: https://github.com/vsoch/django-oci
+documentation_url: https://vsoch.github.io/django-oci/docs/getting-started/
+product_logo_url: https://raw.githubusercontent.com/vsoch/django-oci/master/docs/assets/img/django-oci.png
+type: distribution
+description: Open Containers distribution API for Django (Python).

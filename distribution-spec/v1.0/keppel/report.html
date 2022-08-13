@@ -1,0 +1,3411 @@
+<html>
+  <head>
+    <title>OCI Distribution Conformance Tests</title>
+    <style>
+      body {
+        padding: 10px 20px 10px 20px;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQYV2Pce7zwv7NlPyMDFMAZGAIwlRgqAFydCAVv5m4UAAAAAElFTkSuQmCC") repeat;
+         
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: white;
+      }
+      th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      tr:hover {
+        background-color: #ffe39b;
+      }
+      .result {
+        padding: 1.25em 0 .25em 0.8em;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+      .red {
+        background: #ffc8c8;
+      }
+      pre.fail-message {
+        background: #f9a5a5;
+        padding: 20px;
+        margin-right: 10px;
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 1.25em;
+        width: 94%;
+        overflow-x: auto;
+        max-width: 85%;
+      }
+      .green {
+        background: #c8ffc8;
+        padding: 1.25em 0 1.25em 0.8em;
+      }
+      .grey {
+        background: lightgrey;
+        padding: 1.25em 0 1.25em 0.8em;
+      }
+      .toggle {
+        border: 2px solid #3e3e3e;
+        cursor: pointer;
+        width: 1em;
+        text-align: center;
+        font-weight: bold;
+        display: inline;
+        font-family: monospace;
+        padding: 0 .25em 0 .25em;
+        margin: 1em 1em 1em 0;
+        font-size: 12pt;
+        color: #3e3e3e;
+        border-radius: 3px;
+      }
+      pre.pre-box {
+        background: #343a40;
+        color: #fff;
+        padding: 10px;
+        border: 1px solid gray;
+        display: inline-block;
+        border-radius: 4px;
+        width: 97%;
+        font-size: 1.25em;
+        overflow-x: auto;
+        max-height: 60em;
+        overflow-y: auto;
+        max-width: 85%;
+      }
+      .summary {
+        width: 100%;
+        height: auto;
+        padding: 0 0 .5em 0;
+        border-radius: 6px;
+        border: 1px solid #cccddd;
+        background: white;
+      }
+      .summary-bullet {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding: .5em .1em .1em .5em;
+      }
+      .bullet-left {
+        width: 25%;
+        font-weight: bold;
+        font-size: 100%;
+      }
+      .bullet-right {
+        width: auto;
+        font-family: monospace;
+        font-size: 110%;
+      }
+      .quick-summary {
+        width: 70%;
+        display: flex;
+        margin: 0 auto 0 0;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+      .darkgreen {
+        color: green;
+      }
+      .darkred {
+        color: red;
+        padding: 0 0 0 2em;
+      }
+      .darkgrey {
+        color: grey;
+        padding: 0 0 0 2em;
+      }
+      .meter {
+        border: 1px solid black;
+        margin: 0 .5em 0 auto;
+        display: flex;
+        height: 25px;
+        width: 45%;
+      }
+      @media only screen and (max-width: 600px) {
+        .meter {
+          display: none;
+        }
+      }
+      .meter-green {
+        height: 100%;
+        background: green;
+        width: 95%;
+      }
+      .meter-red {
+        height: 100%;
+        background: red;
+        width: 0%;
+      }
+      .meter-grey {
+        height: 100%;
+        background: grey;
+        width: 5%;
+      }
+      .subcategory {
+        background: white;
+        padding: 0px 20px 20px 20px;
+        border: 1px solid #cccddd;
+        border-radius: 6px;
+      }
+      h2 {
+        margin-top: 45px;
+      }
+      h4 {
+        vertical-align: bottom;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function toggleOutput(id) {
+        var elem = document.getElementById(id);
+        var button = document.getElementById(id + "-button");
+        if (elem.style['display'] === 'block') {
+          button.innerHTML = "+";
+          elem.style['display'] = 'none';
+        } else {
+          button.innerHTML = "-";
+          elem.style['display'] = 'block';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>OCI Distribution Conformance Tests</h1>
+    <table>
+      <tr>
+      </tr>
+      <tr>
+        <td class="bullet-left">Summary</td>
+        <td>
+          <div class="quick-summary"><span class="darkgreen">59 passed</span><span class="darkgrey">3 skipped</span><div class="meter">
+              <div class="meter-green"></div>
+              <div class="meter-red"></div>
+              <div class="meter-grey"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="bullet-left">Start Time</td>
+        <td>May 13 13:36:54.833 &#43;0000 UTC</td>
+      </tr>
+      <tr>
+        <td class="bullet-left">End Time</td>
+        <td>May 13 13:36:55.170 &#43;0000 UTC</td>
+      </tr>
+      <tr>
+        <td class="bullet-left">Time Elapsed</td>
+        <td>336.084534ms</td>
+      </tr>
+      <tr>
+        <td class="bullet-left">Test Version</td>
+        <td>v1.0.0</td>
+      </tr>
+      <tr>
+        <td class="bullet-left">Configuration</td>
+        <td><div class="bullet-right">
+          
+            OCI_ROOT_URL=http://10.1.1.97:8080<br />
+          
+            OCI_NAMESPACE=conformance-test/oci<br />
+          
+            OCI_USERNAME=*****<br />
+          
+            OCI_PASSWORD=*****<br />
+          
+            OCI_DEBUG=1<br />
+          
+            OCI_TEST_PULL=1<br />
+          
+            OCI_TEST_PUSH=1<br />
+          
+            OCI_TEST_CONTENT_DISCOVERY=1<br />
+          
+            OCI_TEST_CONTENT_MANAGEMENT=1<br />
+          
+            OCI_HIDE_SKIPPED_WORKFLOWS=0<br />
+          
+            OCI_CROSSMOUNT_NAMESPACE=conformance-test/oci<br />
+          
+        </div></td>
+      </tr>
+    </table>
+
+    <div>
+      
+        
+        
+          
+          
+            
+              <h2>Pull</h2>
+              <div class="subcategory">
+              
+              
+                <h3>Setup</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-0-button" class="toggle" onclick="javascript:toggleOutput('output-box-0')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-0')">Populate registry with test blob</h4>
+                        <br>
+                        <div id="output-box-0" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.841951 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.841699615Z
+TIME DURATION: 7.592106ms
+HEADERS      :
+	Blob-Upload-Session-Id: 179ddc06-9e79-423c-9877-7cba3c163507
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/179ddc06-9e79-423c-9877-7cba3c163507
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:54.848033 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/179ddc06-9e79-423c-9877-7cba3c163507?digest=sha256%3A7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICI0dG51bkxzS1JDQXZpVmMtIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.847706419Z
+TIME DURATION: 5.667504ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-143
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-1-button" class="toggle" onclick="javascript:toggleOutput('output-box-1')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-1')">Populate registry with test layer</h4>
+                        <br>
+                        <div id="output-box-1" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.852091 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.851850722Z
+TIME DURATION: 3.736603ms
+HEADERS      :
+	Blob-Upload-Session-Id: 8e8c1045-062d-4db2-9132-ebea4790d4f8
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/8e8c1045-062d-4db2-9132-ebea4790d4f8
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:54.857053 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/8e8c1045-062d-4db2-9132-ebea4790d4f8?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.856739825Z
+TIME DURATION: 4.570003ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-167
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-2-button" class="toggle" onclick="javascript:toggleOutput('output-box-2')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-2')">Populate registry with test manifest</h4>
+                        <br>
+                        <div id="output-box-2" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.868422 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/tagtest0  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjdmMzE1MDIyYzcyMTQ5MTAyMjM3N2NmNjVjMGE3ZjhhZGIwZDJhOTk1ZmI2NDI1YTdmZWI2ODAyNDhmZTgzN2EiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.867705133Z
+TIME DURATION: 10.504908ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-3-button" class="toggle" onclick="javascript:toggleOutput('output-box-3')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-3')">Get the name of a tag</h4>
+                        <br>
+                        <div id="output-box-3" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.871436 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/tags/list  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.871192635Z
+TIME DURATION: 2.683102ms
+HEADERS      :
+	Content-Length: 51
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;conformance-test/oci&#34;,
+   &#34;tags&#34;: [
+      &#34;tagtest0&#34;
+   ]
+}
+==============================================================================
+
+2022/05/13 13:36:54.879358 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/tagtest0  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjdmMzE1MDIyYzcyMTQ5MTAyMjM3N2NmNjVjMGE3ZjhhZGIwZDJhOTk1ZmI2NDI1YTdmZWI2ODAyNDhmZTgzN2EiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.879006541Z
+TIME DURATION: 7.446506ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-4-button" class="toggle" onclick="javascript:toggleOutput('output-box-4')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-4')">Get tag name from environment</h4>
+                        <br>
+                        <div id="output-box-4" style="display: none;">
+                          <pre class="pre-box">you have skipped this test.</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Pull blobs</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-5-button" class="toggle" onclick="javascript:toggleOutput('output-box-5')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-5')">HEAD request to nonexistent blob should result in 404 response</h4>
+                        <br>
+                        <div id="output-box-5" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.882293 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/conformance-test/oci/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2022-05-13T13:36:54.882052743Z
+TIME DURATION: 2.295902ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-6-button" class="toggle" onclick="javascript:toggleOutput('output-box-6')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-6')">HEAD request to existing blob should yield 200</h4>
+                        <br>
+                        <div id="output-box-6" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.884989 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/conformance-test/oci/blobs/sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.884760345Z
+TIME DURATION: 2.377502ms
+HEADERS      :
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-7-button" class="toggle" onclick="javascript:toggleOutput('output-box-7')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-7')">GET nonexistent blob should result in 404 response</h4>
+                        <br>
+                        <div id="output-box-7" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.887637 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2022-05-13T13:36:54.887382546Z
+TIME DURATION: 2.321901ms
+HEADERS      :
+	Content-Length: 102
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;BLOB_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;blob does not exist in this repository&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-8-button" class="toggle" onclick="javascript:toggleOutput('output-box-8')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-8')">GET request to existing blob URL should yield 200</h4>
+                        <br>
+                        <div id="output-box-8" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.890360 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/blobs/sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.890094948Z
+TIME DURATION: 2.292301ms
+HEADERS      :
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+	&#34;author&#34;: &#34;4tnunLsKRCAviVc-&#34;,
+	&#34;architecture&#34;: &#34;amd64&#34;,
+	&#34;os&#34;: &#34;linux&#34;,
+	&#34;config&#34;: {},
+	&#34;rootfs&#34;: {
+		&#34;type&#34;: &#34;layers&#34;,
+		&#34;diff_ids&#34;: []
+	}
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Pull manifests</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-9-button" class="toggle" onclick="javascript:toggleOutput('output-box-9')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-9')">HEAD request to nonexistent manifest should return 404</h4>
+                        <br>
+                        <div id="output-box-9" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.892795 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/conformance-test/oci/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2022-05-13T13:36:54.89258595Z
+TIME DURATION: 2.144401ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-10-button" class="toggle" onclick="javascript:toggleOutput('output-box-10')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-10')">HEAD request to manifest path (digest) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-10" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.896805 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/conformance-test/oci/manifests/sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.896517253Z
+TIME DURATION: 3.146602ms
+HEADERS      :
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+	X-Keppel-Vulnerability-Status: Pending
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-11-button" class="toggle" onclick="javascript:toggleOutput('output-box-11')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-11')">HEAD request to manifest path (tag) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-11" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.901054 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/manifests/tagtest0  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.900701856Z
+TIME DURATION: 3.825903ms
+HEADERS      :
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+	X-Keppel-Vulnerability-Status: Pending
+BODY         :
+{
+   &#34;schemaVersion&#34;: 2,
+   &#34;config&#34;: {
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;digest&#34;: &#34;sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a&#34;,
+      &#34;size&#34;: 144
+   },
+   &#34;layers&#34;: [
+      {
+         &#34;mediaType&#34;: &#34;application/vnd.oci.image.layer.v1.tar&#43;gzip&#34;,
+         &#34;digest&#34;: &#34;sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183&#34;,
+         &#34;size&#34;: 168
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-12-button" class="toggle" onclick="javascript:toggleOutput('output-box-12')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-12')">GET nonexistent manifest should return 404</h4>
+                        <br>
+                        <div id="output-box-12" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.903668 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2022-05-13T13:36:54.903423758Z
+TIME DURATION: 2.307902ms
+HEADERS      :
+	Content-Length: 104
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;MANIFEST_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;manifest unknown&#34;,
+         &#34;detail&#34;: &#34;.INVALID_MANIFEST_NAME&#34;
+      }
+   ]
+}
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-13-button" class="toggle" onclick="javascript:toggleOutput('output-box-13')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-13')">GET request to manifest path (digest) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-13" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.907150 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/manifests/sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.90680096Z
+TIME DURATION: 3.066302ms
+HEADERS      :
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+	X-Keppel-Vulnerability-Status: Pending
+BODY         :
+{
+   &#34;schemaVersion&#34;: 2,
+   &#34;config&#34;: {
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;digest&#34;: &#34;sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a&#34;,
+      &#34;size&#34;: 144
+   },
+   &#34;layers&#34;: [
+      {
+         &#34;mediaType&#34;: &#34;application/vnd.oci.image.layer.v1.tar&#43;gzip&#34;,
+         &#34;digest&#34;: &#34;sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183&#34;,
+         &#34;size&#34;: 168
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-14-button" class="toggle" onclick="javascript:toggleOutput('output-box-14')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-14')">GET request to manifest path (tag) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-14" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.911281 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/manifests/tagtest0  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.910936163Z
+TIME DURATION: 3.681303ms
+HEADERS      :
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+	X-Keppel-Vulnerability-Status: Pending
+BODY         :
+{
+   &#34;schemaVersion&#34;: 2,
+   &#34;config&#34;: {
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;digest&#34;: &#34;sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a&#34;,
+      &#34;size&#34;: 144
+   },
+   &#34;layers&#34;: [
+      {
+         &#34;mediaType&#34;: &#34;application/vnd.oci.image.layer.v1.tar&#43;gzip&#34;,
+         &#34;digest&#34;: &#34;sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183&#34;,
+         &#34;size&#34;: 168
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Error codes</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-15-button" class="toggle" onclick="javascript:toggleOutput('output-box-15')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-15')">400 response body should contain OCI-conforming JSON message</h4>
+                        <br>
+                        <div id="output-box-15" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.915182 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/sha256:totallywrong  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;YmxhYmxhYmxh&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 400 Bad Request
+RECEIVED AT  : 2022-05-13T13:36:54.914914166Z
+TIME DURATION: 3.552703ms
+HEADERS      :
+	Content-Length: 120
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;MANIFEST_INVALID&#34;,
+         &#34;message&#34;: &#34;invalid character &#39;b&#39; looking for beginning of value&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Teardown</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-16-button" class="toggle" onclick="javascript:toggleOutput('output-box-16')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-16')">Delete manifest created in setup</h4>
+                        <br>
+                        <div id="output-box-16" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.918124 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/manifests/sha256:e781250d8720f5cce9c20c1ac0f2b76a5f42f8c8839738b3c568acdca5d2ddc9  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.917935468Z
+TIME DURATION: 2.623302ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-17-button" class="toggle" onclick="javascript:toggleOutput('output-box-17')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-17')">Delete config blob created in setup</h4>
+                        <br>
+                        <div id="output-box-17" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.921422 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/blobs/sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.92121487Z
+TIME DURATION: 3.023002ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:7f315022c721491022377cf65c0a7f8adb0d2a995fb6425a7feb680248fe837a
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-18-button" class="toggle" onclick="javascript:toggleOutput('output-box-18')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-18')">Delete layer blob created in setup</h4>
+                        <br>
+                        <div id="output-box-18" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.924623 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.924402872Z
+TIME DURATION: 2.919502ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+            
+          
+        </div>
+        
+          
+          
+            
+              <h2>Push</h2>
+              <div class="subcategory">
+              
+              
+                <h3>Blob Upload Streamed</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-19-button" class="toggle" onclick="javascript:toggleOutput('output-box-19')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-19')">PATCH request with blob in body should yield 202 response</h4>
+                        <br>
+                        <div id="output-box-19" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.928495 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.928287675Z
+TIME DURATION: 3.445703ms
+HEADERS      :
+	Blob-Upload-Session-Id: b894594a-c33a-43cd-ad46-54fcd3c087b4
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/b894594a-c33a-43cd-ad46-54fcd3c087b4
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:54.931398 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PATCH  /v2/conformance-test/oci/blobs/uploads/b894594a-c33a-43cd-ad46-54fcd3c087b4  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+TkJBIEphbSBvbiBteSBOQkEgdG9hc3Q=
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.931169577Z
+TIME DURATION: 2.532302ms
+HEADERS      :
+	Blob-Upload-Session-Id: b894594a-c33a-43cd-ad46-54fcd3c087b4
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/b894594a-c33a-43cd-ad46-54fcd3c087b4?state=*****
+	Range: 0-22
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-20-button" class="toggle" onclick="javascript:toggleOutput('output-box-20')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-20')">PUT request to session URL with digest should yield 201 response</h4>
+                        <br>
+                        <div id="output-box-20" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.935902 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/b894594a-c33a-43cd-ad46-54fcd3c087b4?state=*****&amp;digest=sha256%3A852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 23
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.93561018Z
+TIME DURATION: 3.928903ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-22
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Blob Upload Monolithic</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-21-button" class="toggle" onclick="javascript:toggleOutput('output-box-21')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-21')">GET nonexistent blob should result in 404 response</h4>
+                        <br>
+                        <div id="output-box-21" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.938456 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2022-05-13T13:36:54.938204682Z
+TIME DURATION: 2.207102ms
+HEADERS      :
+	Content-Length: 102
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;BLOB_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;blob does not exist in this repository&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-22-button" class="toggle" onclick="javascript:toggleOutput('output-box-22')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-22')">POST request with digest and blob should yield a 201 or 202</h4>
+                        <br>
+                        <div id="output-box-22" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.943536 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/?digest=sha256%3Ac64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICJrdU1qMVE4bll3QkRFWmhDIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.943254785Z
+TIME DURATION: 4.494703ms
+HEADERS      :
+	Blob-Upload-Session-Id: e80b4653-7064-4f10-b926-d1e42366c0c8
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-23-button" class="toggle" onclick="javascript:toggleOutput('output-box-23')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-23')">GET request to blob URL from prior request should yield 200 or 404 based on response code</h4>
+                        <br>
+                        <div id="output-box-23" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.946175 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/blobs/sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.945905087Z
+TIME DURATION: 2.291101ms
+HEADERS      :
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+	&#34;author&#34;: &#34;kuMj1Q8nYwBDEZhC&#34;,
+	&#34;architecture&#34;: &#34;amd64&#34;,
+	&#34;os&#34;: &#34;linux&#34;,
+	&#34;config&#34;: {},
+	&#34;rootfs&#34;: {
+		&#34;type&#34;: &#34;layers&#34;,
+		&#34;diff_ids&#34;: []
+	}
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-24-button" class="toggle" onclick="javascript:toggleOutput('output-box-24')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-24')">POST request should yield a session ID</h4>
+                        <br>
+                        <div id="output-box-24" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.950087 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.94984599Z
+TIME DURATION: 3.413603ms
+HEADERS      :
+	Blob-Upload-Session-Id: 2a7bc3ab-2337-487b-b5f7-037d36b35ac6
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/2a7bc3ab-2337-487b-b5f7-037d36b35ac6
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-25-button" class="toggle" onclick="javascript:toggleOutput('output-box-25')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-25')">PUT upload of a blob should yield a 201 Response</h4>
+                        <br>
+                        <div id="output-box-25" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.954826 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/2a7bc3ab-2337-487b-b5f7-037d36b35ac6?digest=sha256%3Ac64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICJrdU1qMVE4bll3QkRFWmhDIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.954529493Z
+TIME DURATION: 4.359203ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-143
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-26-button" class="toggle" onclick="javascript:toggleOutput('output-box-26')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-26')">GET request to existing blob should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-26" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.957496 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/blobs/sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.957249095Z
+TIME DURATION: 2.359802ms
+HEADERS      :
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+	&#34;author&#34;: &#34;kuMj1Q8nYwBDEZhC&#34;,
+	&#34;architecture&#34;: &#34;amd64&#34;,
+	&#34;os&#34;: &#34;linux&#34;,
+	&#34;config&#34;: {},
+	&#34;rootfs&#34;: {
+		&#34;type&#34;: &#34;layers&#34;,
+		&#34;diff_ids&#34;: []
+	}
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-27-button" class="toggle" onclick="javascript:toggleOutput('output-box-27')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-27')">PUT upload of a layer blob should yield a 201 Response</h4>
+                        <br>
+                        <div id="output-box-27" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.961294 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.961077798Z
+TIME DURATION: 3.516603ms
+HEADERS      :
+	Blob-Upload-Session-Id: 20ab8d74-a74e-4624-b56d-fa47c2d1e51c
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/20ab8d74-a74e-4624-b56d-fa47c2d1e51c
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:54.966032 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/20ab8d74-a74e-4624-b56d-fa47c2d1e51c?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.965716601Z
+TIME DURATION: 4.350003ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-167
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-28-button" class="toggle" onclick="javascript:toggleOutput('output-box-28')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-28')">GET request to existing layer should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-28" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.968672 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.968402003Z
+TIME DURATION: 2.205002ms
+HEADERS      :
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+‹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½íÎA
+Â0…á®=ÅxIIÚÀ“DmAi§¨··EWº*&#34;þßbæÍâit£W-d&amp;µsó.}e^÷ƒwEikg½±ÞO÷Òx[b–,õ4z‘â|Šoÿ&gt;å?ê–GÙemcÑ,û.5’G•K¦é’ÌéF¶9ú ã1h—Ó°^}»;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ü³;~žªï¿½(ï¿½ï¿½
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Blob Upload Chunked</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-29-button" class="toggle" onclick="javascript:toggleOutput('output-box-29')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-29')">Out-of-order blob upload should return 416</h4>
+                        <br>
+                        <div id="output-box-29" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.972440 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 0
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.972225805Z
+TIME DURATION: 3.482502ms
+HEADERS      :
+	Blob-Upload-Session-Id: b0db53bf-372c-46e1-b0be-360694da9c2e
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/b0db53bf-372c-46e1-b0be-360694da9c2e
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:54.975655 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PATCH  /v2/conformance-test/oci/blobs/uploads/b0db53bf-372c-46e1-b0be-360694da9c2e  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 22
+	Content-Range: 3-24
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+bG8sIGhvdyBhcmUgeW91IHRvZGF5Pw==
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 416 Requested Range Not Satisfiable
+RECEIVED AT  : 2022-05-13T13:36:54.975369708Z
+TIME DURATION: 2.861402ms
+HEADERS      :
+	Content-Length: 102
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;SIZE_INVALID&#34;,
+         &#34;message&#34;: &#34;upload resumed at wrong offset: 3 != 0&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-30-button" class="toggle" onclick="javascript:toggleOutput('output-box-30')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-30')">PATCH request with first chunk should return 202</h4>
+                        <br>
+                        <div id="output-box-30" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.979592 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 0
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.97937061Z
+TIME DURATION: 3.335702ms
+HEADERS      :
+	Blob-Upload-Session-Id: 752c8cd7-1f2c-4505-8212-5dc11f0c93a6
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/752c8cd7-1f2c-4505-8212-5dc11f0c93a6
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:54.982719 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PATCH  /v2/conformance-test/oci/blobs/uploads/752c8cd7-1f2c-4505-8212-5dc11f0c93a6  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 3
+	Content-Range: 0-2
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+SGVs
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:54.982447113Z
+TIME DURATION: 2.779402ms
+HEADERS      :
+	Blob-Upload-Session-Id: 752c8cd7-1f2c-4505-8212-5dc11f0c93a6
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/752c8cd7-1f2c-4505-8212-5dc11f0c93a6?state=*****
+	Range: 0-2
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-31-button" class="toggle" onclick="javascript:toggleOutput('output-box-31')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-31')">PUT request with final chunk should return 201</h4>
+                        <br>
+                        <div id="output-box-31" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.987719 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/752c8cd7-1f2c-4505-8212-5dc11f0c93a6?state=*****&amp;digest=sha256%3A6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 22
+	Content-Range: 3-24
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+bG8sIGhvdyBhcmUgeW91IHRvZGF5Pw==
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.987423316Z
+TIME DURATION: 4.583303ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-24
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:6e766a49e512e0ba0bc935e2aacd3e5a4a34add17f83afc4c9e669c70241cd48
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Cross-Repository Blob Mount</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-32-button" class="toggle" onclick="javascript:toggleOutput('output-box-32')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-32')">POST request to mount another repository&#39;s blob should return 201 or 202</h4>
+                        <br>
+                        <div id="output-box-32" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.992377 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/?from=conformance-test%2Foci&amp;mount=sha256%3A852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:54.992130119Z
+TIME DURATION: 4.334703ms
+HEADERS      :
+	Blob-Upload-Session-Id: 1012c145-f825-4154-b6ef-5756e3b1a367
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-33-button" class="toggle" onclick="javascript:toggleOutput('output-box-33')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-33')">GET request to test digest within cross-mount namespace should return 200</h4>
+                        <br>
+                        <div id="output-box-33" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.995108 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/blobs/sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:54.994826621Z
+TIME DURATION: 2.298101ms
+HEADERS      :
+	Content-Length: 23
+	Content-Type: application/octet-stream
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Content-Digest: sha256:852411eaf653ebebfa34b688ad1736c9da4decadb8f55b839b550d64eaad3f75
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+NBA Jam on my NBA toast
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-34-button" class="toggle" onclick="javascript:toggleOutput('output-box-34')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-34')">Cross-mounting of nonexistent blob should yield session id</h4>
+                        <br>
+                        <div id="output-box-34" style="display: none;">
+                          <pre class="pre-box">you have skipped this test.</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Manifest Upload</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-35-button" class="toggle" onclick="javascript:toggleOutput('output-box-35')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-35')">GET nonexistent manifest should return 404</h4>
+                        <br>
+                        <div id="output-box-35" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:54.997773 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2022-05-13T13:36:54.997533623Z
+TIME DURATION: 2.054901ms
+HEADERS      :
+	Content-Length: 104
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:54 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;MANIFEST_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;manifest unknown&#34;,
+         &#34;detail&#34;: &#34;.INVALID_MANIFEST_NAME&#34;
+      }
+   ]
+}
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-36-button" class="toggle" onclick="javascript:toggleOutput('output-box-36')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-36')">PUT should accept a manifest upload</h4>
+                        <br>
+                        <div id="output-box-36" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.006664 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/test0  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmM2NGM1ZGVhZTA5N2U1OWE3YTE2YzQxNjIwOTNkYTI0ZjRhODM2NDE2YjAyMzg0NzE2ZThhZmFmNWYyZDRlZTUiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.006305729Z
+TIME DURATION: 8.444906ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.014072 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/test1  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmM2NGM1ZGVhZTA5N2U1OWE3YTE2YzQxNjIwOTNkYTI0ZjRhODM2NDE2YjAyMzg0NzE2ZThhZmFmNWYyZDRlZTUiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.013672034Z
+TIME DURATION: 6.824704ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.021442 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/test2  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmM2NGM1ZGVhZTA5N2U1OWE3YTE2YzQxNjIwOTNkYTI0ZjRhODM2NDE2YjAyMzg0NzE2ZThhZmFmNWYyZDRlZTUiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.021076239Z
+TIME DURATION: 6.920104ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.028942 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/test3  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmM2NGM1ZGVhZTA5N2U1OWE3YTE2YzQxNjIwOTNkYTI0ZjRhODM2NDE2YjAyMzg0NzE2ZThhZmFmNWYyZDRlZTUiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.028593045Z
+TIME DURATION: 6.853405ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-37-button" class="toggle" onclick="javascript:toggleOutput('output-box-37')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-37')">Registry should accept a manifest upload with no layers</h4>
+                        <br>
+                        <div id="output-box-37" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.037048 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/emptylayer  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmM2NGM1ZGVhZTA5N2U1OWE3YTE2YzQxNjIwOTNkYTI0ZjRhODM2NDE2YjAyMzg0NzE2ZThhZmFmNWYyZDRlZTUiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFtdCn0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.03673505Z
+TIME DURATION: 7.485205ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:02b4749acd425017ff543fd04e47f03824c40c9d333c1eecf326f84f9c7e753e
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:02b4749acd425017ff543fd04e47f03824c40c9d333c1eecf326f84f9c7e753e
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-38-button" class="toggle" onclick="javascript:toggleOutput('output-box-38')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-38')">GET request to manifest URL (digest) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-38" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.040581 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/manifests/sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:55.040229053Z
+TIME DURATION: 3.083302ms
+HEADERS      :
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+	X-Keppel-Vulnerability-Status: Pending
+BODY         :
+{
+   &#34;schemaVersion&#34;: 2,
+   &#34;config&#34;: {
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;digest&#34;: &#34;sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5&#34;,
+      &#34;size&#34;: 144
+   },
+   &#34;layers&#34;: [
+      {
+         &#34;mediaType&#34;: &#34;application/vnd.oci.image.layer.v1.tar&#43;gzip&#34;,
+         &#34;digest&#34;: &#34;sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183&#34;,
+         &#34;size&#34;: 168
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Teardown</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-39-button" class="toggle" onclick="javascript:toggleOutput('output-box-39')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-39')">Delete manifest created in tests</h4>
+                        <br>
+                        <div id="output-box-39" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.043477 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/manifests/sha256:12e5aaebd63780a152ebc1e72d237c1fc06a4578cdd41f3708a46f1f95e2fe2e  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.043257655Z
+TIME DURATION: 2.596802ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-40-button" class="toggle" onclick="javascript:toggleOutput('output-box-40')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-40')">Delete config blob created in tests</h4>
+                        <br>
+                        <div id="output-box-40" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.046398 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/blobs/sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 405 Method Not Allowed
+RECEIVED AT  : 2022-05-13T13:36:55.046112757Z
+TIME DURATION: 2.565402ms
+HEADERS      :
+	Content-Length: 206
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNSUPPORTED&#34;,
+         &#34;message&#34;: &#34;blob sha256:c64c5deae097e59a7a16c4162093da24f4a836416b02384716e8afaf5f2d4ee5 cannot be deleted while it is referenced by manifests in this repo&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-41-button" class="toggle" onclick="javascript:toggleOutput('output-box-41')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-41')">Delete layer blob created in setup</h4>
+                        <br>
+                        <div id="output-box-41" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.049741 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.049516859Z
+TIME DURATION: 3.046302ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+            
+          
+        </div>
+        
+          
+          
+            
+              <h2>Content Discovery</h2>
+              <div class="subcategory">
+              
+              
+                <h3>Setup</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-42-button" class="toggle" onclick="javascript:toggleOutput('output-box-42')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-42')">Populate registry with test blob</h4>
+                        <br>
+                        <div id="output-box-42" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.054521 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.054290263Z
+TIME DURATION: 4.482704ms
+HEADERS      :
+	Blob-Upload-Session-Id: 7a6bfb4f-b957-4b3d-8df4-1bedf3cc74fc
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/7a6bfb4f-b957-4b3d-8df4-1bedf3cc74fc
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.059319 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/7a6bfb4f-b957-4b3d-8df4-1bedf3cc74fc?digest=sha256%3A5789c098791f60aeb4fb01ffee41d698c10a4b4a2a642260f480834d74954120  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICJvS2ZOQWZtMUJ0ejNydmJsIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.059011966Z
+TIME DURATION: 4.414403ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-143
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:5789c098791f60aeb4fb01ffee41d698c10a4b4a2a642260f480834d74954120
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:5789c098791f60aeb4fb01ffee41d698c10a4b4a2a642260f480834d74954120
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-43-button" class="toggle" onclick="javascript:toggleOutput('output-box-43')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-43')">Populate registry with test layer</h4>
+                        <br>
+                        <div id="output-box-43" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.063061 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.062834369Z
+TIME DURATION: 3.438803ms
+HEADERS      :
+	Blob-Upload-Session-Id: 1cba0fb4-a024-437a-a1fc-4303c96f38b0
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/1cba0fb4-a024-437a-a1fc-4303c96f38b0
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.067656 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/1cba0fb4-a024-437a-a1fc-4303c96f38b0?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.067341672Z
+TIME DURATION: 4.209903ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-167
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-44-button" class="toggle" onclick="javascript:toggleOutput('output-box-44')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-44')">Populate registry with test tags</h4>
+                        <br>
+                        <div id="output-box-44" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.076151 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/test0  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjU3ODljMDk4NzkxZjYwYWViNGZiMDFmZmVlNDFkNjk4YzEwYTRiNGEyYTY0MjI2MGY0ODA4MzRkNzQ5NTQxMjAiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.075798678Z
+TIME DURATION: 8.044906ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:e47d5f93c35d89ab49943442293fd86933fdc9fcdefeb0a305d430e7b2df4be9
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:e47d5f93c35d89ab49943442293fd86933fdc9fcdefeb0a305d430e7b2df4be9
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.083532 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/test1  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjU3ODljMDk4NzkxZjYwYWViNGZiMDFmZmVlNDFkNjk4YzEwYTRiNGEyYTY0MjI2MGY0ODA4MzRkNzQ5NTQxMjAiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.083170083Z
+TIME DURATION: 6.938205ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:e47d5f93c35d89ab49943442293fd86933fdc9fcdefeb0a305d430e7b2df4be9
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:e47d5f93c35d89ab49943442293fd86933fdc9fcdefeb0a305d430e7b2df4be9
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.090858 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/test2  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjU3ODljMDk4NzkxZjYwYWViNGZiMDFmZmVlNDFkNjk4YzEwYTRiNGEyYTY0MjI2MGY0ODA4MzRkNzQ5NTQxMjAiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.090487488Z
+TIME DURATION: 6.875305ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:e47d5f93c35d89ab49943442293fd86933fdc9fcdefeb0a305d430e7b2df4be9
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:e47d5f93c35d89ab49943442293fd86933fdc9fcdefeb0a305d430e7b2df4be9
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.098178 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/test3  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjU3ODljMDk4NzkxZjYwYWViNGZiMDFmZmVlNDFkNjk4YzEwYTRiNGEyYTY0MjI2MGY0ODA4MzRkNzQ5NTQxMjAiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.097826093Z
+TIME DURATION: 6.889705ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:e47d5f93c35d89ab49943442293fd86933fdc9fcdefeb0a305d430e7b2df4be9
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:e47d5f93c35d89ab49943442293fd86933fdc9fcdefeb0a305d430e7b2df4be9
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.100524 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/tags/list  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:55.100289495Z
+TIME DURATION: 2.045402ms
+HEADERS      :
+	Content-Length: 85
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;conformance-test/oci&#34;,
+   &#34;tags&#34;: [
+      &#34;emptylayer&#34;,
+      &#34;test0&#34;,
+      &#34;test1&#34;,
+      &#34;test2&#34;,
+      &#34;test3&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-45-button" class="toggle" onclick="javascript:toggleOutput('output-box-45')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-45')">Populate registry with test tags (no push)</h4>
+                        <br>
+                        <div id="output-box-45" style="display: none;">
+                          <pre class="pre-box">you have skipped this test.</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Test content discovery endpoints</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-46-button" class="toggle" onclick="javascript:toggleOutput('output-box-46')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-46')">GET request to list tags should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-46" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.103569 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/tags/list  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:55.103083397Z
+TIME DURATION: 2.159502ms
+HEADERS      :
+	Content-Length: 85
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;conformance-test/oci&#34;,
+   &#34;tags&#34;: [
+      &#34;emptylayer&#34;,
+      &#34;test0&#34;,
+      &#34;test1&#34;,
+      &#34;test2&#34;,
+      &#34;test3&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-47-button" class="toggle" onclick="javascript:toggleOutput('output-box-47')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-47')">GET number of tags should be limitable by `n` query parameter</h4>
+                        <br>
+                        <div id="output-box-47" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.106522 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/tags/list?n=2  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:55.106284399Z
+TIME DURATION: 2.599602ms
+HEADERS      :
+	Content-Length: 61
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Link: &lt;/v2/conformance-test/oci/tags/list?last=test0&amp;n=2&gt;; rel=&#34;next&#34;
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;conformance-test/oci&#34;,
+   &#34;tags&#34;: [
+      &#34;emptylayer&#34;,
+      &#34;test0&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-48-button" class="toggle" onclick="javascript:toggleOutput('output-box-48')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-48')">GET start of tag is set by `last` query parameter</h4>
+                        <br>
+                        <div id="output-box-48" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.109098 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/tags/list?n=2  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:55.108835801Z
+TIME DURATION: 2.227802ms
+HEADERS      :
+	Content-Length: 61
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Link: &lt;/v2/conformance-test/oci/tags/list?last=test0&amp;n=2&gt;; rel=&#34;next&#34;
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;conformance-test/oci&#34;,
+   &#34;tags&#34;: [
+      &#34;emptylayer&#34;,
+      &#34;test0&#34;
+   ]
+}
+==============================================================================
+
+2022/05/13 13:36:55.111633 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/tags/list?last=test0&amp;n=2  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:55.111390702Z
+TIME DURATION: 2.225801ms
+HEADERS      :
+	Content-Length: 56
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Link: &lt;/v2/conformance-test/oci/tags/list?last=test2&amp;n=2&gt;; rel=&#34;next&#34;
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;conformance-test/oci&#34;,
+   &#34;tags&#34;: [
+      &#34;test1&#34;,
+      &#34;test2&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Teardown</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-49-button" class="toggle" onclick="javascript:toggleOutput('output-box-49')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-49')">Delete created manifest &amp; associated tags</h4>
+                        <br>
+                        <div id="output-box-49" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.114468 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/manifests/sha256:e47d5f93c35d89ab49943442293fd86933fdc9fcdefeb0a305d430e7b2df4be9  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.114268604Z
+TIME DURATION: 2.559001ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-50-button" class="toggle" onclick="javascript:toggleOutput('output-box-50')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-50')">Delete config blob created in tests</h4>
+                        <br>
+                        <div id="output-box-50" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.117754 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/blobs/sha256:5789c098791f60aeb4fb01ffee41d698c10a4b4a2a642260f480834d74954120  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.117534907Z
+TIME DURATION: 2.998502ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:5789c098791f60aeb4fb01ffee41d698c10a4b4a2a642260f480834d74954120
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-51-button" class="toggle" onclick="javascript:toggleOutput('output-box-51')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-51')">Delete layer blob created in setup</h4>
+                        <br>
+                        <div id="output-box-51" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.121157 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.120932009Z
+TIME DURATION: 3.112602ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+            
+          
+        </div>
+        
+          
+          
+            
+              <h2>Content Management</h2>
+              <div class="subcategory">
+              
+              
+                <h3>Setup</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-52-button" class="toggle" onclick="javascript:toggleOutput('output-box-52')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-52')">Populate registry with test config blob</h4>
+                        <br>
+                        <div id="output-box-52" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.124913 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.124690112Z
+TIME DURATION: 3.467103ms
+HEADERS      :
+	Blob-Upload-Session-Id: 345eaa99-1292-4b0d-9250-b73cdcf71791
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/345eaa99-1292-4b0d-9250-b73cdcf71791
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.129649 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/345eaa99-1292-4b0d-9250-b73cdcf71791?digest=sha256%3A326d22ab1277950706d2d5c507454033d893967dc5be1e767df522f5119321c1  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICJLaGdIYk9PMENWZ1pHMW40IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.129351915Z
+TIME DURATION: 4.363303ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-143
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:326d22ab1277950706d2d5c507454033d893967dc5be1e767df522f5119321c1
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:326d22ab1277950706d2d5c507454033d893967dc5be1e767df522f5119321c1
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-53-button" class="toggle" onclick="javascript:toggleOutput('output-box-53')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-53')">Populate registry with test layer</h4>
+                        <br>
+                        <div id="output-box-53" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.133541 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/conformance-test/oci/blobs/uploads/  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.133322618Z
+TIME DURATION: 3.597903ms
+HEADERS      :
+	Blob-Upload-Session-Id: 6e5f1433-2ce1-4c8c-a719-ed133fc7a933
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/uploads/6e5f1433-2ce1-4c8c-a719-ed133fc7a933
+	Range: 0-0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.138347 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/blobs/uploads/6e5f1433-2ce1-4c8c-a719-ed133fc7a933?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.138035321Z
+TIME DURATION: 4.421403ms
+HEADERS      :
+	Content-Length: 0
+	Content-Range: 0-167
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-54-button" class="toggle" onclick="javascript:toggleOutput('output-box-54')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-54')">Populate registry with test tag</h4>
+                        <br>
+                        <div id="output-box-54" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.147307 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/conformance-test/oci/manifests/tagtest0  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjMyNmQyMmFiMTI3Nzk1MDcwNmQyZDVjNTA3NDU0MDMzZDg5Mzk2N2RjNWJlMWU3NjdkZjUyMmY1MTE5MzIxYzEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-05-13T13:36:55.146949327Z
+TIME DURATION: 8.495106ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:ee83ae13a09a2f2caa69c8d866a7d04360bdec1fba7f1a8c0a18a7f98a47d43f
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: /v2/conformance-test/oci/manifests/sha256:ee83ae13a09a2f2caa69c8d866a7d04360bdec1fba7f1a8c0a18a7f98a47d43f
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-55-button" class="toggle" onclick="javascript:toggleOutput('output-box-55')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-55')">Check how many tags there are before anything gets deleted</h4>
+                        <br>
+                        <div id="output-box-55" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.149977 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/tags/list  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:55.149712629Z
+TIME DURATION: 2.297502ms
+HEADERS      :
+	Content-Length: 64
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;conformance-test/oci&#34;,
+   &#34;tags&#34;: [
+      &#34;emptylayer&#34;,
+      &#34;tagtest0&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Manifest delete</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-56-button" class="toggle" onclick="javascript:toggleOutput('output-box-56')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-56')">DELETE request to manifest tag should return 202, unless tag deletion is disallowed (400/405)</h4>
+                        <br>
+                        <div id="output-box-56" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.152589 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/manifests/tagtest0  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.152395831Z
+TIME DURATION: 2.322902ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-57-button" class="toggle" onclick="javascript:toggleOutput('output-box-57')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-57')">DELETE request to manifest (digest) should yield 202 response unless already deleted</h4>
+                        <br>
+                        <div id="output-box-57" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.155432 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/manifests/sha256:ee83ae13a09a2f2caa69c8d866a7d04360bdec1fba7f1a8c0a18a7f98a47d43f  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.155235433Z
+TIME DURATION: 2.564302ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-58-button" class="toggle" onclick="javascript:toggleOutput('output-box-58')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-58')">GET request to deleted manifest URL should yield 404 response, unless delete is disallowed</h4>
+                        <br>
+                        <div id="output-box-58" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.158051 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/manifests/sha256:ee83ae13a09a2f2caa69c8d866a7d04360bdec1fba7f1a8c0a18a7f98a47d43f  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2022-05-13T13:36:55.157788035Z
+TIME DURATION: 2.283402ms
+HEADERS      :
+	Content-Length: 82
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;MANIFEST_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;manifest unknown&#34;,
+         &#34;detail&#34;: &#34;&#34;
+      }
+   ]
+}
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-59-button" class="toggle" onclick="javascript:toggleOutput('output-box-59')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-59')">GET request to tags list should reflect manifest deletion</h4>
+                        <br>
+                        <div id="output-box-59" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.160606 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/tags/list  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-05-13T13:36:55.160382036Z
+TIME DURATION: 2.257401ms
+HEADERS      :
+	Content-Length: 53
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;conformance-test/oci&#34;,
+   &#34;tags&#34;: [
+      &#34;emptylayer&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Blob delete</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-60-button" class="toggle" onclick="javascript:toggleOutput('output-box-60')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-60')">DELETE request to blob URL should yield 202 response</h4>
+                        <br>
+                        <div id="output-box-60" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.164031 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/blobs/sha256:326d22ab1277950706d2d5c507454033d893967dc5be1e767df522f5119321c1  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.163809239Z
+TIME DURATION: 3.107102ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:326d22ab1277950706d2d5c507454033d893967dc5be1e767df522f5119321c1
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/05/13 13:36:55.167368 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/conformance-test/oci/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-05-13T13:36:55.167156241Z
+TIME DURATION: 3.072802ms
+HEADERS      :
+	Content-Length: 0
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-61-button" class="toggle" onclick="javascript:toggleOutput('output-box-61')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-61')">GET request to deleted blob URL should yield 404 response</h4>
+                        <br>
+                        <div id="output-box-61" style="display: none;">
+                          <pre class="pre-box">2022/05/13 13:36:55.169952 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/conformance-test/oci/blobs/sha256:326d22ab1277950706d2d5c507454033d893967dc5be1e767df522f5119321c1  HTTP/1.1
+HOST   : 10.1.1.97:8080
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2022-05-13T13:36:55.169694143Z
+TIME DURATION: 2.254602ms
+HEADERS      :
+	Content-Length: 102
+	Content-Type: application/json
+	Date: Fri, 13 May 2022 13:36:55 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Vary: Origin
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;BLOB_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;blob does not exist in this repository&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+            
+          
+        </div>
+        
+      
+    </div>
+  </body>
+</html>

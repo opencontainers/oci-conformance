@@ -1,0 +1,9 @@
+vendor: Containerish
+name: OpenRegistry
+version: V0.1.0
+website_url: https://openregistry.dev
+repo_url: https://github.com/containerish/OpenRegistry
+documentation_url: https://blog.openregistry.dev
+product_logo_url: https://avatars.githubusercontent.com/u/90045228
+type: distribution
+description: OpenRegistry is an open source, decentralised and distributed container registry
