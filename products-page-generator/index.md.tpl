@@ -4,7 +4,7 @@ permalink: index.html
 
 __Table of Contents:__
 
-- [Distribution Spec](#distirbution-spec)
+- [Distribution Spec](#distribution-spec)
   - [Open Source](#open-source)
 {{- with .Submissions -}}
 {{- range $key, $value := . }}
