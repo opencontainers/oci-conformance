@@ -135,7 +135,7 @@
       .meter-green {
         height: 100%;
         background: green;
-        width: 28%;
+        width: 42%;
       }
       .meter-red {
         height: 100%;
@@ -145,7 +145,7 @@
       .meter-grey {
         height: 100%;
         background: grey;
-        width: 72%;
+        width: 58%;
       }
       .subcategory {
         background: white;
@@ -183,7 +183,7 @@
       <tr>
         <td class="bullet-left">Summary</td>
         <td>
-          <div class="quick-summary"><span class="darkgreen">18 passed</span><span class="darkgrey">47 skipped</span><div class="meter">
+          <div class="quick-summary"><span class="darkgreen">27 passed</span><span class="darkgrey">38 skipped</span><div class="meter">
               <div class="meter-green"></div>
               <div class="meter-red"></div>
               <div class="meter-grey"></div>
@@ -193,15 +193,15 @@
       </tr>
       <tr>
         <td class="bullet-left">Start Time</td>
-        <td>Nov 8 11:37:47.899 &#43;0100 CET</td>
+        <td>Nov 9 10:49:05.510 &#43;0100 CET</td>
       </tr>
       <tr>
         <td class="bullet-left">End Time</td>
-        <td>Nov 8 11:38:01.448 &#43;0100 CET</td>
+        <td>Nov 9 10:49:36.788 &#43;0100 CET</td>
       </tr>
       <tr>
         <td class="bullet-left">Time Elapsed</td>
-        <td>13.549306208s</td>
+        <td>31.277735833s</td>
       </tr>
       <tr>
         <td class="bullet-left">Test Version</td>
@@ -225,7 +225,7 @@
           
             OCI_TEST_PUSH=0<br />
           
-            OCI_TEST_CONTENT_DISCOVERY=0<br />
+            OCI_TEST_CONTENT_DISCOVERY=1<br />
           
             OCI_TEST_CONTENT_MANAGEMENT=0<br />
           
@@ -258,7 +258,7 @@
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-0')">Populate registry with test blob</h4>
                         <br>
                         <div id="output-box-0" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:48.122809 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:05.892831 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/oci/conformance/blobs/uploads/  HTTP/1.1
@@ -270,13 +270,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:48.121319&#43;01:00
-TIME DURATION: 221.555125ms
+RECEIVED AT  : 2022-11-09T10:49:05.892519&#43;01:00
+TIME DURATION: 380.657ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:48 GMT
+	Date: Wed, 09 Nov 2022 09:49:05 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -297,7 +297,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:37:48.161216 DEBUG 
+2022/11/09 10:49:05.976667 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -311,13 +311,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:48.160534&#43;01:00
-TIME DURATION: 37.377083ms
+RECEIVED AT  : 2022-11-09T10:49:05.975909&#43;01:00
+TIME DURATION: 82.968917ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:48 GMT
+	Date: Wed, 09 Nov 2022 09:49:06 GMT
 	Vary: Origin
 BODY         :
 {
@@ -326,7 +326,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:48.638219 DEBUG 
+2022/11/09 10:49:06.485439 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/oci/conformance/blobs/uploads/  HTTP/1.1
@@ -339,40 +339,40 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2022-11-08T11:37:48.637382&#43;01:00
-TIME DURATION: 475.876708ms
+RECEIVED AT  : 2022-11-09T10:49:06.484859&#43;01:00
+TIME DURATION: 506.917959ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
-	Date: Tue, 08 Nov 2022 10:37:48 GMT
-	Docker-Upload-Uuid: e41e22ae-3e0a-45d6-b3e2-a61f345b21ca
-	Location: /v2/oci/conformance/blobs/uploads/e41e22ae-3e0a-45d6-b3e2-a61f345b21ca
+	Date: Wed, 09 Nov 2022 09:49:06 GMT
+	Docker-Upload-Uuid: 1ec55561-c722-4f9d-9aa2-6dfbcc3c6e3d
+	Location: /v2/oci/conformance/blobs/uploads/1ec55561-c722-4f9d-9aa2-6dfbcc3c6e3d
 	Vary: Origin
 BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:48.757241 DEBUG 
+2022/11/09 10:49:06.616100 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/oci/conformance/blobs/uploads/e41e22ae-3e0a-45d6-b3e2-a61f345b21ca?digest=sha256%3Ab5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417  HTTP/1.1
+PUT  /v2/oci/conformance/blobs/uploads/1ec55561-c722-4f9d-9aa2-6dfbcc3c6e3d?digest=sha256%3A1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Content-Length: 129
 	Content-Type: application/octet-stream
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-ewoJImF1dGhvciI6ICJweWpyZGxmN0NoUFFocHY1IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+ewoJImF1dGhvciI6ICIyUmxZaGJEWDJUQkhTYThTIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:48.755269&#43;01:00
-TIME DURATION: 116.649708ms
+RECEIVED AT  : 2022-11-09T10:49:06.615199&#43;01:00
+TIME DURATION: 129.460917ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:48 GMT
+	Date: Wed, 09 Nov 2022 09:49:06 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -393,7 +393,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:37:48.796771 DEBUG 
+2022/11/09 10:49:06.676339 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -407,13 +407,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:48.796183&#43;01:00
-TIME DURATION: 38.753417ms
+RECEIVED AT  : 2022-11-09T10:49:06.675888&#43;01:00
+TIME DURATION: 59.65625ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:48 GMT
+	Date: Wed, 09 Nov 2022 09:49:06 GMT
 	Vary: Origin
 BODY         :
 {
@@ -422,10 +422,10 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:49.334537 DEBUG 
+2022/11/09 10:49:07.239339 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/oci/conformance/blobs/uploads/e41e22ae-3e0a-45d6-b3e2-a61f345b21ca?digest=sha256%3Ab5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417  HTTP/1.1
+PUT  /v2/oci/conformance/blobs/uploads/1ec55561-c722-4f9d-9aa2-6dfbcc3c6e3d?digest=sha256%3A1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Authorization: Bearer *****
@@ -433,18 +433,18 @@ HEADERS:
 	Content-Type: application/octet-stream
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-ewoJImF1dGhvciI6ICJweWpyZGxmN0NoUFFocHY1IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+ewoJImF1dGhvciI6ICIyUmxZaGJEWDJUQkhTYThTIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2022-11-08T11:37:49.333482&#43;01:00
-TIME DURATION: 536.568166ms
+RECEIVED AT  : 2022-11-09T10:49:07.238678&#43;01:00
+TIME DURATION: 562.118792ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
-	Date: Tue, 08 Nov 2022 10:37:49 GMT
-	Docker-Content-Digest: sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417
-	Location: /v2/oci/conformance/blobs/uploads/e41e22ae-3e0a-45d6-b3e2-a61f345b21ca
+	Date: Wed, 09 Nov 2022 09:49:07 GMT
+	Docker-Content-Digest: sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9
+	Location: /v2/oci/conformance/blobs/uploads/1ec55561-c722-4f9d-9aa2-6dfbcc3c6e3d
 	Range: 10-10
 	Vary: Origin
 BODY         :
@@ -463,7 +463,7 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-1')">Populate registry with test layer</h4>
                         <br>
                         <div id="output-box-1" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:49.379613 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:07.316706 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/oci/conformance/blobs/uploads/  HTTP/1.1
@@ -475,13 +475,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:49.37924&#43;01:00
-TIME DURATION: 44.164834ms
+RECEIVED AT  : 2022-11-09T10:49:07.31625&#43;01:00
+TIME DURATION: 76.432625ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:49 GMT
+	Date: Wed, 09 Nov 2022 09:49:07 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -502,7 +502,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:37:49.423030 DEBUG 
+2022/11/09 10:49:07.386021 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -516,13 +516,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:49.422396&#43;01:00
-TIME DURATION: 42.712958ms
+RECEIVED AT  : 2022-11-09T10:49:07.385568&#43;01:00
+TIME DURATION: 68.753167ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:49 GMT
+	Date: Wed, 09 Nov 2022 09:49:07 GMT
 	Vary: Origin
 BODY         :
 {
@@ -531,7 +531,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:49.935001 DEBUG 
+2022/11/09 10:49:08.269077 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 POST  /v2/oci/conformance/blobs/uploads/  HTTP/1.1
@@ -544,23 +544,23 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 202 Accepted
-RECEIVED AT  : 2022-11-08T11:37:49.934434&#43;01:00
-TIME DURATION: 511.084083ms
+RECEIVED AT  : 2022-11-09T10:49:08.267171&#43;01:00
+TIME DURATION: 881.081584ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
-	Date: Tue, 08 Nov 2022 10:37:49 GMT
-	Docker-Upload-Uuid: 246b467a-e65d-4afd-8d10-131643b4ae23
-	Location: /v2/oci/conformance/blobs/uploads/246b467a-e65d-4afd-8d10-131643b4ae23
+	Date: Wed, 09 Nov 2022 09:49:07 GMT
+	Docker-Upload-Uuid: 6c637032-9315-455f-9dfd-abfce0ae614d
+	Location: /v2/oci/conformance/blobs/uploads/6c637032-9315-455f-9dfd-abfce0ae614d
 	Vary: Origin
 BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:50.018863 DEBUG 
+2022/11/09 10:49:08.413511 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/oci/conformance/blobs/uploads/246b467a-e65d-4afd-8d10-131643b4ae23?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+PUT  /v2/oci/conformance/blobs/uploads/6c637032-9315-455f-9dfd-abfce0ae614d?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Content-Length: 168
@@ -571,13 +571,13 @@ H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSj
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:50.017957&#43;01:00
-TIME DURATION: 82.796792ms
+RECEIVED AT  : 2022-11-09T10:49:08.412963&#43;01:00
+TIME DURATION: 143.6495ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:50 GMT
+	Date: Wed, 09 Nov 2022 09:49:08 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -598,7 +598,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:37:50.061070 DEBUG 
+2022/11/09 10:49:08.473028 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -612,13 +612,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:50.059581&#43;01:00
-TIME DURATION: 40.505041ms
+RECEIVED AT  : 2022-11-09T10:49:08.472649&#43;01:00
+TIME DURATION: 59.053875ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:50 GMT
+	Date: Wed, 09 Nov 2022 09:49:08 GMT
 	Vary: Origin
 BODY         :
 {
@@ -627,10 +627,10 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:50.664079 DEBUG 
+2022/11/09 10:49:09.003960 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-PUT  /v2/oci/conformance/blobs/uploads/246b467a-e65d-4afd-8d10-131643b4ae23?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+PUT  /v2/oci/conformance/blobs/uploads/6c637032-9315-455f-9dfd-abfce0ae614d?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Authorization: Bearer *****
@@ -642,14 +642,14 @@ H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSj
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2022-11-08T11:37:50.662616&#43;01:00
-TIME DURATION: 601.375084ms
+RECEIVED AT  : 2022-11-09T10:49:09.00267&#43;01:00
+TIME DURATION: 529.467209ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
-	Date: Tue, 08 Nov 2022 10:37:50 GMT
+	Date: Wed, 09 Nov 2022 09:49:09 GMT
 	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
-	Location: /v2/oci/conformance/blobs/uploads/246b467a-e65d-4afd-8d10-131643b4ae23
+	Location: /v2/oci/conformance/blobs/uploads/6c637032-9315-455f-9dfd-abfce0ae614d
 	Range: 10-10
 	Vary: Origin
 BODY         :
@@ -668,7 +668,7 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-2')">Populate registry with test manifest</h4>
                         <br>
                         <div id="output-box-2" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:50.803697 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:09.204985 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/oci/conformance/manifests/tagtest0  HTTP/1.1
@@ -678,17 +678,17 @@ HEADERS:
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmI1YzBhMmU4NGRjODQyNGU1ZjI5NWRjNTU0NmUxZmYxOWRjY2QzMDRjNjgwZGE1ZWZmYmViOGJiZDY2MDM0MTciLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0p3ZVdweVpHeG1OME5vVUZGb2NIWTFJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjFiYmI5MDMxZGU4NjUwZWIzZTc1MGJmNjgyNGI0Yjk2ZjczNWQ5ZTY5Y2RmNjg3NTI2MjEwZWZkODE1MDUyZDkiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0l5VW14WmFHSkVXREpVUWtoVFlUaFRJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:50.802076&#43;01:00
-TIME DURATION: 137.563125ms
+RECEIVED AT  : 2022-11-09T10:49:09.202606&#43;01:00
+TIME DURATION: 198.353708ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:50 GMT
+	Date: Wed, 09 Nov 2022 09:49:09 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -709,7 +709,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:37:50.844513 DEBUG 
+2022/11/09 10:49:09.259872 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -723,13 +723,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:50.843802&#43;01:00
-TIME DURATION: 38.923583ms
+RECEIVED AT  : 2022-11-09T10:49:09.258897&#43;01:00
+TIME DURATION: 53.78225ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:50 GMT
+	Date: Wed, 09 Nov 2022 09:49:09 GMT
 	Vary: Origin
 BODY         :
 {
@@ -738,7 +738,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:51.412238 DEBUG 
+2022/11/09 10:49:10.143077 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/oci/conformance/manifests/tagtest0  HTTP/1.1
@@ -749,18 +749,18 @@ HEADERS:
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmI1YzBhMmU4NGRjODQyNGU1ZjI5NWRjNTU0NmUxZmYxOWRjY2QzMDRjNjgwZGE1ZWZmYmViOGJiZDY2MDM0MTciLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0p3ZVdweVpHeG1OME5vVUZGb2NIWTFJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjFiYmI5MDMxZGU4NjUwZWIzZTc1MGJmNjgyNGI0Yjk2ZjczNWQ5ZTY5Y2RmNjg3NTI2MjEwZWZkODE1MDUyZDkiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0l5VW14WmFHSkVXREpVUWtoVFlUaFRJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2022-11-08T11:37:51.411194&#43;01:00
-TIME DURATION: 566.511333ms
+RECEIVED AT  : 2022-11-09T10:49:10.142369&#43;01:00
+TIME DURATION: 882.316458ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
-	Date: Tue, 08 Nov 2022 10:37:51 GMT
-	Docker-Content-Digest: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
-	Etag: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
+	Date: Wed, 09 Nov 2022 09:49:09 GMT
+	Docker-Content-Digest: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
+	Etag: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
 	Vary: Origin
 BODY         :
 
@@ -778,7 +778,7 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-3')">Get the name of a tag</h4>
                         <br>
                         <div id="output-box-3" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:51.455258 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:10.241401 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/tags/list  HTTP/1.1
@@ -790,13 +790,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:51.454645&#43;01:00
-TIME DURATION: 42.117959ms
+RECEIVED AT  : 2022-11-09T10:49:10.240705&#43;01:00
+TIME DURATION: 97.501125ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 184
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:51 GMT
+	Date: Wed, 09 Nov 2022 09:49:10 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -806,7 +806,7 @@ Log Body as-is:
 {&#34;errors&#34;:[{&#34;code&#34;:&#34;UNAUTHORIZED&#34;,&#34;message&#34;:&#34;authentication required&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;unknown&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}{&#34;name&#34;:&#34;oci/conformance&#34;,&#34;tags&#34;:[&#34;tagtest0&#34;]}
 ==============================================================================
 
-2022/11/08 11:37:51.498861 DEBUG 
+2022/11/09 10:49:10.305725 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -820,13 +820,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:51.49836&#43;01:00
-TIME DURATION: 42.979625ms
+RECEIVED AT  : 2022-11-09T10:49:10.305241&#43;01:00
+TIME DURATION: 63.663625ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:51 GMT
+	Date: Wed, 09 Nov 2022 09:49:10 GMT
 	Vary: Origin
 BODY         :
 {
@@ -835,7 +835,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:51.987574 DEBUG 
+2022/11/09 10:49:10.782294 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/tags/list  HTTP/1.1
@@ -848,13 +848,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:51.987044&#43;01:00
-TIME DURATION: 488.057167ms
+RECEIVED AT  : 2022-11-09T10:49:10.781703&#43;01:00
+TIME DURATION: 475.902ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 46
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:52 GMT
+	Date: Wed, 09 Nov 2022 09:49:10 GMT
 	Vary: Origin
 BODY         :
 {
@@ -865,7 +865,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:37:52.099472 DEBUG 
+2022/11/09 10:49:10.935300 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/oci/conformance/manifests/tagtest0  HTTP/1.1
@@ -875,17 +875,17 @@ HEADERS:
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmI1YzBhMmU4NGRjODQyNGU1ZjI5NWRjNTU0NmUxZmYxOWRjY2QzMDRjNjgwZGE1ZWZmYmViOGJiZDY2MDM0MTciLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0p3ZVdweVpHeG1OME5vVUZGb2NIWTFJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjFiYmI5MDMxZGU4NjUwZWIzZTc1MGJmNjgyNGI0Yjk2ZjczNWQ5ZTY5Y2RmNjg3NTI2MjEwZWZkODE1MDUyZDkiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0l5VW14WmFHSkVXREpVUWtoVFlUaFRJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:52.095086&#43;01:00
-TIME DURATION: 106.432ms
+RECEIVED AT  : 2022-11-09T10:49:10.934473&#43;01:00
+TIME DURATION: 151.927125ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:52 GMT
+	Date: Wed, 09 Nov 2022 09:49:10 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -906,7 +906,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:37:52.137265 DEBUG 
+2022/11/09 10:49:10.999986 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -920,13 +920,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:52.136812&#43;01:00
-TIME DURATION: 37.188958ms
+RECEIVED AT  : 2022-11-09T10:49:10.999107&#43;01:00
+TIME DURATION: 63.688ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:52 GMT
+	Date: Wed, 09 Nov 2022 09:49:11 GMT
 	Vary: Origin
 BODY         :
 {
@@ -935,7 +935,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:52.696535 DEBUG 
+2022/11/09 10:49:11.545388 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/oci/conformance/manifests/tagtest0  HTTP/1.1
@@ -946,18 +946,18 @@ HEADERS:
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
 	User-Agent: distribution-spec-conformance-tests
 BODY   :
-&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmI1YzBhMmU4NGRjODQyNGU1ZjI5NWRjNTU0NmUxZmYxOWRjY2QzMDRjNjgwZGE1ZWZmYmViOGJiZDY2MDM0MTciLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0p3ZVdweVpHeG1OME5vVUZGb2NIWTFJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjFiYmI5MDMxZGU4NjUwZWIzZTc1MGJmNjgyNGI0Yjk2ZjczNWQ5ZTY5Y2RmNjg3NTI2MjEwZWZkODE1MDUyZDkiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0l5VW14WmFHSkVXREpVUWtoVFlUaFRJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 201 Created
-RECEIVED AT  : 2022-11-08T11:37:52.694984&#43;01:00
-TIME DURATION: 557.561125ms
+RECEIVED AT  : 2022-11-09T10:49:11.542525&#43;01:00
+TIME DURATION: 542.281625ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
-	Date: Tue, 08 Nov 2022 10:37:52 GMT
-	Docker-Content-Digest: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
-	Etag: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
+	Date: Wed, 09 Nov 2022 09:49:11 GMT
+	Docker-Content-Digest: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
+	Etag: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
 	Vary: Origin
 BODY         :
 
@@ -994,7 +994,7 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-5')">HEAD request to nonexistent blob should result in 404 response</h4>
                         <br>
                         <div id="output-box-5" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:52.769431 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:11.611357 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 HEAD  /v2/oci/conformance/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
@@ -1006,13 +1006,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:52.768737&#43;01:00
-TIME DURATION: 71.18625ms
+RECEIVED AT  : 2022-11-09T10:49:11.61003&#43;01:00
+TIME DURATION: 63.347958ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 280
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:52 GMT
+	Date: Wed, 09 Nov 2022 09:49:11 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -1022,7 +1022,7 @@ Log Body as-is:
 
 ==============================================================================
 
-2022/11/08 11:37:52.815553 DEBUG 
+2022/11/09 10:49:11.665746 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -1036,13 +1036,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:52.814565&#43;01:00
-TIME DURATION: 44.928042ms
+RECEIVED AT  : 2022-11-09T10:49:11.665334&#43;01:00
+TIME DURATION: 53.582ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:52 GMT
+	Date: Wed, 09 Nov 2022 09:49:11 GMT
 	Vary: Origin
 BODY         :
 {
@@ -1051,7 +1051,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:53.324907 DEBUG 
+2022/11/09 10:49:12.798669 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 HEAD  /v2/oci/conformance/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
@@ -1064,13 +1064,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2022-11-08T11:37:53.324448&#43;01:00
-TIME DURATION: 506.240459ms
+RECEIVED AT  : 2022-11-09T10:49:12.798175&#43;01:00
+TIME DURATION: 1.132361333s
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 142
 	Content-Type: text/plain; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:53 GMT
+	Date: Wed, 09 Nov 2022 09:49:12 GMT
 	Vary: Origin
 BODY         :
 
@@ -1088,10 +1088,10 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-6')">HEAD request to existing blob should yield 200</h4>
                         <br>
                         <div id="output-box-6" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:53.387081 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:12.905798 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-HEAD  /v2/oci/conformance/blobs/sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417  HTTP/1.1
+HEAD  /v2/oci/conformance/blobs/sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
@@ -1100,13 +1100,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:53.386162&#43;01:00
-TIME DURATION: 61.070916ms
+RECEIVED AT  : 2022-11-09T10:49:12.905369&#43;01:00
+TIME DURATION: 106.446084ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:53 GMT
+	Date: Wed, 09 Nov 2022 09:49:12 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -1116,7 +1116,7 @@ Log Body as-is:
 
 ==============================================================================
 
-2022/11/08 11:37:53.433542 DEBUG 
+2022/11/09 10:49:12.981168 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -1130,13 +1130,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:53.432893&#43;01:00
-TIME DURATION: 45.578584ms
+RECEIVED AT  : 2022-11-09T10:49:12.980536&#43;01:00
+TIME DURATION: 74.656417ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:53 GMT
+	Date: Wed, 09 Nov 2022 09:49:13 GMT
 	Vary: Origin
 BODY         :
 {
@@ -1145,10 +1145,10 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:53.937062 DEBUG 
+2022/11/09 10:49:13.495564 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-HEAD  /v2/oci/conformance/blobs/sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417  HTTP/1.1
+HEAD  /v2/oci/conformance/blobs/sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Authorization: Bearer *****
@@ -1158,16 +1158,16 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:53.936464&#43;01:00
-TIME DURATION: 502.287583ms
+RECEIVED AT  : 2022-11-09T10:49:13.494651&#43;01:00
+TIME DURATION: 513.377042ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 129
 	Content-Type: application/vnd.docker.container.image.v1&#43;json
-	Date: Tue, 08 Nov 2022 10:37:53 GMT
-	Docker-Content-Digest: sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417
+	Date: Wed, 09 Nov 2022 09:49:13 GMT
+	Docker-Content-Digest: sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9
 	Docker-Distribution-Api-Version: registry/2.0
-	Etag: sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417
+	Etag: sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9
 	Vary: Origin
 BODY         :
 *** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
@@ -1188,7 +1188,7 @@ Log Body as-is:
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-7')">GET nonexistent blob should result in 404 response</h4>
                         <br>
                         <div id="output-box-7" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:53.986856 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:13.565555 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
@@ -1200,13 +1200,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:53.986056&#43;01:00
-TIME DURATION: 48.696667ms
+RECEIVED AT  : 2022-11-09T10:49:13.564651&#43;01:00
+TIME DURATION: 68.408542ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:54 GMT
+	Date: Wed, 09 Nov 2022 09:49:13 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -1227,7 +1227,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:37:54.031567 DEBUG 
+2022/11/09 10:49:13.638852 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -1241,13 +1241,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:54.030548&#43;01:00
-TIME DURATION: 43.368833ms
+RECEIVED AT  : 2022-11-09T10:49:13.638623&#43;01:00
+TIME DURATION: 72.917167ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:54 GMT
+	Date: Wed, 09 Nov 2022 09:49:13 GMT
 	Vary: Origin
 BODY         :
 {
@@ -1256,7 +1256,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:54.679502 DEBUG 
+2022/11/09 10:49:14.575630 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
@@ -1269,17 +1269,17 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2022-11-08T11:37:54.678689&#43;01:00
-TIME DURATION: 646.5425ms
+RECEIVED AT  : 2022-11-09T10:49:14.575064&#43;01:00
+TIME DURATION: 936.17ms
 HEADERS      :
 	Content-Type: application/xml
-	Date: Tue, 08 Nov 2022 10:37:54 GMT
+	Date: Wed, 09 Nov 2022 09:49:13 GMT
 	Server: AmazonS3
-	X-Amz-Id-2: 521oKOve3ZjnGPBXmYRuNSZ7tI4OQHCVHl0sGWoX9EVcpHsOJ7azN0GGrMa0wKLNQNQi33qk&#43;5M=
-	X-Amz-Request-Id: 2768DX336WZQSN7S
+	X-Amz-Id-2: Fs4UHjct5SwcrVpVbO8Io&#43;oVEuoUweCLD5bfOgXHv4r98WAbvZMgBb4Vi&#43;daZaKs2fvl4yX7Dmo=
+	X-Amz-Request-Id: MGGFZPBK9XCVH2X0
 BODY         :
 &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
-&lt;Error&gt;&lt;Code&gt;NoSuchKey&lt;/Code&gt;&lt;Message&gt;The specified key does not exist.&lt;/Message&gt;&lt;Key&gt;sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9&lt;/Key&gt;&lt;RequestId&gt;2768DX336WZQSN7S&lt;/RequestId&gt;&lt;HostId&gt;521oKOve3ZjnGPBXmYRuNSZ7tI4OQHCVHl0sGWoX9EVcpHsOJ7azN0GGrMa0wKLNQNQi33qk&#43;5M=&lt;/HostId&gt;&lt;/Error&gt;
+&lt;Error&gt;&lt;Code&gt;NoSuchKey&lt;/Code&gt;&lt;Message&gt;The specified key does not exist.&lt;/Message&gt;&lt;Key&gt;sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9&lt;/Key&gt;&lt;RequestId&gt;MGGFZPBK9XCVH2X0&lt;/RequestId&gt;&lt;HostId&gt;Fs4UHjct5SwcrVpVbO8Io&#43;oVEuoUweCLD5bfOgXHv4r98WAbvZMgBb4Vi&#43;daZaKs2fvl4yX7Dmo=&lt;/HostId&gt;&lt;/Error&gt;
 ==============================================================================
 
 </pre>
@@ -1294,10 +1294,10 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-8')">GET request to existing blob URL should yield 200</h4>
                         <br>
                         <div id="output-box-8" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:54.741137 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:14.692345 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/oci/conformance/blobs/sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417  HTTP/1.1
+GET  /v2/oci/conformance/blobs/sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
@@ -1306,13 +1306,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:54.739668&#43;01:00
-TIME DURATION: 59.4385ms
+RECEIVED AT  : 2022-11-09T10:49:14.691365&#43;01:00
+TIME DURATION: 115.605209ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 267
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:54 GMT
+	Date: Wed, 09 Nov 2022 09:49:14 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -1320,7 +1320,7 @@ BODY         :
 
 Log Body as-is:
 {&#34;errors&#34;:[{&#34;code&#34;:&#34;UNAUTHORIZED&#34;,&#34;message&#34;:&#34;authentication required&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;unknown&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}{
-	&#34;author&#34;: &#34;pyjrdlf7ChPQhpv5&#34;,
+	&#34;author&#34;: &#34;2RlYhbDX2TBHSa8S&#34;,
 	&#34;architecture&#34;: &#34;amd64&#34;,
 	&#34;os&#34;: &#34;linux&#34;,
 	&#34;rootfs&#34;: {
@@ -1330,7 +1330,7 @@ Log Body as-is:
 }
 ==============================================================================
 
-2022/11/08 11:37:54.785012 DEBUG 
+2022/11/09 10:49:14.761244 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -1344,13 +1344,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:54.784461&#43;01:00
-TIME DURATION: 43.120333ms
+RECEIVED AT  : 2022-11-09T10:49:14.760938&#43;01:00
+TIME DURATION: 68.466375ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:54 GMT
+	Date: Wed, 09 Nov 2022 09:49:14 GMT
 	Vary: Origin
 BODY         :
 {
@@ -1359,10 +1359,10 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:55.285632 DEBUG 
+2022/11/09 10:49:15.274081 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/oci/conformance/blobs/sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417  HTTP/1.1
+GET  /v2/oci/conformance/blobs/sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Authorization: Bearer *****
@@ -1372,20 +1372,20 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:55.284582&#43;01:00
-TIME DURATION: 499.436416ms
+RECEIVED AT  : 2022-11-09T10:49:15.273139&#43;01:00
+TIME DURATION: 511.838583ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 129
 	Content-Type: application/vnd.docker.container.image.v1&#43;json
-	Date: Tue, 08 Nov 2022 10:37:55 GMT
-	Docker-Content-Digest: sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417
+	Date: Wed, 09 Nov 2022 09:49:15 GMT
+	Docker-Content-Digest: sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9
 	Docker-Distribution-Api-Version: registry/2.0
-	Etag: sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417
+	Etag: sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9
 	Vary: Origin
 BODY         :
 {
-   &#34;author&#34;: &#34;pyjrdlf7ChPQhpv5&#34;,
+   &#34;author&#34;: &#34;2RlYhbDX2TBHSa8S&#34;,
    &#34;architecture&#34;: &#34;amd64&#34;,
    &#34;os&#34;: &#34;linux&#34;,
    &#34;rootfs&#34;: {
@@ -1414,7 +1414,7 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-9')">HEAD request to nonexistent manifest should return 404</h4>
                         <br>
                         <div id="output-box-9" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:55.327115 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:15.333244 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 HEAD  /v2/oci/conformance/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
@@ -1426,13 +1426,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:55.326686&#43;01:00
-TIME DURATION: 40.672333ms
+RECEIVED AT  : 2022-11-09T10:49:15.332462&#43;01:00
+TIME DURATION: 58.184667ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 349
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:55 GMT
+	Date: Wed, 09 Nov 2022 09:49:15 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -1442,7 +1442,7 @@ Log Body as-is:
 
 ==============================================================================
 
-2022/11/08 11:37:55.367613 DEBUG 
+2022/11/09 10:49:15.400141 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -1456,13 +1456,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:55.367275&#43;01:00
-TIME DURATION: 40.0525ms
+RECEIVED AT  : 2022-11-09T10:49:15.399646&#43;01:00
+TIME DURATION: 65.948917ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:55 GMT
+	Date: Wed, 09 Nov 2022 09:49:15 GMT
 	Vary: Origin
 BODY         :
 {
@@ -1471,7 +1471,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:55.886132 DEBUG 
+2022/11/09 10:49:15.892781 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 HEAD  /v2/oci/conformance/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
@@ -1484,13 +1484,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2022-11-08T11:37:55.885499&#43;01:00
-TIME DURATION: 517.824208ms
+RECEIVED AT  : 2022-11-09T10:49:15.891986&#43;01:00
+TIME DURATION: 491.768917ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 211
 	Content-Type: text/plain; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:55 GMT
+	Date: Wed, 09 Nov 2022 09:49:15 GMT
 	Vary: Origin
 BODY         :
 
@@ -1508,10 +1508,10 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-10')">HEAD request to manifest path (digest) should yield 200 response</h4>
                         <br>
                         <div id="output-box-10" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:55.968136 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:15.998173 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-HEAD  /v2/oci/conformance/manifests/sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859  HTTP/1.1
+HEAD  /v2/oci/conformance/manifests/sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
@@ -1521,13 +1521,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:55.966762&#43;01:00
-TIME DURATION: 80.479792ms
+RECEIVED AT  : 2022-11-09T10:49:15.997215&#43;01:00
+TIME DURATION: 102.8485ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:56 GMT
+	Date: Wed, 09 Nov 2022 09:49:16 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -1537,7 +1537,7 @@ Log Body as-is:
 
 ==============================================================================
 
-2022/11/08 11:37:56.009611 DEBUG 
+2022/11/09 10:49:16.066165 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -1551,13 +1551,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:56.009394&#43;01:00
-TIME DURATION: 41.131417ms
+RECEIVED AT  : 2022-11-09T10:49:16.065811&#43;01:00
+TIME DURATION: 67.529166ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:56 GMT
+	Date: Wed, 09 Nov 2022 09:49:16 GMT
 	Vary: Origin
 BODY         :
 {
@@ -1566,10 +1566,10 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:56.531265 DEBUG 
+2022/11/09 10:49:16.779755 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-HEAD  /v2/oci/conformance/manifests/sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859  HTTP/1.1
+HEAD  /v2/oci/conformance/manifests/sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
@@ -1580,15 +1580,15 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:56.530783&#43;01:00
-TIME DURATION: 521.118417ms
+RECEIVED AT  : 2022-11-09T10:49:16.778827&#43;01:00
+TIME DURATION: 712.590417ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Tue, 08 Nov 2022 10:37:56 GMT
-	Docker-Content-Digest: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
-	Etag: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
+	Date: Wed, 09 Nov 2022 09:49:16 GMT
+	Docker-Content-Digest: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
+	Etag: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
 	Vary: Origin
 BODY         :
 *** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
@@ -1609,7 +1609,7 @@ Log Body as-is:
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-11')">HEAD request to manifest path (tag) should yield 200 response</h4>
                         <br>
                         <div id="output-box-11" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:56.602962 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:16.896144 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/manifests/tagtest0  HTTP/1.1
@@ -1622,13 +1622,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:56.602023&#43;01:00
-TIME DURATION: 70.464167ms
+RECEIVED AT  : 2022-11-09T10:49:16.895075&#43;01:00
+TIME DURATION: 115.153708ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 809
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:56 GMT
+	Date: Wed, 09 Nov 2022 09:49:16 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -1639,9 +1639,9 @@ Log Body as-is:
 	&#34;schemaVersion&#34;: 2,
 	&#34;config&#34;: {
 		&#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
-		&#34;digest&#34;: &#34;sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417&#34;,
+		&#34;digest&#34;: &#34;sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9&#34;,
 		&#34;size&#34;: 129,
-		&#34;data&#34;: &#34;ewoJImF1dGhvciI6ICJweWpyZGxmN0NoUFFocHY1IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
+		&#34;data&#34;: &#34;ewoJImF1dGhvciI6ICIyUmxZaGJEWDJUQkhTYThTIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
 		&#34;newUnspecifiedField&#34;: &#34;aGVsbG8gd29ybGQ=&#34;
 	},
 	&#34;layers&#34;: [
@@ -1656,7 +1656,7 @@ Log Body as-is:
 }
 ==============================================================================
 
-2022/11/08 11:37:56.645917 DEBUG 
+2022/11/09 10:49:16.960509 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -1670,13 +1670,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:56.645381&#43;01:00
-TIME DURATION: 42.214416ms
+RECEIVED AT  : 2022-11-09T10:49:16.95984&#43;01:00
+TIME DURATION: 63.584291ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:56 GMT
+	Date: Wed, 09 Nov 2022 09:49:17 GMT
 	Vary: Origin
 BODY         :
 {
@@ -1685,7 +1685,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:57.220859 DEBUG 
+2022/11/09 10:49:17.508949 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/manifests/tagtest0  HTTP/1.1
@@ -1699,24 +1699,24 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:57.219857&#43;01:00
-TIME DURATION: 573.805042ms
+RECEIVED AT  : 2022-11-09T10:49:17.507389&#43;01:00
+TIME DURATION: 546.768208ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 671
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Tue, 08 Nov 2022 10:37:57 GMT
-	Docker-Content-Digest: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
-	Etag: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
+	Date: Wed, 09 Nov 2022 09:49:17 GMT
+	Docker-Content-Digest: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
+	Etag: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
 	Vary: Origin
 BODY         :
 {
    &#34;schemaVersion&#34;: 2,
    &#34;config&#34;: {
       &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
-      &#34;digest&#34;: &#34;sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417&#34;,
+      &#34;digest&#34;: &#34;sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9&#34;,
       &#34;size&#34;: 129,
-      &#34;data&#34;: &#34;ewoJImF1dGhvciI6ICJweWpyZGxmN0NoUFFocHY1IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
+      &#34;data&#34;: &#34;ewoJImF1dGhvciI6ICIyUmxZaGJEWDJUQkhTYThTIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
       &#34;newUnspecifiedField&#34;: &#34;aGVsbG8gd29ybGQ=&#34;
    },
    &#34;layers&#34;: [
@@ -1743,7 +1743,7 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-12')">GET nonexistent manifest should return 404</h4>
                         <br>
                         <div id="output-box-12" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:57.263740 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:17.585915 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
@@ -1755,13 +1755,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:57.263019&#43;01:00
-TIME DURATION: 41.605167ms
+RECEIVED AT  : 2022-11-09T10:49:17.583709&#43;01:00
+TIME DURATION: 74.475709ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 281
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:57 GMT
+	Date: Wed, 09 Nov 2022 09:49:17 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -1771,7 +1771,7 @@ Log Body as-is:
 {&#34;errors&#34;:[{&#34;code&#34;:&#34;UNAUTHORIZED&#34;,&#34;message&#34;:&#34;authentication required&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;unknown&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}{&#34;errors&#34;:[{&#34;code&#34;:&#34;MANIFEST_UNKNOWN&#34;,&#34;message&#34;:&#34;no such manifest&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;oci/conformance&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}
 ==============================================================================
 
-2022/11/08 11:37:57.305579 DEBUG 
+2022/11/09 10:49:17.640912 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -1785,13 +1785,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:57.304428&#43;01:00
-TIME DURATION: 39.278917ms
+RECEIVED AT  : 2022-11-09T10:49:17.64052&#43;01:00
+TIME DURATION: 54.468917ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:57 GMT
+	Date: Wed, 09 Nov 2022 09:49:17 GMT
 	Vary: Origin
 BODY         :
 {
@@ -1800,7 +1800,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:57.802450 DEBUG 
+2022/11/09 10:49:18.149843 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
@@ -1813,13 +1813,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 404 Not Found
-RECEIVED AT  : 2022-11-08T11:37:57.801856&#43;01:00
-TIME DURATION: 496.044333ms
+RECEIVED AT  : 2022-11-09T10:49:18.149421&#43;01:00
+TIME DURATION: 508.419208ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 143
 	Content-Type: text/plain; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:57 GMT
+	Date: Wed, 09 Nov 2022 09:49:18 GMT
 	Vary: Origin
 BODY         :
 {&#34;errors&#34;:[{&#34;code&#34;:&#34;MANIFEST_UNKNOWN&#34;,&#34;message&#34;:&#34;no such manifest&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;oci/conformance&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}
@@ -1837,10 +1837,10 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-13')">GET request to manifest path (digest) should yield 200 response</h4>
                         <br>
                         <div id="output-box-13" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:57.873124 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:18.251688 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/oci/conformance/manifests/sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859  HTTP/1.1
+GET  /v2/oci/conformance/manifests/sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
@@ -1850,13 +1850,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:57.872074&#43;01:00
-TIME DURATION: 69.206042ms
+RECEIVED AT  : 2022-11-09T10:49:18.249677&#43;01:00
+TIME DURATION: 99.704625ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 809
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:57 GMT
+	Date: Wed, 09 Nov 2022 09:49:18 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -1867,9 +1867,9 @@ Log Body as-is:
 	&#34;schemaVersion&#34;: 2,
 	&#34;config&#34;: {
 		&#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
-		&#34;digest&#34;: &#34;sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417&#34;,
+		&#34;digest&#34;: &#34;sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9&#34;,
 		&#34;size&#34;: 129,
-		&#34;data&#34;: &#34;ewoJImF1dGhvciI6ICJweWpyZGxmN0NoUFFocHY1IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
+		&#34;data&#34;: &#34;ewoJImF1dGhvciI6ICIyUmxZaGJEWDJUQkhTYThTIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
 		&#34;newUnspecifiedField&#34;: &#34;aGVsbG8gd29ybGQ=&#34;
 	},
 	&#34;layers&#34;: [
@@ -1884,7 +1884,7 @@ Log Body as-is:
 }
 ==============================================================================
 
-2022/11/08 11:37:57.913639 DEBUG 
+2022/11/09 10:49:18.333294 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -1898,13 +1898,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:57.91289&#43;01:00
-TIME DURATION: 39.535459ms
+RECEIVED AT  : 2022-11-09T10:49:18.332985&#43;01:00
+TIME DURATION: 80.876916ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:57 GMT
+	Date: Wed, 09 Nov 2022 09:49:18 GMT
 	Vary: Origin
 BODY         :
 {
@@ -1913,10 +1913,10 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:58.442478 DEBUG 
+2022/11/09 10:49:18.814839 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-GET  /v2/oci/conformance/manifests/sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859  HTTP/1.1
+GET  /v2/oci/conformance/manifests/sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Accept: application/vnd.oci.image.manifest.v1&#43;json
@@ -1927,24 +1927,24 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:58.440352&#43;01:00
-TIME DURATION: 526.445375ms
+RECEIVED AT  : 2022-11-09T10:49:18.8129&#43;01:00
+TIME DURATION: 479.31625ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 671
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Tue, 08 Nov 2022 10:37:58 GMT
-	Docker-Content-Digest: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
-	Etag: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
+	Date: Wed, 09 Nov 2022 09:49:18 GMT
+	Docker-Content-Digest: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
+	Etag: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
 	Vary: Origin
 BODY         :
 {
    &#34;schemaVersion&#34;: 2,
    &#34;config&#34;: {
       &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
-      &#34;digest&#34;: &#34;sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417&#34;,
+      &#34;digest&#34;: &#34;sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9&#34;,
       &#34;size&#34;: 129,
-      &#34;data&#34;: &#34;ewoJImF1dGhvciI6ICJweWpyZGxmN0NoUFFocHY1IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
+      &#34;data&#34;: &#34;ewoJImF1dGhvciI6ICIyUmxZaGJEWDJUQkhTYThTIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
       &#34;newUnspecifiedField&#34;: &#34;aGVsbG8gd29ybGQ=&#34;
    },
    &#34;layers&#34;: [
@@ -1971,7 +1971,7 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-14')">GET request to manifest path (tag) should yield 200 response</h4>
                         <br>
                         <div id="output-box-14" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:58.518604 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:18.911354 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/manifests/tagtest0  HTTP/1.1
@@ -1984,13 +1984,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:58.517625&#43;01:00
-TIME DURATION: 74.567875ms
+RECEIVED AT  : 2022-11-09T10:49:18.910168&#43;01:00
+TIME DURATION: 95.013458ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 809
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:58 GMT
+	Date: Wed, 09 Nov 2022 09:49:18 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -2001,9 +2001,9 @@ Log Body as-is:
 	&#34;schemaVersion&#34;: 2,
 	&#34;config&#34;: {
 		&#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
-		&#34;digest&#34;: &#34;sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417&#34;,
+		&#34;digest&#34;: &#34;sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9&#34;,
 		&#34;size&#34;: 129,
-		&#34;data&#34;: &#34;ewoJImF1dGhvciI6ICJweWpyZGxmN0NoUFFocHY1IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
+		&#34;data&#34;: &#34;ewoJImF1dGhvciI6ICIyUmxZaGJEWDJUQkhTYThTIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
 		&#34;newUnspecifiedField&#34;: &#34;aGVsbG8gd29ybGQ=&#34;
 	},
 	&#34;layers&#34;: [
@@ -2018,7 +2018,7 @@ Log Body as-is:
 }
 ==============================================================================
 
-2022/11/08 11:37:58.560394 DEBUG 
+2022/11/09 10:49:18.974343 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -2032,13 +2032,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:58.559163&#43;01:00
-TIME DURATION: 40.345167ms
+RECEIVED AT  : 2022-11-09T10:49:18.97398&#43;01:00
+TIME DURATION: 61.831667ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:58 GMT
+	Date: Wed, 09 Nov 2022 09:49:19 GMT
 	Vary: Origin
 BODY         :
 {
@@ -2047,7 +2047,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:59.166619 DEBUG 
+2022/11/09 10:49:19.508211 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /v2/oci/conformance/manifests/tagtest0  HTTP/1.1
@@ -2061,24 +2061,24 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:59.163031&#43;01:00
-TIME DURATION: 602.427125ms
+RECEIVED AT  : 2022-11-09T10:49:19.507231&#43;01:00
+TIME DURATION: 532.662291ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 671
 	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
-	Date: Tue, 08 Nov 2022 10:37:59 GMT
-	Docker-Content-Digest: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
-	Etag: sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859
+	Date: Wed, 09 Nov 2022 09:49:19 GMT
+	Docker-Content-Digest: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
+	Etag: sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5
 	Vary: Origin
 BODY         :
 {
    &#34;schemaVersion&#34;: 2,
    &#34;config&#34;: {
       &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
-      &#34;digest&#34;: &#34;sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417&#34;,
+      &#34;digest&#34;: &#34;sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9&#34;,
       &#34;size&#34;: 129,
-      &#34;data&#34;: &#34;ewoJImF1dGhvciI6ICJweWpyZGxmN0NoUFFocHY1IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
+      &#34;data&#34;: &#34;ewoJImF1dGhvciI6ICIyUmxZaGJEWDJUQkhTYThTIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9&#34;,
       &#34;newUnspecifiedField&#34;: &#34;aGVsbG8gd29ybGQ=&#34;
    },
    &#34;layers&#34;: [
@@ -2112,7 +2112,7 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-15')">400 response body should contain OCI-conforming JSON message</h4>
                         <br>
                         <div id="output-box-15" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:59.208210 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:19.587925 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/oci/conformance/manifests/sha256:totallywrong  HTTP/1.1
@@ -2126,13 +2126,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:59.207485&#43;01:00
-TIME DURATION: 38.561ms
+RECEIVED AT  : 2022-11-09T10:49:19.586611&#43;01:00
+TIME DURATION: 78.198541ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 389
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:59 GMT
+	Date: Wed, 09 Nov 2022 09:49:19 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -2142,7 +2142,7 @@ Log Body as-is:
 {&#34;errors&#34;:[{&#34;code&#34;:&#34;UNAUTHORIZED&#34;,&#34;message&#34;:&#34;authentication required&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;unknown&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}{&#34;errors&#34;:[{&#34;code&#34;:&#34;MANIFEST_INVALID&#34;,&#34;message&#34;:&#34;failed to store manifest: failed to unmarshal OCI Manifest &#39;blablabla&#39;: invalid character &#39;b&#39; looking for beginning of value&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;oci/conformance&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}
 ==============================================================================
 
-2022/11/08 11:37:59.250525 DEBUG 
+2022/11/09 10:49:19.670013 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -2156,13 +2156,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:59.249805&#43;01:00
-TIME DURATION: 41.463958ms
+RECEIVED AT  : 2022-11-09T10:49:19.668276&#43;01:00
+TIME DURATION: 80.200042ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:59 GMT
+	Date: Wed, 09 Nov 2022 09:49:19 GMT
 	Vary: Origin
 BODY         :
 {
@@ -2171,7 +2171,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:37:59.734972 DEBUG 
+2022/11/09 10:49:20.153875 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 PUT  /v2/oci/conformance/manifests/sha256:totallywrong  HTTP/1.1
@@ -2186,13 +2186,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 400 Bad Request
-RECEIVED AT  : 2022-11-08T11:37:59.733163&#43;01:00
-TIME DURATION: 482.428042ms
+RECEIVED AT  : 2022-11-09T10:49:20.153047&#43;01:00
+TIME DURATION: 482.464958ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 251
 	Content-Type: text/plain; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:59 GMT
+	Date: Wed, 09 Nov 2022 09:49:20 GMT
 	Vary: Origin
 BODY         :
 {&#34;errors&#34;:[{&#34;code&#34;:&#34;MANIFEST_INVALID&#34;,&#34;message&#34;:&#34;failed to store manifest: failed to unmarshal OCI Manifest &#39;blablabla&#39;: invalid character &#39;b&#39; looking for beginning of value&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;oci/conformance&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}
@@ -2217,10 +2217,10 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-16')">Delete config blob created in setup</h4>
                         <br>
                         <div id="output-box-16" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:37:59.776025 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:20.227636 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/oci/conformance/blobs/sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417  HTTP/1.1
+DELETE  /v2/oci/conformance/blobs/sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
@@ -2229,13 +2229,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:37:59.775468&#43;01:00
-TIME DURATION: 39.893541ms
+RECEIVED AT  : 2022-11-09T10:49:20.226999&#43;01:00
+TIME DURATION: 72.91175ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:37:59 GMT
+	Date: Wed, 09 Nov 2022 09:49:20 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -2256,7 +2256,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:37:59.818656 DEBUG 
+2022/11/09 10:49:20.298757 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -2270,13 +2270,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:37:59.818328&#43;01:00
-TIME DURATION: 42.183833ms
+RECEIVED AT  : 2022-11-09T10:49:20.298318&#43;01:00
+TIME DURATION: 70.556958ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:37:59 GMT
+	Date: Wed, 09 Nov 2022 09:49:20 GMT
 	Vary: Origin
 BODY         :
 {
@@ -2285,10 +2285,10 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:38:00.309944 DEBUG 
+2022/11/09 10:49:20.778680 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/oci/conformance/blobs/sha256:b5c0a2e84dc8424e5f295dc5546e1ff19dccd304c680da5effbeb8bbd6603417  HTTP/1.1
+DELETE  /v2/oci/conformance/blobs/sha256:1bbb9031de8650eb3e750bf6824b4b96f735d9e69cdf687526210efd815052d9  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Authorization: Bearer *****
@@ -2298,12 +2298,12 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 405 Method Not Allowed
-RECEIVED AT  : 2022-11-08T11:38:00.30915&#43;01:00
-TIME DURATION: 490.377083ms
+RECEIVED AT  : 2022-11-09T10:49:20.77838&#43;01:00
+TIME DURATION: 479.539208ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
-	Date: Tue, 08 Nov 2022 10:38:00 GMT
+	Date: Wed, 09 Nov 2022 09:49:20 GMT
 	Vary: Origin
 BODY         :
 
@@ -2321,7 +2321,7 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-17')">Delete layer blob created in setup</h4>
                         <br>
                         <div id="output-box-17" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:38:00.351785 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:20.840879 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 DELETE  /v2/oci/conformance/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
@@ -2333,13 +2333,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:38:00.351327&#43;01:00
-TIME DURATION: 40.962583ms
+RECEIVED AT  : 2022-11-09T10:49:20.840472&#43;01:00
+TIME DURATION: 61.670583ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:38:00 GMT
+	Date: Wed, 09 Nov 2022 09:49:20 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -2360,7 +2360,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:38:00.401401 DEBUG 
+2022/11/09 10:49:20.904137 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -2374,13 +2374,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:38:00.400289&#43;01:00
-TIME DURATION: 48.393375ms
+RECEIVED AT  : 2022-11-09T10:49:20.902796&#43;01:00
+TIME DURATION: 61.835083ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:38:00 GMT
+	Date: Wed, 09 Nov 2022 09:49:20 GMT
 	Vary: Origin
 BODY         :
 {
@@ -2389,7 +2389,7 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:38:00.888783 DEBUG 
+2022/11/09 10:49:21.385508 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 DELETE  /v2/oci/conformance/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
@@ -2402,12 +2402,12 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 405 Method Not Allowed
-RECEIVED AT  : 2022-11-08T11:38:00.887274&#43;01:00
-TIME DURATION: 485.75375ms
+RECEIVED AT  : 2022-11-09T10:49:21.383013&#43;01:00
+TIME DURATION: 478.766709ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
-	Date: Tue, 08 Nov 2022 10:38:00 GMT
+	Date: Wed, 09 Nov 2022 09:49:21 GMT
 	Vary: Origin
 BODY         :
 
@@ -2425,10 +2425,10 @@ BODY         :
                         <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-18')">Delete manifest created in setup</h4>
                         <br>
                         <div id="output-box-18" style="display: none;">
-                          <pre class="pre-box">2022/11/08 11:38:00.927910 DEBUG 
+                          <pre class="pre-box">2022/11/09 10:49:21.455933 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/oci/conformance/manifests/sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859  HTTP/1.1
+DELETE  /v2/oci/conformance/manifests/sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	User-Agent: distribution-spec-conformance-tests
@@ -2437,13 +2437,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 401 Unauthorized
-RECEIVED AT  : 2022-11-08T11:38:00.927394&#43;01:00
-TIME DURATION: 38.46775ms
+RECEIVED AT  : 2022-11-09T10:49:21.454914&#43;01:00
+TIME DURATION: 69.136416ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 138
 	Content-Type: application/json
-	Date: Tue, 08 Nov 2022 10:38:00 GMT
+	Date: Wed, 09 Nov 2022 09:49:21 GMT
 	Vary: Origin
 	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
 BODY         :
@@ -2464,7 +2464,7 @@ BODY         :
 }
 ==============================================================================
 
-2022/11/08 11:38:00.967974 DEBUG 
+2022/11/09 10:49:21.519583 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
 GET  /auth?service=  HTTP/1.1
@@ -2478,13 +2478,13 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 200 OK
-RECEIVED AT  : 2022-11-08T11:38:00.967618&#43;01:00
-TIME DURATION: 39.609792ms
+RECEIVED AT  : 2022-11-09T10:49:21.519428&#43;01:00
+TIME DURATION: 63.346417ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 61
 	Content-Type: application/json; charset=utf-8
-	Date: Tue, 08 Nov 2022 10:38:01 GMT
+	Date: Wed, 09 Nov 2022 09:49:21 GMT
 	Vary: Origin
 BODY         :
 {
@@ -2493,10 +2493,10 @@ BODY         :
 
 ==============================================================================
 
-2022/11/08 11:38:01.436093 DEBUG 
+2022/11/09 10:49:22.093989 DEBUG 
 ==============================================================================
 ~~~ REQUEST ~~~
-DELETE  /v2/oci/conformance/manifests/sha256:196b6ad841e8efa7cff91322cc4a88729e6eead503b06c45d7e06f8f6b9f7859  HTTP/1.1
+DELETE  /v2/oci/conformance/manifests/sha256:fbeffea773f664210158c9a3b4743e8d972a6b7f075bb8be9b94ba77f6dd3fc5  HTTP/1.1
 HOST   : metahub-registry.org
 HEADERS:
 	Authorization: Bearer *****
@@ -2506,12 +2506,12 @@ BODY   :
 ------------------------------------------------------------------------------
 ~~~ RESPONSE ~~~
 STATUS       : 405 Method Not Allowed
-RECEIVED AT  : 2022-11-08T11:38:01.435549&#43;01:00
-TIME DURATION: 467.513875ms
+RECEIVED AT  : 2022-11-09T10:49:22.093564&#43;01:00
+TIME DURATION: 573.953834ms
 HEADERS      :
 	Connection: keep-alive
 	Content-Length: 0
-	Date: Tue, 08 Nov 2022 10:38:01 GMT
+	Date: Wed, 09 Nov 2022 09:49:22 GMT
 	Vary: Origin
 BODY         :
 
@@ -2536,6 +2536,1652 @@ BODY         :
         
           
           
+            
+              <h2>Content Discovery</h2>
+              <div class="subcategory">
+              
+              
+                <h3>Setup</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-45-button" class="toggle" onclick="javascript:toggleOutput('output-box-45')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-45')">Populate registry with test blob</h4>
+                        <br>
+                        <div id="output-box-45" style="display: none;">
+                          <pre class="pre-box">2022/11/09 10:49:22.189269 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci/conformance/blobs/uploads/  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:22.18547&#43;01:00
+TIME DURATION: 76.504084ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:22 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:22.255652 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:22.255306&#43;01:00
+TIME DURATION: 65.647459ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:22 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:23.419414 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci/conformance/blobs/uploads/  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-11-09T10:49:23.418877&#43;01:00
+TIME DURATION: 1.163145125s
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:22 GMT
+	Docker-Upload-Uuid: 1a5a0195-a60e-4baf-8a68-00941a9c7213
+	Location: /v2/oci/conformance/blobs/uploads/1a5a0195-a60e-4baf-8a68-00941a9c7213
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/11/09 10:49:23.521811 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/blobs/uploads/1a5a0195-a60e-4baf-8a68-00941a9c7213?digest=sha256%3A77279a708b2672a5d4a11bbecde978be7a9ac5d6dada0a986f4fc994aecebd1a  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Content-Length: 129
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICJVdE9FSkNsVWlJb0RYWFBsIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:23.51994&#43;01:00
+TIME DURATION: 100.386833ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:23 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:23.582983 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:23.582337&#43;01:00
+TIME DURATION: 60.206875ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:23 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:24.963015 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/blobs/uploads/1a5a0195-a60e-4baf-8a68-00941a9c7213?digest=sha256%3A77279a708b2672a5d4a11bbecde978be7a9ac5d6dada0a986f4fc994aecebd1a  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	Content-Length: 129
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICJVdE9FSkNsVWlJb0RYWFBsIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-11-09T10:49:24.962158&#43;01:00
+TIME DURATION: 1.378003166s
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:24 GMT
+	Docker-Content-Digest: sha256:77279a708b2672a5d4a11bbecde978be7a9ac5d6dada0a986f4fc994aecebd1a
+	Location: /v2/oci/conformance/blobs/uploads/1a5a0195-a60e-4baf-8a68-00941a9c7213
+	Range: 10-10
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-46-button" class="toggle" onclick="javascript:toggleOutput('output-box-46')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-46')">Populate registry with test layer</h4>
+                        <br>
+                        <div id="output-box-46" style="display: none;">
+                          <pre class="pre-box">2022/11/09 10:49:25.044982 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci/conformance/blobs/uploads/  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:25.044457&#43;01:00
+TIME DURATION: 81.097791ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:25 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:25.100457 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:25.099405&#43;01:00
+TIME DURATION: 54.327625ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:25 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:25.705844 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci/conformance/blobs/uploads/  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2022-11-09T10:49:25.705525&#43;01:00
+TIME DURATION: 604.955875ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:25 GMT
+	Docker-Upload-Uuid: 69d88dc2-a4d4-4b8a-95de-8a3d7beb03f9
+	Location: /v2/oci/conformance/blobs/uploads/69d88dc2-a4d4-4b8a-95de-8a3d7beb03f9
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/11/09 10:49:25.816155 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/blobs/uploads/69d88dc2-a4d4-4b8a-95de-8a3d7beb03f9?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:25.815841&#43;01:00
+TIME DURATION: 109.911167ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:25 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:25.883178 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:25.882886&#43;01:00
+TIME DURATION: 66.679209ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:25 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:26.453265 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/blobs/uploads/69d88dc2-a4d4-4b8a-95de-8a3d7beb03f9?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-11-09T10:49:26.452638&#43;01:00
+TIME DURATION: 569.389958ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:26 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Location: /v2/oci/conformance/blobs/uploads/69d88dc2-a4d4-4b8a-95de-8a3d7beb03f9
+	Range: 10-10
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-47-button" class="toggle" onclick="javascript:toggleOutput('output-box-47')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-47')">Populate registry with test tags</h4>
+                        <br>
+                        <div id="output-box-47" style="display: none;">
+                          <pre class="pre-box">2022/11/09 10:49:27.477122 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/manifests/test0  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc3Mjc5YTcwOGIyNjcyYTVkNGExMWJiZWNkZTk3OGJlN2E5YWM1ZDZkYWRhMGE5ODZmNGZjOTk0YWVjZWJkMWEiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0pWZEU5RlNrTnNWV2xKYjBSWVdGQnNJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:27.47476&#43;01:00
+TIME DURATION: 1.020503834s
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:26 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:27.563313 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:27.560397&#43;01:00
+TIME DURATION: 82.931916ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:27 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:28.370447 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/manifests/test0  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc3Mjc5YTcwOGIyNjcyYTVkNGExMWJiZWNkZTk3OGJlN2E5YWM1ZDZkYWRhMGE5ODZmNGZjOTk0YWVjZWJkMWEiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0pWZEU5RlNrTnNWV2xKYjBSWVdGQnNJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-11-09T10:49:28.368388&#43;01:00
+TIME DURATION: 804.310833ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:28 GMT
+	Docker-Content-Digest: sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4
+	Etag: sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/11/09 10:49:28.553747 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/manifests/test1  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc3Mjc5YTcwOGIyNjcyYTVkNGExMWJiZWNkZTk3OGJlN2E5YWM1ZDZkYWRhMGE5ODZmNGZjOTk0YWVjZWJkMWEiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0pWZEU5RlNrTnNWV2xKYjBSWVdGQnNJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:28.552166&#43;01:00
+TIME DURATION: 181.596583ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:28 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:28.622371 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:28.621923&#43;01:00
+TIME DURATION: 68.053542ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:28 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:29.136489 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/manifests/test1  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc3Mjc5YTcwOGIyNjcyYTVkNGExMWJiZWNkZTk3OGJlN2E5YWM1ZDZkYWRhMGE5ODZmNGZjOTk0YWVjZWJkMWEiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0pWZEU5RlNrTnNWV2xKYjBSWVdGQnNJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-11-09T10:49:29.135566&#43;01:00
+TIME DURATION: 512.716375ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:29 GMT
+	Docker-Content-Digest: sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4
+	Etag: sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/11/09 10:49:29.269144 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/manifests/test2  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc3Mjc5YTcwOGIyNjcyYTVkNGExMWJiZWNkZTk3OGJlN2E5YWM1ZDZkYWRhMGE5ODZmNGZjOTk0YWVjZWJkMWEiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0pWZEU5RlNrTnNWV2xKYjBSWVdGQnNJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:29.268147&#43;01:00
+TIME DURATION: 131.548917ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:29 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:29.344696 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:29.344045&#43;01:00
+TIME DURATION: 74.785875ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:29 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:29.952870 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/manifests/test2  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc3Mjc5YTcwOGIyNjcyYTVkNGExMWJiZWNkZTk3OGJlN2E5YWM1ZDZkYWRhMGE5ODZmNGZjOTk0YWVjZWJkMWEiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0pWZEU5RlNrTnNWV2xKYjBSWVdGQnNJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-11-09T10:49:29.951639&#43;01:00
+TIME DURATION: 606.740709ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:29 GMT
+	Docker-Content-Digest: sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4
+	Etag: sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/11/09 10:49:30.130539 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/manifests/test3  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc3Mjc5YTcwOGIyNjcyYTVkNGExMWJiZWNkZTk3OGJlN2E5YWM1ZDZkYWRhMGE5ODZmNGZjOTk0YWVjZWJkMWEiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0pWZEU5RlNrTnNWV2xKYjBSWVdGQnNJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:30.126223&#43;01:00
+TIME DURATION: 173.17775ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:30 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:30.200904 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:30.200251&#43;01:00
+TIME DURATION: 69.59675ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:30 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:30.757557 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci/conformance/manifests/test3  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2Ojc3Mjc5YTcwOGIyNjcyYTVkNGExMWJiZWNkZTk3OGJlN2E5YWM1ZDZkYWRhMGE5ODZmNGZjOTk0YWVjZWJkMWEiLAoJCSJzaXplIjogMTI5LAoJCSJkYXRhIjogImV3b0pJbUYxZEdodmNpSTZJQ0pWZEU5RlNrTnNWV2xKYjBSWVdGQnNJaXdLQ1NKaGNtTm9hWFJsWTNSMWNtVWlPaUFpWVcxa05qUWlMQW9KSW05eklqb2dJbXhwYm5WNElpd0tDU0p5YjI5MFpuTWlPaUI3Q2drSkluUjVjR1VpT2lBaWJHRjVaWEp6SWl3S0NRa2laR2xtWmw5cFpITWlPaUJiWFFvSmZRcDkiLAoJCSJuZXdVbnNwZWNpZmllZEZpZWxkIjogImFHVnNiRzhnZDI5eWJHUT0iCgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OCwKCQkJImRhdGEiOiBudWxsLAoJCQkibmV3VW5zcGVjaWZpZWRGaWVsZCI6IG51bGwKCQl9CgldCn0=&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2022-11-09T10:49:30.756669&#43;01:00
+TIME DURATION: 555.617875ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:30 GMT
+	Docker-Content-Digest: sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4
+	Etag: sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+2022/11/09 10:49:30.821644 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:30.820798&#43;01:00
+TIME DURATION: 63.037834ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 216
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:30 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+*** Error: Unable to format response body - &#34;invalid character &#39;{&#39; after top-level value&#34; ***
+
+Log Body as-is:
+{&#34;errors&#34;:[{&#34;code&#34;:&#34;UNAUTHORIZED&#34;,&#34;message&#34;:&#34;authentication required&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;unknown&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}{&#34;name&#34;:&#34;oci/conformance&#34;,&#34;tags&#34;:[&#34;tagtest0&#34;,&#34;test0&#34;,&#34;test1&#34;,&#34;test2&#34;,&#34;test3&#34;]}
+==============================================================================
+
+2022/11/09 10:49:30.882882 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:30.882176&#43;01:00
+TIME DURATION: 60.380084ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:30 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:31.372163 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:31.371678&#43;01:00
+TIME DURATION: 488.649792ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 78
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:31 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;oci/conformance&#34;,
+   &#34;tags&#34;: [
+      &#34;tagtest0&#34;,
+      &#34;test0&#34;,
+      &#34;test1&#34;,
+      &#34;test2&#34;,
+      &#34;test3&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-48-button" class="toggle" onclick="javascript:toggleOutput('output-box-48')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-48')">Populate registry with test tags (no push)</h4>
+                        <br>
+                        <div id="output-box-48" style="display: none;">
+                          <pre class="pre-box">you have skipped this test.</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Test content discovery endpoints</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-49-button" class="toggle" onclick="javascript:toggleOutput('output-box-49')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-49')">GET request to list tags should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-49" style="display: none;">
+                          <pre class="pre-box">2022/11/09 10:49:31.441851 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:31.440742&#43;01:00
+TIME DURATION: 66.540458ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 216
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:31 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+*** Error: Unable to format response body - &#34;invalid character &#39;{&#39; after top-level value&#34; ***
+
+Log Body as-is:
+{&#34;errors&#34;:[{&#34;code&#34;:&#34;UNAUTHORIZED&#34;,&#34;message&#34;:&#34;authentication required&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;unknown&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}{&#34;name&#34;:&#34;oci/conformance&#34;,&#34;tags&#34;:[&#34;tagtest0&#34;,&#34;test0&#34;,&#34;test1&#34;,&#34;test2&#34;,&#34;test3&#34;]}
+==============================================================================
+
+2022/11/09 10:49:31.506517 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:31.506002&#43;01:00
+TIME DURATION: 64.014458ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:31 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:32.018704 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:32.018305&#43;01:00
+TIME DURATION: 511.61825ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 78
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:32 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;oci/conformance&#34;,
+   &#34;tags&#34;: [
+      &#34;tagtest0&#34;,
+      &#34;test0&#34;,
+      &#34;test1&#34;,
+      &#34;test2&#34;,
+      &#34;test3&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-50-button" class="toggle" onclick="javascript:toggleOutput('output-box-50')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-50')">GET number of tags should be limitable by `n` query parameter</h4>
+                        <br>
+                        <div id="output-box-50" style="display: none;">
+                          <pre class="pre-box">2022/11/09 10:49:32.090338 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list?n=2  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:32.089614&#43;01:00
+TIME DURATION: 70.803167ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 192
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:32 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+*** Error: Unable to format response body - &#34;invalid character &#39;{&#39; after top-level value&#34; ***
+
+Log Body as-is:
+{&#34;errors&#34;:[{&#34;code&#34;:&#34;UNAUTHORIZED&#34;,&#34;message&#34;:&#34;authentication required&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;unknown&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}{&#34;name&#34;:&#34;oci/conformance&#34;,&#34;tags&#34;:[&#34;tagtest0&#34;,&#34;test0&#34;]}
+==============================================================================
+
+2022/11/09 10:49:32.173654 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:32.17311&#43;01:00
+TIME DURATION: 82.614958ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:32 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:33.345828 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list?n=2  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:33.344513&#43;01:00
+TIME DURATION: 1.1707235s
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 54
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:32 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;oci/conformance&#34;,
+   &#34;tags&#34;: [
+      &#34;tagtest0&#34;,
+      &#34;test0&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-51-button" class="toggle" onclick="javascript:toggleOutput('output-box-51')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-51')">GET start of tag is set by `last` query parameter</h4>
+                        <br>
+                        <div id="output-box-51" style="display: none;">
+                          <pre class="pre-box">2022/11/09 10:49:33.413214 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list?n=2  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:33.412321&#43;01:00
+TIME DURATION: 66.09525ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 192
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:33 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+*** Error: Unable to format response body - &#34;invalid character &#39;{&#39; after top-level value&#34; ***
+
+Log Body as-is:
+{&#34;errors&#34;:[{&#34;code&#34;:&#34;UNAUTHORIZED&#34;,&#34;message&#34;:&#34;authentication required&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;unknown&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}{&#34;name&#34;:&#34;oci/conformance&#34;,&#34;tags&#34;:[&#34;tagtest0&#34;,&#34;test0&#34;]}
+==============================================================================
+
+2022/11/09 10:49:33.482857 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:33.48242&#43;01:00
+TIME DURATION: 68.883792ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:33 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:33.986785 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list?n=2  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:33.986453&#43;01:00
+TIME DURATION: 503.50125ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 54
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:34 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;oci/conformance&#34;,
+   &#34;tags&#34;: [
+      &#34;tagtest0&#34;,
+      &#34;test0&#34;
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:34.059147 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list?last=test0&amp;n=2  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:34.058367&#43;01:00
+TIME DURATION: 71.508875ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 189
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:34 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+*** Error: Unable to format response body - &#34;invalid character &#39;{&#39; after top-level value&#34; ***
+
+Log Body as-is:
+{&#34;errors&#34;:[{&#34;code&#34;:&#34;UNAUTHORIZED&#34;,&#34;message&#34;:&#34;authentication required&#34;,&#34;detail&#34;:[{&#34;Type&#34;:&#34;repository&#34;,&#34;Name&#34;:&#34;unknown&#34;,&#34;Action&#34;:&#34;pull&#34;}]}]}{&#34;name&#34;:&#34;oci/conformance&#34;,&#34;tags&#34;:[&#34;test0&#34;,&#34;test1&#34;]}
+==============================================================================
+
+2022/11/09 10:49:34.120649 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:34.120052&#43;01:00
+TIME DURATION: 60.009333ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:34 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:34.666884 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci/conformance/tags/list?last=test0&amp;n=2  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:34.666212&#43;01:00
+TIME DURATION: 545.498959ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 51
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:34 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;name&#34;: &#34;oci/conformance&#34;,
+   &#34;tags&#34;: [
+      &#34;test0&#34;,
+      &#34;test1&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Teardown</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-52-button" class="toggle" onclick="javascript:toggleOutput('output-box-52')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-52')">Delete config blob created in tests</h4>
+                        <br>
+                        <div id="output-box-52" style="display: none;">
+                          <pre class="pre-box">2022/11/09 10:49:34.741064 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci/conformance/blobs/sha256:77279a708b2672a5d4a11bbecde978be7a9ac5d6dada0a986f4fc994aecebd1a  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:34.740045&#43;01:00
+TIME DURATION: 73.0375ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:34 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:34.802568 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:34.80216&#43;01:00
+TIME DURATION: 60.918542ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:34 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:35.278635 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci/conformance/blobs/sha256:77279a708b2672a5d4a11bbecde978be7a9ac5d6dada0a986f4fc994aecebd1a  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 405 Method Not Allowed
+RECEIVED AT  : 2022-11-09T10:49:35.278207&#43;01:00
+TIME DURATION: 475.555959ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:35 GMT
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-53-button" class="toggle" onclick="javascript:toggleOutput('output-box-53')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-53')">Delete layer blob created in setup</h4>
+                        <br>
+                        <div id="output-box-53" style="display: none;">
+                          <pre class="pre-box">2022/11/09 10:49:35.342624 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci/conformance/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:35.341758&#43;01:00
+TIME DURATION: 62.96ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:35 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:35.401963 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:35.400873&#43;01:00
+TIME DURATION: 57.798834ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:35 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:36.179924 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci/conformance/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 405 Method Not Allowed
+RECEIVED AT  : 2022-11-09T10:49:36.179166&#43;01:00
+TIME DURATION: 777.060041ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:35 GMT
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-54-button" class="toggle" onclick="javascript:toggleOutput('output-box-54')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-54')">Delete created manifest &amp; associated tags</h4>
+                        <br>
+                        <div id="output-box-54" style="display: none;">
+                          <pre class="pre-box">2022/11/09 10:49:36.243908 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci/conformance/manifests/sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2022-11-09T10:49:36.242384&#43;01:00
+TIME DURATION: 62.267167ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 138
+	Content-Type: application/json
+	Date: Wed, 09 Nov 2022 09:49:36 GMT
+	Vary: Origin
+	Www-Authenticate: Bearer realm=&#34;https://metahub-registry.org/auth&#34;,error=&#34;invalid_request&#34;,error_description=&#34;missing authorization header&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: [
+            {
+               &#34;Type&#34;: &#34;repository&#34;,
+               &#34;Name&#34;: &#34;unknown&#34;,
+               &#34;Action&#34;: &#34;pull&#34;
+            }
+         ]
+      }
+   ]
+}
+==============================================================================
+
+2022/11/09 10:49:36.334589 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /auth?service=  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2022-11-09T10:49:36.334187&#43;01:00
+TIME DURATION: 90.103042ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 61
+	Content-Type: application/json; charset=utf-8
+	Date: Wed, 09 Nov 2022 09:49:36 GMT
+	Vary: Origin
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;
+}
+
+==============================================================================
+
+2022/11/09 10:49:36.779556 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci/conformance/manifests/sha256:baa9112f0fb90f443670e1f8be7b233d114c9130bfe736591835ed9e9320a7f4  HTTP/1.1
+HOST   : metahub-registry.org
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 405 Method Not Allowed
+RECEIVED AT  : 2022-11-09T10:49:36.77918&#43;01:00
+TIME DURATION: 444.531791ms
+HEADERS      :
+	Connection: keep-alive
+	Content-Length: 0
+	Date: Wed, 09 Nov 2022 09:49:36 GMT
+	Vary: Origin
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
             
           
         </div>
