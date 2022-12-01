@@ -23,7 +23,7 @@ Status: Downloaded newer image for metahub-registry.org/qnib/featuretest:latest
 Next we use the profile `zen3` to pull down a new image optimized for the particular hardware architecutre.
 
 ```bash
-$ echo hub |docker login metahub-registry.org --password-stdin  -u meta
+$ echo hub |docker login metahub-registry.org --password-stdin  -u meta/zen3
 Login Succeeded
 $ docker run -ti --rm --pull=always metahub-registry.org/qnib/featuretest:latest
 latest: Pulling from qnib/featuretest
