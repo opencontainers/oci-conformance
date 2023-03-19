@@ -4,12 +4,16 @@
 
 MetaHub is a registry that takes the context of a user into account to deliver the best suited container image.
 
+## Get a user
+
+To try out MetaHub on your own please follow the instruction on the [MetaHub website](https://frontend.metahub-registry.org/beta) to participate in the beta program.
+
 ## Getting Started
 
 To tip your toe into it let's download a generic image for `qnib/featuretest`:
 
 ```bash
-$ echo hub |docker login metahub-registry.org --password-stdin  -u meta
+$ echo ${MH_PASS} |docker login metahub-registry.org --password-stdin  -u ${MH_USER}
 Login Succeeded
 $ docker run -ti --rm --pull=always metahub-registry.org/qnib/featuretest:latest
 latest: Pulling from qnib/featuretest
@@ -23,7 +27,7 @@ Status: Downloaded newer image for metahub-registry.org/qnib/featuretest:latest
 Next we use the profile `zen3` to pull down a new image optimized for the particular hardware architecutre.
 
 ```bash
-$ echo hub |docker login metahub-registry.org --password-stdin  -u meta/zen3
+$ echo ${MH_PASS} |docker login metahub-registry.org --password-stdin  -u ${MH_USER}/cpu#zen3
 Login Succeeded
 $ docker run -ti --rm --pull=always metahub-registry.org/qnib/featuretest:latest
 latest: Pulling from qnib/featuretest
