@@ -8,6 +8,31 @@ MetaHub is a registry that takes the context of a user into account to deliver t
 
 To try out MetaHub on your own please follow the instruction on the [MetaHub website](https://frontend.metahub-registry.org/beta) to participate in the beta program.
 
+## Reproduce the conformance test
+
+The conformance test was run with the following variables. In order to run the test please ask for a user account with poweruser privileges (which allows to push images within the users namespace).
+
+```bash
+# Registry details
+export OCI_ROOT_URL="https://metahub-registry.org"
+export OCI_NAMESPACE="oci/conformance"
+export OCI_USERNAME="oci"
+export OCI_PASSWORD="********"
+
+# Which workflows to run
+export OCI_TEST_PULL=1
+export OCI_TEST_PUSH=1
+export OCI_TEST_CONTENT_DISCOVERY=1
+export OCI_TEST_CONTENT_MANAGEMENT=1
+
+# Extra settings
+export OCI_HIDE_SKIPPED_WORKFLOWS=1
+export OCI_DEBUG=0
+export OCI_DELETE_MANIFEST_BEFORE_BLOBS=0
+
+./conformance.test
+```
+
 ## Getting Started
 
 To tip your toe into it let's download a generic image for `qnib/featuretest`:
