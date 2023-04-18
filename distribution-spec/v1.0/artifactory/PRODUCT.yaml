@@ -1,0 +1,18 @@
+vendor: jFrog
+name: Artifactory
+version: 7.61.0
+website_url: https://github.com/sapcc/keppel
+documentation_url: https://jfrog.com/help/r/jfrog-artifactory-documentation
+product_logo_url: https://media.jfrog.com/wp-content/uploads/2022/05/24134044/artifactory-Icon.png
+type: cloud and self hosted
+description: Artifactory provides universal management of binaries, packages, & dependencies including OCI artifacts.
+  
+  
+  export OCI_ROOT_URL=https://jade123.jfrog.io
+  export OCI_USERNAME=teceba7658@raotus.com
+  export OCI_PASSWORD=M@xmem0ry!
+  export OCI_NAMESPACE=oci-local
+  export OCI_TEST_PULL=1
+  export OCI_TEST_PUSH=1
+  export OCI_TEST_CONTENT_DISCOVERY=1
+  export OCI_TEST_CONTENT_MANAGEMENT=1
