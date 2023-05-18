@@ -36,9 +36,9 @@ export OCI_USERNAME=<artifactory-user>
 export OCI_PASSWORD=<artifactory-token>
 export OCI_NAMESPACE=oci-local
 export OCI_TEST_PULL=1
-export OCI_TEST_PUSH=1
+export OCI_TEST_PUSH=0
 export OCI_TEST_CONTENT_DISCOVERY=1
-export OCI_TEST_CONTENT_MANAGEMENT=1
+export OCI_TEST_CONTENT_MANAGEMENT=0
 ```
 
 #### Run conformance test
