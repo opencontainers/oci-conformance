@@ -1,0 +1,8 @@
+vendor: GitLab
+name: GitLab Container Registry
+version: 16.5
+website_url: https://gitlab.com
+documentation_url: https://docs.gitlab.com/ee/user/packages/container_registry/
+product_logo_url: https://about.gitlab.com/images/press/logo/svg/gitlab-logo-100.svg
+type: product
+description: 'The GitLab Container Registry provides a solution to store container images for your GitLab projects.'
