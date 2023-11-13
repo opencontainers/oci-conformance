@@ -1,0 +1,1 @@
+[![GitLab Container Registry Tests](https://gitlab.com/gitlab-com/registry-oci-conformance/badges/main/pipeline.svg?key_text=GitLab%20CI)](https://gitlab.com/gitlab-com/registry-oci-conformance/-/pipelines/latest)
