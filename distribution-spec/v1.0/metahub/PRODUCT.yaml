@@ -1,0 +1,9 @@
+vendor: QNIB Solutions
+name: MetaHub
+version: v0.4.8
+website_url: https://metahub-registry.org/
+repo_url: https://gitlab.com/qnib-metahub/community-edition
+documentation_url: https://metahub-registry.org/
+product_logo_url: https://gitlab.com/qnib-metahub/community-edition/-/raw/beta/img/metahub-logo.svg
+type: "hosted platform"
+description: An OCI registry which takes the context of the user into account to act smart.

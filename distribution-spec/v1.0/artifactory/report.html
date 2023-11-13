@@ -1,0 +1,4914 @@
+<html>
+  <head>
+    <title>OCI Distribution Conformance Tests</title>
+    <style>
+      body {
+        padding: 10px 20px 10px 20px;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQYV2Pce7zwv7NlPyMDFMAZGAIwlRgqAFydCAVv5m4UAAAAAElFTkSuQmCC") repeat;
+         
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: white;
+      }
+      th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      tr:hover {
+        background-color: #ffe39b;
+      }
+      .result {
+        padding: 1.25em 0 .25em 0.8em;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+      .red {
+        background: #ffc8c8;
+      }
+      pre.fail-message {
+        background: #f9a5a5;
+        padding: 20px;
+        margin-right: 10px;
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 1.25em;
+        width: 94%;
+        overflow-x: auto;
+        max-width: 85%;
+      }
+      .green {
+        background: #c8ffc8;
+        padding: 1.25em 0 1.25em 0.8em;
+      }
+      .grey {
+        background: lightgrey;
+        padding: 1.25em 0 1.25em 0.8em;
+      }
+      .toggle {
+        border: 2px solid #3e3e3e;
+        cursor: pointer;
+        width: 1em;
+        text-align: center;
+        font-weight: bold;
+        display: inline;
+        font-family: monospace;
+        padding: 0 .25em 0 .25em;
+        margin: 1em 1em 1em 0;
+        font-size: 12pt;
+        color: #3e3e3e;
+        border-radius: 3px;
+      }
+      pre.pre-box {
+        background: #343a40;
+        color: #fff;
+        padding: 10px;
+        border: 1px solid gray;
+        display: inline-block;
+        border-radius: 4px;
+        width: 97%;
+        font-size: 1.25em;
+        overflow-x: auto;
+        max-height: 60em;
+        overflow-y: auto;
+        max-width: 85%;
+      }
+      .summary {
+        width: 100%;
+        height: auto;
+        padding: 0 0 .5em 0;
+        border-radius: 6px;
+        border: 1px solid #cccddd;
+        background: white;
+      }
+      .summary-bullet {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding: .5em .1em .1em .5em;
+      }
+      .bullet-left {
+        width: 25%;
+        font-weight: bold;
+        font-size: 100%;
+      }
+      .bullet-right {
+        width: auto;
+        font-family: monospace;
+        font-size: 110%;
+      }
+      .quick-summary {
+        width: 70%;
+        display: flex;
+        margin: 0 auto 0 0;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+      .darkgreen {
+        color: green;
+      }
+      .darkred {
+        color: red;
+        padding: 0 0 0 2em;
+      }
+      .darkgrey {
+        color: grey;
+        padding: 0 0 0 2em;
+      }
+      .meter {
+        border: 1px solid black;
+        margin: 0 .5em 0 auto;
+        display: flex;
+        height: 25px;
+        width: 45%;
+      }
+      @media only screen and (max-width: 600px) {
+        .meter {
+          display: none;
+        }
+      }
+      .meter-green {
+        height: 100%;
+        background: green;
+        width: 44%;
+      }
+      .meter-red {
+        height: 100%;
+        background: red;
+        width: 0%;
+      }
+      .meter-grey {
+        height: 100%;
+        background: grey;
+        width: 56%;
+      }
+      .subcategory {
+        background: white;
+        padding: 0px 20px 20px 20px;
+        border: 1px solid #cccddd;
+        border-radius: 6px;
+      }
+      h2 {
+        margin-top: 45px;
+      }
+      h4 {
+        vertical-align: bottom;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function toggleOutput(id) {
+        var elem = document.getElementById(id);
+        var button = document.getElementById(id + "-button");
+        if (elem.style['display'] === 'block') {
+          button.innerHTML = "+";
+          elem.style['display'] = 'none';
+        } else {
+          button.innerHTML = "-";
+          elem.style['display'] = 'block';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>OCI Distribution Conformance Tests</h1>
+    <table>
+      <tr>
+      </tr>
+      <tr>
+        <td class="bullet-left">Summary</td>
+        <td>
+          <div class="quick-summary"><span class="darkgreen">27 passed</span><span class="darkgrey">35 skipped</span><div class="meter">
+              <div class="meter-green"></div>
+              <div class="meter-red"></div>
+              <div class="meter-grey"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="bullet-left">Start Time</td>
+        <td>May 28 08:51:26.267 &#43;0000 UTC</td>
+      </tr>
+      <tr>
+        <td class="bullet-left">End Time</td>
+        <td>May 28 08:51:30.011 &#43;0000 UTC</td>
+      </tr>
+      <tr>
+        <td class="bullet-left">Time Elapsed</td>
+        <td>3.744412s</td>
+      </tr>
+      <tr>
+        <td class="bullet-left">Test Version</td>
+        <td>v1.0.1</td>
+      </tr>
+      <tr>
+        <td class="bullet-left">Configuration</td>
+        <td><div class="bullet-right">
+          
+            OCI_ROOT_URL=http://10.7.22.71:8082/<br />
+          
+            OCI_NAMESPACE=oci-local/testimg<br />
+          
+            OCI_USERNAME=*****<br />
+          
+            OCI_PASSWORD=*****<br />
+          
+            OCI_TEST_PULL=1<br />
+          
+            OCI_TEST_PUSH=0<br />
+          
+            OCI_TEST_CONTENT_DISCOVERY=1<br />
+          
+            OCI_TEST_CONTENT_MANAGEMENT=0<br />
+          
+        </div></td>
+      </tr>
+    </table>
+
+    <div>
+      
+        
+        
+          
+          
+            
+              <h2>Pull</h2>
+              <div class="subcategory">
+              
+              
+                <h3>Setup</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-0-button" class="toggle" onclick="javascript:toggleOutput('output-box-0')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-0')">Populate registry with test blob</h4>
+                        <br>
+                        <div id="output-box-0" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:26.963995 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci-local/testimg/blobs/uploads/  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:26.958835Z
+TIME DURATION: 682.295ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:26 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:26.968117 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.072142 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.068533Z
+TIME DURATION: 2.1003s
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.115413 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci-local/testimg/blobs/uploads/  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2023-05-28T08:51:29.085934Z
+TIME DURATION: 12.118ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: d6f5dee9-5f90-4b5d-b73d-b7254afcc49b
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/d6f5dee9-5f90-4b5d-b73d-b7254afcc49b
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+2023/05/28 08:51:29.122120 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/blobs/uploads/d6f5dee9-5f90-4b5d-b73d-b7254afcc49b?digest=sha256%3Ac2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICJMU2tKcEFFNHVOS2RWcml3IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.119779Z
+TIME DURATION: 3.204ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.122519 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.126590 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.124505Z
+TIME DURATION: 1.931ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.142228 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/blobs/uploads/d6f5dee9-5f90-4b5d-b73d-b7254afcc49b?digest=sha256%3Ac2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICJMU2tKcEFFNHVOS2RWcml3IiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.139822Z
+TIME DURATION: 12.715ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-1-button" class="toggle" onclick="javascript:toggleOutput('output-box-1')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-1')">Populate registry with test layer</h4>
+                        <br>
+                        <div id="output-box-1" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.148759 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci-local/testimg/blobs/uploads/  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.147076Z
+TIME DURATION: 2.493ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.149097 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.152993 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.150984Z
+TIME DURATION: 1.84ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.157953 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci-local/testimg/blobs/uploads/  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2023-05-28T08:51:29.156124Z
+TIME DURATION: 2.778ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: 46fa17c7-407b-486e-a0d8-e8be58846eb3
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/46fa17c7-407b-486e-a0d8-e8be58846eb3
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+2023/05/28 08:51:29.162383 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/blobs/uploads/46fa17c7-407b-486e-a0d8-e8be58846eb3?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.160117Z
+TIME DURATION: 1.578ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.162794 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.166526 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.16448Z
+TIME DURATION: 1.618ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.176622 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/blobs/uploads/46fa17c7-407b-486e-a0d8-e8be58846eb3?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.17425Z
+TIME DURATION: 7.217ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-2-button" class="toggle" onclick="javascript:toggleOutput('output-box-2')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-2')">Populate registry with test manifest</h4>
+                        <br>
+                        <div id="output-box-2" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.182046 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/tagtest0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmMyYWRmYTBhMzg4NGY4YTA4YWQ3MjMwNjc4MTBkYjRhM2ZhODQ1NmE1ODk2OTcyMzhlNWU3ZjBhOTNkY2Y0NzciLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.179579Z
+TIME DURATION: 1.702ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.182366 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.187608 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.185664Z
+TIME DURATION: 3.258ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.222440 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/tagtest0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmMyYWRmYTBhMzg4NGY4YTA4YWQ3MjMwNjc4MTBkYjRhM2ZhODQ1NmE1ODk2OTcyMzhlNWU3ZjBhOTNkY2Y0NzciLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.219784Z
+TIME DURATION: 31.736ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-3-button" class="toggle" onclick="javascript:toggleOutput('output-box-3')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-3')">Get the name of a tag</h4>
+                        <br>
+                        <div id="output-box-3" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.226324 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.224694Z
+TIME DURATION: 1.579ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.226648 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.230252 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.228541Z
+TIME DURATION: 1.855ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.241833 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.239853Z
+TIME DURATION: 9.36ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;name&#34;: &#34;testimg&#34;,
+   &#34;tags&#34;: [
+      &#34;tagtest0&#34;
+   ]
+}
+==============================================================================
+
+2023/05/28 08:51:29.247059 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/tagtest0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmMyYWRmYTBhMzg4NGY4YTA4YWQ3MjMwNjc4MTBkYjRhM2ZhODQ1NmE1ODk2OTcyMzhlNWU3ZjBhOTNkY2Y0NzciLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.244581Z
+TIME DURATION: 1.63ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.247404 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.251461 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.249389Z
+TIME DURATION: 1.939ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.269448 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/tagtest0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmMyYWRmYTBhMzg4NGY4YTA4YWQ3MjMwNjc4MTBkYjRhM2ZhODQ1NmE1ODk2OTcyMzhlNWU3ZjBhOTNkY2Y0NzciLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.266398Z
+TIME DURATION: 14.526ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-4-button" class="toggle" onclick="javascript:toggleOutput('output-box-4')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-4')">Get tag name from environment</h4>
+                        <br>
+                        <div id="output-box-4" style="display: none;">
+                          <pre class="pre-box">you have skipped this test.</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Pull blobs</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-5-button" class="toggle" onclick="javascript:toggleOutput('output-box-5')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-5')">HEAD request to nonexistent blob should result in 404 response</h4>
+                        <br>
+                        <div id="output-box-5" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.278660 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/oci-local/testimg/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.276793Z
+TIME DURATION: 2.039ms
+HEADERS      :
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+2023/05/28 08:51:29.279025 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.283233 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.281234Z
+TIME DURATION: 2.138ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.299012 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/oci-local/testimg/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2023-05-28T08:51:29.296843Z
+TIME DURATION: 13.265ms
+HEADERS      :
+	Content-Length: 168
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-6-button" class="toggle" onclick="javascript:toggleOutput('output-box-6')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-6')">HEAD request to existing blob should yield 200</h4>
+                        <br>
+                        <div id="output-box-6" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.303246 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/oci-local/testimg/blobs/sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.301662Z
+TIME DURATION: 1.73ms
+HEADERS      :
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+2023/05/28 08:51:29.303861 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.308249 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.306255Z
+TIME DURATION: 2.339ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.312960 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/oci-local/testimg/blobs/sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.31103Z
+TIME DURATION: 2.46ms
+HEADERS      :
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-7-button" class="toggle" onclick="javascript:toggleOutput('output-box-7')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-7')">GET nonexistent blob should result in 404 response</h4>
+                        <br>
+                        <div id="output-box-7" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.317346 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.315596Z
+TIME DURATION: 1.855ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.317657 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.321110 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.319298Z
+TIME DURATION: 1.595ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.328822 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/blobs/sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2023-05-28T08:51:29.326616Z
+TIME DURATION: 5.201ms
+HEADERS      :
+	Content-Length: 168
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;BLOB_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;blob unknown to registry&#34;,
+         &#34;detail&#34;: {
+            &#34;blobSum&#34;: &#34;sha256:b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9&#34;
+         }
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-8-button" class="toggle" onclick="javascript:toggleOutput('output-box-8')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-8')">GET request to existing blob URL should yield 200</h4>
+                        <br>
+                        <div id="output-box-8" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.332917 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/blobs/sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.331101Z
+TIME DURATION: 1.638ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.333229 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.338857 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.335076Z
+TIME DURATION: 1.798ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.346652 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/blobs/sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.343684Z
+TIME DURATION: 4.513ms
+HEADERS      :
+	Accept-Ranges: bytes
+	Content-Disposition: attachment; filename=&#34;sha256__c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477&#34;
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477
+	Docker-Distribution-Api-Version: registry/2.0
+	Etag: 8f5100bf133b1d878d524cf08c12cc31c19f0a8b
+	Last-Modified: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Filename: sha256__c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Checksum-Md5: 205108847c90496032155c26c17266df
+	X-Checksum-Sha1: 8f5100bf133b1d878d524cf08c12cc31c19f0a8b
+	X-Checksum-Sha256: c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+	&#34;author&#34;: &#34;LSkJpAE4uNKdVriw&#34;,
+	&#34;architecture&#34;: &#34;amd64&#34;,
+	&#34;os&#34;: &#34;linux&#34;,
+	&#34;config&#34;: {},
+	&#34;rootfs&#34;: {
+		&#34;type&#34;: &#34;layers&#34;,
+		&#34;diff_ids&#34;: []
+	}
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Pull manifests</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-9-button" class="toggle" onclick="javascript:toggleOutput('output-box-9')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-9')">HEAD request to nonexistent manifest should return 404</h4>
+                        <br>
+                        <div id="output-box-9" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.350350 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/oci-local/testimg/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.348814Z
+TIME DURATION: 1.605ms
+HEADERS      :
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+2023/05/28 08:51:29.350698 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.353959 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.352288Z
+TIME DURATION: 1.544ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.358397 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/oci-local/testimg/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2023-05-28T08:51:29.356532Z
+TIME DURATION: 2.33ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Docker-Registry: oci-local
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-10-button" class="toggle" onclick="javascript:toggleOutput('output-box-10')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-10')">HEAD request to manifest path (digest) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-10" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.362814 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/oci-local/testimg/manifests/sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.361124Z
+TIME DURATION: 2.139ms
+HEADERS      :
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+2023/05/28 08:51:29.363073 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.366632 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.364693Z
+TIME DURATION: 1.58ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.385075 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+HEAD  /v2/oci-local/testimg/manifests/sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.382276Z
+TIME DURATION: 15.339ms
+HEADERS      :
+	Accept-Ranges: bytes
+	Cache-Control: no-store
+	Content-Disposition: attachment; filename=&#34;manifest.json&#34;
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	Docker-Distribution-Api-Version: registry/2.0
+	Etag: 423521864f734bdf3e4726f970f7306171ca5470
+	Last-Modified: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Docker-Registry: oci-local
+	X-Artifactory-Filename: manifest.json
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Checksum-Md5: f08065d9a3ce2e02a60a3e705f58e76a
+	X-Checksum-Sha1: 423521864f734bdf3e4726f970f7306171ca5470
+	X-Checksum-Sha256: 07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+*** Error: Unable to format response body - &#34;unexpected end of JSON input&#34; ***
+
+Log Body as-is:
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-11-button" class="toggle" onclick="javascript:toggleOutput('output-box-11')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-11')">HEAD request to manifest path (tag) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-11" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.389500 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/manifests/tagtest0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.387867Z
+TIME DURATION: 1.922ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.389799 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.393608 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.391547Z
+TIME DURATION: 1.706ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.401747 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/manifests/tagtest0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.39876Z
+TIME DURATION: 4.808ms
+HEADERS      :
+	Accept-Ranges: bytes
+	Cache-Control: no-store
+	Content-Disposition: attachment; filename=&#34;manifest.json&#34;
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	Docker-Distribution-Api-Version: registry/2.0
+	Etag: 423521864f734bdf3e4726f970f7306171ca5470
+	Last-Modified: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Filename: manifest.json
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Checksum-Md5: f08065d9a3ce2e02a60a3e705f58e76a
+	X-Checksum-Sha1: 423521864f734bdf3e4726f970f7306171ca5470
+	X-Checksum-Sha256: 07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;schemaVersion&#34;: 2,
+   &#34;config&#34;: {
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;digest&#34;: &#34;sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477&#34;,
+      &#34;size&#34;: 144
+   },
+   &#34;layers&#34;: [
+      {
+         &#34;mediaType&#34;: &#34;application/vnd.oci.image.layer.v1.tar&#43;gzip&#34;,
+         &#34;digest&#34;: &#34;sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183&#34;,
+         &#34;size&#34;: 168
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-12-button" class="toggle" onclick="javascript:toggleOutput('output-box-12')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-12')">GET nonexistent manifest should return 404</h4>
+                        <br>
+                        <div id="output-box-12" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.405810 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.404078Z
+TIME DURATION: 1.73ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.406199 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.410091 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.408241Z
+TIME DURATION: 1.992ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.414663 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/manifests/.INVALID_MANIFEST_NAME  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 404 Not Found
+RECEIVED AT  : 2023-05-28T08:51:29.412639Z
+TIME DURATION: 2.244ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;MANIFEST_UNKNOWN&#34;,
+         &#34;message&#34;: &#34;The named manifest is not known to the registry.&#34;,
+         &#34;detail&#34;: {
+            &#34;manifest&#34;: &#34;testimg/.INVALID_MANIFEST_NAME/manifest.json&#34;
+         }
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-13-button" class="toggle" onclick="javascript:toggleOutput('output-box-13')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-13')">GET request to manifest path (digest) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-13" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.418991 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/manifests/sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.417141Z
+TIME DURATION: 1.942ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.419370 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.423018 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.42122Z
+TIME DURATION: 1.809ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.430325 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/manifests/sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.427049Z
+TIME DURATION: 3.72ms
+HEADERS      :
+	Accept-Ranges: bytes
+	Cache-Control: no-store
+	Content-Disposition: attachment; filename=&#34;manifest.json&#34;
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	Docker-Distribution-Api-Version: registry/2.0
+	Etag: 423521864f734bdf3e4726f970f7306171ca5470
+	Last-Modified: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Filename: manifest.json
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Checksum-Md5: f08065d9a3ce2e02a60a3e705f58e76a
+	X-Checksum-Sha1: 423521864f734bdf3e4726f970f7306171ca5470
+	X-Checksum-Sha256: 07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;schemaVersion&#34;: 2,
+   &#34;config&#34;: {
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;digest&#34;: &#34;sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477&#34;,
+      &#34;size&#34;: 144
+   },
+   &#34;layers&#34;: [
+      {
+         &#34;mediaType&#34;: &#34;application/vnd.oci.image.layer.v1.tar&#43;gzip&#34;,
+         &#34;digest&#34;: &#34;sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183&#34;,
+         &#34;size&#34;: 168
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-14-button" class="toggle" onclick="javascript:toggleOutput('output-box-14')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-14')">GET request to manifest path (tag) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-14" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.434260 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/manifests/tagtest0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.432594Z
+TIME DURATION: 1.637ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.434582 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.438421 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.436522Z
+TIME DURATION: 1.902ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.461478 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/manifests/tagtest0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.458116Z
+TIME DURATION: 19.404ms
+HEADERS      :
+	Accept-Ranges: bytes
+	Cache-Control: no-store
+	Content-Disposition: attachment; filename=&#34;manifest.json&#34;
+	Content-Length: 391
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	Docker-Distribution-Api-Version: registry/2.0
+	Etag: 423521864f734bdf3e4726f970f7306171ca5470
+	Last-Modified: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Filename: manifest.json
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Checksum-Md5: f08065d9a3ce2e02a60a3e705f58e76a
+	X-Checksum-Sha1: 423521864f734bdf3e4726f970f7306171ca5470
+	X-Checksum-Sha256: 07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;schemaVersion&#34;: 2,
+   &#34;config&#34;: {
+      &#34;mediaType&#34;: &#34;application/vnd.oci.image.config.v1&#43;json&#34;,
+      &#34;digest&#34;: &#34;sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477&#34;,
+      &#34;size&#34;: 144
+   },
+   &#34;layers&#34;: [
+      {
+         &#34;mediaType&#34;: &#34;application/vnd.oci.image.layer.v1.tar&#43;gzip&#34;,
+         &#34;digest&#34;: &#34;sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183&#34;,
+         &#34;size&#34;: 168
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Error codes</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-15-button" class="toggle" onclick="javascript:toggleOutput('output-box-15')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-15')">400 response body should contain OCI-conforming JSON message</h4>
+                        <br>
+                        <div id="output-box-15" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.466271 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/sha256:totallywrong  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;YmxhYmxhYmxh&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.46437Z
+TIME DURATION: 2.063ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.466674 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.470944 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.46892Z
+TIME DURATION: 2.2ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.478576 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/sha256:totallywrong  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;YmxhYmxhYmxh&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 400 Bad Request
+RECEIVED AT  : 2023-05-28T08:51:29.476096Z
+TIME DURATION: 4.737ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;MANIFEST_INVALID&#34;,
+         &#34;message&#34;: &#34;manifest invalid&#34;,
+         &#34;detail&#34;: {
+            &#34;description&#34;: &#34;com.fasterxml.jackson.core.JsonParseException: Unrecognized token &#39;blablabla&#39;: was expecting (JSON String, Number, Array, Object or token &#39;null&#39;, &#39;true&#39; or &#39;false&#39;)\n at [Source: (byte[])\&#34;blablabla\&#34;; line: 1, column: 10]&#34;
+         }
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Teardown</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-16-button" class="toggle" onclick="javascript:toggleOutput('output-box-16')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-16')">Delete config blob created in setup</h4>
+                        <br>
+                        <div id="output-box-16" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.483719 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/blobs/sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.482036Z
+TIME DURATION: 1.624ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.484033 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.487716 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.485866Z
+TIME DURATION: 1.776ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.491912 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/blobs/sha256:c2adfa0a3884f8a08ad723067810db4a3fa8456a589697238e5e7f0a93dcf477  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 405 Method Not Allowed
+RECEIVED AT  : 2023-05-28T08:51:29.490039Z
+TIME DURATION: 1.984ms
+HEADERS      :
+	Allow: HEAD,GET,OPTIONS
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;status&#34;: 405,
+         &#34;message&#34;: &#34;Method Not Allowed&#34;
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-17-button" class="toggle" onclick="javascript:toggleOutput('output-box-17')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-17')">Delete layer blob created in setup</h4>
+                        <br>
+                        <div id="output-box-17" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.495702 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.494008Z
+TIME DURATION: 1.404ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.496013 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.499936 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.498117Z
+TIME DURATION: 2.059ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.506353 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 405 Method Not Allowed
+RECEIVED AT  : 2023-05-28T08:51:29.504392Z
+TIME DURATION: 2.255ms
+HEADERS      :
+	Allow: HEAD,GET,OPTIONS
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;status&#34;: 405,
+         &#34;message&#34;: &#34;Method Not Allowed&#34;
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-18-button" class="toggle" onclick="javascript:toggleOutput('output-box-18')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-18')">Delete manifest created in setup</h4>
+                        <br>
+                        <div id="output-box-18" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.511337 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/manifests/sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.509455Z
+TIME DURATION: 2.308ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:delete&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.511739 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.515689 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Adelete&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.513848Z
+TIME DURATION: 2.036ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.537636 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/manifests/sha256:07b87aa3b0c78e74f2be905b8ac1440f0a973a61013ab8e369aefe66530f6a42  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2023-05-28T08:51:29.535784Z
+TIME DURATION: 19.762ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+            
+          
+        </div>
+        
+          
+          
+            
+              <h2>Push</h2>
+              <div class="subcategory">
+              
+              
+                <h3>Blob Upload Streamed</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-19-button" class="toggle" onclick="javascript:toggleOutput('output-box-19')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-19')">PATCH request with blob in body should yield 202 response</h4>
+                        <br>
+                        <div id="output-box-19" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-20-button" class="toggle" onclick="javascript:toggleOutput('output-box-20')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-20')">PUT request to session URL with digest should yield 201 response</h4>
+                        <br>
+                        <div id="output-box-20" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Blob Upload Monolithic</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-21-button" class="toggle" onclick="javascript:toggleOutput('output-box-21')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-21')">GET nonexistent blob should result in 404 response</h4>
+                        <br>
+                        <div id="output-box-21" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-22-button" class="toggle" onclick="javascript:toggleOutput('output-box-22')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-22')">POST request with digest and blob should yield a 201 or 202</h4>
+                        <br>
+                        <div id="output-box-22" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-23-button" class="toggle" onclick="javascript:toggleOutput('output-box-23')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-23')">GET request to blob URL from prior request should yield 200 or 404 based on response code</h4>
+                        <br>
+                        <div id="output-box-23" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-24-button" class="toggle" onclick="javascript:toggleOutput('output-box-24')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-24')">POST request should yield a session ID</h4>
+                        <br>
+                        <div id="output-box-24" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-25-button" class="toggle" onclick="javascript:toggleOutput('output-box-25')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-25')">PUT upload of a blob should yield a 201 Response</h4>
+                        <br>
+                        <div id="output-box-25" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-26-button" class="toggle" onclick="javascript:toggleOutput('output-box-26')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-26')">GET request to existing blob should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-26" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-27-button" class="toggle" onclick="javascript:toggleOutput('output-box-27')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-27')">PUT upload of a layer blob should yield a 201 Response</h4>
+                        <br>
+                        <div id="output-box-27" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-28-button" class="toggle" onclick="javascript:toggleOutput('output-box-28')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-28')">GET request to existing layer should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-28" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Blob Upload Chunked</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-29-button" class="toggle" onclick="javascript:toggleOutput('output-box-29')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-29')">Out-of-order blob upload should return 416</h4>
+                        <br>
+                        <div id="output-box-29" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-30-button" class="toggle" onclick="javascript:toggleOutput('output-box-30')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-30')">PATCH request with first chunk should return 202</h4>
+                        <br>
+                        <div id="output-box-30" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-31-button" class="toggle" onclick="javascript:toggleOutput('output-box-31')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-31')">PUT request with final chunk should return 201</h4>
+                        <br>
+                        <div id="output-box-31" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Cross-Repository Blob Mount</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-32-button" class="toggle" onclick="javascript:toggleOutput('output-box-32')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-32')">POST request to mount another repository&#39;s blob should return 201 or 202</h4>
+                        <br>
+                        <div id="output-box-32" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-33-button" class="toggle" onclick="javascript:toggleOutput('output-box-33')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-33')">GET request to test digest within cross-mount namespace should return 200</h4>
+                        <br>
+                        <div id="output-box-33" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-34-button" class="toggle" onclick="javascript:toggleOutput('output-box-34')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-34')">Cross-mounting of nonexistent blob should yield session id</h4>
+                        <br>
+                        <div id="output-box-34" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Manifest Upload</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-35-button" class="toggle" onclick="javascript:toggleOutput('output-box-35')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-35')">GET nonexistent manifest should return 404</h4>
+                        <br>
+                        <div id="output-box-35" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-36-button" class="toggle" onclick="javascript:toggleOutput('output-box-36')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-36')">PUT should accept a manifest upload</h4>
+                        <br>
+                        <div id="output-box-36" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-37-button" class="toggle" onclick="javascript:toggleOutput('output-box-37')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-37')">Registry should accept a manifest upload with no layers</h4>
+                        <br>
+                        <div id="output-box-37" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-38-button" class="toggle" onclick="javascript:toggleOutput('output-box-38')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-38')">GET request to manifest URL (digest) should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-38" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Teardown</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-39-button" class="toggle" onclick="javascript:toggleOutput('output-box-39')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-39')">Delete config blob created in tests</h4>
+                        <br>
+                        <div id="output-box-39" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-40-button" class="toggle" onclick="javascript:toggleOutput('output-box-40')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-40')">Delete layer blob created in setup</h4>
+                        <br>
+                        <div id="output-box-40" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-41-button" class="toggle" onclick="javascript:toggleOutput('output-box-41')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-41')">Delete manifest created in tests</h4>
+                        <br>
+                        <div id="output-box-41" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+            
+          
+        </div>
+        
+          
+          
+            
+              <h2>Content Discovery</h2>
+              <div class="subcategory">
+              
+              
+                <h3>Setup</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-42-button" class="toggle" onclick="javascript:toggleOutput('output-box-42')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-42')">Populate registry with test blob</h4>
+                        <br>
+                        <div id="output-box-42" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.587617 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci-local/testimg/blobs/uploads/  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.585908Z
+TIME DURATION: 3.061ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.587949 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.591825 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.589866Z
+TIME DURATION: 1.865ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.599438 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci-local/testimg/blobs/uploads/  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2023-05-28T08:51:29.597539Z
+TIME DURATION: 5.312ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: 79daeebd-5753-497e-94e1-ae76d69a0a30
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/79daeebd-5753-497e-94e1-ae76d69a0a30
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+2023/05/28 08:51:29.603914 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/blobs/uploads/79daeebd-5753-497e-94e1-ae76d69a0a30?digest=sha256%3Abb52dd7bb4d1f5d87e1ab87a33fd1984bae685f56cce233dd2fff46e59b9642a  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICIwUEdLNGF6aDl3OGMtUUhHIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.601818Z
+TIME DURATION: 1.795ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.604228 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.607932 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.606054Z
+TIME DURATION: 1.783ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.625191 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/blobs/uploads/79daeebd-5753-497e-94e1-ae76d69a0a30?digest=sha256%3Abb52dd7bb4d1f5d87e1ab87a33fd1984bae685f56cce233dd2fff46e59b9642a  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	Content-Length: 144
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+ewoJImF1dGhvciI6ICIwUEdLNGF6aDl3OGMtUUhHIiwKCSJhcmNoaXRlY3R1cmUiOiAiYW1kNjQiLAoJIm9zIjogImxpbnV4IiwKCSJjb25maWciOiB7fSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbXQoJfQp9
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.622727Z
+TIME DURATION: 14.314ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:bb52dd7bb4d1f5d87e1ab87a33fd1984bae685f56cce233dd2fff46e59b9642a
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/sha256:bb52dd7bb4d1f5d87e1ab87a33fd1984bae685f56cce233dd2fff46e59b9642a
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-43-button" class="toggle" onclick="javascript:toggleOutput('output-box-43')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-43')">Populate registry with test layer</h4>
+                        <br>
+                        <div id="output-box-43" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.632162 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci-local/testimg/blobs/uploads/  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.628781Z
+TIME DURATION: 2.886ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.632593 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.636625 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.634591Z
+TIME DURATION: 1.926ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.641920 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+POST  /v2/oci-local/testimg/blobs/uploads/  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2023-05-28T08:51:29.64006Z
+TIME DURATION: 3.024ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Docker-Upload-Uuid: 774de690-adc4-499d-a0cb-4b8f2a51b6e6
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/774de690-adc4-499d-a0cb-4b8f2a51b6e6
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+2023/05/28 08:51:29.646465 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/blobs/uploads/774de690-adc4-499d-a0cb-4b8f2a51b6e6?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.644249Z
+TIME DURATION: 1.778ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.646924 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.651106 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.649081Z
+TIME DURATION: 2.101ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.661790 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/blobs/uploads/774de690-adc4-499d-a0cb-4b8f2a51b6e6?digest=sha256%3A48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	Content-Length: 168
+	Content-Type: application/octet-stream
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+H4sIAAAAAAAAA&#43;3OQQrCMBCF4a49xXgBSUnaHMCTRBptQRNpp6i3t0UEV7oqIv7fYgbmzeJpHHSjVy0WZCa1c/MufWVe94N3RWlrZ72x3k/30nhbFWKWLPU0Dhp6keJ8im//PuU/6pZH2WVtYx8b0Sz7LjWSR5VLG6YRBumSzOlGtjkd&#43;qDjMWiX07Befbs7AAAAAAAAAAAAAAAAAPyzO34MnqoAKAAA
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.659395Z
+TIME DURATION: 7.805ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-44-button" class="toggle" onclick="javascript:toggleOutput('output-box-44')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-44')">Populate registry with test tags</h4>
+                        <br>
+                        <div id="output-box-44" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.667180 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/test0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmJiNTJkZDdiYjRkMWY1ZDg3ZTFhYjg3YTMzZmQxOTg0YmFlNjg1ZjU2Y2NlMjMzZGQyZmZmNDZlNTliOTY0MmEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.66458Z
+TIME DURATION: 1.864ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.667558 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.671269 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.669375Z
+TIME DURATION: 1.762ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.698645 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/test0  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmJiNTJkZDdiYjRkMWY1ZDg3ZTFhYjg3YTMzZmQxOTg0YmFlNjg1ZjU2Y2NlMjMzZGQyZmZmNDZlNTliOTY0MmEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.695836Z
+TIME DURATION: 24.213ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+2023/05/28 08:51:29.703620 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/test1  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmJiNTJkZDdiYjRkMWY1ZDg3ZTFhYjg3YTMzZmQxOTg0YmFlNjg1ZjU2Y2NlMjMzZGQyZmZmNDZlNTliOTY0MmEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.701015Z
+TIME DURATION: 1.715ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.703990 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.707869 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.705861Z
+TIME DURATION: 1.829ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.743790 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/test1  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmJiNTJkZDdiYjRkMWY1ZDg3ZTFhYjg3YTMzZmQxOTg0YmFlNjg1ZjU2Y2NlMjMzZGQyZmZmNDZlNTliOTY0MmEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.740943Z
+TIME DURATION: 32.583ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+2023/05/28 08:51:29.748842 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/test2  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmJiNTJkZDdiYjRkMWY1ZDg3ZTFhYjg3YTMzZmQxOTg0YmFlNjg1ZjU2Y2NlMjMzZGQyZmZmNDZlNTliOTY0MmEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.746266Z
+TIME DURATION: 1.968ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.749223 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.753084 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.751116Z
+TIME DURATION: 1.847ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.776689 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/test2  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmJiNTJkZDdiYjRkMWY1ZDg3ZTFhYjg3YTMzZmQxOTg0YmFlNjg1ZjU2Y2NlMjMzZGQyZmZmNDZlNTliOTY0MmEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.773922Z
+TIME DURATION: 20.413ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+2023/05/28 08:51:29.781720 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/test3  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmJiNTJkZDdiYjRkMWY1ZDg3ZTFhYjg3YTMzZmQxOTg0YmFlNjg1ZjU2Y2NlMjMzZGQyZmZmNDZlNTliOTY0MmEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.779134Z
+TIME DURATION: 2.049ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull,push&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.782092 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.785975 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull%2Cpush&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.784153Z
+TIME DURATION: 2.014ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.819647 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+PUT  /v2/oci-local/testimg/manifests/test3  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/vnd.oci.image.manifest.v1&#43;json
+	Authorization: Bearer *****
+	Content-Type: application/vnd.oci.image.manifest.v1&#43;json
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+&#34;ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmJiNTJkZDdiYjRkMWY1ZDg3ZTFhYjg3YTMzZmQxOTg0YmFlNjg1ZjU2Y2NlMjMzZGQyZmZmNDZlNTliOTY0MmEiLAoJCSJzaXplIjogMTQ0Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ4YWNmZjFkOTE3NTJlOTU3NTI3YzFiNTQxNmU3Mzc2ZDkxMGJjYWNmMDFiOTQ0MTE3NWY4YzI3MGUzNWMxODMiLAoJCQkic2l6ZSI6IDE2OAoJCX0KCV0KfQ==&#34;
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 201 Created
+RECEIVED AT  : 2023-05-28T08:51:29.816808Z
+TIME DURATION: 30.513ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Content-Digest: sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20
+	Docker-Distribution-Api-Version: registry/2.0
+	Location: http://10.7.22.71:8082/v2/oci-local/testimg/blobs/uploads/sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+2023/05/28 08:51:29.823607 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.82187Z
+TIME DURATION: 1.818ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.824035 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.828260 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.826377Z
+TIME DURATION: 2.274ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.837809 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.835791Z
+TIME DURATION: 7.246ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;name&#34;: &#34;testimg&#34;,
+   &#34;tags&#34;: [
+      &#34;test0&#34;,
+      &#34;test1&#34;,
+      &#34;test2&#34;,
+      &#34;test3&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-45-button" class="toggle" onclick="javascript:toggleOutput('output-box-45')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-45')">Populate registry with test tags (no push)</h4>
+                        <br>
+                        <div id="output-box-45" style="display: none;">
+                          <pre class="pre-box">you have skipped this test.</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Test content discovery endpoints</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-46-button" class="toggle" onclick="javascript:toggleOutput('output-box-46')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-46')">GET request to list tags should yield 200 response</h4>
+                        <br>
+                        <div id="output-box-46" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.844524 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.842678Z
+TIME DURATION: 2.102ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.844888 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.850027 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.847689Z
+TIME DURATION: 2.741ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.856177 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.854138Z
+TIME DURATION: 3.682ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;name&#34;: &#34;testimg&#34;,
+   &#34;tags&#34;: [
+      &#34;test0&#34;,
+      &#34;test1&#34;,
+      &#34;test2&#34;,
+      &#34;test3&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-47-button" class="toggle" onclick="javascript:toggleOutput('output-box-47')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-47')">GET number of tags should be limitable by `n` query parameter</h4>
+                        <br>
+                        <div id="output-box-47" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.860666 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list?n=2  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.858845Z
+TIME DURATION: 1.938ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.861014 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.865063 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.863135Z
+TIME DURATION: 2.071ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.871103 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list?n=2  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.869065Z
+TIME DURATION: 3.709ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Link: &lt;/v2/oci-local/testimg/tags/list?last=test1&amp;n=2&gt;; rel=&#34;next&#34;
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;name&#34;: &#34;testimg&#34;,
+   &#34;tags&#34;: [
+      &#34;test0&#34;,
+      &#34;test1&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-48-button" class="toggle" onclick="javascript:toggleOutput('output-box-48')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-48')">GET start of tag is set by `last` query parameter</h4>
+                        <br>
+                        <div id="output-box-48" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.876710 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list?n=2  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.873797Z
+TIME DURATION: 1.892ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.877110 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.880765 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.87913Z
+TIME DURATION: 1.962ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.885802 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list?n=2  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.884004Z
+TIME DURATION: 3.032ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Link: &lt;/v2/oci-local/testimg/tags/list?last=test1&amp;n=2&gt;; rel=&#34;next&#34;
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;name&#34;: &#34;testimg&#34;,
+   &#34;tags&#34;: [
+      &#34;test0&#34;,
+      &#34;test1&#34;
+   ]
+}
+==============================================================================
+
+2023/05/28 08:51:29.889873 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list?last=test1&amp;n=2  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.888047Z
+TIME DURATION: 1.812ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:pull&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.890275 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.894288 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Apull&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.892498Z
+TIME DURATION: 2.165ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.899592 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/oci-local/testimg/tags/list?last=test1&amp;n=2  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.897685Z
+TIME DURATION: 3.11ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;name&#34;: &#34;testimg&#34;,
+   &#34;tags&#34;: [
+      &#34;test2&#34;,
+      &#34;test3&#34;
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Teardown</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-49-button" class="toggle" onclick="javascript:toggleOutput('output-box-49')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-49')">Delete config blob created in tests</h4>
+                        <br>
+                        <div id="output-box-49" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.904022 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/blobs/sha256:bb52dd7bb4d1f5d87e1ab87a33fd1984bae685f56cce233dd2fff46e59b9642a  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.902081Z
+TIME DURATION: 1.576ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.904357 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.908163 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.906332Z
+TIME DURATION: 1.926ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.912264 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/blobs/sha256:bb52dd7bb4d1f5d87e1ab87a33fd1984bae685f56cce233dd2fff46e59b9642a  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 405 Method Not Allowed
+RECEIVED AT  : 2023-05-28T08:51:29.91026Z
+TIME DURATION: 1.755ms
+HEADERS      :
+	Allow: HEAD,GET,OPTIONS
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;status&#34;: 405,
+         &#34;message&#34;: &#34;Method Not Allowed&#34;
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-50-button" class="toggle" onclick="javascript:toggleOutput('output-box-50')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-50')">Delete layer blob created in setup</h4>
+                        <br>
+                        <div id="output-box-50" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.916276 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.914544Z
+TIME DURATION: 1.515ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.916554 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.920170 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.918347Z
+TIME DURATION: 1.744ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.924403 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/blobs/sha256:48acff1d91752e957527c1b5416e7376d910bcacf01b9441175f8c270e35c183  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 405 Method Not Allowed
+RECEIVED AT  : 2023-05-28T08:51:29.922279Z
+TIME DURATION: 1.798ms
+HEADERS      :
+	Allow: HEAD,GET,OPTIONS
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;status&#34;: 405,
+         &#34;message&#34;: &#34;Method Not Allowed&#34;
+      }
+   ]
+}
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result green">
+                        <div id="output-box-51-button" class="toggle" onclick="javascript:toggleOutput('output-box-51')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-51')">Delete created manifest &amp; associated tags</h4>
+                        <br>
+                        <div id="output-box-51" style="display: none;">
+                          <pre class="pre-box">2023/05/28 08:51:29.928822 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/manifests/sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 401 Unauthorized
+RECEIVED AT  : 2023-05-28T08:51:29.92718Z
+TIME DURATION: 2.134ms
+HEADERS      :
+	Content-Length: 87
+	Content-Type: application/json;charset=ISO-8859-1
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	Www-Authenticate: Bearer realm=&#34;http://10.7.22.71:8082/v2/token&#34;,service=&#34;10.7.22.71:8082&#34;,scope=&#34;repository:testimg:delete&#34;
+BODY         :
+{
+   &#34;errors&#34;: [
+      {
+         &#34;code&#34;: &#34;UNAUTHORIZED&#34;,
+         &#34;message&#34;: &#34;authentication required&#34;,
+         &#34;detail&#34;: null
+      }
+   ]
+}
+
+==============================================================================
+
+2023/05/28 08:51:29.929114 WARN Using Basic Auth in HTTP mode is not secure, use HTTPS
+
+2023/05/28 08:51:29.932920 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+GET  /v2/token?scope=repository%3Atestimg%3Adelete&amp;service=10.7.22.71%3A8082  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Accept: application/json
+	Authorization: Basic *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 200 OK
+RECEIVED AT  : 2023-05-28T08:51:29.931182Z
+TIME DURATION: 2.028ms
+HEADERS      :
+	Content-Type: application/json
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+{
+   &#34;token&#34;: &#34;*****&#34;,
+   &#34;expires_in&#34;: 9000
+}
+==============================================================================
+
+2023/05/28 08:51:29.990959 DEBUG 
+==============================================================================
+~~~ REQUEST ~~~
+DELETE  /v2/oci-local/testimg/manifests/sha256:362e9fac567abd795f0c2017991324e4f2eabf6541f80112905a3ad9c9a87e20  HTTP/1.1
+HOST   : 10.7.22.71:8082
+HEADERS:
+	Authorization: Bearer *****
+	User-Agent: distribution-spec-conformance-tests
+BODY   :
+***** NO CONTENT *****
+------------------------------------------------------------------------------
+~~~ RESPONSE ~~~
+STATUS       : 202 Accepted
+RECEIVED AT  : 2023-05-28T08:51:29.989198Z
+TIME DURATION: 55.992ms
+HEADERS      :
+	Content-Length: 0
+	Date: Sun, 28 May 2023 08:51:29 GMT
+	Docker-Distribution-Api-Version: registry/2.0
+	X-Artifactory-Id: 0dc3bbaf1f58bd43:-24e90293:18848dc6ffe:-8000
+	X-Artifactory-Node-Id: 82e6959b-7857-435d-a5a7-8588865f7c92
+	X-Jfrog-Version: Artifactory/development 2147483647
+BODY         :
+
+==============================================================================
+
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+            
+          
+        </div>
+        
+          
+          
+            
+              <h2>Content Management</h2>
+              <div class="subcategory">
+              
+              
+                <h3>Setup</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-52-button" class="toggle" onclick="javascript:toggleOutput('output-box-52')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-52')">Populate registry with test config blob</h4>
+                        <br>
+                        <div id="output-box-52" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-53-button" class="toggle" onclick="javascript:toggleOutput('output-box-53')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-53')">Populate registry with test layer</h4>
+                        <br>
+                        <div id="output-box-53" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-54-button" class="toggle" onclick="javascript:toggleOutput('output-box-54')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-54')">Populate registry with test tag</h4>
+                        <br>
+                        <div id="output-box-54" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-55-button" class="toggle" onclick="javascript:toggleOutput('output-box-55')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-55')">Check how many tags there are before anything gets deleted</h4>
+                        <br>
+                        <div id="output-box-55" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Manifest delete</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-56-button" class="toggle" onclick="javascript:toggleOutput('output-box-56')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-56')">DELETE request to manifest tag should return 202, unless tag deletion is disallowed (400/405)</h4>
+                        <br>
+                        <div id="output-box-56" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-57-button" class="toggle" onclick="javascript:toggleOutput('output-box-57')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-57')">DELETE request to manifest (digest) should yield 202 response unless already deleted</h4>
+                        <br>
+                        <div id="output-box-57" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-58-button" class="toggle" onclick="javascript:toggleOutput('output-box-58')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-58')">GET request to deleted manifest URL should yield 404 response, unless delete is disallowed</h4>
+                        <br>
+                        <div id="output-box-58" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-59-button" class="toggle" onclick="javascript:toggleOutput('output-box-59')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-59')">GET request to tags list should reflect manifest deletion</h4>
+                        <br>
+                        <div id="output-box-59" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+                <h3>Blob delete</h3>
+                
+                
+                  
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-60-button" class="toggle" onclick="javascript:toggleOutput('output-box-60')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-60')">DELETE request to blob URL should yield 202 response</h4>
+                        <br>
+                        <div id="output-box-60" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+	OCI_TEST_CONTENT_MANAGEMENT=0
+</pre>
+                        </div>
+                      </div>
+                    
+                  
+                    
+                    
+                      <div class="result grey">
+                        <div id="output-box-61-button" class="toggle" onclick="javascript:toggleOutput('output-box-61')">+</div>
+                        <h4 style="display: inline;" onclick="javascript:toggleOutput('output-box-61')">GET request to deleted blob URL should yield 404 response</h4>
+                        <br>
+                        <div id="output-box-61" style="display: none;">
+                          <pre class="pre-box">you have skipped this test; if this is an error, check your environment variable settings:
+	OCI_TEST_CONTENT_MANAGEMENT=0
+	OCI_TEST_PULL=1
+	OCI_TEST_PUSH=0
+	OCI_TEST_CONTENT_DISCOVERY=1
+</pre>
+                        </div>
+                      </div>
+                    
+                  <br>
+                
+              
+            
+          
+        </div>
+        
+      
+    </div>
+  </body>
+</html>
