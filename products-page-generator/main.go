@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -127,7 +126,7 @@ func getSubmissions() (map[string]submission, error) {
 		}
 		for _, dirEntry := range dirEntries {
 			k := dirEntry.Name()
-			readmeRaw, err := ioutil.ReadFile(filepath.Join(rootDir, minorVersion, k, readmeFilename))
+			readmeRaw, err := os.ReadFile(filepath.Join(rootDir, minorVersion, k, readmeFilename))
 			if err != nil {
 				return nil, err
 			}
@@ -135,18 +134,18 @@ func getSubmissions() (map[string]submission, error) {
 			readmeRaw = append([]byte(fmt.Sprintf(indexPermalinkTemplate, readmeParentDirPermalink)), readmeRaw...)
 			readmeParentDir := filepath.Join(outputDir, readmeParentDirPermalink, readmeFilename)
 			os.MkdirAll(readmeParentDir, 0755)
-			err = ioutil.WriteFile(
+			err = os.WriteFile(
 				filepath.Join(readmeParentDir, readmeFilename),
 				readmeRaw, 0644)
 			if err != nil {
 				return nil, err
 			}
-			reportRaw, err := ioutil.ReadFile(filepath.Join(rootDir, minorVersion, k, reportFilename))
+			reportRaw, err := os.ReadFile(filepath.Join(rootDir, minorVersion, k, reportFilename))
 			if err != nil {
 				return nil, err
 			}
 			os.MkdirAll(filepath.Join(outputDir, staticDir, minorVersion, reportsDir, k), 0755)
-			err = ioutil.WriteFile(
+			err = os.WriteFile(
 				filepath.Join(outputDir, staticDir, minorVersion, reportsDir, k, staticIndex),
 				reportRaw, 0644)
 			if err != nil {
@@ -156,7 +155,7 @@ func getSubmissions() (map[string]submission, error) {
 				allVersions := append(s.AllVersions, minorVersion)
 				s.AllVersions = allVersions
 				junitPath := filepath.Join(rootDir, minorVersion, k, junitFilename)
-				b, err := ioutil.ReadFile(junitPath)
+				b, err := os.ReadFile(junitPath)
 				if err != nil {
 					return nil, err
 				}
@@ -177,7 +176,7 @@ func getSubmissions() (map[string]submission, error) {
 					return nil, err
 				}
 				readmePath := filepath.Join(rootDir, minorVersion, k, readmeFilename)
-				b, err = ioutil.ReadFile(readmePath)
+				b, err = os.ReadFile(readmePath)
 				if err != nil {
 					return nil, err
 				}
@@ -185,14 +184,14 @@ func getSubmissions() (map[string]submission, error) {
 				var badgesMarkdown string
 				badgesPath := filepath.Join(rootDir, liveSubdir, k, badgesFilename)
 				if _, err := os.Stat(badgesPath); err == nil {
-					b, err := ioutil.ReadFile(badgesPath)
+					b, err := os.ReadFile(badgesPath)
 					if err != nil {
 						return nil, err
 					}
 					badgesMarkdown = string(b)
 				}
 				junitPath := filepath.Join(rootDir, minorVersion, k, junitFilename)
-				b, err = ioutil.ReadFile(junitPath)
+				b, err = os.ReadFile(junitPath)
 				if err != nil {
 					return nil, err
 				}
