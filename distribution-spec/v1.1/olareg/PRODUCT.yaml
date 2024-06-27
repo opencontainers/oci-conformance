@@ -1,0 +1,8 @@
+vendor: olareg project
+name: olareg
+version: v0.1.0
+website_url: https://github.com/olareg/olareg
+repo_url: https://github.com/olareg/olareg
+documentation_url: https://github.com/olareg/olareg
+type: distribution
+description: 'A minimal OCI conformant container registry designed around the OCI Layout structure for storing images in a directory.'
