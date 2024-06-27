@@ -9,7 +9,7 @@ __Table of Contents:__
 {{- with .Submissions -}}
 {{- range $key, $value := . }}
 {{- if .IsOSS }}
-    - [{{ $value.Meta.Name }}](#{{ $key }})
+    - [{{ $value.Meta.Name }}](#{{ lower $value.Meta.Name | replace " " "-" }})
 {{- end -}}
 {{- end -}}
 {{ end }}
@@ -17,7 +17,7 @@ __Table of Contents:__
 {{- with .Submissions -}}
 {{- range $key, $value := . }}
 {{- if not .IsOSS }}
-    - [{{ $value.Meta.Name }}](#{{ $key }})
+    - [{{ $value.Meta.Name }}](#{{ lower $value.Meta.Name | replace " " "-" }})
 {{- end }}
 {{- end }}
 {{ end -}}
