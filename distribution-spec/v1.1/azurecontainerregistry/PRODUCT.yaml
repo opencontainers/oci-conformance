@@ -1,0 +1,8 @@
+vendor: Microsoft
+name: Azure Container Registry
+version: 240626
+website_url: https://azure.microsoft.com/products/container-registry/
+documentation_url: https://learn.microsoft.com/azure/container-registry/
+product_logo_url: https://azure.microsoft.com/svghandler/container-registry/?width=600&height=315
+type: hosted
+description: Store images for all types of container deployments and OCI artifacts, using Azure Container Registry.
