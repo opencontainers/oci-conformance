@@ -1,0 +1,8 @@
+vendor: JFrog
+name: Artifactory
+version: 7.92.0
+website_url: https://jfrog.com/artifactory
+documentation_url: https://jfrog.com/help/r/jfrog-artifactory-documentation
+product_logo_url: https://media.jfrog.com/wp-content/uploads/2024/06/25122849/JFrog-Logo.svg
+type: cloud and self hosted
+description: JFrog Artifactory is the single solution for managing all the artifacts, binaries, files and containers throughout your software supply chain.
