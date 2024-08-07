@@ -15,7 +15,7 @@ docker login <artifactory-url>
 #### Clone OCI Distribution Spec
 
 ```bash
-git clone https://github.com/opencontainers/distribution-spec -b v1.0.1
+git clone https://github.com/opencontainers/distribution-spec -b v1.1.0
 ```
 
 #### Build conformance binary
