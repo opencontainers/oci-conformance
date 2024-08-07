@@ -1,3 +1,4 @@
 [build]
-    command = "(echo $PWD && ls && cd products-page-generator/ && GIT_COMMIT=$(git rev-parse HEAD) go run main.go && cd jekyll/ && bundle config set --local path 'vendor/bundle' && bundle install && bundle exec jekyll build && cp favicon.ico _site/)"
-    publish = "products-page-generator/jekyll/_site/"
+    command = "./hack/build-static-site.sh"
+    publish = "_site/"
+    environment = { GO_VERSION = "1.22.x" }

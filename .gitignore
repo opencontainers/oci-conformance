@@ -1,2 +1,4 @@
 .idea/
 results/
+_site/
+**/.DS_Store
