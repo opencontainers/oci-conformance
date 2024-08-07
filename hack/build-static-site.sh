@@ -12,7 +12,8 @@ set -x
 # Go to root of repo, get git commit hash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${DIR}/.."
-GIT_COMMIT="$(git rev-parse HEAD)"
+export GIT_COMMIT="$(git rev-parse HEAD)"
+export TZ=UTC
 
 # Run "products-page-generator" which is a custom Go program to generate
 # a Jekyll-compatible Markdown site based on all the conformance
@@ -25,6 +26,7 @@ go run main.go
 # Use Jekyll to generate a general purpose static HTML site
 # into _site/ (git ignored) which is later hosted via Netlify
 cd jekyll/
+rm -f Gemfile.lock
 bundle config set --local path 'vendor/bundle'
 bundle install --path 'vendor/bundle'
 bundle exec jekyll build
@@ -37,9 +39,4 @@ rm -rf ../../_site && mv _site ../../
 set +x
 echo
 echo "Site has been successfully generated to _site/."
-echo
-echo "Testing locally? Run the following to see the site at http://localhost:8000/"
-echo
-# Why not add some Python to the mix eh?
-echo "    (cd _site && python3 -m http.server)"
 echo

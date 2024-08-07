@@ -128,6 +128,6 @@ __Live results:__ {{ $value.BadgesMarkdown }}
 
 ---
 <br/>
-Last generated: `{{ now | date "Jan 2 15:04:05.000 -0700 MST" }}`
+Last generated: `{{ now | date "Jan 2 15:04:05 MST" }}`
 
 Git commit: `{{ .GitCommit }}`

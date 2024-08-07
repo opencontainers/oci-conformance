@@ -22,3 +22,15 @@ The following specifications are currently tested for compliance:
 * [Marks](https://github.com/opencontainers/artwork/tree/master/certified)
 
 * [Frequently Asked Questions](faq.md)
+
+## Development
+
+*Requires Docker*
+
+To run the site locally, build and run from the provided [Dockerfile](./Dockerfile):
+```
+docker build -t oci-conformance . && \
+    docker run --rm -p 8080:8080 oci-conformance
+```
+
+The site can then be accessed at [http://localhost:8080/](http://localhost:8080/)
