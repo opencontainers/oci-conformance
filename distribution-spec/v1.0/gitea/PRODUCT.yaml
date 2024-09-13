@@ -2,7 +2,8 @@ vendor: Gitea
 name: Gitea Container Registry
 version: 1.22
 website_url: https://gitea.com
+repo_url: https://github.com/go-gitea/gitea
 documentation_url: https://docs.gitea.com/usage/packages/container
 product_logo_url: https://raw.githubusercontent.com/go-gitea/gitea/main/assets/logo.svg
-type: product
+type: distribution
 description: 'The Gitea Container Registry provides a solution to store container images for your Gitea projects.'
