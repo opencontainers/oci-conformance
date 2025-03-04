@@ -1,0 +1,8 @@
+vendor: Cloudsmith
+name: Cloudsmith
+version: 1.630.6
+website_url: https://cloudsmith.com/
+documentation_url: https://help.cloudsmith.io/docs/oci-repository
+product_logo_url: https://cloudsmith.com/assets/brand/cloudsmith-square-logo.svg
+type: hosted
+description: Cloudsmith is a fully-managed solution that gets your teams out of maintenance mode, and brings cloud-native performance to your workflows and operations.
