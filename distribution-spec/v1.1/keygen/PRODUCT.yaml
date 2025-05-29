@@ -1,0 +1,9 @@
+vendor: Keygen
+name: Keygen
+version: v1.8.0
+website_url: https://keygen.sh
+repo_url: https://github.com/keygen-sh/keygen-api
+documentation_url: https://keygen.sh/docs/api/engines/#engines-oci
+product_logo_url: https://assets.keygen.sh/logos/logo.svg
+type: distribution
+description: "Keygen's OCI distribution engine enables authenticated, license-gated distribution of container images."
