@@ -1,6 +1,7 @@
 module github.com/opencontainers/oci-conformance/products-page-generator
 
-go 1.22.6
+go 1.24.0
+
 toolchain go1.24.1
 
 // See https://github.com/darccio/mergo#important-notes
@@ -20,5 +21,5 @@ require (
 	github.com/imdario/mergo v0.0.0-00010101000000-000000000000 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
-	golang.org/x/crypto v0.35.0 // indirect
+	golang.org/x/crypto v0.45.0 // indirect
 )
