@@ -5,7 +5,7 @@ used to display conformance across all specs and products.
 
 To run:
 
-```
+```shell
 go run main.go
 ```
 
@@ -14,7 +14,7 @@ This will produce a new `output/` directory.
 You can then use [Jekyll](https://jekyllrb.com/)
 (or something similar) to produce a static HTML website:
 
-```
+```shell
 cd jekyll/
 bundle config set --local path 'vendor/bundle'
 bundle install

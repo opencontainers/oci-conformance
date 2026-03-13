@@ -28,7 +28,7 @@ go run main.go
 cd jekyll/
 rm -f Gemfile.lock
 bundle config set --local path 'vendor/bundle'
-bundle install --path 'vendor/bundle'
+bundle install --path 'vendor/bundle' || bundle install
 bundle exec jekyll build
 cp favicon.ico _site/
 echo '/** Disable unnecessary site navbar/menu */' >> _site/assets/main.css
