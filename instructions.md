@@ -2,63 +2,56 @@
 
 ## Running the tests
 
-Each spec will provide its own testing instructions, and each will produce 
-the following files that contain the test results and output:
+Each spec will provide its own testing instructions, and each will produce the following files that contain the test results and output:
+
+- `results.yaml`
 - `report.html`
 - `junit.xml`
 
 ### OCI Distribution Specification
 
-Please see instructions [here](https://github.com/opencontainers/distribution-spec/blob/main/conformance/README.md).
+Please see the [distribution-spec instructions](https://github.com/opencontainers/distribution-spec/blob/main/conformance/README.md).
 
 ## Uploading
 
-Prepare a PR to
-[https://github.com/opencontainers/oci-conformance](https://github.com/opencontainers/oci-conformance).
-Here are [directions](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to
-prepare a pull request from a fork.
-In the descriptions below, `$spec.X.Y` refers to the spec and its major and minor
-version, and `$dir` is a short subdirectory name to hold the results for your
-product.  Examples would be `gcr` or `dockerhub`.
+Prepare a PR to [https://github.com/opencontainers/oci-conformance](https://github.com/opencontainers/oci-conformance).
+Here are [directions](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to prepare a pull request from a fork.
+In the descriptions below, `$spec.X.Y` refers to the spec and its major and minor version, and `$dir` is a short subdirectory name to hold the results for your product.
+Examples would be `gcr` or `dockerhub`.
 
 Description: `Conformance results for $spec/vX.Y/$dir`
 
 ### Contents of the PR
 
-For simplicity you can submit the tarball or extract the relevant information from the tarball to compose your submission. 
+For simplicity you can submit the tarball or extract the relevant information from the tarball to compose your submission.
 
-```
-$spec/vX.Y/$dir/README.md: Description of how to reproduce your results.
-$spec/vX.Y/$dir/report.html: Human-readable HTML test report.
-$spec/vX.Y/$dir/junit.xml: Machine-readable JUnit test report.
-$spec/vX.Y/$dir/PRODUCT.yaml: See below.
-```
+- `$spec/vX.Y/$dir/README.md`: Description of how to reproduce your results.
+- `$spec/vX.Y/$dir/results.yaml`: Machine-readable test results in yaml.
+- `$spec/vX.Y/$dir/report.html`: Human-readable HTML test report.
+- `$spec/vX.Y/$dir/junit.xml`: Machine-readable JUnit test report.
+- `$spec/vX.Y/$dir/PRODUCT.yaml`: See below.
 
-Entirely optional, but encouraged, you can also include the following files
-(if you have not already submitted them previously):
+Entirely optional, but encouraged, you can also include the following files (if you have not already submitted them previously):
 
-```
-$spec/live/$dir/badges.md: See below.
-```
+- `$spec/live/$dir/badges.md`: See below.
 
 #### PRODUCT.yaml
 
 This file describes your product. It is YAML formatted with the following root-level fields. Please fill in as appropriate.
 
-| Field               | Description |
-| ------------------- | ----------- |
-| `vendor`            | Name of the legal entity that is certifying. This entity must have a signed participation form on file with the OCI  |
-| `name`              | Name of the product being certified. |
-| `version`           | The version of the product being certified (not the version of OCI spec). |
-| `website_url`       | URL to the product information website |
-| `repo_url`          | If your product is open source, this field is necessary to point to the primary GitHub repo containing the source. It's OK if this is a mirror. OPTIONAL  |
-| `documentation_url` | URL to the product documentation |
-| `product_logo_url`  | URL to the product's logo, (must be in SVG, AI or EPS format -- not a PNG -- and include the product name). OPTIONAL. If not supplied, we'll use your company logo. Please see logo guidelines (TODO: link) |
+| Field               | Description                                                                                                                                                                                         |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `vendor`            | Name of the legal entity that is certifying. This entity must have a signed participation form on file with the OCI                                                                                 |
+| `name`              | Name of the product being certified.                                                                                                                                                                |
+| `version`           | The version of the product being certified (not the version of OCI spec).                                                                                                                           |
+| `website_url`       | URL to the product information website                                                                                                                                                              |
+| `repo_url`          | If your product is open source, this field is necessary to point to the primary GitHub repo containing the source. It's OK if this is a mirror. OPTIONAL                                            |
+| `documentation_url` | URL to the product documentation                                                                                                                                                                    |
+| `product_logo_url`  | URL to the product's logo, (must be in SVG, AI or EPS format -- not a PNG -- and include the product name). OPTIONAL. If not supplied, we'll use your company logo.                                 |
 | `type`              | Is your product a distribution, hosted platform, or installer (see [definitions](https://github.com/opencontainers/oci-conformance/blob/main/faq.md#what-is-a-distribution-and-what-is-a-platform)) |
-| `description` | One sentence description of your offering |
+| `description`       | One sentence description of your offering                                                                                                                                                           |
 
-Examples below are for a fictional OCI implementation called _Turbo
-Encabulator_ produced by a company named _Yoyodyne_.
+Examples below are for a fictional OCI implementation called _Turbo Encabulator_ produced by a company named _Yoyodyne_.
 
 ```yaml
 vendor: Yoyodyne
@@ -74,23 +67,18 @@ description: 'The Yoyodyne Turbo Encabulator is a superb OCI distribution for al
 
 #### badges.md (Optional)
 
-If you are running live tests (for example, in GitHub Actions), you are
-encouraged to include a `badges.md` files which contains Markdown badges pointing to your test results.
+If you are running live tests (for example, in GitHub Actions), you are encouraged to include a `badges.md` files which contains Markdown badges pointing to your test results.
 
-These badges will be displayed on a web-based dashboard showing live
-conformance results for various products.
+These badges will be displayed on a web-based dashboard showing live conformance results for various products.
 
-Since you are likely testing conformance on the latest
-changeset to your product, this file should be submitted to the directory
-`$spec/live/$dir` (vs. `$spec/vX.Y/$dir`). *If you have previously submitted
-this file, you do not need to do so again to submit conformance for a new
-spec version.*
+Since you are likely testing conformance on the latest changeset to your product, this file should be submitted to the directory `$spec/live/$dir` (vs. `$spec/vX.Y/$dir`).
+_If you have previously submitted this file, you do not need to do so again to submit conformance for a new spec version._
 
 This file should simply contain Markdown badges, each on a new line.
 
 Here is an example `badges.md` file showing 4 badges:
 
-```
+```markdown
 [![](https://github.com/myorg/myproduct/workflows/oci-pull/badge.svg)](https://github.com/myorg/myproduct/actions?query=workflow%3Aoci-pull)
 [![](https://github.com/myorg/myproduct/workflows/oci-push/badge.svg)](https://github.com/myorg/myproduct/actions?query=workflow%3Aoci-push)
 [![](https://github.com/myorg/myproduct/workflows/oci-content-discovery/badge.svg)](https://github.com/myorg/myproduct/actions?query=workflow%3Aoci-content-discovery)
@@ -99,42 +87,43 @@ Here is an example `badges.md` file showing 4 badges:
 
 ## Amendment for Private Review
 
-If you need a private review for an unreleased product, please email a zip file containing what you would otherwise submit
-as a pull request to certification@opencontainers.org. We'll review and confirm that you are ready to be OCI Certified
-as soon as you open the pull request. We can then often arrange to accept your pull request soon after you make it, at which point you become OCI Certified.
+If you need a private review for an unreleased product, please email a zip file containing what you would otherwise submit as a pull request to <certification@opencontainers.org>.
+We'll review and confirm that you are ready to be OCI Certified as soon as you open the pull request.
+We can then often arrange to accept your pull request soon after you make it, at which point you become OCI Certified.
 
 ## Review
 
-A reviewer will shortly comment on and/or accept your pull request, following this [process](reviewing.md).
-If you don't see a response within 3 business days, please contact certification@opencontainers.org.
+A reviewer will shortly comment on and/or accept your pull request, following the [reviewer process](reviewing.md).
+If you don't see a response within 3 business days, please contact <certification@opencontainers.org>.
 
 ## Example Script
 
-Combining the steps provided here, the process looks like this (Example: `distribution-spec/v1.0`):
+Combining the steps provided here, the process looks like this (Example: `distribution-spec/v1.1`):
 
-```
+```shell
 spec_name=distribution-spec
-spec_version=v1.0
+spec_version=1.1
 prod_name=example
 
 rm -rf tmp && git clone https://github.com/opencontainers/${spec_name}.git tmp
-(cd tmp && docker build -t conformance:latest -f Dockerfile.conformance .)
+(cd tmp/conformance && docker build -t conformance:latest .)
 rm -rf tmp results
-docker run --rm \
-  -v $(pwd)/results:/results \
-  -w /results \
-  -e OCI_ROOT_URL="https://r.myreg.io" \
-  -e OCI_NAMESPACE="myorg/myrepo" \
+docker run -it --rm --net=host \
+  -u "$(id -u):$(id -g)" \
+  -v "$(pwd)/results:/results" \
+  -e OCI_VERSION="$spec_version" \
+  -e OCI_REGISTRY="r.myreg.io" \
+  -e OCI_REPO1="myorg/myrepo" \
+  -e OCI_REPO2="myorg/myrepo2" \
   -e OCI_USERNAME="myuser" \
   -e OCI_PASSWORD="mypass" \
-  -e OCI_DEBUG="true" \
   conformance:latest
 
-mkdir -p ./${spec_name}/${spec_version}/${prod_name}
-cp ./results/* ./${spec_name}/${spec_version}/${prod_name}/
+mkdir -p ./${spec_name}/v${spec_version}/${prod_name}
+cp ./results/* ./${spec_name}/v${spec_version}/${prod_name}/
 rm -rf results
 
-cat << EOF > ./${spec_name}/${spec_version}/${prod_name}/PRODUCT.yaml
+cat << EOF > ./${spec_name}/v${spec_version}/${prod_name}/PRODUCT.yaml
 vendor: Yoyodyne
 name: Turbo Encabulator
 version: v1.7.4
@@ -149,6 +138,4 @@ EOF
 
 ## Issues
 
-If you have problems certifying that you feel are an issue with the conformance
-program itself (and not just your own implementation), you can file an issue in
-the [repository](https://github.com/opencontainers/oci-conformance).
+If you have problems certifying that you feel are an issue with the conformance program itself (and not just your own implementation), you can [file an issue](https://github.com/opencontainers/oci-conformance/issues).

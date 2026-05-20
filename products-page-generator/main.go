@@ -2,29 +2,36 @@ package main
 
 import (
 	"bytes"
+	_ "embed"
 	"fmt"
 	"html/template"
 	"log"
 	"os"
 	"path/filepath"
+	"slices"
 	"sort"
 	"strings"
 
 	"github.com/Masterminds/semver"
 	"github.com/Masterminds/sprig"
+	"github.com/goccy/go-yaml"
 	"github.com/joshdk/go-junit"
-	"gopkg.in/yaml.v3"
 )
 
 type (
+	results struct {
+		APIs map[string]status `yaml:"apis"`
+		Data map[string]status `yaml:"data"`
+	}
+
 	submission struct {
 		IsOSS          bool
 		LatestVersion  string
 		AllVersions    []string
 		Meta           submissionMeta
 		BadgesMarkdown string
-		ReadmeMarkdown string
 		Workflows      map[string][]workflow
+		Summary        map[string]summary
 	}
 
 	submissionMeta struct {
@@ -39,9 +46,13 @@ type (
 		Description      string `yaml:"description"`
 	}
 
+	summary struct {
+		Counts map[string]int
+	}
+
 	workflow struct {
 		Name      string
-		Supported bool
+		Supported status
 		Required  bool
 	}
 )
@@ -53,10 +64,10 @@ const (
 	badgesFilename   = "badges.md"
 	readmeFilename   = "README.md"
 	reportFilename   = "report.html"
+	resultsFilename  = "results.yaml"
 	junitFilename    = "junit.xml"
 	junitTestPrefix  = "OCI Distribution Conformance Tests"
 	metaTypeOSS      = "distribution"
-	templateFilename = "index.md.tpl"
 	outputDir        = "output"
 	outputFilename   = "README.md"
 	staticDir        = "static"
@@ -69,6 +80,7 @@ const (
 	indexPermalinkTemplate = `---
 permalink: %s/index.html
 ---
+%s
 `
 
 	workflowPull              = "Pull"
@@ -76,6 +88,63 @@ permalink: %s/index.html
 	workflowContentDiscovery  = "Content Discovery"
 	workflowContentManagement = "Content Management"
 )
+
+//go:embed index.md.tpl
+var templateEmbed string
+
+type status int
+
+const (
+	statusUnknown  status = iota // status is undefined
+	statusDisabled               // test was disabled by configuration
+	statusSkip                   // test was skipped
+	statusPass                   // test passed
+	statusFail                   // test detected a conformance failure
+	statusError                  // failure of the test engine itself
+)
+
+func (s status) String() string {
+	switch s {
+	case statusPass:
+		return "Pass"
+	case statusSkip:
+		return "Skip"
+	case statusDisabled:
+		return "Disabled"
+	case statusFail:
+		return "FAIL"
+	case statusError:
+		return "Error"
+	default:
+		return "Unknown"
+	}
+}
+
+func (s status) MarshalText() ([]byte, error) {
+	ret := s.String()
+	if ret == "Unknown" {
+		return []byte(ret), fmt.Errorf("unknown status %d", s)
+	}
+	return []byte(ret), nil
+}
+
+func (s *status) UnmarshalText(text []byte) error {
+	switch strings.ToLower(string(text)) {
+	case "pass":
+		*s = statusPass
+	case "skip":
+		*s = statusSkip
+	case "disabled":
+		*s = statusDisabled
+	case "fail":
+		*s = statusFail
+	case "error":
+		*s = statusError
+	default:
+		return fmt.Errorf("unknown status %s", string(text))
+	}
+	return nil
+}
 
 func main() {
 	os.RemoveAll(outputDir)
@@ -85,8 +154,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	tpl, err := template.New(templateFilename).
-		Funcs(sprig.FuncMap()).ParseFiles(templateFilename)
+	// TODO: update template to compress workflows tables to only exceptions/highlights with an expansion option
+	// TODO: is sprig needed?
+	tpl, err := template.New("index").
+		Funcs(sprig.FuncMap()).Parse(templateEmbed)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -118,43 +189,122 @@ func getSubmissions() (map[string]submission, error) {
 	if err != nil {
 		return nil, err
 	}
-	for i := len(minorVersions) - 1; i >= 0; i-- {
-		minorVersion := minorVersions[i]
-		dirEntries, err := os.ReadDir(filepath.Join(rootDir, minorVersion))
+	slices.Reverse(minorVersions)
+	for _, minorVersion := range minorVersions {
+		dirProjects, err := os.ReadDir(filepath.Join(rootDir, minorVersion))
 		if err != nil {
 			return nil, err
 		}
-		for _, dirEntry := range dirEntries {
-			k := dirEntry.Name()
-			readmeRaw, err := os.ReadFile(filepath.Join(rootDir, minorVersion, k, readmeFilename))
+		for _, dirProject := range dirProjects {
+			projectName := dirProject.Name()
+			// import the readme with a template
+			readmeOrig, err := os.ReadFile(filepath.Join(rootDir, minorVersion, projectName, readmeFilename))
 			if err != nil {
 				return nil, err
 			}
-			readmeParentDirPermalink := filepath.Join(staticDir, minorVersion, instructionsDir, k)
-			readmeRaw = append([]byte(fmt.Sprintf(indexPermalinkTemplate, readmeParentDirPermalink)), readmeRaw...)
-			readmeParentDir := filepath.Join(outputDir, readmeParentDirPermalink, readmeFilename)
-			os.MkdirAll(readmeParentDir, 0755)
-			err = os.WriteFile(
-				filepath.Join(readmeParentDir, readmeFilename),
-				readmeRaw, 0644)
+			projectInstructionsDir := filepath.Join(staticDir, minorVersion, instructionsDir, projectName)
+			projectReadmeRaw := fmt.Appendf(nil, indexPermalinkTemplate, projectInstructionsDir, readmeOrig)
+			projectReadmeFilename := filepath.Join(outputDir, projectInstructionsDir, readmeFilename)
+			err = os.MkdirAll(filepath.Dir(projectReadmeFilename), 0755)
 			if err != nil {
 				return nil, err
 			}
-			reportRaw, err := os.ReadFile(filepath.Join(rootDir, minorVersion, k, reportFilename))
+			err = os.WriteFile(projectReadmeFilename, projectReadmeRaw, 0644)
 			if err != nil {
 				return nil, err
 			}
-			os.MkdirAll(filepath.Join(outputDir, staticDir, minorVersion, reportsDir, k), 0755)
-			err = os.WriteFile(
-				filepath.Join(outputDir, staticDir, minorVersion, reportsDir, k, staticIndex),
-				reportRaw, 0644)
+			// copy the report
+			projectReportRaw, err := os.ReadFile(filepath.Join(rootDir, minorVersion, projectName, reportFilename))
 			if err != nil {
 				return nil, err
 			}
-			if s, ok := submissions[k]; ok {
-				allVersions := append(s.AllVersions, minorVersion)
-				s.AllVersions = allVersions
-				junitPath := filepath.Join(rootDir, minorVersion, k, junitFilename)
+			projectReportFilename := filepath.Join(outputDir, staticDir, minorVersion, reportsDir, projectName, staticIndex)
+			err = os.MkdirAll(filepath.Dir(projectReportFilename), 0755)
+			if err != nil {
+				return nil, err
+			}
+			err = os.WriteFile(projectReportFilename, projectReportRaw, 0644)
+			if err != nil {
+				return nil, err
+			}
+			// load metadata yaml if this is the first submission for the project
+			if _, ok := submissions[projectName]; !ok {
+				var meta submissionMeta
+				projectMetaFilename := filepath.Join(rootDir, minorVersion, projectName, metaFilename)
+				metaRaw, err := os.ReadFile(projectMetaFilename)
+				if err != nil {
+					return nil, err
+				}
+				err = yaml.Unmarshal(metaRaw, &meta)
+				if err != nil {
+					return nil, fmt.Errorf("failed to parse %s: %w", projectMetaFilename, err)
+				}
+				var badgesMarkdown string
+				badgesPath := filepath.Join(rootDir, liveSubdir, projectName, badgesFilename)
+				if _, err := os.Stat(badgesPath); err == nil {
+					b, err := os.ReadFile(badgesPath)
+					if err != nil {
+						return nil, err
+					}
+					badgesMarkdown = string(b)
+				}
+				submissions[projectName] = submission{
+					IsOSS:          meta.Type == metaTypeOSS,
+					AllVersions:    []string{},
+					LatestVersion:  minorVersion,
+					Meta:           meta,
+					BadgesMarkdown: badgesMarkdown,
+					Workflows:      map[string][]workflow{},
+					Summary:        map[string]summary{},
+				}
+			}
+			s := submissions[projectName]
+			s.AllVersions = append(s.AllVersions, minorVersion)
+			// attempt to read results.yaml
+			projectResultsFilename := filepath.Join(rootDir, minorVersion, projectName, resultsFilename)
+			resultsRaw, err := os.ReadFile(projectResultsFilename)
+			if err == nil {
+				projectResults := results{}
+				err = yaml.Unmarshal(resultsRaw, &projectResults)
+				if err != nil {
+					return nil, fmt.Errorf("failed to parse %s: %w", projectResultsFilename, err)
+				}
+				workflows := []workflow{}
+				for api, s := range projectResults.APIs {
+					name := fmt.Sprintf("API: %s", api)
+					w := workflow{
+						Name:      name,
+						Supported: s,
+					}
+					// required API workflows
+					switch api {
+					case "Blob get", "Blob head", "Manifest get by digest", "Manifest get by tag", "Manifest head by digest", "Manifest head by tag":
+						w.Required = true
+					}
+					workflows = append(workflows, w)
+				}
+				for data, s := range projectResults.Data {
+					name := fmt.Sprintf("Data: %s", data)
+					w := workflow{
+						Name:      name,
+						Supported: s,
+					}
+					// required data workflows
+					switch data {
+					case "Blobs sha256", "Image", "Index":
+						w.Required = true
+					}
+					workflows = append(workflows, w)
+				}
+				// sort the workflows to undo random range over maps
+				slices.SortFunc(workflows, func(a, b workflow) int {
+					return strings.Compare(a.Name, b.Name)
+				})
+				s.Workflows[minorVersion] = workflows
+				s.Summary[minorVersion] = genSummary(workflows)
+			} else {
+				// fallback to reading original conformance junit and workflows
+				junitPath := filepath.Join(rootDir, minorVersion, projectName, junitFilename)
 				b, err := os.ReadFile(junitPath)
 				if err != nil {
 					return nil, err
@@ -164,51 +314,9 @@ func getSubmissions() (map[string]submission, error) {
 					return nil, err
 				}
 				s.Workflows[minorVersion] = workflows
-				submissions[k] = s
-			} else {
-				var meta submissionMeta
-				b, err := os.ReadFile(filepath.Join(rootDir, minorVersion, k, metaFilename))
-				if err != nil {
-					return nil, err
-				}
-				err = yaml.Unmarshal(b, &meta)
-				if err != nil {
-					return nil, err
-				}
-				readmePath := filepath.Join(rootDir, minorVersion, k, readmeFilename)
-				b, err = os.ReadFile(readmePath)
-				if err != nil {
-					return nil, err
-				}
-				readmeMarkdown := string(b)
-				var badgesMarkdown string
-				badgesPath := filepath.Join(rootDir, liveSubdir, k, badgesFilename)
-				if _, err := os.Stat(badgesPath); err == nil {
-					b, err := os.ReadFile(badgesPath)
-					if err != nil {
-						return nil, err
-					}
-					badgesMarkdown = string(b)
-				}
-				junitPath := filepath.Join(rootDir, minorVersion, k, junitFilename)
-				b, err = os.ReadFile(junitPath)
-				if err != nil {
-					return nil, err
-				}
-				workflows, err := workflowsFromJunitBytes(b)
-				if err != nil {
-					return nil, err
-				}
-				submissions[k] = submission{
-					IsOSS:          meta.Type == metaTypeOSS,
-					LatestVersion:  minorVersion,
-					AllVersions:    []string{minorVersion},
-					Meta:           meta,
-					BadgesMarkdown: badgesMarkdown,
-					ReadmeMarkdown: readmeMarkdown,
-					Workflows:      map[string][]workflow{minorVersion: workflows},
-				}
+				s.Summary[minorVersion] = genSummary(workflows)
 			}
+			submissions[projectName] = s
 		}
 	}
 	return submissions, nil
@@ -234,6 +342,7 @@ func getMinorVersionsSorted() ([]string, error) {
 		}
 		vs[i] = v
 	}
+	// TODO: make a simple semver sort to remove MasterMinds dependency
 	sort.Sort(semver.Collection(vs))
 	minorVersions := make([]string, numVersions)
 	for i, v := range vs {
@@ -242,35 +351,39 @@ func getMinorVersionsSorted() ([]string, error) {
 	return minorVersions, nil
 }
 
+func genSummary(workflows []workflow) summary {
+	ret := summary{
+		Counts: map[string]int{},
+	}
+	for _, w := range workflows {
+		ret.Counts[w.Supported.String()]++
+	}
+	return ret
+}
+
 func workflowsFromJunitBytes(b []byte) ([]workflow, error) {
 	suites, err := junit.Ingest(b)
 	if err != nil {
 		return nil, err
 	}
-	skippedTests := map[string]bool{
-		workflowPull:              true,
-		workflowPush:              true,
-		workflowContentDiscovery:  true,
-		workflowContentManagement: true,
+	workflows := []workflow{
+		{workflowPull, statusSkip, true},
+		{workflowPush, statusSkip, false},
+		{workflowContentDiscovery, statusSkip, false},
+		{workflowContentManagement, statusSkip, false},
 	}
 	for _, suite := range suites {
 		for _, test := range suite.Tests {
 			if test.Status != junit.StatusSkipped {
-				for k, v := range skippedTests {
-					if v {
-						if strings.HasPrefix(test.Name, fmt.Sprintf("%s %s ", junitTestPrefix, k)) {
-							skippedTests[k] = false
+				for i, w := range workflows {
+					if w.Supported == statusSkip {
+						if strings.HasPrefix(test.Name, fmt.Sprintf("%s %s ", junitTestPrefix, w.Name)) {
+							workflows[i].Supported = statusPass
 						}
 					}
 				}
 			}
 		}
-	}
-	workflows := []workflow{
-		{workflowPull, !skippedTests[workflowPull], true},
-		{workflowPush, !skippedTests[workflowPush], false},
-		{workflowContentDiscovery, !skippedTests[workflowContentDiscovery], false},
-		{workflowContentManagement, !skippedTests[workflowContentManagement], false},
 	}
 	return workflows, nil
 }
