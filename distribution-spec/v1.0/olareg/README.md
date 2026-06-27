@@ -12,7 +12,7 @@ docker run -d --rm -p 127.0.0.1:5000:5000 ghcr.io/olareg/olareg:v0.2.2 serve \
 ```shell
 cd distribution-spec/conformance
 (
-  export OCI_VERSION="1.1"
+  export OCI_VERSION="1.0"
   export OCI_REGISTRY="127.0.0.1:5000"
   export OCI_TLS="disabled"
   export OCI_API_BLOBS_DIGEST_HEADER="true"
@@ -31,7 +31,7 @@ OCI Conformance Test: Pass
   OCI Conformance Test/ping: Pass
   OCI Conformance Test/empty: Pass
     OCI Conformance Test/empty/tag list: Pass
-    OCI Conformance Test/empty/referrers: Pass
+    OCI Conformance Test/empty/referrers: Disabled
   OCI Conformance Test/sha256 blobs: Pass
     OCI Conformance Test/sha256 blobs/get-missing: Pass
     OCI Conformance Test/sha256 blobs/post only: Pass
@@ -63,8 +63,7 @@ OCI Conformance Test: Pass
       OCI Conformance Test/sha256 blobs/mount/blob-delete: Pass
     OCI Conformance Test/sha256 blobs/mount anonymous: Pass
       OCI Conformance Test/sha256 blobs/mount anonymous/blob-post-put: Pass
-      OCI Conformance Test/sha256 blobs/mount anonymous/blob-mount-anonymous: Skip
-       - registry returned status 202, fell back to blob POST+PUT
+      OCI Conformance Test/sha256 blobs/mount anonymous/blob-mount-anonymous: Disabled
       OCI Conformance Test/sha256 blobs/mount anonymous/blob-delete: Pass
       OCI Conformance Test/sha256 blobs/mount anonymous/blob-delete: Pass
     OCI Conformance Test/sha256 blobs/mount missing: Pass
@@ -104,16 +103,16 @@ OCI Conformance Test: Pass
       OCI Conformance Test/sha256 blobs/range requests/range 500-0: Pass
       OCI Conformance Test/sha256 blobs/range requests/range 5000-10000: Pass
       OCI Conformance Test/sha256 blobs/range requests/blob-delete: Pass
-    OCI Conformance Test/sha256 blobs/empty: Pass
-      OCI Conformance Test/sha256 blobs/empty/blob-post-put: Pass
-      OCI Conformance Test/sha256 blobs/empty/blob-head: Pass
-      OCI Conformance Test/sha256 blobs/empty/blob-get: Pass
-      OCI Conformance Test/sha256 blobs/empty/blob-delete: Pass
     OCI Conformance Test/sha256 blobs/emptyJSON: Pass
       OCI Conformance Test/sha256 blobs/emptyJSON/blob-post-put: Pass
       OCI Conformance Test/sha256 blobs/emptyJSON/blob-head: Pass
       OCI Conformance Test/sha256 blobs/emptyJSON/blob-get: Pass
       OCI Conformance Test/sha256 blobs/emptyJSON/blob-delete: Pass
+    OCI Conformance Test/sha256 blobs/empty: Pass
+      OCI Conformance Test/sha256 blobs/empty/blob-post-put: Pass
+      OCI Conformance Test/sha256 blobs/empty/blob-head: Pass
+      OCI Conformance Test/sha256 blobs/empty/blob-get: Pass
+      OCI Conformance Test/sha256 blobs/empty/blob-delete: Pass
     OCI Conformance Test/sha256 blobs/bad digest post only: Pass
       OCI Conformance Test/sha256 blobs/bad digest post only/blob-post-only: Pass
     OCI Conformance Test/sha256 blobs/bad digest post+put: Pass
@@ -155,8 +154,7 @@ OCI Conformance Test: Pass
       OCI Conformance Test/sha512 blobs/mount/blob-delete: Pass
     OCI Conformance Test/sha512 blobs/mount anonymous: Pass
       OCI Conformance Test/sha512 blobs/mount anonymous/blob-post-put: Pass
-      OCI Conformance Test/sha512 blobs/mount anonymous/blob-mount-anonymous: Skip
-       - registry returned status 202, fell back to blob POST+PUT
+      OCI Conformance Test/sha512 blobs/mount anonymous/blob-mount-anonymous: Disabled
       OCI Conformance Test/sha512 blobs/mount anonymous/blob-delete: Pass
       OCI Conformance Test/sha512 blobs/mount anonymous/blob-delete: Pass
     OCI Conformance Test/sha512 blobs/mount missing: Pass
@@ -556,7 +554,7 @@ OCI Conformance Test: Pass
       OCI Conformance Test/artifacts-with-subject/pull/blob-get: Pass
       OCI Conformance Test/artifacts-with-subject/pull/blob-get: Pass
       OCI Conformance Test/artifacts-with-subject/pull/blob-get: Pass
-    OCI Conformance Test/artifacts-with-subject/referrers: Pass
+    OCI Conformance Test/artifacts-with-subject/referrers: Disabled
     OCI Conformance Test/artifacts-with-subject/delete: Pass
       OCI Conformance Test/artifacts-with-subject/delete/tag-delete: Pass
       OCI Conformance Test/artifacts-with-subject/delete/tag-delete: Pass
@@ -629,7 +627,7 @@ OCI Conformance Test: Pass
       OCI Conformance Test/index-with-subject/pull/blob-get: Pass
       OCI Conformance Test/index-with-subject/pull/blob-get: Pass
       OCI Conformance Test/index-with-subject/pull/blob-get: Pass
-    OCI Conformance Test/index-with-subject/referrers: Pass
+    OCI Conformance Test/index-with-subject/referrers: Disabled
     OCI Conformance Test/index-with-subject/delete: Pass
       OCI Conformance Test/index-with-subject/delete/tag-delete: Pass
       OCI Conformance Test/index-with-subject/delete/tag-delete: Pass
@@ -665,7 +663,7 @@ OCI Conformance Test: Pass
       OCI Conformance Test/missing-subject/pull/manifest-by-digest: Pass
       OCI Conformance Test/missing-subject/pull/blob-get: Pass
       OCI Conformance Test/missing-subject/pull/blob-get: Pass
-    OCI Conformance Test/missing-subject/referrers: Pass
+    OCI Conformance Test/missing-subject/referrers: Disabled
     OCI Conformance Test/missing-subject/delete: Pass
       OCI Conformance Test/missing-subject/delete/tag-delete: Pass
       OCI Conformance Test/missing-subject/delete/manifest-delete: Pass
@@ -917,7 +915,7 @@ Configuration:
       atomic: true
       delete: true
       digestHeader: true
-      mountAnonymous: true
+      mountAnonymous: false
       uploadCancel: true
     manifests:
       atomic: true
@@ -928,7 +926,7 @@ Configuration:
       atomic: true
       delete: true
       list: true
-    referrer: true
+    referrer: false
   data:
     image: true
     index: true
@@ -951,13 +949,13 @@ Configuration:
     blobs: []
     referrers: []
   resultsDir: ./results
-  version: "1.1"
+  version: "1.0"
   commit: 2292ca1d69ae7f6d7fc455e4341e8bab3a4d3e00
 
 OCI Conformance Result: Pass
-  Disabled......................:          0
-  Skip..........................:          2
-  Pass..........................:        902
+  Disabled......................:          6
+  Skip..........................:          0
+  Pass..........................:        898
   FAIL..........................:          0
   Error.........................:          0
   Total.........................:        904
@@ -973,7 +971,7 @@ API conformance:
   Blob chunked..................:       Pass
   Blob streaming................:       Pass
   Blob mount....................:       Pass
-  Blob anonymous mount..........:       Skip
+  Blob anonymous mount..........:   Disabled
   Blob get......................:       Pass
   Blob get range................:       Pass
   Blob head.....................:       Pass
@@ -989,7 +987,7 @@ API conformance:
   Manifest head by tag..........:       Pass
   Manifest delete...............:       Pass
   Manifest delete atomic........:       Pass
-  Referrers.....................:       Pass
+  Referrers.....................:   Disabled
   Ping..........................:       Pass
 
 Data conformance:

@@ -1,0 +1,107 @@
+config:
+  registry: 127.0.0.1:5000
+  tls: disabled
+  repo1: conformance/repo1
+  repo2: conformance/repo2
+  username: ""
+  password: ""
+  cacheAuth: true
+  logging: warn
+  apis:
+    ping: true
+    pull: true
+    push: true
+    blobs:
+      atomic: true
+      delete: true
+      digestHeader: true
+      mountAnonymous: false
+      uploadCancel: true
+    manifests:
+      atomic: true
+      delete: true
+      digestHeader: true
+      tagParam: false
+    tags:
+      atomic: true
+      delete: true
+      list: true
+    referrer: false
+  data:
+    image: true
+    index: true
+    indexList: true
+    sparse: true
+    artifact: true
+    subject: true
+    subjectMissing: true
+    artifactList: true
+    subjectList: true
+    dataField: true
+    nondistributable: true
+    customFields: true
+    noLayers: true
+    emptyBlob: true
+    sha512: true
+  roData:
+    tags: []
+    manifests: []
+    blobs: []
+    referrers: []
+  resultsDir: ./results
+  version: "1.0"
+  commit: 2292ca1d69ae7f6d7fc455e4341e8bab3a4d3e00
+apis:
+  Blob anonymous mount: Disabled
+  Blob chunked: Pass
+  Blob delete: Pass
+  Blob delete atomic: Pass
+  Blob get: Pass
+  Blob get range: Pass
+  Blob head: Pass
+  Blob mount: Pass
+  Blob post only: Pass
+  Blob post put: Pass
+  Blob push: Pass
+  Blob streaming: Pass
+  Blob upload cancel: Pass
+  Manifest delete: Pass
+  Manifest delete atomic: Pass
+  Manifest get by digest: Pass
+  Manifest get by tag: Pass
+  Manifest head by digest: Pass
+  Manifest head by tag: Pass
+  Manifest put by digest: Pass
+  Manifest put by tag: Pass
+  Manifest put with subject: Pass
+  Manifest put with tag params: Disabled
+  Ping: Pass
+  Referrers: Disabled
+  Tag delete: Pass
+  Tag delete atomic: Pass
+  Tag listing: Pass
+data:
+  Artifact: Pass
+  Artifact Index: Pass
+  Artifact without Layers: Pass
+  Artifacts with Subject: Pass
+  Bad Digest Image: Pass
+  Blobs sha256: Pass
+  Blobs sha512: Pass
+  Custom Fields: Pass
+  Data Field: Pass
+  Digest Algorithm sha512: Pass
+  Empty Index: Pass
+  Image: Pass
+  Image Uncompressed: Pass
+  Image with Large Manifest: Pass
+  Index: Pass
+  Index with Subject: Pass
+  Invalid Manifest Digest: Pass
+  Missing Subject: Pass
+  Nested Index: Pass
+  No Layers: Pass
+  Non-distributable Layers: Pass
+  Sparse Manifests: Pass
+  Tag Param: Disabled
+  Tag Param sha512: Disabled
