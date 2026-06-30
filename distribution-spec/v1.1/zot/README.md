@@ -31,11 +31,11 @@ with config-conformance.json as:
 cd distribution-spec/conformance
 (
   export OCI_VERSION="1.1"
-  export OCI_REGISTRY="127.0.0.1:5000"
+  export OCI_REGISTRY="127.0.0.1:8080"
   export OCI_TLS="disabled"
-  export OCI_REPO1: oci-conformance/distribution-test
-  export OCI_REPO2: oci-conformance/crossmount-test
-  export OCI_RESULTS_DIR: .
+  export OCI_REPO1="oci-conformance/distribution-test"
+  export OCI_REPO2="oci-conformance/crossmount-test"
+  export OCI_RESULTS_DIR="."
   go run -buildvcs=true .
 )
 ```
@@ -930,7 +930,7 @@ Configuration:
     referrers: []
   resultsDir: .
   version: "1.1"
-  commit: unknown
+  commit: fcfba1ec55526073f48b2f6d4e3d7eef410ddcbc
   
 OCI Conformance Result: Pass
   Disabled......................:          2
