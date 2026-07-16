@@ -12,8 +12,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Masterminds/semver"
-	"github.com/Masterminds/sprig"
+	"github.com/Masterminds/semver/v3"
+	"github.com/Masterminds/sprig/v3"
 	"github.com/goccy/go-yaml"
 	"github.com/joshdk/go-junit"
 )
